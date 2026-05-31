@@ -1,7 +1,7 @@
 #ifndef HERO_SUB_CLASS_TO_INSTATIATE_OBJECTS_HPP
 #define HERO_SUB_CLASS_TO_INSTATIATE_OBJECTS_HPP
 #include "hero_abstract_base_class.hpp"
-
+enum POUYA_KAJDOM_SCORPIENS{NONE, SCORPIEN, BUFFED_SCORPIEN};
 class WhiteDoctor : public Hero_Abstaction//healer
 {
     public:
@@ -85,6 +85,7 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
     private:
         int Khanjar_Ability_Energy_Cost;
         int Aghrab_Ability_Energy_Cost;
+        int Enemy_Array_With_Respect_To_Active_Scorpiens[3];
 };
 
 class Agha_Shahriar : public Hero_Abstaction // attacker
