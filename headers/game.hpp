@@ -13,7 +13,7 @@ class Game
         void Game_Screen();
         void Game_Over_Screen();
     private:
-    
+        int current_screen;
 };
 
 #endif
