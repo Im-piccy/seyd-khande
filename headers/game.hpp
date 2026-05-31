@@ -7,6 +7,7 @@ enum SCREENS{MENU_SCREEN, CHARACTER_SELECT_SCREEN, GAME_SCREEN, GAME_OVER_SCREEN
 class Game
 {
     public:    
+        Game();
         void Manage_Screens();
         void Menu_Screen();
         void Character_Select_Screen();
