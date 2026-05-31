@@ -71,6 +71,8 @@ class Taha_Bozorge : public Hero_Abstaction // attacker
     private:
         int Ragbar_Ability_Energy_Cost;
         int Xray_Ability_Energy_Cost;
+        bool Is_Xray_Ongoing;
+        int Rounds_Since_Xray;
 };
 
 class Pouya_Kajdom : public Hero_Abstaction // attacker
