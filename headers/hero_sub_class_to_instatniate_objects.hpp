@@ -27,7 +27,9 @@ class Taha_Kochike : public Hero_Abstaction//healer
     private:
         int Tigh_Tiz_Ability_Energy_Cost;
         int Serom_Khon_Ability_Energy_Cost;
-        
+        bool Is_serom_Khon_ongoing;
+        int Round_since_Serom;
+        int Hero_under_Serom;
 };
 
 class Dani_Golang : public Hero_Abstaction //defender
