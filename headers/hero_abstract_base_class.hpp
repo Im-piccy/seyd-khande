@@ -8,6 +8,7 @@ class Hero_Abstaction //abstract class
     public:
         void Get_Healed(int healing_points);
         void Get_Damaged(int damaging_point);
+        bool Execute_SuperPower_Ability(int current_energy);
     protected:
         int hp; // this shows how much health the hero has got left
 
