@@ -86,6 +86,7 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
         int Khanjar_Ability_Energy_Cost;
         int Aghrab_Ability_Energy_Cost;
         int Enemy_Array_With_Respect_To_Active_Scorpiens[3];
+        bool Is_SuperPower_Active;
 };
 
 class Agha_Shahriar : public Hero_Abstaction // attacker
@@ -98,5 +99,7 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
     private:
         int Maskhare_Ability_Energy_Cost;
         int Lajbaz_Ability_Energy_Cost;
+        bool Is_SuperPower_Active;
+        int Rounds_Since_SuperPower;
 };
 #endif
