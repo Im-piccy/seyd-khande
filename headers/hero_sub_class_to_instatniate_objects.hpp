@@ -14,7 +14,7 @@ class WhiteDoctor : public Hero_Abstaction
         
 };
 
-class Taha_Kochike
+class Taha_Kochike : public Hero_Abstaction
 {
     public:
         Taha_Kochike(); // constructor to initilize the hero information
