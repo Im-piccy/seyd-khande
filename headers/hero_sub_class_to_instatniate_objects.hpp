@@ -11,7 +11,9 @@ class WhiteDoctor : public Hero_Abstaction
     private:
         int Asprin_Ability_Energy_Cost;
         int Doping_Ability_Energy_Cost;
-        
+        bool Is_Doping_Ongoing;//to know if any of team heros are being doped
+        int Rounds_Since_Doping;//keeping track of Doping duration
+        int Hero_Being_Doped;//keeping track of who is being doped
 };
 
 class Taha_Kochike : public Hero_Abstaction
@@ -23,6 +25,20 @@ class Taha_Kochike : public Hero_Abstaction
     private:
         int Tigh_Tiz_Ability_Energy_Cost;
         int Serom_Khon_Ability_Energy_Cost;
+};
+
+class Dani_Golang : public Hero_Abstaction
+{
+    public:
+        Dani_Golang(); // conctructior to initiate info
+        bool Execute_Ghofli_Ability(int current_energy); 
+        bool Execute_Fil_kosh_Ability(int current_energy); 
+
+    private:
+        int Last_Attacked_Enemy;
+        int Ghofli_Ability_Energy_Cost;
+        int Fil_kosh_Ability_Energy_Cost;
+
 };
 
 
