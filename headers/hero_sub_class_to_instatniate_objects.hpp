@@ -53,4 +53,37 @@ class Amin_Emeni : public Hero_Abstaction //attacker
         int Zarbe_Be_Khodi_Ability_Energy_Cost;
 };
 
+
+class Taha_Bozorge : public Hero_Abstaction // attacker
+{
+    public:
+        Taha_Bozorge();//constructor to initiate info
+        bool Execute_Ragbar_Ability(int current_energy); 
+        bool Execute_Xray_Ability(int current_energy); 
+    private:
+        int Ragbar_Ability_Energy_Cost;
+        int Xray_Ability_Energy_Cost;
+};
+
+class Pouya_Kajdom : public Hero_Abstaction // attacker
+{
+    public:
+        Pouya_Kajdom();//constructor to initiate info
+        bool Execute_Khanjar_Ability(int current_energy); 
+        bool Execute_Aghrab_Ability(int current_energy); 
+    private:
+        int Khanjar_Ability_Energy_Cost;
+        int Aghrab_Ability_Energy_Cost;
+};
+
+class Agha_Shahriar : public Hero_Abstaction // attacker
+{
+    public:
+        Agha_Shahriar();//constructor to initiate info
+        bool Execute_Maskhare_Ability(int current_energy); 
+        bool Execute_Lajbaz_Ability(int current_energy); 
+    private:
+        int Maskhare_Ability_Energy_Cost;
+        int Lajbaz_Ability_Energy_Cost;
+};
 #endif
