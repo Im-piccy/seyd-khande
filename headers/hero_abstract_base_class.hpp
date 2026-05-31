@@ -5,6 +5,9 @@ enum Hero_Type{HELAER, ATTACKER, DEFENDER, JOKER};
 
 class Hero_Abstaction //abstract class
 {
+    public:
+        void Get_Healed(int healing_points);
+        void Get_Damaged(int damaging_point);
     protected:
         int hp; // this shows how much health the hero has got left
 
@@ -13,6 +16,7 @@ class Hero_Abstaction //abstract class
         
         bool Is_Hero_Dead;
         int hero_type; // is the hero a Healer? Attacker? Defender? or a joker?
+        int SuperPower_Energy_Cost;
 };
 
 
