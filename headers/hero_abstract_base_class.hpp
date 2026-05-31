@@ -7,10 +7,10 @@ class Hero_Abstaction //abstract class
 {
     public:
         void Get_Healed(int healing_points);
-        void Get_Damaged(int damaging_point);
-        bool Execute_SuperPower_Ability(int current_energy);
+        void Get_Damaged(int damaging_point);//if damage is more than hp it will edit the boolian value
     protected:
-        int hp; // this shows how much health the hero has got left
+        int Current_Hp; // this shows how much health the hero has got left
+        int Initial_Hp; // this is how much hp a hero has with out any damage
 
         int rounds_left_till_superpower_is_ready;// this shows the number of round it takes to use 
         // super power  if 0 means superpower is ready
