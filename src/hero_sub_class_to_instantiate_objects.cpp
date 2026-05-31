@@ -1,5 +1,5 @@
-#include "headers/hero_abstract_base_class.hpp"
-#include "headers/hero_sub_class_to_instatniate_objects.hpp"
+#include "../headers/hero_abstract_base_class.hpp"
+#include "../headers/hero_sub_class_to_instatniate_objects.hpp"
 
 // ----------------------------------white doctor-----------------------------
 WhiteDoctor::WhiteDoctor()
