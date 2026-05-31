@@ -8,6 +8,7 @@ class WhiteDoctor : public Hero_Abstaction//healer
         WhiteDoctor();//this constructor should initilize heros info like hp, superpower cost ...
         bool Execute_Asprin_Ability(int current_energy);//return type is bool that means if there is not enaugh energy for the attack it will return false
         bool Execute_Doping_Ability(int current_energy);
+        bool Execute_SuperPower(int current_energy);
     private:
         int Asprin_Ability_Energy_Cost;
         int Doping_Ability_Energy_Cost;
@@ -22,9 +23,11 @@ class Taha_Kochike : public Hero_Abstaction//healer
         Taha_Kochike(); // constructor to initilize the hero information
         bool Execute_Tigh_Tiz_Ability(int current_energy); 
         bool Execute_Serom_Khon_Ability(int current_energy); 
+        bool Execute_SuperPower(int current_energy);
     private:
         int Tigh_Tiz_Ability_Energy_Cost;
         int Serom_Khon_Ability_Energy_Cost;
+        
 };
 
 class Dani_Golang : public Hero_Abstaction //defender
@@ -33,6 +36,7 @@ class Dani_Golang : public Hero_Abstaction //defender
         Dani_Golang(); // conctructor to initiate info
         bool Execute_Ghofli_Ability(int current_energy); 
         bool Execute_Fil_kosh_Ability(int current_energy); 
+        bool Execute_SuperPower(int current_energy);
 
     private:
         int Last_Attacked_Enemy;
@@ -48,6 +52,7 @@ class Amin_Emeni : public Hero_Abstaction //attacker
         Amin_Emeni();//constructor to initiate info
         bool Execute_Akharin_Feshang_Ability(int current_energy); 
         bool Execute_Zarbe_Be_Khody_Ability(int current_energy); 
+        bool Execute_SuperPower(int current_energy);
     private:
         int Akharin_Feshang_Ability_Energy_Cost;
         int Zarbe_Be_Khodi_Ability_Energy_Cost;
@@ -60,6 +65,7 @@ class Taha_Bozorge : public Hero_Abstaction // attacker
         Taha_Bozorge();//constructor to initiate info
         bool Execute_Ragbar_Ability(int current_energy); 
         bool Execute_Xray_Ability(int current_energy); 
+        bool Execute_SuperPower(int current_energy);
     private:
         int Ragbar_Ability_Energy_Cost;
         int Xray_Ability_Energy_Cost;
@@ -71,6 +77,7 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
         Pouya_Kajdom();//constructor to initiate info
         bool Execute_Khanjar_Ability(int current_energy); 
         bool Execute_Aghrab_Ability(int current_energy); 
+        bool Execute_SuperPower(int current_energy);
     private:
         int Khanjar_Ability_Energy_Cost;
         int Aghrab_Ability_Energy_Cost;
@@ -82,6 +89,7 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
         Agha_Shahriar();//constructor to initiate info
         bool Execute_Maskhare_Ability(int current_energy); 
         bool Execute_Lajbaz_Ability(int current_energy); 
+        bool Execute_SuperPower(int current_energy);
     private:
         int Maskhare_Ability_Energy_Cost;
         int Lajbaz_Ability_Energy_Cost;
