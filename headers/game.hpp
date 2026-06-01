@@ -10,7 +10,7 @@ class Game
         Game();
         bool Manage_Screens();
         void Menu_Screen();
-        //bool Character_Select_Screen();
+        void Character_Select_Screen();
        // bool Game_Screen();
         //bool Game_Over_Screen();
     private:
