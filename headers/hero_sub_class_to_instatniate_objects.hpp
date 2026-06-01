@@ -1,35 +1,43 @@
 #ifndef HERO_SUB_CLASS_TO_INSTATIATE_OBJECTS_HPP
 #define HERO_SUB_CLASS_TO_INSTATIATE_OBJECTS_HPP
 #include "hero_abstract_base_class.hpp"
+#include "User.hpp"
+#include <cstdlib>
+#include <ctime>
+
 enum POUYA_KAJDOM_SCORPIENS{NONE, SCORPIEN, BUFFED_SCORPIEN};
 class WhiteDoctor : public Hero_Abstaction//healer
 {
     public:
-        WhiteDoctor();//this constructor should initilize heros info like hp, superpower cost ...
-        bool Execute_Asprin_Ability(int current_energy);//return type is bool that means if there is not enaugh energy for the attack it will return false
-        bool Execute_Doping_Ability(int current_energy);
-        bool Execute_SuperPower(int current_energy);
+        WhiteDoctor(User & person);//this constructor should initilize heros info like hp, superpower cost ...
+        bool Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3]);//return type is bool that means if there is not enaugh energy for the attack it will return false
+        bool Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int target_index);
+        bool Execute_Doping_Ability(Hero_Abstaction* allies[3]);  
+        bool Execute_SuperPower(Hero_Abstaction* allies[3]);
     private:
         int Asprin_Ability_Energy_Cost;
         int Doping_Ability_Energy_Cost;
         bool Is_Doping_Ongoing;//to know if any of team heros are being doped
         int Rounds_Since_Doping;//keeping track of Doping duration
         int Hero_Being_Doped;//keeping track of who is being doped
+        User & user;
 };
 
 class Taha_Kochike : public Hero_Abstaction//healer
 {
     public:
-        Taha_Kochike(); // constructor to initilize the hero information
-        bool Execute_Tigh_Tiz_Ability(int current_energy); 
-        bool Execute_Serom_Khon_Ability(int current_energy); 
-        bool Execute_SuperPower(int current_energy);
+        Taha_Kochike(User & user); // constructor to initilize the hero information
+        bool Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3]);
+        bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* allies[3], int target_index); 
+        bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3]); 
+        bool Execute_SuperPower(Hero_Abstaction* allies[3]);
     private:
         int Tigh_Tiz_Ability_Energy_Cost;
         int Serom_Khon_Ability_Energy_Cost;
         bool Is_serom_Khon_ongoing;
         int Round_since_Serom;
         int Hero_under_Serom;
+        User & user;
 };
 
 class Dani_Golang : public Hero_Abstaction //defender
