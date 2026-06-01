@@ -25,4 +25,12 @@ void Hero_Abstaction::Get_Healed(int healing_points)
     }
 }
 
+int Hero_Abstaction::Get_Current_Hp() const
+{
+    return Current_Hp;
+}
 
+bool Hero_Abstaction::Is_Dead() const
+{
+    return Is_Hero_Dead;
+}

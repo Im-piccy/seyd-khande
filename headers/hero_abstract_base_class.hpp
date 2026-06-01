@@ -6,6 +6,8 @@ enum Hero_Type{HELAER, ATTACKER, DEFENDER, JOKER};
 class Hero_Abstaction //abstract class
 {
     public:
+        int Get_Current_Hp() const;
+        bool Is_Dead() const;
         void Get_Healed(int healing_points);
         void Get_Damaged(int damaging_point);//if damage is more than hp it will edit the boolian value
     protected:

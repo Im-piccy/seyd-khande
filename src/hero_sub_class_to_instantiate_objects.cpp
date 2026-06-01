@@ -1,8 +1,8 @@
 #include "../headers/hero_abstract_base_class.hpp"
 #include "../headers/hero_sub_class_to_instatniate_objects.hpp"
 
-// ----------------------------------white doctor-----------------------------
-WhiteDoctor::WhiteDoctor()
+// -----------------------------white doctor----------------------------------
+WhiteDoctor::WhiteDoctor(User & person):user(person)
 {
     this->Current_Hp = 550;
     this->Initial_Hp = 550;
@@ -16,11 +16,121 @@ WhiteDoctor::WhiteDoctor()
     this->Is_Doping_Ongoing = false;
 }
 
+bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3])
+{
+    if(user.Get_Energy() < Asprin_Ability_Energy_Cost)
+        return false;
+    static bool seeded = false;
+    if(!seeded)
+    {
+        std::srand(static_cast<unsigned int>(std::time(0)));
+        seeded = true;
+    }
+    // finding  live allies and not  being null
+    int valid_indexes[3];
+    int valid_count = 0;
+    for(int i = 1; i < 3; i++)
+    {
+        if(allies[i] != nullptr && !allies[i]->Is_Dead())
+        {
+            valid_indexes[valid_count] = i;
+            valid_count++;
+        }
+    }
+    if(valid_count == 0)
+        return false;
+    int random_position = std::rand() % valid_count;
+    int selected_index = valid_indexes[random_position];
+
+    allies[selected_index]->Get_Healed(40);
+    user.Set_Energy(Asprin_Ability_Energy_Cost);
+    return true;
+}
+
+bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int target_index)
+{
+    if(user.Get_Energy() < Asprin_Ability_Energy_Cost)
+        return false;
+    if(target_index < 0 || target_index >= 3)
+        return false;
+    if(enemies[target_index] == nullptr)
+        return false;
+    if(enemies[target_index]->Is_Dead())
+        return false;
+    enemies[target_index]->Get_Damaged(40);
+    user.Set_Energy(Asprin_Ability_Energy_Cost);
+    return true;
+}
+
+bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3])
+{
+    if(user.Get_Energy() < Doping_Ability_Energy_Cost)
+        return false;
+    static bool seeded = false;
+    if(!seeded)
+    {
+        std::srand(static_cast<unsigned int>(std::time(0)));
+        seeded = true;
+    }
+    // finding  live allies and not  being null
+    int valid_indexes[3];
+    int valid_count = 0;
+    for(int i = 1; i < 3; i++)
+    {
+        if(allies[i] != nullptr && !allies[i]->Is_Dead())
+        {
+            valid_indexes[valid_count] = i;
+            valid_count++;
+        }
+    }
+    if(valid_count == 0)
+        return false;
+    int random_position = std::rand() % valid_count;
+    int selected_index = valid_indexes[random_position];
+    //........not yet completed
+    user.Set_Energy(Doping_Ability_Energy_Cost);
+    return true;
+}
+
+bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3])
+{
+    if(user.Get_Energy() < SuperPower_Energy_Cost)
+        return false;
+    if(rounds_left_till_superpower_is_ready != 4)
+        return false;
+    
+    static bool seeded = false;
+    if(!seeded)
+    {
+        std::srand(static_cast<unsigned int>(std::time(0)));
+        seeded = true;
+    }
+    // finding  live allies and not  being null
+    int valid_indexes[3];
+    int valid_count = 0;
+    for(int i = 1; i < 3; i++)
+    {
+        if(allies[i] != nullptr && allies[i] != this && !allies[i]->Is_Dead())
+        {
+            valid_indexes[valid_count] = i;
+            valid_count++;
+        }
+    }
+    if(valid_count == 0)
+        return false;
+    int random_position = std::rand() % valid_count;
+    int selected_index = valid_indexes[random_position];
+    allies[selected_index]->Get_Healed(200);
+    user.Set_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 0;
+    return true; 
+}
+
 //----------------------------------------------------------------------------
 
 //-----------------------------------taha kochike-----------------------------
 
-Taha_Kochike::Taha_Kochike()
+Taha_Kochike::Taha_Kochike(User & person):user(person)
 {
     this->Current_Hp = 500;
     this->Initial_Hp = 500;
@@ -35,6 +145,72 @@ Taha_Kochike::Taha_Kochike()
     
 }
 
+bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3])
+{
+    if(user.Get_Energy() < Tigh_Tiz_Ability_Energy_Cost)
+        return false;
+    //find the ally with the lowest Hp
+    Hero_Abstaction* Lowest_Hp_Ally = nullptr;
+    for(int i = 0; i < 3; i++)
+    {
+        if(allies[i] == nullptr || allies[i]->Is_Dead())
+            continue;
+        if(Lowest_Hp_Ally == nullptr || allies[i]->Get_Current_Hp() < Lowest_Hp_Ally->Get_Current_Hp())
+            Lowest_Hp_Ally = allies[i];
+    }
+    if(Lowest_Hp_Ally == nullptr)
+        return false;
+    Lowest_Hp_Ally->Get_Healed(20);
+    user.Set_Energy(Tigh_Tiz_Ability_Energy_Cost);
+    return true; 
+}
+
+bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int target_index)
+{
+    if(user.Get_Energy() < Tigh_Tiz_Ability_Energy_Cost)
+        return false;
+    if(target_index < 0 || target_index >= 3)
+        return false;
+    if(enemies[target_index] == nullptr)
+        return false;
+    if(enemies[target_index]->Is_Dead())
+        return false;
+    enemies[target_index]->Get_Damaged(30);
+    user.Set_Energy(Tigh_Tiz_Ability_Energy_Cost);
+    return true;
+}
+
+bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3])
+{
+    if(user.Get_Energy() < Serom_Khon_Ability_Energy_Cost)
+        return false;
+    //.... not yet completed
+    
+    user.Set_Energy(Serom_Khon_Ability_Energy_Cost);
+    return true;
+}
+
+bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3])
+{
+    if(user.Get_Energy() < SuperPower_Energy_Cost)
+        return false;
+    if(rounds_left_till_superpower_is_ready != 3)
+        return false;
+    Hero_Abstaction* Lowest_Hp_Ally = nullptr;
+    for(int i = 0; i < 3; i++)
+    {
+        if(allies[i] == nullptr || allies[i]->Is_Dead())
+            continue;
+        if(Lowest_Hp_Ally == nullptr || allies[i]->Get_Current_Hp() < Lowest_Hp_Ally->Get_Current_Hp())
+            Lowest_Hp_Ally = allies[i];
+    }
+    if(Lowest_Hp_Ally == nullptr)
+        return false;
+    Lowest_Hp_Ally->Get_Healed(200);
+    user.Set_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 0;
+    return true;   
+}
 
 //----------------------------------------------------------------------------
 
@@ -48,8 +224,7 @@ Dani_Golang::Dani_Golang()
     this->Fil_kosh_Ability_Energy_Cost = 4;
     this->SuperPower_Energy_Cost = 4;
     this->Is_Hero_Dead = false;
-    this->rounds_left_till_superpower_is_ready = 4;
-     
+    this->rounds_left_till_superpower_is_ready = 4;    
 }
 //----------------------------------------------------------------------------
 
