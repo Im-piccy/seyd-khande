@@ -11,7 +11,12 @@ int main()
     Game game_manager;
     while(!WindowShouldClose())
     {
-        game_manager.Manage_Screens();
+        if(game_manager.Manage_Screens())
+        {}
+        else
+        {
+            break;
+        }
     }
     CloseWindow();
     CloseAudioDevice();
