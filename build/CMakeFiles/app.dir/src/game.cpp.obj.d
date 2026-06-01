@@ -1,0 +1,12 @@
+CMakeFiles/app.dir/src/game.cpp.obj: \
+ C:\Users\piccy__\Desktop\seyd-khande\src\game.cpp \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/game.hpp \
+ C:/Users/piccy__/Desktop/seyd-khande/raylib/include/raylib.h \
+ C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/stdarg.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/stdarg.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/vadefs.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/_mingw.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/_mingw_mac.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h

@@ -1,0 +1,3 @@
+C:/Users/piccy__/Desktop/seyd-khande/build/CMakeFiles/app.dir
+C:/Users/piccy__/Desktop/seyd-khande/build/CMakeFiles/edit_cache.dir
+C:/Users/piccy__/Desktop/seyd-khande/build/CMakeFiles/rebuild_cache.dir
