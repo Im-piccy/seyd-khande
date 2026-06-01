@@ -8,11 +8,11 @@ class Game
 {
     public:    
         Game();
-        void Manage_Screens();
-        void Menu_Screen();
-        //void Character_Select_Screen();
-       // void Game_Screen();
-        //void Game_Over_Screen();
+        bool Manage_Screens();
+        bool Menu_Screen();
+        //bool Character_Select_Screen();
+       // bool Game_Screen();
+        //bool Game_Over_Screen();
     private:
         int current_screen;
 };
