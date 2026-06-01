@@ -131,12 +131,15 @@ void Game::Menu_Screen()
             current_screen = CHARACTER_SELECT_SCREEN;
         }
         //to empty RAM resources
-        UnloadMusicStream(Starting_Menu_Music);
-        UnloadTexture(background);
-        UnloadTexture(Button);
-        UnloadTexture(Sign);
-        UnloadSound(swordsfx);
-        UnloadSound(Transition_sound);
+        if(current_screen != MENU_SCREEN)
+        {   
+            UnloadMusicStream(Starting_Menu_Music);
+            UnloadTexture(background);
+            UnloadTexture(Button);
+            UnloadTexture(Sign);
+            UnloadSound(swordsfx);
+            UnloadSound(Transition_sound);
+        }
     }
 
 
