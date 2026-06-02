@@ -10,6 +10,7 @@ CMakeFiles/app.dir/src/game.cpp.obj: \
  C:/w64devkit/x86_64-w64-mingw32/include/_mingw_mac.h \
  C:/w64devkit/x86_64-w64-mingw32/include/_mingw_secapi.h \
  C:/w64devkit/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/hero_abstract_base_class.hpp \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/iostream \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/requires_hosted.h \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

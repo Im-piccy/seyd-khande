@@ -4,6 +4,7 @@
 CMakeFiles/app.dir/src/game.cpp.obj
  C:/Users/piccy__/Desktop/seyd-khande/src/game.cpp
  C:/Users/piccy__/Desktop/seyd-khande/headers/game.hpp
+ C:/Users/piccy__/Desktop/seyd-khande/headers/hero_abstract_base_class.hpp
  C:/Users/piccy__/Desktop/seyd-khande/raylib/include/raylib.h
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/backward/binders.h
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bit
