@@ -14,8 +14,8 @@ bool Game::Manage_Screens()
             return true;
 
         case CHARACTER_SELECT_SCREEN:
-           // Character_Select_Screen();
-            break;
+            Character_Select_Screen();
+            return true;
 
         case GAME_SCREEN:
           //  Game_Screen();
@@ -33,17 +33,19 @@ bool Game::Manage_Screens()
 void Game::Menu_Screen()
 {
     static Music Starting_Menu_Music = LoadMusicStream("game_assets/starting_menu_assets/startmenu.mp3");
+    static Sound transition_sound = LoadSound("game_assets/starting_menu_assets/transition_sound.mp3");
     static Texture2D background = LoadTexture("game_assets/starting_menu_assets/starting_menu_background.jpg");
     static Texture2D Button = LoadTexture("game_assets/starting_menu_assets/button.jpg");
     static Texture2D Sign = LoadTexture("game_assets/starting_menu_assets/sign.png");
     static Sound swordsfx = LoadSound("game_assets/starting_menu_assets/swordsfx.mp3");
-    static Sound Transition_sound = LoadSound("game_assets/starting_menu_assets/transition_sound.mp3");
     
     static bool Is_Cursor_Inside_botton = false;
     static float fade = 0;
     static bool Begin_Fading = false;
-    bool Should_Exit = false;
-    bool Should_Start_Game = false;
+    static bool Should_Exit = false;
+    static bool Should_Start_Game = false;
+    static bool Is_transitin_sound_started = false;
+    static bool Is_transition_sound_finished = false;
     char start_txt[] = "Start";
     char Exit_txt[] = "Exit";
     
@@ -57,7 +59,7 @@ void Game::Menu_Screen()
         music_is_playing = true;
     }
     BeginDrawing();
-    ClearBackground(BLACK);
+    // ClearBackground(BLACK);
     DrawTexture(background,0,0,WHITE);
     DrawTexture(Button,40,280,GRAY);
     DrawTexture(Button,40,430,GRAY);
@@ -83,7 +85,8 @@ void Game::Menu_Screen()
                 Should_Start_Game = true;
                 Begin_Fading = true;
                 PauseMusicStream(Starting_Menu_Music);
-                PlaySound(Transition_sound);
+                PlaySound(transition_sound);
+                Is_transitin_sound_started = true;
             }
         }
         else if(GetMouseY() >= 430 && GetMouseY() <= 560 )
@@ -115,6 +118,13 @@ void Game::Menu_Screen()
         {
             fade = 255;
         }
+        if(Is_transitin_sound_started)
+        {
+            if(!IsSoundPlaying(transition_sound))
+            {
+                Is_transition_sound_finished = true;
+            }
+        }
     }
     EndDrawing();    
     UpdateMusicStream(Starting_Menu_Music);
@@ -126,7 +136,7 @@ void Game::Menu_Screen()
         {
             current_screen = WINDOWSHOULDCLOSE;
         }
-        else if(Should_Start_Game && fade == 255)
+        else if(Should_Start_Game && fade >= 255 && Is_transition_sound_finished)
         {
             current_screen = CHARACTER_SELECT_SCREEN;
         }
@@ -138,7 +148,6 @@ void Game::Menu_Screen()
             UnloadTexture(Button);
             UnloadTexture(Sign);
             UnloadSound(swordsfx);
-            UnloadSound(Transition_sound);
         }
     }
 
@@ -147,5 +156,62 @@ void Game::Menu_Screen()
 
 void Game::Character_Select_Screen()
 {
+    //init assets
+    //music and background pic
+    
+    static Music background_music = LoadMusicStream("game_assets/character_select_screen_asset/ch-select-music.mp3");
+    static Texture2D background_img = LoadTexture("game_assets/character_select_screen_asset/character-select-background.png");
+    //hero card assets
+    static Texture2D T_Little_card = LoadTexture("game_assets/character_select_screen_asset/Tkochaiccart.jpg");
+    static Texture2D T_Big_card = LoadTexture("game_assets/character_select_screen_asset/Tbozorgcard.jpg");
+    static Texture2D Dani_card = LoadTexture("game_assets/character_select_screen_asset/danicard.jpg");
+    static Texture2D White_Doctor_card = LoadTexture("game_assets/character_select_screen_asset/whitecard.jpg");
+    static Texture2D Shahriar_card = LoadTexture("game_assets/character_select_screen_asset/shahriarcard.jpg");
+    static Texture2D Amin_card = LoadTexture("game_assets/character_select_screen_asset/amincard.jpg");
+    static Texture2D Pouya_card = LoadTexture("game_assets/character_select_screen_asset/pouyacard.jpg");
+    //music control variables
+    static bool Is_music_playing = false;
+    //fade transition variables
+    static bool Is_fading_in = true;
+    static float fade = 255;
+    
+
+   
+
+    //playing music
+    if(!Is_music_playing)
+    {
+        PlayMusicStream(background_music);
+        Is_music_playing = true;
+    }
+    UpdateMusicStream(background_music);
+
+
+    //the drawing part
+    BeginDrawing();
+    DrawTexture(background_img,0,0,WHITE);
+    DrawTexture(Dani_card,100,430,GRAY);
+    DrawTexture(T_Big_card,214,430,GRAY);
+    DrawTexture(T_Little_card,328,430,GRAY);
+    DrawTexture(Amin_card,442,430,GRAY);
+    DrawTexture(White_Doctor_card,556,430,GRAY);
+    DrawTexture(Pouya_card,670,430,GRAY);
+    DrawTexture(Shahriar_card,784,430,GRAY);
+    if(Is_fading_in)
+    {
+        DrawRectangle(0,0,GetScreenWidth(),GetScreenHeight(),Fade(BLACK,fade/255));
+        fade -= 3;
+        //test to be deleted
+        std::cout << "fading in and fade amount is " << fade << std::endl;
+        if(fade <= 0)
+        {
+            fade = 0;
+            Is_fading_in = false;
+        }
+    }
+
+
+    EndDrawing();
+
     
 }
