@@ -158,17 +158,25 @@ void Game::Character_Select_Screen()
 {
     //init assets
     //music and background pic
+    struct Texture_with_bound 
+    {
+        Texture2D texture;
+        Rectangle bound;
+        
+    };
     
     static Music background_music = LoadMusicStream("game_assets/character_select_screen_asset/ch-select-music.mp3");
     static Texture2D background_img = LoadTexture("game_assets/character_select_screen_asset/character-select-background.png");
     //hero card assets
-    static Texture2D T_Little_card = LoadTexture("game_assets/character_select_screen_asset/Tkochaiccart.jpg");
-    static Texture2D T_Big_card = LoadTexture("game_assets/character_select_screen_asset/Tbozorgcard.jpg");
-    static Texture2D Dani_card = LoadTexture("game_assets/character_select_screen_asset/danicard.jpg");
-    static Texture2D White_Doctor_card = LoadTexture("game_assets/character_select_screen_asset/whitecard.jpg");
-    static Texture2D Shahriar_card = LoadTexture("game_assets/character_select_screen_asset/shahriarcard.jpg");
-    static Texture2D Amin_card = LoadTexture("game_assets/character_select_screen_asset/amincard.jpg");
-    static Texture2D Pouya_card = LoadTexture("game_assets/character_select_screen_asset/pouyacard.jpg");
+    static Texture_with_bound T_Little_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/Tkochaiccart.jpg"), .bound{100,430,100,149}};
+    static Texture_with_bound T_Big_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/Tbozorgcard.jpg"), .bound{214,430,100,149}};
+    static Texture_with_bound Dani_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/danicard.jpg"), .bound{328,430,100,149}};
+    static Texture_with_bound White_Doctor_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/whitecard.jpg"), .bound{442,430,100,149}};
+    static Texture_with_bound Shahriar_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/shahriarcard.jpg"), .bound{556,430,100,149}};
+    static Texture_with_bound Amin_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/amincard.jpg"), .bound{670,430,100,149}};
+    static Texture_with_bound Pouya_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/pouyacard.jpg"), .bound{784,430,100,149}};
+    
+    
     //music control variables
     static bool Is_music_playing = false;
     //fade transition variables
@@ -186,17 +194,71 @@ void Game::Character_Select_Screen()
     }
     UpdateMusicStream(background_music);
 
-
+    //i will use this struct to check if mouse i hovering over any card or button 
+    Vector2 Mouse_position = GetMousePosition();
     //the drawing part
     BeginDrawing();
     DrawTexture(background_img,0,0,WHITE);
-    DrawTexture(Dani_card,100,430,GRAY);
-    DrawTexture(T_Big_card,214,430,GRAY);
-    DrawTexture(T_Little_card,328,430,GRAY);
-    DrawTexture(Amin_card,442,430,GRAY);
-    DrawTexture(White_Doctor_card,556,430,GRAY);
-    DrawTexture(Pouya_card,670,430,GRAY);
-    DrawTexture(Shahriar_card,784,430,GRAY);
+    DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,GRAY);
+    DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,GRAY);
+    DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,GRAY);
+    DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,GRAY);
+    DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,GRAY);
+    DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,GRAY);
+    DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,GRAY);
+
+    //---------------this part is for mouse hovering over cards----------------------------
+    //checking mouse hover over dani
+    if(CheckCollisionPointRec(Mouse_position, Dani_card.bound))
+    {
+        //highlight the card
+        DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
+
+    }
+
+    //checking mouse hover over T big
+    if(CheckCollisionPointRec(Mouse_position,T_Big_card.bound))
+    {
+        //highlight the card
+        DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
+    }
+
+    //checking mouse hover over T little
+    if(CheckCollisionPointRec(Mouse_position,T_Little_card.bound))
+    {
+        //highlight the card
+        DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
+    }
+
+    //checking mouse hover over white doc
+    if(CheckCollisionPointRec(Mouse_position,White_Doctor_card.bound))
+    {
+        //highlight the card
+        DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
+    }
+
+    //checking mouse hover over shahriar
+    if(CheckCollisionPointRec(Mouse_position,Shahriar_card.bound))
+    {
+        //highlight the card
+        DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
+    }
+
+    //checking mouse hover over pouya
+    if(CheckCollisionPointRec(Mouse_position,Pouya_card.bound))
+    {
+        //highlight the card
+        DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
+    }
+
+    //checking mouse hover over amin
+    if(CheckCollisionPointRec(Mouse_position,Amin_card.bound))
+    {
+        //highlight the card
+        DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
+    }
+    // -----------------------------------------------------------------------------------
+    
     if(Is_fading_in)
     {
         DrawRectangle(0,0,GetScreenWidth(),GetScreenHeight(),Fade(BLACK,fade/255));
