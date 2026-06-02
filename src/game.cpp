@@ -237,6 +237,10 @@ void Game::Menu_Screen()
                 Should_Exit = true;
             }
         }
+        else
+        {
+            Is_Cursor_Inside_botton = false;
+        }
     }
     else if (!Begin_Fading)
     {
