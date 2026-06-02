@@ -1,6 +1,139 @@
 #include "../headers/game.hpp"
 #include "../raylib/include/raylib.h"
+#include "../headers/hero_abstract_base_class.hpp"
 #include <iostream>
+
+
+void string_to_char_array(std::string st, char out[])//string should not have more than 25 characters
+{
+    if(st.empty())
+    {
+        out[0] = '\0';
+    }
+    int i;
+    for(i = 0 ; st[i] != '\0'  && i < 25; i++)
+    {
+        out[i] = st[i];
+    }
+    out[i] = '\0';
+}
+
+void Get_keyboard_Input_And_Add_To_The_String_Passed_By_Refrence(std::string & st)
+{
+    int key = GetKeyPressed();
+    //this switch has 28 case 26 for alphabetic characters, one for backspace, and one for space
+    //reads key from kEyboard input and adds it to the string
+    //only upercase
+    switch (key)
+    {
+    case KEY_A:
+        st += "A";
+        break;
+    case KEY_B:
+        st += "B";
+        break;
+    case KEY_C:
+        st += "C";
+        break;
+    case KEY_D:
+        st += "D";
+        break;
+    case KEY_E:
+        st += "E";
+        break;
+    case KEY_F:
+        st += "F";
+        break;
+    case KEY_G:
+        st += "G";
+        break;
+    case KEY_H:
+        st += "H";
+        break;
+    case KEY_I:
+        st += "I";
+        break;
+    case KEY_J:
+        st += "J";
+        break;
+    case KEY_K:
+        st += "K";
+        break;
+    case KEY_L:
+        st += "L";
+        break;
+    case KEY_M:
+        st += "M";
+        break;
+    case KEY_N:
+        st += "N";
+        break;
+    case KEY_O:
+        st += "O";
+        break;
+    case KEY_P:
+        st += "P";
+        break;
+    case KEY_Q:
+        st += "Q";
+        break;
+    case KEY_R:
+        st += "R";
+        break;
+    case KEY_S:
+        st += "S";
+        break;
+    case KEY_T:
+        st += "T";
+        break;
+    case KEY_U:
+        st += "U";
+        break;
+    case KEY_V:
+        st += "V";
+        break;
+    case KEY_W:
+        st += "W";
+        break;
+    case KEY_X:
+        st += "X";
+        break;
+    case KEY_Y:
+        st += "Y";
+        break;
+    case KEY_Z:
+        st += "Z";
+        break;
+    case KEY_BACKSPACE:
+        if(!st.empty())
+            st.pop_back();
+        break;
+    case KEY_SPACE:
+        st += " ";
+        break;
+    }
+}
+struct Texture_with_bound 
+{
+    Texture2D texture;
+    Rectangle bound;
+    
+};
+
+bool Is_name_string_more_then_25_characters(const std::string st)
+{
+    if(st.length() >= 25)
+    {
+        return true;
+    }
+    return false;
+}
+
+void show_name_character_limit_error_message_on_screen()
+{
+    int text_width = MeasureText("Name can't be more than 25 characters long!", 16);
+    DrawText("Name can't be more than 25 characters long!", 500 - (text_width / 2), 355, 16, RED);
+}
 
 
 Game::Game() : current_screen(MENU_SCREEN)
@@ -158,24 +291,30 @@ void Game::Character_Select_Screen()
 {
     //init assets
     //music and background pic
-    struct Texture_with_bound 
-    {
-        Texture2D texture;
-        Rectangle bound;
-        
-    };
+    enum stage{DELAY_BEFORE_GETTING_INPUT, GET_USER_INPUT_NAME, GET_USER_INPUT_CHARACTERS};
+
     
     static Music background_music = LoadMusicStream("game_assets/character_select_screen_asset/ch-select-music.mp3");
     static Texture2D background_img = LoadTexture("game_assets/character_select_screen_asset/character-select-background.png");
     //hero card assets
-    static Texture_with_bound T_Little_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/Tkochaiccart.jpg"), .bound{100,430,100,149}};
-    static Texture_with_bound T_Big_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/Tbozorgcard.jpg"), .bound{214,430,100,149}};
-    static Texture_with_bound Dani_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/danicard.jpg"), .bound{328,430,100,149}};
-    static Texture_with_bound White_Doctor_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/whitecard.jpg"), .bound{442,430,100,149}};
-    static Texture_with_bound Shahriar_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/shahriarcard.jpg"), .bound{556,430,100,149}};
-    static Texture_with_bound Amin_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/amincard.jpg"), .bound{670,430,100,149}};
-    static Texture_with_bound Pouya_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/pouyacard.jpg"), .bound{784,430,100,149}};
+    static Texture_with_bound T_Little_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/Tkochaiccart.jpg"), .bound{50,430,100,149}};
+    static Texture_with_bound T_Big_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/Tbozorgcard.jpg"), .bound{164,430,100,149}};
+    static Texture_with_bound Dani_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/danicard.jpg"), .bound{278,430,100,149}};
+    static Texture_with_bound White_Doctor_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/whitecard.jpg"), .bound{392,430,100,149}};
+    static Texture_with_bound Shahriar_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/shahriarcard.jpg"), .bound{506,430,100,149}};
+    static Texture_with_bound Amin_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/amincard.jpg"), .bound{620,430,100,149}};
+    static Texture_with_bound Pouya_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/pouyacard.jpg"), .bound{734,430,100,149}};
     
+    //hero deck selection buttons
+    static Texture_with_bound Choose_button = {.texture{LoadTexture("game_assets/character_select_screen_asset/choose-button.jpg")}, .bound{855,410,83,85}};
+    static Texture_with_bound Reset_Deck_button = {.texture{LoadTexture("game_assets/character_select_screen_asset/reset-button.jpg")}, .bound{855,500,85,85}};
+    static Texture_with_bound Confirm_button = {.texture{LoadTexture("game_assets/character_select_screen_asset/confirm-button.jpg")}, .bound{855,430,82,85}};
+
+    //user input form assets
+    static Texture2D User1_form_inactive = LoadTexture("game_assets/character_select_screen_asset/user1inputbox-notselected.jpg");
+    static Texture2D User1_form_active = LoadTexture("game_assets/character_select_screen_asset/user1inputbox-selected.jpg");
+    static Texture2D User2_form_inactive = LoadTexture("game_assets/character_select_screen_asset/user2inputbox-notselected.jpg");
+    static Texture2D User2_form_active = LoadTexture("game_assets/character_select_screen_asset/user2inputbox-selected.jpg");
     
     //music control variables
     static bool Is_music_playing = false;
@@ -183,9 +322,19 @@ void Game::Character_Select_Screen()
     static bool Is_fading_in = true;
     static float fade = 255;
     
+    //screen management variables
+    static bool User_Can_Use_Controlls = false;
+    static bool User_Hover_Should_Highlight_Ui_Elemets = true;
+    static int screen_stage = DELAY_BEFORE_GETTING_INPUT;
+    static Rectangle name_inputbox_boarder = {350,276,365,74};
+    static Rectangle name_input_form_confirm_button_boarder = {382, 427, 240, 98};
+    
+    //few variables to help with the logic
+    static float timer = 0;
+    static bool Is_Name_Input_box_Active = false;
+    static int User_Turn = USER1; // to know whos turn it is
 
-   
-
+    
     //playing music
     if(!Is_music_playing)
     {
@@ -206,13 +355,16 @@ void Game::Character_Select_Screen()
     DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,GRAY);
     DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,GRAY);
     DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,GRAY);
+    DrawTexture(Choose_button.texture,Choose_button.bound.x,Choose_button.bound.y,GRAY);
+    DrawTexture(Reset_Deck_button.texture, Reset_Deck_button.bound.x, Reset_Deck_button.bound.y, GRAY);
 
     //---------------this part is for mouse hovering over cards----------------------------
     //checking mouse hover over dani
     if(CheckCollisionPointRec(Mouse_position, Dani_card.bound))
     {
         //highlight the card
-        DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
 
     }
 
@@ -220,57 +372,141 @@ void Game::Character_Select_Screen()
     if(CheckCollisionPointRec(Mouse_position,T_Big_card.bound))
     {
         //highlight the card
-        DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
     }
 
     //checking mouse hover over T little
     if(CheckCollisionPointRec(Mouse_position,T_Little_card.bound))
     {
         //highlight the card
-        DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
     }
 
     //checking mouse hover over white doc
     if(CheckCollisionPointRec(Mouse_position,White_Doctor_card.bound))
     {
         //highlight the card
-        DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
     }
 
     //checking mouse hover over shahriar
     if(CheckCollisionPointRec(Mouse_position,Shahriar_card.bound))
     {
         //highlight the card
-        DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
     }
 
     //checking mouse hover over pouya
     if(CheckCollisionPointRec(Mouse_position,Pouya_card.bound))
     {
         //highlight the card
-        DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
     }
 
     //checking mouse hover over amin
     if(CheckCollisionPointRec(Mouse_position,Amin_card.bound))
     {
         //highlight the card
-        DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
     }
     // -----------------------------------------------------------------------------------
+    //------------------mouse hovering over buttons reset choose and confirm buttons management ---------
+    if(CheckCollisionPointRec(Mouse_position, Choose_button.bound))
+    {
+        //highlight text
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(Choose_button.texture,Choose_button.bound.x,Choose_button.bound.y,WHITE);       
+    }
+    if(CheckCollisionPointRec(Mouse_position,Reset_Deck_button.bound))
+    {
+        //highlight text
+        if(User_Hover_Should_Highlight_Ui_Elemets)
+            DrawTexture(Reset_Deck_button.texture, Reset_Deck_button.bound.x, Reset_Deck_button.bound.y, WHITE);
+    }
+
     
     if(Is_fading_in)
     {
         DrawRectangle(0,0,GetScreenWidth(),GetScreenHeight(),Fade(BLACK,fade/255));
         fade -= 3;
-        //test to be deleted
-        std::cout << "fading in and fade amount is " << fade << std::endl;
         if(fade <= 0)
         {
             fade = 0;
             Is_fading_in = false;
         }
     }
+
+    //update timer variable
+    if(timer < 2)
+    {
+        //this timer roughly takes 3 seconds to reach value 2
+        timer += (2.0/90.0);
+    }
+    else
+    {
+        screen_stage = GET_USER_INPUT_NAME;
+        User_Hover_Should_Highlight_Ui_Elemets = false;
+    }
+    
+    //this switch is to help tidy up the code and to avoid rewriting code
+    switch (screen_stage)
+    {
+        case GET_USER_INPUT_NAME:
+        DrawRectangle(0,0,GetScreenWidth(), GetScreenHeight(), Fade(BLACK,0.7));
+        // DrawRectangleRec(name_input_form_confirm_button_boarder,Fade(BLACK,0.7));
+        if(CheckCollisionPointRec(Mouse_position,name_inputbox_boarder))
+        {
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                Is_Name_Input_box_Active = true;
+            }
+        }
+        if(!Is_Name_Input_box_Active)
+        {
+            DrawTexture(User1_form_inactive,300,0,WHITE);
+            DrawRectangleRounded(name_input_form_confirm_button_boarder,0.5,10,Fade(BLACK,0.5));
+            
+        }
+        //we have to read input from keyboard
+        else
+        {
+            DrawTexture(User1_form_active,300,0,WHITE);
+            if(!CheckCollisionPointRec(Mouse_position,name_input_form_confirm_button_boarder))
+            {
+                DrawRectangleRounded(name_input_form_confirm_button_boarder,0.5,10,Fade(BLACK,0.5));
+            }   
+            
+            static std::string User_Input_Name = "";
+            if(Is_name_string_more_then_25_characters(User_Input_Name))
+            {
+                show_name_character_limit_error_message_on_screen();
+                if(IsKeyPressed(KEY_BACKSPACE))
+                {
+                    User_Input_Name.pop_back();
+                }
+            }
+            else
+            {
+                Get_keyboard_Input_And_Add_To_The_String_Passed_By_Refrence(User_Input_Name);
+            }
+            static char name[26];
+            string_to_char_array(User_Input_Name, name);
+            int name_width = MeasureText(name , 16);
+            DrawText(name, 500 - (name_width / 2) , 300 , 16, WHITE);
+        }
+        break;
+        
+        case GET_USER_INPUT_CHARACTERS:
+        User_Hover_Should_Highlight_Ui_Elemets = true;
+        break;
+    }
+    
 
 
     EndDrawing();
