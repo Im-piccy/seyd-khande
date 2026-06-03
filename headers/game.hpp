@@ -1,5 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
+#include "controller.hpp"
+#include "user.hpp"
 enum SCREENS{MENU_SCREEN, CHARACTER_SELECT_SCREEN, GAME_SCREEN, GAME_OVER_SCREEN, WINDOWSHOULDCLOSE};
 enum TURN{USER1, USER2};
 
@@ -17,6 +19,9 @@ class Game
         //bool Game_Over_Screen();
     private:
         int current_screen;
+        User user1;
+        User user2;
+        Controller control;
 };
 
 #endif
