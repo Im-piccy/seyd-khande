@@ -1,16 +1,6 @@
-CMakeFiles/app.dir/src/main.cpp.obj: \
- C:\Users\piccy__\Desktop\seyd-khande\src\main.cpp \
- C:/Users/piccy__/Desktop/seyd-khande/raylib/include/raylib.h \
- C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/stdarg.h \
- C:/w64devkit/x86_64-w64-mingw32/include/stdarg.h \
- C:/w64devkit/x86_64-w64-mingw32/include/_mingw_stdarg.h \
- C:/w64devkit/x86_64-w64-mingw32/include/vadefs.h \
- C:/w64devkit/x86_64-w64-mingw32/include/_mingw.h \
- C:/w64devkit/x86_64-w64-mingw32/include/_mingw_mac.h \
- C:/w64devkit/x86_64-w64-mingw32/include/_mingw_secapi.h \
- C:/w64devkit/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- C:/Users/piccy__/Desktop/seyd-khande/headers/game.hpp \
- C:/Users/piccy__/Desktop/seyd-khande/headers/controller.hpp \
+CMakeFiles/app.dir/src/user.cpp.obj: \
+ C:\Users\piccy__\Desktop\seyd-khande\src\user.cpp \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/user.hpp \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/array \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/compare \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/version.h \
@@ -40,7 +30,6 @@ CMakeFiles/app.dir/src/main.cpp.obj: \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bit \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/concepts \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/range_access.h \
- C:/Users/piccy__/Desktop/seyd-khande/headers/user.hpp \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/string \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/requires_hosted.h \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/stringfwd.h \
@@ -50,6 +39,11 @@ CMakeFiles/app.dir/src/main.cpp.obj: \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/cwchar \
  C:/w64devkit/x86_64-w64-mingw32/include/wchar.h \
  C:/w64devkit/x86_64-w64-mingw32/include/corecrt.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/_mingw.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/_mingw_mac.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/vadefs.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
  C:/w64devkit/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/w64devkit/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
  C:/w64devkit/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -107,4 +101,5 @@ CMakeFiles/app.dir/src/main.cpp.obj: \
  C:/w64devkit/x86_64-w64-mingw32/include/stddef.h \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/uses_allocator.h \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/uses_allocator_args.h \
- C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/tuple
+ C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/tuple \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/controller.hpp
