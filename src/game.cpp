@@ -1,6 +1,9 @@
 #include "../headers/game.hpp"
 #include "../raylib/include/raylib.h"
 #include "../headers/hero_abstract_base_class.hpp"
+#include "../headers/hero_sub_class_to_instatniate_objects.hpp"
+#include "../headers/user.hpp"
+#include "../headers/controller.hpp"
 #include <iostream>
 
 
@@ -129,15 +132,27 @@ bool Is_name_string_more_then_25_characters(const std::string st)
     return false;
 }
 
-void show_name_character_limit_error_message_on_screen()
+void show_name_character_limit_error_message_on_screen(Font out_font)
 {
-    int text_width = MeasureText("Name can't be more than 25 characters long!", 16);
-    DrawText("Name can't be more than 25 characters long!", 500 - (text_width / 2), 355, 16, RED);
+    Vector2 Text_size = MeasureTextEx(out_font, "Name can't be more than 25 characters long!", 18, 0);
+    DrawTextEx(out_font,"Name can't be more than 25 characters long!",{(500 - (Text_size.x / 2)), 360}, 18, 0,RED);
 }
+
+int Change_temperory_hero_selected(int hero , int current)
+{
+    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+    {
+        return hero;
+    }
+    return current;
+
+}
+
 
 
 Game::Game() : current_screen(MENU_SCREEN)
 {}
+
 bool Game::Manage_Screens()
 {
     switch(current_screen)
@@ -293,13 +308,16 @@ void Game::Menu_Screen()
 
 void Game::Character_Select_Screen()
 {
+    enum stage{DELAY_BEFORE_GETTING_INPUT, GET_USER_INPUT_NAME, GET_USER_INPUT_CHARACTERS};
     //init assets
     //music and background pic
-    enum stage{DELAY_BEFORE_GETTING_INPUT, GET_USER_INPUT_NAME, GET_USER_INPUT_CHARACTERS};
-
-    
     static Music background_music = LoadMusicStream("game_assets/character_select_screen_asset/ch-select-music.mp3");
     static Texture2D background_img = LoadTexture("game_assets/character_select_screen_asset/character-select-background.png");
+
+    //adding font
+    static Font font = LoadFont("game_assets/character_select_screen_asset/bahnschrift.ttf"); 
+
+
     //hero card assets
     static Texture_with_bound T_Little_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/Tkochaiccart.jpg"), .bound{50,430,100,149}};
     static Texture_with_bound T_Big_card = {.texture = LoadTexture("game_assets/character_select_screen_asset/Tbozorgcard.jpg"), .bound{164,430,100,149}};
@@ -335,9 +353,12 @@ void Game::Character_Select_Screen()
     
     //few variables to help with the logic
     static float timer = 0;
+    static bool timer_should_Be_active = true;
     static bool Is_Name_Input_box_Active = false;
     static int User_Turn = USER1; // to know whos turn it is
-
+    static int temp_hero_being_selected = NONSELECT; // this is to know which hero the hero wants to select
+    static bool Has_user1_confirmed_deck = false;
+    static bool Has_user2_confirmed_deck = false;
     
     //playing music
     if(!Is_music_playing)
@@ -349,7 +370,9 @@ void Game::Character_Select_Screen()
 
     //i will use this struct to check if mouse i hovering over any card or button 
     Vector2 Mouse_position = GetMousePosition();
-    //the drawing part
+    
+
+    //drawwing the background and cards and buttons
     BeginDrawing();
     DrawTexture(background_img,0,0,WHITE);
     DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,GRAY);
@@ -362,13 +385,17 @@ void Game::Character_Select_Screen()
     DrawTexture(Choose_button.texture,Choose_button.bound.x,Choose_button.bound.y,GRAY);
     DrawTexture(Reset_Deck_button.texture, Reset_Deck_button.bound.x, Reset_Deck_button.bound.y, GRAY);
 
-    //---------------this part is for mouse hovering over cards----------------------------
+    //---------------this part is for mouse hovering over cards and selecting heros ----------------------------
     //checking mouse hover over dani
     if(CheckCollisionPointRec(Mouse_position, Dani_card.bound))
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets)
+        {
             DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
+            //if user click on the hero we will store the hero in the temp hero variable
+            temp_hero_being_selected = Change_temperory_hero_selected(DANI_GOLANG , temp_hero_being_selected);
+        }
 
     }
 
@@ -377,7 +404,10 @@ void Game::Character_Select_Screen()
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets)
+        {
             DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
+            temp_hero_being_selected = Change_temperory_hero_selected(TAHA_BOZORGE, temp_hero_being_selected);
+        }
     }
 
     //checking mouse hover over T little
@@ -385,7 +415,11 @@ void Game::Character_Select_Screen()
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets)
+        {
             DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
+            temp_hero_being_selected = Change_temperory_hero_selected(TAHA_KOCHIKE, temp_hero_being_selected);
+        }
+
     }
 
     //checking mouse hover over white doc
@@ -393,7 +427,10 @@ void Game::Character_Select_Screen()
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets)
+        {
             DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
+            temp_hero_being_selected = Change_temperory_hero_selected(WHITEDOCTOR, temp_hero_being_selected);
+        }
     }
 
     //checking mouse hover over shahriar
@@ -401,7 +438,10 @@ void Game::Character_Select_Screen()
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets)
+        {
             DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
+            temp_hero_being_selected = Change_temperory_hero_selected(AGHA_SHAHRIAR, temp_hero_being_selected);
+        }
     }
 
     //checking mouse hover over pouya
@@ -409,7 +449,10 @@ void Game::Character_Select_Screen()
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets)
+        {
             DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
+            temp_hero_being_selected = Change_temperory_hero_selected(POUYA_KAJDOM, temp_hero_being_selected);
+        }
     }
 
     //checking mouse hover over amin
@@ -417,24 +460,65 @@ void Game::Character_Select_Screen()
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets)
+        {
             DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
+            temp_hero_being_selected = Change_temperory_hero_selected(AMIN_EMENI, temp_hero_being_selected);
+        }
     }
     // -----------------------------------------------------------------------------------
-    //------------------mouse hovering over buttons reset choose and confirm buttons management ---------
+    //------------------mouse hovering over buttons reset and choose buttons management ---------
+    //choose button 
     if(CheckCollisionPointRec(Mouse_position, Choose_button.bound))
     {
-        //highlight text
-        if(User_Hover_Should_Highlight_Ui_Elemets)
-            DrawTexture(Choose_button.texture,Choose_button.bound.x,Choose_button.bound.y,WHITE);       
+        //highlight button
+        if(User_Hover_Should_Highlight_Ui_Elemets && temp_hero_being_selected != NONSELECT)
+        {
+            DrawTexture(Choose_button.texture,Choose_button.bound.x,Choose_button.bound.y,WHITE); 
+            //if user clicked on the button it will update user array   
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                switch (User_Turn)
+                {
+                case USER1:
+                    
+                    break;
+                
+                case USER2:
+                    
+                    break;
+                }
+            }
+        }
+        
     }
+
+    //reset button
     if(CheckCollisionPointRec(Mouse_position,Reset_Deck_button.bound))
     {
         //highlight text
         if(User_Hover_Should_Highlight_Ui_Elemets)
             DrawTexture(Reset_Deck_button.texture, Reset_Deck_button.bound.x, Reset_Deck_button.bound.y, WHITE);
+        
+        //this resets the users array so the characters wont be shown on the screen
+        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            temp_hero_being_selected = NONSELECT;
+            switch (User_Turn)
+            {
+            case USER1 :
+                control.Empty_User_Array(user1);
+                break;
+            
+            case USER2:
+                control.Empty_User_Array(user2);
+                break;
+            }
+        }
     }
 
-    
+    //-------------------------------------------------------------------------------------------------------------
+    //this is for the transition when we change screen
+    //from menu to character select and only is used once
     if(Is_fading_in)
     {
         DrawRectangle(0,0,GetScreenWidth(),GetScreenHeight(),Fade(BLACK,fade/255));
@@ -446,69 +530,177 @@ void Game::Character_Select_Screen()
         }
     }
 
-    //update timer variable
+    //we use this to put delay between input boxes poping up
+    //once used for user1 and once for user2
+
+
+
     if(timer < 2)
     {
         //this timer roughly takes 3 seconds to reach value 2
         timer += (2.0/90.0);
     }
-    else
+    else if (timer_should_Be_active)
     {
         screen_stage = GET_USER_INPUT_NAME;
         User_Hover_Should_Highlight_Ui_Elemets = false;
+        timer_should_Be_active = false;
     }
     
     //this switch is to help tidy up the code and to avoid rewriting code
+    //this is related to the input box poping up and then
+    //asking the user to choose characters
     switch (screen_stage)
     {
         case GET_USER_INPUT_NAME:
-        DrawRectangle(0,0,GetScreenWidth(), GetScreenHeight(), Fade(BLACK,0.7));
-        // DrawRectangleRec(name_input_form_confirm_button_boarder,Fade(BLACK,0.7));
-        if(CheckCollisionPointRec(Mouse_position,name_inputbox_boarder))
-        {
-            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-            {
-                Is_Name_Input_box_Active = true;
-            }
-        }
-        if(!Is_Name_Input_box_Active)
-        {
-            DrawTexture(User1_form_inactive,300,0,WHITE);
-            DrawRectangleRounded(name_input_form_confirm_button_boarder,0.5,10,Fade(BLACK,0.5));
+            //we fade the background using this draw function
+            DrawRectangle(0,0,GetScreenWidth(), GetScreenHeight(), Fade(BLACK,0.7));
             
-        }
-        //we have to read input from keyboard
-        else
-        {
-            DrawTexture(User1_form_active,300,0,WHITE);
-            if(!CheckCollisionPointRec(Mouse_position,name_input_form_confirm_button_boarder))
-            {
-                DrawRectangleRounded(name_input_form_confirm_button_boarder,0.5,10,Fade(BLACK,0.5));
-            }   
             
-            static std::string User_Input_Name = "";
-            if(Is_name_string_more_then_25_characters(User_Input_Name))
+            //to know if user has clicked on the input box
+            if(CheckCollisionPointRec(Mouse_position,name_inputbox_boarder))
             {
-                show_name_character_limit_error_message_on_screen();
-                if(IsKeyPressed(KEY_BACKSPACE))
+                if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                 {
-                    User_Input_Name.pop_back();
+                    Is_Name_Input_box_Active = true;
                 }
             }
+
+            if(!Is_Name_Input_box_Active)
+            {
+                if(User_Turn == USER1)
+                    {DrawTexture(User1_form_inactive,300,0,WHITE);}
+                else if(User_Turn == USER2)
+                    {DrawTexture(User2_form_inactive,300,0,WHITE);}
+                DrawRectangleRounded(name_input_form_confirm_button_boarder,0.5,10,Fade(BLACK,0.5));
+                
+            }
+            //we have to read input from keyboard
             else
             {
-                Get_keyboard_Input_And_Add_To_The_String_Passed_By_Refrence(User_Input_Name);
+
+                //to know which user is inputing
+                if(User_Turn == USER1)
+                {
+                    DrawTexture(User1_form_active,300,0,WHITE);
+                }
+                else if(User_Turn == USER2)
+                {
+                    DrawTexture(User2_form_active,300,0,WHITE);
+                }
+
+                //to darken confirm button so we can lighten it again
+                //when user hovers the mouse on it
+                if(!CheckCollisionPointRec(Mouse_position,name_input_form_confirm_button_boarder))
+                {
+                    DrawRectangleRounded(name_input_form_confirm_button_boarder,0.5,10,Fade(BLACK,0.5));
+                }   
+
+                //this string gets the user input
+                static std::string User_Input_Name = "";
+
+                //making sure user enters no more than 25 characters
+                if(Is_name_string_more_then_25_characters(User_Input_Name))
+                {
+                    show_name_character_limit_error_message_on_screen(font);
+                    if(IsKeyPressed(KEY_BACKSPACE))
+                    {
+                        User_Input_Name.pop_back();
+                    }
+                }
+                else
+                {
+                    Get_keyboard_Input_And_Add_To_The_String_Passed_By_Refrence(User_Input_Name);
+                }
+
+                // we store the string value inside this char array
+                static char name[26];
+                string_to_char_array(User_Input_Name, name);
+
+                //this vector2 helps with center aligning the txt
+                Vector2 name_text_size = MeasureTextEx(font, name, 18, 0);
+                DrawTextEx(font,name,{(500 - (name_text_size.x / 2)), 300}, 18, 0, WHITE);
+
+                //we check to see if the user wants to confirm the input name
+
+                if(CheckCollisionPointRec(Mouse_position,name_input_form_confirm_button_boarder) || IsKeyPressed(KEY_ENTER))
+                {
+                    //this means user is hovering over the button
+                    //now we check to see if user has clicked
+                    if((IsMouseButtonPressed(MOUSE_LEFT_BUTTON) || IsKeyPressed(KEY_ENTER)) && !User_Input_Name.empty())
+                    {
+                        //user has confirmed the input so 
+                        // we close the pop up input box
+                        screen_stage = GET_USER_INPUT_CHARACTERS;
+                        User_Hover_Should_Highlight_Ui_Elemets = true;
+
+                        //save the name into the corresponding user object
+                        if(User_Turn == USER1)
+                        {
+                            // we set the name inside the object that is the game class
+                            // attribute
+                            user1.Set_Name(User_Input_Name);
+                        }
+                        else if(User_Turn == USER2)
+                        {
+                            user2.Set_Name(User_Input_Name);
+                        }
+
+                        
+                        // we reset the variables so that the next user can use them
+                        User_Input_Name.erase();
+                        Is_Name_Input_box_Active = false;
+                    }
+                }
             }
-            static char name[26];
-            string_to_char_array(User_Input_Name, name);
-            int name_width = MeasureText(name , 16);
-            DrawText(name, 500 - (name_width / 2) , 300 , 16, WHITE);
-        }
-        break;
+            break;
         
         case GET_USER_INPUT_CHARACTERS:
-        User_Hover_Should_Highlight_Ui_Elemets = true;
-        break;
+            
+            break;
+
+        default:
+            break;
+
+    }
+    
+    
+    
+    //if this condition is true it means the user has clicked on a card
+    //and we have to highligh the card
+    if(!temp_hero_being_selected == NONSELECT)
+    {
+        switch (temp_hero_being_selected)
+        {
+            case DANI_GOLANG:
+                DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
+                break;
+            
+            case AMIN_EMENI:
+                DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
+                break;
+            
+            case AGHA_SHAHRIAR:
+                DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
+                break;
+            
+            case POUYA_KAJDOM:
+                DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
+                break;
+            
+            case TAHA_KOCHIKE:
+                DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
+                break;
+            
+            case TAHA_BOZORGE:
+                DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
+                break;
+            
+            case WHITEDOCTOR:
+                DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
+                break;
+            
+        }
     }
     
 
