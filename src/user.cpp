@@ -1,8 +1,13 @@
 #include "../headers/user.hpp"
 
+User::User()
+{
+    Hero_Arr = {0, 0 ,0};
+}
+
 int User::Get_Energy() const
 {
-    return energy;
+    return this->energy;
 }
 
 void User::Set_Energy(int cost)
@@ -11,4 +16,22 @@ void User::Set_Energy(int cost)
         energy = 0;
     else
         energy -= cost;
+}
+
+bool User::Set_Name(std::string username)
+{
+    if(username.size() > 25)
+        return false;
+    int i;    
+    for(i = 0; i < 25; i++)
+    {
+        this->username[i] = username[i];
+    }
+    this->username[i] = '\0';
+    return true;
+}
+
+std::array<char,26> User::Get_Name() const
+{
+    return this->username;
 }

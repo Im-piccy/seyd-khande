@@ -1,19 +1,26 @@
 #ifndef USER_HPP
 #define USER_HPP
-#include "game.hpp"
-class Hero_Abstaction;
+#include <array>
+#include <string>
+#include "controller.hpp"
+
 class User
 {
-    friend void Game::print_characters_gaurd_pose_on_screen_according_to_user_array();
+    friend void Controller::Empty_User_Array(User &user);
+    friend bool Controller::Is_Hero_Array_Full(User &user);
     public:
+        User();
         void call_hero_abillity(); //user decides which hero's ability to use and it tells the controller object
         void terminate_user_turn_manually(); //this means that user is skiping turn or ending attacks before energy is 0
         int return_currnet_energy();
         int Get_Energy() const;
         void Set_Energy(int cost);
+        bool Set_Name(std::string usrname);// booleaan returned false beacause it was more than 25 char
+        std::array<char,26> Get_Name() const;
     private:
-        Hero_Abstaction* Hero_Arr[3];// this shows which heros the user possess
+        std::array<int,3> Hero_Arr;// this shows which heros the user possess
         int energy;
+        std::array<char,26> username;
 };
 
 #endif
