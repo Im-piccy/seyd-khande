@@ -5,6 +5,8 @@
 #include "../headers/user.hpp"
 #include "../headers/controller.hpp"
 #include <iostream>
+#include <array>
+
 
 
 void string_to_char_array(std::string st, char out[])//string should not have more than 25 characters
@@ -148,9 +150,25 @@ int Change_temperory_hero_selected(int hero , int current)
 
 }
 
+bool Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(const std::array<bool,8>& user1_hero_tracker_array,const std::array <bool,8>& user2_hero_tracker_array , int user_turn, int hero_card_which_is_to_be_selected)
+{
+    if(hero_card_which_is_to_be_selected == NONSELECT)
+        return true;
 
 
-Game::Game() : current_screen(MENU_SCREEN)
+    switch (user_turn)
+    {
+    case USER1:
+        return !user1_hero_tracker_array[hero_card_which_is_to_be_selected ];
+        break;
+    
+    case USER2:
+        return !user2_hero_tracker_array[hero_card_which_is_to_be_selected ];
+        break;
+    }
+}
+
+Game::Game() : current_screen(CHARACTER_SELECT_SCREEN)
 {}
 
 bool Game::Manage_Screens()
@@ -180,13 +198,17 @@ bool Game::Manage_Screens()
 
 void Game::Menu_Screen()
 {
+    //sound and music assets
     static Music Starting_Menu_Music = LoadMusicStream("game_assets/starting_menu_assets/startmenu.mp3");
     static Sound transition_sound = LoadSound("game_assets/starting_menu_assets/transition_sound.mp3");
+    static Sound swordsfx = LoadSound("game_assets/starting_menu_assets/swordsfx.mp3");
+    
+    //img asstes
     static Texture2D background = LoadTexture("game_assets/starting_menu_assets/starting_menu_background.jpg");
     static Texture2D Button = LoadTexture("game_assets/starting_menu_assets/button.jpg");
     static Texture2D Sign = LoadTexture("game_assets/starting_menu_assets/sign.png");
-    static Sound swordsfx = LoadSound("game_assets/starting_menu_assets/swordsfx.mp3");
     
+    //variables for program's logic
     static bool Is_Cursor_Inside_botton = false;
     static float fade = 0;
     static bool Begin_Fading = false;
@@ -194,20 +216,24 @@ void Game::Menu_Screen()
     static bool Should_Start_Game = false;
     static bool Is_transitin_sound_started = false;
     static bool Is_transition_sound_finished = false;
+    static bool music_is_playing = false;
+    
+    //variables for drawing on the screeen 
     char start_txt[] = "Start";
     char Exit_txt[] = "Exit";
-    
     int font_size = 50;
     int Start_txt_width = MeasureText(start_txt,font_size);
     int Exit_txt_width = MeasureText(Exit_txt,font_size);
-    static bool music_is_playing = false;
+
+
     if(!music_is_playing)
     {
         PlayMusicStream(Starting_Menu_Music);
         music_is_playing = true;
     }
+
+    //drawing the background and buttons
     BeginDrawing();
-    // ClearBackground(BLACK);
     DrawTexture(background,0,0,WHITE);
     DrawTexture(Button,40,280,GRAY);
     DrawTexture(Button,40,430,GRAY);
@@ -257,15 +283,19 @@ void Game::Menu_Screen()
             Is_Cursor_Inside_botton = false;
         }
     }
+
+    //this else if is used for reseting cursor and button relation status
+    //with out this the sound effect won't play correctly
     else if (!Begin_Fading)
     {
         Is_Cursor_Inside_botton = false;
     }
+    //this is the transition part between the screens
     else
     {
         //this is to transition from start menu to character select screen
         DrawRectangle(0,0,GetScreenWidth(),GetScreenHeight(),Fade(BLACK,fade/255));
-        fade += 8;
+        fade += 4;
         if(fade >= 255)
         {
             fade = 255;
@@ -308,7 +338,7 @@ void Game::Menu_Screen()
 
 void Game::Character_Select_Screen()
 {
-    enum stage{DELAY_BEFORE_GETTING_INPUT, GET_USER_INPUT_NAME, GET_USER_INPUT_CHARACTERS};
+    enum stage{DELAY_BEFORE_GETTING_INPUT, GET_USER_INPUT_NAME, GET_USER_INPUT_CHARACTERS , TRANSITION_TO_THE_GAME};
     //init assets
     //music and background pic
     static Music background_music = LoadMusicStream("game_assets/character_select_screen_asset/ch-select-music.mp3");
@@ -346,7 +376,7 @@ void Game::Character_Select_Screen()
     
     //screen management variables
     static bool User_Can_Use_Controlls = false;
-    static bool User_Hover_Should_Highlight_Ui_Elemets = true;
+    static bool User_Hover_Should_Highlight_Ui_Elemets = false;
     static int screen_stage = DELAY_BEFORE_GETTING_INPUT;
     static Rectangle name_inputbox_boarder = {350,276,365,74};
     static Rectangle name_input_form_confirm_button_boarder = {382, 427, 240, 98};
@@ -357,8 +387,9 @@ void Game::Character_Select_Screen()
     static bool Is_Name_Input_box_Active = false;
     static int User_Turn = USER1; // to know whos turn it is
     static int temp_hero_being_selected = NONSELECT; // this is to know which hero the hero wants to select
-    static bool Has_user1_confirmed_deck = false;
-    static bool Has_user2_confirmed_deck = false;
+    static bool fading_out = false;
+    static std::array <bool,8> user1_chosen_heros = {};
+    static std::array <bool,8> user2_chosen_heros = {};
     
     //playing music
     if(!Is_music_playing)
@@ -390,7 +421,7 @@ void Game::Character_Select_Screen()
     if(CheckCollisionPointRec(Mouse_position, Dani_card.bound))
     {
         //highlight the card
-        if(User_Hover_Should_Highlight_Ui_Elemets)
+        if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,DANI_GOLANG))
         {
             DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
             //if user click on the hero we will store the hero in the temp hero variable
@@ -403,7 +434,7 @@ void Game::Character_Select_Screen()
     if(CheckCollisionPointRec(Mouse_position,T_Big_card.bound))
     {
         //highlight the card
-        if(User_Hover_Should_Highlight_Ui_Elemets)
+        if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,TAHA_BOZORGE))
         {
             DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(TAHA_BOZORGE, temp_hero_being_selected);
@@ -414,7 +445,7 @@ void Game::Character_Select_Screen()
     if(CheckCollisionPointRec(Mouse_position,T_Little_card.bound))
     {
         //highlight the card
-        if(User_Hover_Should_Highlight_Ui_Elemets)
+        if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,TAHA_KOCHIKE))
         {
             DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(TAHA_KOCHIKE, temp_hero_being_selected);
@@ -426,7 +457,7 @@ void Game::Character_Select_Screen()
     if(CheckCollisionPointRec(Mouse_position,White_Doctor_card.bound))
     {
         //highlight the card
-        if(User_Hover_Should_Highlight_Ui_Elemets)
+        if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,WHITEDOCTOR))
         {
             DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(WHITEDOCTOR, temp_hero_being_selected);
@@ -437,7 +468,7 @@ void Game::Character_Select_Screen()
     if(CheckCollisionPointRec(Mouse_position,Shahriar_card.bound))
     {
         //highlight the card
-        if(User_Hover_Should_Highlight_Ui_Elemets)
+        if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,AGHA_SHAHRIAR))
         {
             DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(AGHA_SHAHRIAR, temp_hero_being_selected);
@@ -448,7 +479,7 @@ void Game::Character_Select_Screen()
     if(CheckCollisionPointRec(Mouse_position,Pouya_card.bound))
     {
         //highlight the card
-        if(User_Hover_Should_Highlight_Ui_Elemets)
+        if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,POUYA_KAJDOM))
         {
             DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(POUYA_KAJDOM, temp_hero_being_selected);
@@ -459,7 +490,7 @@ void Game::Character_Select_Screen()
     if(CheckCollisionPointRec(Mouse_position,Amin_card.bound))
     {
         //highlight the card
-        if(User_Hover_Should_Highlight_Ui_Elemets)
+        if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,AMIN_EMENI))
         {
             DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(AMIN_EMENI, temp_hero_being_selected);
@@ -479,13 +510,18 @@ void Game::Character_Select_Screen()
             {
                 switch (User_Turn)
                 {
-                case USER1:
+                    case USER1:
+                        //just add the selected hero to the user object array and user hero tracker array
+                        user1.add_hero_to_hero_array(temp_hero_being_selected);
+                        user1_chosen_heros[temp_hero_being_selected] = true;
+                        temp_hero_being_selected = NONSELECT;
+                        break;
                     
-                    break;
-                
-                case USER2:
-                    
-                    break;
+                    case USER2:
+                        user2.add_hero_to_hero_array(temp_hero_being_selected);
+                        user2_chosen_heros[temp_hero_being_selected] = true;
+                        temp_hero_being_selected = NONSELECT;
+                        break;
                 }
             }
         }
@@ -506,10 +542,12 @@ void Game::Character_Select_Screen()
             switch (User_Turn)
             {
             case USER1 :
+                user1_chosen_heros.fill(0);
                 control.Empty_User_Array(user1);
                 break;
             
             case USER2:
+                user2_chosen_heros.fill(0);
                 control.Empty_User_Array(user2);
                 break;
             }
@@ -538,13 +576,31 @@ void Game::Character_Select_Screen()
     if(timer < 2)
     {
         //this timer roughly takes 3 seconds to reach value 2
-        timer += (2.0/90.0);
+        // it should take longer for user one
+        if(User_Turn == USER1)
+        {
+            timer += (2.0/90.0);
+        }
+        else
+        {
+            timer += (2.0/45.0);
+        }     
     }
     else if (timer_should_Be_active)
     {
-        screen_stage = GET_USER_INPUT_NAME;
-        User_Hover_Should_Highlight_Ui_Elemets = false;
-        timer_should_Be_active = false;
+        if(User_Turn == 3)
+        {
+            fade = 0;
+            fading_out = true;
+            screen_stage = TRANSITION_TO_THE_GAME;
+            timer_should_Be_active = false;
+        }
+        else
+        {
+            screen_stage = GET_USER_INPUT_NAME;
+            User_Hover_Should_Highlight_Ui_Elemets = false;
+            timer_should_Be_active = false;
+        }
     }
     
     //this switch is to help tidy up the code and to avoid rewriting code
@@ -657,9 +713,17 @@ void Game::Character_Select_Screen()
         
         case GET_USER_INPUT_CHARACTERS:
             
+
             break;
 
-        default:
+        case TRANSITION_TO_THE_GAME:
+            DrawRectangle(0,0,GetScreenWidth(), GetScreenHeight(),Fade(BLACK,fade/255));
+            fade += 4;
+            if(fade >= 255)
+            {
+                fade = 255;
+                
+            }
             break;
 
     }
@@ -703,9 +767,44 @@ void Game::Character_Select_Screen()
         }
     }
     
-
+    // std::cout << "user one hero tracker array: \n";
+    // for(int i = 0 ; i < 7 ; i++)
+    // {
+    //     std::cout << user1_chosen_heros[i] << "  ";
+    // }
 
     EndDrawing();
 
+    //this part checks to see if hero arrays for user objects are full or not
+    //and if they are full it will manage the logic
+    switch (User_Turn)
+    {
+    case USER1:
+        if(control.Is_Hero_Array_Full(user1))
+        {
+            //user has chosen all tree cards and now we reset the variable
+            //to get the other user hero cards as well
+            User_Turn = USER2;
+            timer = 0;
+            timer_should_Be_active = true;
+            screen_stage = DELAY_BEFORE_GETTING_INPUT;
+            temp_hero_being_selected = NONSELECT;
+            User_Hover_Should_Highlight_Ui_Elemets = false;
+        }
+        break;
     
+    case USER2:
+        if(control.Is_Hero_Array_Full(user2))
+        {
+            //disable all user controll
+            User_Hover_Should_Highlight_Ui_Elemets = false;
+            User_Turn = 3; // to avoid coming into this switch
+            timer = 0;
+            timer_should_Be_active = true;
+            fade = 0;
+
+        }
+        break;
+    }
+    std::cout << "screen stage : " << screen_stage << std::endl;
 }
