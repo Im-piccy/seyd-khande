@@ -35,3 +35,15 @@ std::array<char,26> User::Get_Name() const
 {
     return this->username;
 }
+
+void User::add_hero_to_hero_array(int hero)
+{
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        if(this->Hero_Arr[i] == 0)
+        {
+            this->Hero_Arr[i] = hero;
+            return;
+        }
+    }
+}
