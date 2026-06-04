@@ -16,7 +16,7 @@ class User
         int Get_Energy() const;
         void Set_Energy(int cost);
         bool Set_Name(std::string usrname);// booleaan returned false beacause it was more than 25 char
-        std::array<char,26> Get_Name() const;
+        std::string Get_Name() const;
         void add_hero_to_hero_array(int hero);//when player chooses a hero it will be stored using this function
         std::array<int,3> Get_Hero_Array() const;
     private:
