@@ -2,7 +2,8 @@
 
 User::User()
 {
-    Hero_Arr = {0, 0 ,0};
+    this->Hero_Arr = {0, 0 ,0};
+    this->username = {};
 }
 
 int User::Get_Energy() const
