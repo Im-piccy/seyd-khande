@@ -217,7 +217,7 @@ Texture2D Return_The_Corresponding_Texture_Based_On_User_Array(const std::array 
     }
     else if(current_user == USER2)
     {
-        switch (user1_hero_array[array_index])
+        switch (user2_hero_array[array_index])
         {
         case DANI_GOLANG:
             return Dani_Right;
@@ -237,7 +237,6 @@ Texture2D Return_The_Corresponding_Texture_Based_On_User_Array(const std::array 
         }
 
     }
-    return DOC_Left;
 } 
 
 
@@ -435,7 +434,6 @@ void Game::Character_Select_Screen()
     //hero deck selection buttons
     static Texture_with_bound Choose_button = {.texture{LoadTexture("game_assets/character_select_screen_asset/choose-button.jpg")}, .bound{855,410,83,85}};
     static Texture_with_bound Reset_Deck_button = {.texture{LoadTexture("game_assets/character_select_screen_asset/reset-button.jpg")}, .bound{855,500,85,85}};
-    static Texture_with_bound Confirm_button = {.texture{LoadTexture("game_assets/character_select_screen_asset/confirm-button.jpg")}, .bound{855,430,82,85}};
 
     //user input form assets
     static Texture2D User1_form_inactive = LoadTexture("game_assets/character_select_screen_asset/user1inputbox-notselected.jpg");
@@ -701,6 +699,221 @@ void Game::Character_Select_Screen()
     }
     
 
+    
+
+    
+    //if this condition is true it means the user has clicked on a card
+    //and we have to highligh the card
+    if(!temp_hero_being_selected == NONSELECT)
+    {
+        switch (temp_hero_being_selected)
+        {
+            case DANI_GOLANG:
+                DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
+                break;
+            
+            case AMIN_EMENI:
+                DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
+                break;
+            
+            case AGHA_SHAHRIAR:
+                DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
+                break;
+            
+            case POUYA_KAJDOM:
+                DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
+                break;
+            
+            case TAHA_KOCHIKE:
+                DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
+                break;
+            
+            case TAHA_BOZORGE:
+                DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
+                break;
+            
+            case WHITEDOCTOR:
+                DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
+                break;
+            
+        }
+    }
+    
+    // std::cout << "user one hero tracker array: \n";
+    // for(int i = 0 ; i < 7 ; i++)
+    // {
+    //     std::cout << user1_chosen_heros[i] << "  ";
+    // }
+
+
+    // printing heros and name on the screen
+    
+    Vector2 user1_name_size = MeasureTextEx(font, user1_name, 20, 0);
+    Vector2 user2_name_size = MeasureTextEx(font, user2_name, 20, 0);
+    
+    //printing names 
+    if(User_Turn == USER1)
+    {
+        DrawTextEx(font,user1_name,{120 - (user1_name_size.x / 2),20},20,0,WHITE);      
+        DrawTextEx(font,user2_name,{880 - (user2_name_size.x / 2) , 20}, 20, 0, GRAY);
+    }
+    else if(User_Turn == USER2)
+    {
+        DrawTextEx(font,user1_name,{120 - (user1_name_size.x / 2),20},20,0,GRAY);      
+        DrawTextEx(font,user2_name,{880 - (user2_name_size.x / 2) , 20}, 20, 0, WHITE);
+    }
+    else
+    {
+        DrawTextEx(font,user1_name,{120 - (user1_name_size.x / 2),20},20,0,GRAY);      
+        DrawTextEx(font,user2_name,{880 - (user2_name_size.x / 2) , 20}, 20, 0, GRAY);
+    }
+
+
+    user1_hero_array = user1.Get_Hero_Array();
+    user2_hero_array = user2.Get_Hero_Array();
+
+    //print user 1 cards on screen
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        switch (i)
+        {
+            
+        case 0:
+        {
+            if(user1_hero_array[i] == NONSELECT)
+            {
+                //this means we should break out of the loop and display nothin
+                i = 4;
+                break;
+            }
+            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER1,i);
+            if(User_Turn == USER1)
+            {
+                DrawTexture(to_be_displayed,0,35,WHITE);
+                
+            }
+            else
+            {
+                DrawTexture(to_be_displayed,0,35,GRAY);
+            }
+            
+            break;
+        }    
+        case 1:
+        {
+            if(user1_hero_array[i] == NONSELECT)
+            {
+                //this means we should break out of the loop and display nothin
+                i = 4;
+                break;
+            }
+            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER1,i);
+            if(User_Turn == USER1)
+            {
+                DrawTexture(to_be_displayed,0,135,WHITE);
+                
+            }
+            else
+            {
+                DrawTexture(to_be_displayed,0,135,GRAY);
+            }
+            break;
+        }    
+        case 2:
+        {
+            if(user1_hero_array[i] == NONSELECT)
+            {
+                //this means we should break out of the loop and display nothin
+                i = 4;
+                break;
+            }
+            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER1,i);
+            if(User_Turn == USER1)
+            {
+                DrawTexture(to_be_displayed,0,235,WHITE);
+                
+            }
+            else
+            {
+                DrawTexture(to_be_displayed,0,235,GRAY);
+            }
+            break;
+        }
+        }
+    }
+    
+    //print user 2 cards on screen
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        switch (i)
+        {
+        case 0:
+        {
+            if(user2_hero_array[i] == NONSELECT)
+            {
+                //this means we should break out of the loop and display nothin
+                i = 4;
+                break;
+            }
+            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER2,i);
+            if(User_Turn == USER2)
+            {
+                
+                DrawTexture(to_be_displayed,860,40,WHITE);
+                
+            }
+            else
+            {
+                DrawTexture(to_be_displayed,860,40,GRAY);
+            }
+            
+            break;
+        }
+        case 1:
+        {
+            if(user2_hero_array[i] == NONSELECT)
+            {
+                //this means we should break out of the loop and display nothin
+                i = 4;
+                break;
+            }
+            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER2,i);
+            if(User_Turn == USER2)
+            {
+                DrawTexture(to_be_displayed,860,140,WHITE);
+                
+            }
+            else
+            {
+                DrawTexture(to_be_displayed,860,140,GRAY);
+            }
+            break;
+        }  
+        case 2:
+        {
+            if(user2_hero_array[i] == NONSELECT)
+            {
+                //this means we should break out of the loop and display nothin
+                i = 4;
+                break;
+            }
+            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER2,i);
+            if(User_Turn == USER1)
+            {
+                DrawTexture(to_be_displayed,860,250,WHITE);
+                
+            }
+            else
+            {
+                DrawTexture(to_be_displayed,860,250,GRAY);
+            }
+            break;
+        }
+        }
+    }
+
+
+
     //this switch is to help tidy up the code and to avoid rewriting code
     //this is related to the input box poping up and then
     //asking the user to choose characters
@@ -824,224 +1037,40 @@ void Game::Character_Select_Screen()
             fade += 4;
             if(fade >= 255)
             {
+                //stop eveything
+                StopMusicStream(background_music);
+                //unloading textures
+                {
+                    UnloadTexture(T_Little_card.texture);
+                    UnloadTexture(T_Big_card.texture);
+                    UnloadTexture(Dani_card.texture);
+                    UnloadTexture(White_Doctor_card.texture);
+                    UnloadTexture(Shahriar_card.texture);
+                    UnloadTexture(Amin_card.texture);
+                    UnloadTexture(Pouya_card.texture);
+                    UnloadTexture(Choose_button.texture);
+                    UnloadTexture(Reset_Deck_button.texture);
+                    UnloadTexture(User1_form_active);
+                    UnloadTexture(User1_form_inactive);
+                    UnloadTexture(User2_form_active);
+                    UnloadTexture(User2_form_inactive);
+                    UnloadTexture(background_img);
+                }
+                //unloading; music and sound and font
+                {
+                    UnloadFont(font);
+                    UnloadSound(Card_sfx);
+                    UnloadSound(Confirm_sfx);
+                    UnloadSound(Deck_Complete_sfx);
+                    UnloadMusicStream(background_music);
+                }
+                current_screen = GAME_SCREEN;
                 fade = 255;
                 
             }
             SetMusicVolume(background_music, 1.0 - fade/255.0);
             break;
 
-    }
-    
-    
-    
-    //if this condition is true it means the user has clicked on a card
-    //and we have to highligh the card
-    if(!temp_hero_being_selected == NONSELECT)
-    {
-        switch (temp_hero_being_selected)
-        {
-            case DANI_GOLANG:
-                DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
-                break;
-            
-            case AMIN_EMENI:
-                DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
-                break;
-            
-            case AGHA_SHAHRIAR:
-                DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
-                break;
-            
-            case POUYA_KAJDOM:
-                DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
-                break;
-            
-            case TAHA_KOCHIKE:
-                DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
-                break;
-            
-            case TAHA_BOZORGE:
-                DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
-                break;
-            
-            case WHITEDOCTOR:
-                DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
-                break;
-            
-        }
-    }
-    
-    // std::cout << "user one hero tracker array: \n";
-    // for(int i = 0 ; i < 7 ; i++)
-    // {
-    //     std::cout << user1_chosen_heros[i] << "  ";
-    // }
-
-
-    // printing heros and name on the screen
-    
-    Vector2 user1_name_size = MeasureTextEx(font, user1_name, 20, 0);
-    Vector2 user2_name_size = MeasureTextEx(font, user2_name, 20, 0);
-    
-    //printing names 
-    if(User_Turn == USER1)
-    {
-        DrawTextEx(font,user1_name,{120 - (user1_name_size.x / 2),20},20,0,WHITE);      
-        DrawTextEx(font,user2_name,{880 - (user2_name_size.x / 2) , 20}, 20, 0, GRAY);
-    }
-    else if(User_Turn == USER2)
-    {
-        DrawTextEx(font,user1_name,{120 - (user1_name_size.x / 2),20},20,0,GRAY);      
-        DrawTextEx(font,user2_name,{880 - (user2_name_size.x / 2) , 20}, 20, 0, WHITE);
-    }
-    else
-    {
-        DrawTextEx(font,user1_name,{120 - (user1_name_size.x / 2),20},20,0,GRAY);      
-        DrawTextEx(font,user2_name,{880 - (user2_name_size.x / 2) , 20}, 20, 0, GRAY);
-    }
-
-
-    user1_hero_array = user1.Get_Hero_Array();
-    user2_hero_array = user2.Get_Hero_Array();
-
-    //print user 1 cards on screen
-    for(int i = 0 ; i < 3 ; i++)
-    {
-        switch (i)
-        {
-            
-        case 0:
-        {
-            if(user1_hero_array[i] == NONSELECT)
-            {
-                //this means we should break out of the loop and display nothin
-                i = 4;
-                break;
-            }
-            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER1,i);
-            if(User_Turn == USER1)
-            {
-                DrawTexture(to_be_displayed,0,40,WHITE);
-                
-            }
-            else
-            {
-                DrawTexture(to_be_displayed,0,40,GRAY);
-            }
-            
-            break;
-        }    
-        case 1:
-        {
-            if(user1_hero_array[i] == NONSELECT)
-            {
-                //this means we should break out of the loop and display nothin
-                i = 4;
-                break;
-            }
-            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER1,i);
-            if(User_Turn == USER1)
-            {
-                DrawTexture(to_be_displayed,0,140,WHITE);
-                
-            }
-            else
-            {
-                DrawTexture(to_be_displayed,0,140,GRAY);
-            }
-            break;
-        }    
-        case 2:
-        {
-            if(user1_hero_array[i] == NONSELECT)
-            {
-                //this means we should break out of the loop and display nothin
-                i = 4;
-                break;
-            }
-            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER1,i);
-            if(User_Turn == USER1)
-            {
-                DrawTexture(to_be_displayed,0,240,WHITE);
-                
-            }
-            else
-            {
-                DrawTexture(to_be_displayed,0,240,GRAY);
-            }
-            break;
-        }
-        }
-    }
-    
-    //print user 2 cards on screen
-    for(int i = 0 ; i < 3 ; i++)
-    {
-        switch (i)
-        {
-        case 0:
-        {
-            if(user2_hero_array[i] == NONSELECT)
-            {
-                //this means we should break out of the loop and display nothin
-                i = 4;
-                break;
-            }
-            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER2,i);
-            if(User_Turn == USER2)
-            {
-                
-                DrawTexture(to_be_displayed,800,40,WHITE);
-                
-            }
-            else
-            {
-                DrawTexture(to_be_displayed,800,40,GRAY);
-            }
-            
-            break;
-        }
-        case 1:
-        {
-            if(user2_hero_array[i] == NONSELECT)
-            {
-                //this means we should break out of the loop and display nothin
-                i = 4;
-                break;
-            }
-            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER2,i);
-            if(User_Turn == USER2)
-            {
-                DrawTexture(to_be_displayed,800,140,WHITE);
-                
-            }
-            else
-            {
-                DrawTexture(to_be_displayed,800,140,GRAY);
-            }
-            break;
-        }  
-        case 2:
-        {
-            if(user2_hero_array[i] == NONSELECT)
-            {
-                //this means we should break out of the loop and display nothin
-                i = 4;
-                break;
-            }
-            Texture2D to_be_displayed = Return_The_Corresponding_Texture_Based_On_User_Array(user1_hero_array, user2_hero_array,USER2,i);
-            if(User_Turn == USER1)
-            {
-                DrawTexture(to_be_displayed,800,240,WHITE);
-                
-            }
-            else
-            {
-                DrawTexture(to_be_displayed,800,240,GRAY);
-            }
-            break;
-        }
-        }
     }
 
     EndDrawing();
