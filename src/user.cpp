@@ -2,7 +2,8 @@
 
 User::User()
 {
-    Hero_Arr = {0, 0 ,0};
+    this->Hero_Arr = {0, 0 ,0};
+    this->username = {};
 }
 
 int User::Get_Energy() const
@@ -31,9 +32,17 @@ bool User::Set_Name(std::string username)
     return true;
 }
 
-std::array<char,26> User::Get_Name() const
+std::string User::Get_Name_String() const
 {
-    return this->username;
+    std::string username;
+    for(int i = 0; i < 25; i++)
+        username[i] = this->username[i];
+    return username;
+}
+
+std::array<char,26> User::Get_Name_Char_Array() const
+{
+    this->username;
 }
 
 void User::add_hero_to_hero_array(int hero)
@@ -46,4 +55,9 @@ void User::add_hero_to_hero_array(int hero)
             return;
         }
     }
+}
+
+std::array<int,3> User::Get_Hero_Array() const
+{
+    return Hero_Arr;
 }
