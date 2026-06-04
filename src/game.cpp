@@ -169,7 +169,78 @@ bool Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(const std::array<
     }
 }
 
-Game::Game() : current_screen(MENU_SCREEN)
+Texture2D Return_The_Corresponding_Texture_Based_On_User_Array(const std::array <int,3> & user1_hero_array, const std::array <int,3> & user2_hero_array, int current_user, int array_index)
+{
+    //amin 
+    static Texture2D Amin_Right = LoadTexture("game_assets/character_select_screen_asset/Amin_User2.png");
+    static Texture2D Amin_Left = LoadTexture("game_assets/character_select_screen_asset/Amin_User1.png");
+    // dani
+    static Texture2D Dani_Right = LoadTexture("game_assets/character_select_screen_asset/Dani_User2.png");
+    static Texture2D Dani_Left = LoadTexture("game_assets/character_select_screen_asset/Dani_User1.png");
+    //pouya
+    static Texture2D Pouya_Right =LoadTexture("game_assets/character_select_screen_asset/Pouya_User2.png");
+    static Texture2D Pouya_Left =LoadTexture("game_assets/character_select_screen_asset/Pouya_User1.png");
+    // Taha kockike
+    static Texture2D TLITTLE_Right =LoadTexture("game_assets/character_select_screen_asset/TLITTLE_User2.png");
+    static Texture2D TLITTLE_Left =LoadTexture("game_assets/character_select_screen_asset/TLITTLE_User1.png");
+    // Taha bozorge
+    static Texture2D TBIG_Right =LoadTexture("game_assets/character_select_screen_asset/TBIG_User2.png");
+    static Texture2D TBIG_Left =LoadTexture("game_assets/character_select_screen_asset/TBIG_User1.png");
+    // white doc
+    static Texture2D DOC_Right =LoadTexture("game_assets/character_select_screen_asset/DOC_User2.png");
+    static Texture2D DOC_Left =LoadTexture("game_assets/character_select_screen_asset/DOC_User1.png");
+    //SHAHRIAR
+    static Texture2D SHAHRIAR_Right =LoadTexture("game_assets/character_select_screen_asset/shahriar_User2.png");
+    static Texture2D SHAHRIAR_Left =LoadTexture("game_assets/character_select_screen_asset/shahriar_User1.png");
+
+
+    if(current_user == USER1)
+    {
+        switch (user1_hero_array[array_index])
+        {
+        case DANI_GOLANG:
+            return Dani_Left;
+        case AMIN_EMENI:
+            return Amin_Left;
+        case AGHA_SHAHRIAR:
+            return SHAHRIAR_Left;
+        case POUYA_KAJDOM:
+            return Pouya_Left;
+        case TAHA_KOCHIKE:
+            return  TLITTLE_Left;
+        case TAHA_BOZORGE:
+            return TBIG_Left;
+        case WHITEDOCTOR:
+            return DOC_Left;
+
+        }
+    }
+    else if(current_user == USER2)
+    {
+        switch (user1_hero_array[array_index])
+        {
+        case DANI_GOLANG:
+            return Dani_Right;
+        case AMIN_EMENI:
+            return Amin_Right;
+        case AGHA_SHAHRIAR:
+            return SHAHRIAR_Right;
+        case POUYA_KAJDOM:
+            return Pouya_Right;
+        case TAHA_KOCHIKE:
+            return  TLITTLE_Right;
+        case TAHA_BOZORGE:
+            return TBIG_Right;
+        case WHITEDOCTOR:
+            return DOC_Right;
+
+        }
+
+    }
+} 
+
+
+Game::Game() : current_screen(CHARACTER_SELECT_SCREEN)
 {}
 
 bool Game::Manage_Screens()
@@ -371,6 +442,11 @@ void Game::Character_Select_Screen()
     static Texture2D User2_form_inactive = LoadTexture("game_assets/character_select_screen_asset/user2inputbox-notselected.jpg");
     static Texture2D User2_form_active = LoadTexture("game_assets/character_select_screen_asset/user2inputbox-selected.jpg");
     
+
+    
+        
+    
+
     //music control variables
     static bool Is_music_playing = false;
     //fade transition variables
@@ -391,8 +467,15 @@ void Game::Character_Select_Screen()
     static int User_Turn = USER1; // to know whos turn it is
     static int temp_hero_being_selected = NONSELECT; // this is to know which hero the hero wants to select
     static bool fading_out = false;
+    
+    //keeping track of user inputs
     static std::array <bool,8> user1_chosen_heros = {};
     static std::array <bool,8> user2_chosen_heros = {};
+    static char user1_name[26];
+    static char user2_name[26];
+    static char name[26]; 
+    static std::array <int ,3> user1_hero_array;
+    static std::array <int ,3> user2_hero_array;
     
     //playing music
     if(!Is_music_playing)
@@ -568,6 +651,8 @@ void Game::Character_Select_Screen()
     }
 
     //-------------------------------------------------------------------------------------------------------------
+   
+   
     //this is for the transition when we change screen
     //from menu to character select and only is used once
     if(Is_fading_in)
@@ -581,11 +666,9 @@ void Game::Character_Select_Screen()
         }
     }
 
+
     //we use this to put delay between input boxes poping up
     //once used for user1 and once for user2
-
-
-
     if(timer < 2)
     {
         //this timer roughly takes 3 seconds to reach value 2
@@ -616,6 +699,7 @@ void Game::Character_Select_Screen()
         }
     }
     
+
     //this switch is to help tidy up the code and to avoid rewriting code
     //this is related to the input box poping up and then
     //asking the user to choose characters
@@ -624,7 +708,6 @@ void Game::Character_Select_Screen()
         case GET_USER_INPUT_NAME:
             //we fade the background using this draw function
             DrawRectangle(0,0,GetScreenWidth(), GetScreenHeight(), Fade(BLACK,0.7));
-            
             
             //to know if user has clicked on the input box
             if(CheckCollisionPointRec(Mouse_position,name_inputbox_boarder))
@@ -683,7 +766,7 @@ void Game::Character_Select_Screen()
                 }
 
                 // we store the string value inside this char array
-                static char name[26];
+                
                 string_to_char_array(User_Input_Name, name);
 
                 //this vector2 helps with center aligning the txt
@@ -712,9 +795,11 @@ void Game::Character_Select_Screen()
                             // we set the name inside the object that is the game class
                             // attribute
                             user1.Set_Name(User_Input_Name);
+                            string_to_char_array(User_Input_Name, user1_name);
                         }
                         else if(User_Turn == USER2)
                         {
+                            string_to_char_array(User_Input_Name, user2_name);
                             user2.Set_Name(User_Input_Name);
                         }
 
@@ -727,6 +812,7 @@ void Game::Character_Select_Screen()
             }
             break;
         
+    
         case GET_USER_INPUT_CHARACTERS:
             
 
@@ -789,6 +875,40 @@ void Game::Character_Select_Screen()
     // {
     //     std::cout << user1_chosen_heros[i] << "  ";
     // }
+
+
+    // printing heros and name on the screen
+    
+    Vector2 user1_name_size = MeasureTextEx(font, user1_name, 20, 0);
+    Vector2 user2_name_size = MeasureTextEx(font, user2_name, 20, 0);
+    
+    //printing user1 name
+    DrawTextEx(font,user1_name,{120 - (user1_name_size.x / 2),20},20,0,GRAY);      
+    //printing user2 name
+    DrawTextEx(font,user2_name,{880 - (user2_name_size.x / 2) , 20}, 20, 0, GRAY);
+
+    //print user 1 cards on screen
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        switch (i)
+        {
+        case 0:
+            
+            break;
+        
+        case 1:
+            /* code */
+            break;
+    
+        case 2:
+            /* code */
+            break;
+        
+        
+        }
+    }
+    //print user 2 cards on screen
+
 
     EndDrawing();
 
