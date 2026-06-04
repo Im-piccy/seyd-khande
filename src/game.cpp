@@ -5,6 +5,7 @@
 #include "../headers/user.hpp"
 #include "../headers/controller.hpp"
 #include <iostream>
+#include <cmath>
 #include <array>
 
 
@@ -168,7 +169,7 @@ bool Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(const std::array<
     }
 }
 
-Game::Game() : current_screen(CHARACTER_SELECT_SCREEN)
+Game::Game() : current_screen(MENU_SCREEN)
 {}
 
 bool Game::Manage_Screens()
@@ -343,7 +344,9 @@ void Game::Character_Select_Screen()
     //music and background pic
     static Music background_music = LoadMusicStream("game_assets/character_select_screen_asset/ch-select-music.mp3");
     static Texture2D background_img = LoadTexture("game_assets/character_select_screen_asset/character-select-background.png");
-
+    static Sound Card_sfx = LoadSound("game_assets/character_select_screen_asset/confirm_button_sfx.mp3");
+    static Sound Confirm_sfx = LoadSound("game_assets/character_select_screen_asset/deck_selection_complete_sfx.mp3");
+    static Sound Deck_Complete_sfx = LoadSound("game_assets/character_select_screen_asset/hover_over_cards_sfx.mp3");
     //adding font
     static Font font = LoadFont("game_assets/character_select_screen_asset/bahnschrift.ttf"); 
 
@@ -423,6 +426,7 @@ void Game::Character_Select_Screen()
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,DANI_GOLANG))
         {
+            
             DrawTexture(Dani_card.texture,Dani_card.bound.x,Dani_card.bound.y,WHITE);
             //if user click on the hero we will store the hero in the temp hero variable
             temp_hero_being_selected = Change_temperory_hero_selected(DANI_GOLANG , temp_hero_being_selected);
@@ -431,22 +435,24 @@ void Game::Character_Select_Screen()
     }
 
     //checking mouse hover over T big
-    if(CheckCollisionPointRec(Mouse_position,T_Big_card.bound))
+    else if(CheckCollisionPointRec(Mouse_position,T_Big_card.bound))
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,TAHA_BOZORGE))
         {
+            
             DrawTexture(T_Big_card.texture,T_Big_card.bound.x,T_Big_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(TAHA_BOZORGE, temp_hero_being_selected);
         }
     }
 
     //checking mouse hover over T little
-    if(CheckCollisionPointRec(Mouse_position,T_Little_card.bound))
+    else if(CheckCollisionPointRec(Mouse_position,T_Little_card.bound))
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,TAHA_KOCHIKE))
         {
+            
             DrawTexture(T_Little_card.texture,T_Little_card.bound.x,T_Little_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(TAHA_KOCHIKE, temp_hero_being_selected);
         }
@@ -454,48 +460,53 @@ void Game::Character_Select_Screen()
     }
 
     //checking mouse hover over white doc
-    if(CheckCollisionPointRec(Mouse_position,White_Doctor_card.bound))
+    else if(CheckCollisionPointRec(Mouse_position,White_Doctor_card.bound))
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,WHITEDOCTOR))
         {
+            
             DrawTexture(White_Doctor_card.texture,White_Doctor_card.bound.x,White_Doctor_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(WHITEDOCTOR, temp_hero_being_selected);
         }
     }
 
     //checking mouse hover over shahriar
-    if(CheckCollisionPointRec(Mouse_position,Shahriar_card.bound))
+    else if(CheckCollisionPointRec(Mouse_position,Shahriar_card.bound))
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,AGHA_SHAHRIAR))
         {
+            
             DrawTexture(Shahriar_card.texture,Shahriar_card.bound.x,Shahriar_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(AGHA_SHAHRIAR, temp_hero_being_selected);
         }
     }
 
     //checking mouse hover over pouya
-    if(CheckCollisionPointRec(Mouse_position,Pouya_card.bound))
+    else if(CheckCollisionPointRec(Mouse_position,Pouya_card.bound))
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,POUYA_KAJDOM))
         {
+            
             DrawTexture(Pouya_card.texture,Pouya_card.bound.x,Pouya_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(POUYA_KAJDOM, temp_hero_being_selected);
         }
     }
 
     //checking mouse hover over amin
-    if(CheckCollisionPointRec(Mouse_position,Amin_card.bound))
+    else if(CheckCollisionPointRec(Mouse_position,Amin_card.bound))
     {
         //highlight the card
         if(User_Hover_Should_Highlight_Ui_Elemets && Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(user1_chosen_heros, user2_chosen_heros,User_Turn,AMIN_EMENI))
         {
+            
             DrawTexture(Amin_card.texture,Amin_card.bound.x,Amin_card.bound.y,WHITE);
             temp_hero_being_selected = Change_temperory_hero_selected(AMIN_EMENI, temp_hero_being_selected);
         }
     }
+    
     // -----------------------------------------------------------------------------------
     //------------------mouse hovering over buttons reset and choose buttons management ---------
     //choose button 
@@ -508,6 +519,7 @@ void Game::Character_Select_Screen()
             //if user clicked on the button it will update user array   
             if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
             {
+                PlaySound(Confirm_sfx);
                 switch (User_Turn)
                 {
                     case USER1:
@@ -538,6 +550,7 @@ void Game::Character_Select_Screen()
         //this resets the users array so the characters wont be shown on the screen
         if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
+            PlaySound(Confirm_sfx);
             temp_hero_being_selected = NONSELECT;
             switch (User_Turn)
             {
@@ -683,8 +696,11 @@ void Game::Character_Select_Screen()
                 {
                     //this means user is hovering over the button
                     //now we check to see if user has clicked
+                    if(!IsSoundPlaying(Card_sfx));
+                        PlaySound(Card_sfx);
                     if((IsMouseButtonPressed(MOUSE_LEFT_BUTTON) || IsKeyPressed(KEY_ENTER)) && !User_Input_Name.empty())
                     {
+                        PlaySound(Confirm_sfx);
                         //user has confirmed the input so 
                         // we close the pop up input box
                         screen_stage = GET_USER_INPUT_CHARACTERS;
@@ -724,6 +740,7 @@ void Game::Character_Select_Screen()
                 fade = 255;
                 
             }
+            SetMusicVolume(background_music, 1.0 - fade/255.0);
             break;
 
     }
@@ -782,6 +799,7 @@ void Game::Character_Select_Screen()
     case USER1:
         if(control.Is_Hero_Array_Full(user1))
         {
+            PlaySound(Deck_Complete_sfx);
             //user has chosen all tree cards and now we reset the variable
             //to get the other user hero cards as well
             User_Turn = USER2;
@@ -792,10 +810,11 @@ void Game::Character_Select_Screen()
             User_Hover_Should_Highlight_Ui_Elemets = false;
         }
         break;
-    
-    case USER2:
+        
+        case USER2:
         if(control.Is_Hero_Array_Full(user2))
         {
+            PlaySound(Deck_Complete_sfx);
             //disable all user controll
             User_Hover_Should_Highlight_Ui_Elemets = false;
             User_Turn = 3; // to avoid coming into this switch
