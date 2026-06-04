@@ -47,3 +47,8 @@ void User::add_hero_to_hero_array(int hero)
         }
     }
 }
+
+std::array<int,3> User::Get_Hero_Array() const
+{
+    return Hero_Arr;
+}
