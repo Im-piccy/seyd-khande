@@ -32,12 +32,17 @@ bool User::Set_Name(std::string username)
     return true;
 }
 
-std::string User::Get_Name() const
+std::string User::Get_Name_String() const
 {
     std::string username;
     for(int i = 0; i < 25; i++)
         username[i] = this->username[i];
     return username;
+}
+
+std::array<char,26> User::Get_Name_Char_Array() const
+{
+    this->username;
 }
 
 void User::add_hero_to_hero_array(int hero)
