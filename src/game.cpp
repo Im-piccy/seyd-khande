@@ -256,8 +256,8 @@ bool Game::Manage_Screens()
             return true;
 
         case GAME_SCREEN:
-          //  Game_Screen();
-            break;
+            Game_Screen();
+            return true;
 
         case GAME_OVER_SCREEN:
             //Game_Over_Screen();
@@ -1109,3 +1109,47 @@ void Game::Character_Select_Screen()
         break;
     }
 }
+
+void Game::Game_Screen()
+{
+
+    //music and sound and font
+    static Music Background_music = LoadMusicStream("game_assets/game_screen_assets/game_background_music.mp3");
+    
+    
+    static Texture2D Background_img = LoadTexture("game_assets/game_screen_assets/game_background.jpg");
+    
+
+    static float fade = 255.0;
+    static bool is_fading_in = true;
+    static bool is_music_playing = false;
+
+    if(!is_music_playing)
+    {
+        PlayMusicStream(Background_music);
+        is_music_playing = true;
+    }
+
+    UpdateMusicStream(Background_music);
+    
+    BeginDrawing();
+    //drawing the background
+    DrawTexture(Background_img, 0, 0, WHITE);
+
+
+
+    if(is_fading_in)
+    {
+        DrawRectangle(0, 0, GetScreenWidth(), GetScreenHeight(), Fade(BLACK, fade/255.0));
+        fade -= 4.0;
+        if(fade <= 0)
+        {
+            is_fading_in = false;
+            fade = 0;
+        }
+    }
+
+    EndDrawing();
+
+}
+
