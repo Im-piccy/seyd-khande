@@ -15,7 +15,7 @@ class Game
         bool Manage_Screens();
         void Menu_Screen();
         void Character_Select_Screen();
-       // bool Game_Screen();
+        void Game_Screen();
         //bool Game_Over_Screen();
     private:
         int current_screen;
