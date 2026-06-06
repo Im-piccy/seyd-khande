@@ -74,3 +74,8 @@ void Controller::Fill_Hero_object_Array(int user_number, int index, HERO_TYPE he
 //         Hero_Arr_User2[i] = nullptr;
 //     }
 // }
+
+int Controller::return_round_number()
+{
+    return round_number;
+}

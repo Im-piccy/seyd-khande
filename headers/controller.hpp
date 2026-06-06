@@ -24,6 +24,7 @@ class Controller
         void Fill_Hero_object_Array(int user_number, int index, HERO_TYPE hero_type);
         void Fill_Hero_object_Array(std::array<Hero_Abstaction*,3>, int index, HERO_TYPE hero_type);
         void Set_User_Hero_Array_Index(int index);
+        int return_round_number();
         //~Controller();
         
     private:
