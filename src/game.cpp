@@ -8,7 +8,9 @@
 #include <cmath>
 #include <array>
 
-
+const float Animation_Duration = 2.0f;
+const float Animation_Speed = 10.0f;
+const int characters_sprite_sheets_frame_height = 250;
 
 void string_to_char_array(std::string st, char out[])//string should not have more than 25 characters
 {
@@ -169,6 +171,60 @@ bool Based_On_The_Chosen_Cards_Should_This_Card_Be_Highlighted(const std::array<
     }
 }
 
+
+struct Animation
+{
+    int First_frame;
+    int Last_frame;
+    int current_frame;
+
+    float frame_width;
+    float frame_height;
+    float first_frame_x;
+    float first_frame_y;
+
+
+    float animation_speed;
+    float duration_left;
+    float initial_duration;
+    Rectangle frame;
+};
+
+void update_animation_loop(Animation& anim)
+{
+    anim.duration_left -= GetFrameTime() * anim.animation_speed;
+    if(anim.duration_left <= 0)
+    {
+        anim.current_frame++;
+        anim.duration_left = anim.initial_duration;
+    }
+    if(anim.current_frame > anim.Last_frame)
+    {
+        anim.current_frame = anim.First_frame;
+    }
+    anim.frame = {anim.first_frame_x + (anim.frame_width * anim.current_frame), anim.first_frame_y, anim.frame_width, anim.frame_height};
+}
+
+void update_animation_once(Animation& anim)
+{
+    if(anim.current_frame == anim.First_frame)
+    {
+        return;
+    }
+
+    anim.duration_left -= GetFrameTime() * Animation_Speed;
+    if(anim.duration_left <= 0)
+    {
+        anim.duration_left = anim.initial_duration;
+        anim.current_frame++;
+    }
+    if(anim.current_frame > anim.Last_frame)
+    {
+        anim.current_frame = anim.Last_frame;
+    }
+    anim.frame = {anim.first_frame_x + (anim.frame_width * anim.current_frame), anim.first_frame_y, anim.frame_width, anim.frame_height};
+    
+}
 Texture2D Return_The_Corresponding_Texture_Based_On_User_Array(const std::array <int,3> & user1_hero_array, const std::array <int,3> & user2_hero_array, int current_user, int array_index)
 {
     //amin 
@@ -240,8 +296,214 @@ Texture2D Return_The_Corresponding_Texture_Based_On_User_Array(const std::array 
 } 
 
 
-Game::Game() : current_screen(MENU_SCREEN)
+void highlight_hero_which_mouse_is_hovering_over(const std::array <int , 3>& user1_hero_array, const std::array <int, 3>& user2_hero_array, int user, int index)
+{
+    if(user == USER1)
+    {
+        switch(user1_hero_array[index])
+        {
+            
+        }
+    }
+    else if (user == USER2)
+    {
+
+    }
+}
+
+Animation return_animation_struct_that_is_going_to_be_played(const std::array <int, 3>& user1_hero_arr, const std::array <int, 3>& user2_hero_arr, int user_turn, int hero_index_in_arr, const std::array <Animation, 7>& animation_sturcts)
+{
+
+}
+
+void set_frame_width_with_respect_to_the_player(Animation& anim, int width , int user)
+{
+    if(user == USER1)
+    {
+        anim.frame_width = width;
+    }
+    else
+    {
+        anim.frame_width = -width;
+    }
+}
+Game::Game() : current_screen(CHARACTER_SELECT_SCREEN)
 {}
+
+void Game::load_animation_sprite_sheets()
+{
+    Doc_anim_texture = LoadTexture("game_assets/game_screen_assets/doc-sprite-sheet.png");
+    Dani_anim_texture = LoadTexture("game_assets/game_screen_assets/dani-sprite.png");
+    Amin_anim_texture = LoadTexture("game_assets/game_screen_assets/amin-sprite.png");
+    Tlittle_anim_texture = LoadTexture("game_assets/game_screen_assets/t-little-sprite.png");
+    Tbig_anim_texture = LoadTexture("game_assets/game_screen_assets/tbig-sprite.png");
+    Pouya_anim_texture = LoadTexture("game_assets/game_screen_assets/pouya-sprite.png");
+    Shahriar_anim_texture = LoadTexture("game_assets/game_screen_assets/shahriar-sprite.png");
+}
+
+void Game::unload_animation_sprite_sheets()
+{
+    UnloadTexture(Doc_anim_texture);
+    UnloadTexture(Dani_anim_texture);
+    UnloadTexture(Amin_anim_texture);
+    UnloadTexture(Tlittle_anim_texture);
+    UnloadTexture(Tbig_anim_texture);
+    UnloadTexture(Pouya_anim_texture);
+    UnloadTexture(Shahriar_anim_texture);
+}
+
+void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const std::array <int,3>& user1_heros, const std::array <int,3>&  user2_heros, int index, int user_turn,bool should_highlight,int hero_being_hoverd)
+{
+
+    //for player one
+    switch (user1_heros[index])
+    {
+    case WHITEDOCTOR:
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Doc_anim_texture,{0,0, -164,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }
+        else
+            DrawTextureRec(Doc_anim_texture,{0,0, -164,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
+        break;
+    
+    case DANI_GOLANG:
+    if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Dani_anim_texture,{0,0, -136,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }
+        else
+            DrawTextureRec(Dani_anim_texture,{0,0, -136,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
+        break;
+    
+    case AMIN_EMENI:
+    if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Amin_anim_texture,{0,0, -145,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }
+        else
+            DrawTextureRec(Amin_anim_texture,{0,0, -145,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case POUYA_KAJDOM:
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Pouya_anim_texture,{0,0, -120,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }
+        else
+            DrawTextureRec(Pouya_anim_texture,{0,0, -120,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case AGHA_SHAHRIAR:
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        {
+           DrawTextureRec(Shahriar_anim_texture,{0,0, -160,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Shahriar_anim_texture,{0,0, -160,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY); 
+        
+        break;
+    
+    case TAHA_KOCHIKE:
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Tlittle_anim_texture,{0,0, -185,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Tlittle_anim_texture,{0,0, -185,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case TAHA_BOZORGE:
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Tbig_anim_texture,{0,0, -135,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Tbig_anim_texture,{0,0, -135,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    }
+    //for player two
+
+    switch (user2_heros[index])
+    {
+    case WHITEDOCTOR:
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Doc_anim_texture,{0,0, 164,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Doc_anim_texture,{0,0, 164,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case DANI_GOLANG:
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Dani_anim_texture,{0,0, 136,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Dani_anim_texture,{0,0, 136,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case AMIN_EMENI:
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Amin_anim_texture,{0,0, 145,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Amin_anim_texture,{0,0, 145,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case POUYA_KAJDOM:
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Pouya_anim_texture,{0,0, 120,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Pouya_anim_texture,{0,0, 120,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case AGHA_SHAHRIAR:
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Shahriar_anim_texture,{0,0, 160,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Shahriar_anim_texture,{0,0, 160,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case TAHA_KOCHIKE:
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Tlittle_anim_texture,{0,0, 178,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Tlittle_anim_texture,{0,0, 178,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    case TAHA_BOZORGE:
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        {
+            DrawTextureRec(Tbig_anim_texture,{0,0, 135,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
+        }     
+        else
+            DrawTextureRec(Tbig_anim_texture,{0,0, 135,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
+        
+        break;
+    
+    }
+}
+
 
 bool Game::Manage_Screens()
 {
@@ -739,11 +1001,7 @@ void Game::Character_Select_Screen()
         }
     }
     
-    // std::cout << "user one hero tracker array: \n";
-    // for(int i = 0 ; i < 7 ; i++)
-    // {
-    //     std::cout << user1_chosen_heros[i] << "  ";
-    // }
+   
 
 
     // printing heros and name on the screen
@@ -1110,33 +1368,282 @@ void Game::Character_Select_Screen()
     }
 }
 
+Texture2D Game::return_texture_based_on_arguments_passed(const std::array <int,3>& user1_hero_arr, const std::array <int,3>& user2_hero_arr,int user_turn, int hero_index_in_array)
+{
+    if(user_turn == USER1)
+    {
+        switch (user1_hero_arr[hero_index_in_array])
+        {
+        case DANI_GOLANG:
+            return Dani_anim_texture;
+        case AMIN_EMENI:
+            return Amin_anim_texture;
+        case TAHA_BOZORGE:
+            return Tbig_anim_texture;
+        case TAHA_KOCHIKE:
+            return Tlittle_anim_texture;
+        case POUYA_KAJDOM:
+            return Pouya_anim_texture;
+        case WHITEDOCTOR:
+            return Doc_anim_texture;
+        case AGHA_SHAHRIAR:
+            return Shahriar_anim_texture;
+        
+        }
+    }
+    else if(user_turn == USER2)
+    {
+        switch (user2_hero_arr[hero_index_in_array])
+        {
+        case DANI_GOLANG:
+            return Dani_anim_texture;
+        case AMIN_EMENI:
+            return Amin_anim_texture;
+        case TAHA_BOZORGE:
+            return Tbig_anim_texture;
+        case TAHA_KOCHIKE:
+            return Tlittle_anim_texture;
+        case POUYA_KAJDOM:
+            return Pouya_anim_texture;
+        case WHITEDOCTOR:
+            return Doc_anim_texture;
+        case AGHA_SHAHRIAR:
+            return Shahriar_anim_texture;
+        
+        }
+    }
+}
+
+
 void Game::Game_Screen()
 {
 
     //music and sound and font
     static Music Background_music = LoadMusicStream("game_assets/game_screen_assets/game_background_music.mp3");
-    
-    
-    static Texture2D Background_img = LoadTexture("game_assets/game_screen_assets/game_background.jpg");
-    
+    static Font font = LoadFont("game_assets/character_select_screen_asset/bahnschrift.ttf"); 
 
+    //background related textures
+    static Texture2D Background_img = LoadTexture("game_assets/game_screen_assets/game_background.jpg");
+    static Texture2D Control_panel = LoadTexture("game_assets/game_screen_assets/control-panel-hero-not-selected.png");
+    static Texture2D Control_panle_hero_selected = LoadTexture("game_assets/game_screen_assets/control-panel-hero-selected.png");
+
+
+    
+    //transition fade and music control variables
     static float fade = 255.0;
     static bool is_fading_in = true;
     static bool is_music_playing = false;
+    
+    // these variables are going to be used for fliping the 
+    //animation sprite for users
+    static float doc_frame_width = 164;
+    static float dani_frame_width = 136;
+    static float amin_frame_width = 145;
+    static float shahriar_frame_width = 160;
+    static float pouya_frame_width = 134;
+    static float tbig_frame_width = 135;
+    static float tlittle_frame_width = 178;
 
+    //animation and screen control
+    static bool are_textures_loaded = false;
+    static bool should_hero_be_animated = false;
+    static bool Hero_should_be_highlighted = false;
+    int hero_to_be_highlighted_index;
+    int hero_to_be_animated_index;
+
+
+    if(!are_textures_loaded)
+    {
+        load_animation_sprite_sheets();
+        are_textures_loaded = true;
+    }
+
+
+    //animation struct declarations
+    //initialization goes like this -> {first frame, last frame, current frame, frame-width, frame-height, first-frame-x, first-frame-y, animation-speed, duration-left, initial-duration, {rectangle frame x, rectangle frame y, width , height}}
+    static Animation Doc_anim_struct = {0, 4, 0, doc_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, doc_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Dani_anim_struct = {0, 4, 0, dani_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, dani_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Amin_anim_struct = {0, 4, 0, amin_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, amin_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Shahriar_anim_struct = {0, 4, 0, shahriar_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, shahriar_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Pouya_anim_struct = {0, 4, 0, pouya_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, pouya_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Tbig_anim_struct = {0, 4, 0, tbig_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tbig_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Tlittle_anim_struct = {0, 4, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height}};
+    std::array <Animation, 7> animation_structs_in_array {Doc_anim_struct, Tlittle_anim_struct,Dani_anim_struct,Amin_anim_struct,Tbig_anim_struct,Pouya_anim_struct,Shahriar_anim_struct};
+    
+
+
+
+    //variables for logic of the program
+    static int User_Turn = USER1;
+    static bool copied_user1_info = false;
+    static bool copied_user2_info = false;
+    static Vector2 Mouse_Positon;
+    static Rectangle user1_hero1_bound = {202,104,120,102};
+    static Rectangle user1_hero2_bound = {82,146,120,250};
+    static Rectangle user1_hero3_bound = {202,206, 120, 250};
+    static Rectangle user2_hero1_bound = {660,104,120,102};
+    static Rectangle user2_hero2_bound = {773,136,120,250};
+    static Rectangle user2_hero3_bound = {660,206,120,250};
+
+
+    //user info
+    static char user1_name[26];
+    static char user2_name[26];
+    static std::array <int, 3> user1_hero_arr;
+    static std::array <int, 3> user2_hero_arr;
+    static Vector2 User1_name_size;
+    static Vector2 User2_name_size;
+    static char user1_energy[2] = {};
+    static char user2_energy[2] = {};
+
+    //music control 
     if(!is_music_playing)
     {
         PlayMusicStream(Background_music);
         is_music_playing = true;
     }
-
     UpdateMusicStream(Background_music);
     
+
+    //storing users info in this local scope
+    //we use boolian variables to run this part just once
+    if(!copied_user1_info)
+    {
+        copied_user1_info = true;
+        string_to_char_array(user1.Get_Name_String(), user1_name);
+        user1_hero_arr = user1.Get_Hero_Array();
+        User1_name_size = MeasureTextEx(font, user1_name, 20, 0);
+    }
+    if(!copied_user2_info)
+    {
+        copied_user2_info = true;
+        string_to_char_array(user2.Get_Name_String(), user2_name);
+        user2_hero_arr = user2.Get_Hero_Array();
+        User2_name_size = MeasureTextEx(font, user2_name, 20, 0);
+    }
+
+    user1_energy[0] = user1.Get_Energy() + '0';
+    user2_energy[0] = user2.Get_Energy() + '0';
+
+    Mouse_Positon = GetMousePosition();
+
+    //check collision with heros and remember which hero
+    if(CheckCollisionPointRec(Mouse_Positon, user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound))
+    {
+        hero_to_be_highlighted_index = 0;
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        {
+            hero_to_be_animated_index = 0;
+        }
+    }
+    else if(CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound))
+    {
+        hero_to_be_highlighted_index = 1;
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        {
+            hero_to_be_animated_index = 1;
+        }
+    }
+    else if(CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
+    {
+        hero_to_be_highlighted_index = 2;
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        {
+            hero_to_be_animated_index = 2;
+        }
+    }
+    else
+    {
+        Hero_should_be_highlighted = false;
+        //if user clicks  on the background image it will diable hero selection
+        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            should_hero_be_animated = false;
+        }
+    }
+    
+    //now we check to see which user is hovering over which character
+    //and to see if the character should highlight or not
+    if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero3_bound))
+    {
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && User_Turn == USER1)
+        {
+            should_hero_be_animated = true;
+        }
+        if(User_Turn == USER1)
+        {
+            Hero_should_be_highlighted = true;
+
+        }
+
+    }
+    else if(CheckCollisionPointRec(Mouse_Positon,user2_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user2_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user2_hero3_bound))
+    {
+        if(User_Turn == USER2)
+        {
+            Hero_should_be_highlighted = true;
+        }
+        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && User_Turn == USER2)
+        {
+            should_hero_be_animated = true;
+        }
+    }
+
+    //drawing part
     BeginDrawing();
-    //drawing the background
-    DrawTexture(Background_img, 0, 0, WHITE);
+
+    //drawing the background and panels
+    DrawTexture(Background_img, 0, -100, WHITE);
+
+    //this means a hero should be animated
+    if(should_hero_be_animated)
+    {
+        if(User_Turn == USER1)
+            DrawTextureRec(return_texture_based_on_arguments_passed(user1_hero_arr, user2_hero_arr, User_Turn, hero_to_be_animated_index), return_animation_struct_that_is_going_to_be_played(user1_hero_arr, user2_hero_arr, User_Turn,hero_to_be_animated_index - 1, animation_structs_in_array).frame,{180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)},WHITE);
+        else if(User_Turn == USER2)
+        {
+            DrawTextureRec(return_texture_based_on_arguments_passed(user1_hero_arr, user2_hero_arr, User_Turn, hero_to_be_animated_index), return_animation_struct_that_is_going_to_be_played(user1_hero_arr, user2_hero_arr, User_Turn,hero_to_be_animated_index - 1, animation_structs_in_array).frame,{1000- (180.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)},WHITE);
+            
+        }
+    }
+    
+    //drawing heros 
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr,i,User_Turn,Hero_should_be_highlighted,hero_to_be_highlighted_index);
+    }
+    //panel
+    DrawTexture(Control_panel, 0, 600 - Control_panel.height, WHITE);
 
 
+    //drawing name and energy level and round number on the ui panel
+    // draw info grayed out and highlight it according to user turn
+    //user1 info
+    DrawTextEx(font, user1_name,{96 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, GRAY);
+    DrawText(user1_energy, 90, 565, 20, GRAY);
+    //user2 info
+    DrawTextEx(font, user2_name,{912 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, GRAY);
+    DrawText(user2_energy, 910, 565, 20, GRAY);
+
+    //now for highlighting  text for whom ever turn it is
+    if(User_Turn == USER1)
+    {
+        DrawTextEx(font, user1_name,{96 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, WHITE);
+        DrawText(user1_energy, 90, 565, 20, WHITE);
+    }
+    else if(User_Turn == USER2)
+    {
+        DrawTextEx(font, user2_name,{912 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, WHITE);
+        DrawText(user2_energy, 910, 565, 20, WHITE);
+    }
+
+
+    //drawing heros on the screen
+
+
+
+
+    
 
     if(is_fading_in)
     {
@@ -1148,8 +1655,19 @@ void Game::Game_Screen()
             fade = 0;
         }
     }
+    
 
     EndDrawing();
-
+    if(IsKeyPressed(KEY_K))
+    {
+        if(User_Turn == USER1)
+        {
+            User_Turn = USER2;
+        }
+        else
+        {
+            User_Turn = USER1;
+        }
+    }
 }
 
