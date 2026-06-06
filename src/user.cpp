@@ -35,8 +35,12 @@ bool User::Set_Name(std::string username)
 std::string User::Get_Name_String() const
 {
     std::string username;
-    for(int i = 0; i < 25; i++)
+    int i;
+    for(i = 0; i < 25; i++)
+    {
         username[i] = this->username[i];
+    }
+    username[i] = '\0';
     return username;
 }
 
@@ -60,4 +64,9 @@ void User::add_hero_to_hero_array(int hero)
 std::array<int,3> User::Get_Hero_Array() const
 {
     return Hero_Arr;
+}
+
+int User::return_currnet_energy()
+{
+    return energy;
 }
