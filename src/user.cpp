@@ -21,7 +21,7 @@ void User::Set_Energy(int cost)
 
 bool User::Set_Name(std::string username)
 {
-    if(username.size() > 25)
+    if(username.length() > 25)
         return false;
     int i;    
     for(i = 0; i < 25; i++)
