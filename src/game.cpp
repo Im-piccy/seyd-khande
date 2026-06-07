@@ -1476,7 +1476,7 @@ void Game::Game_Screen()
     //animation sprite for users
     static float doc_frame_width = 164;
     static float dani_frame_width = 136;
-    static float amin_frame_width = 100;
+    static float amin_frame_width = 169;
     static float shahriar_frame_width = 160;
     static float pouya_frame_width = 134;
     static float tbig_frame_width = 135;
@@ -1565,29 +1565,7 @@ void Game::Game_Screen()
 
     Mouse_Positon = GetMousePosition();
 
-    //check collision with heros and remember which hero
-    // if(CheckCollisionPointRec(Mouse_Positon, user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound))
-    // {
-    //     hero_to_be_highlighted_index = 0;
-        
-    // }
-    // else if(CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound))
-    // {
-    //     hero_to_be_highlighted_index = 1;
-        
-    // }
-    // else if(CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
-    // {
-    //     hero_to_be_highlighted_index = 2;
-        
-        
-    // }
-    // else
-    // {
-    //     Hero_should_be_highlighted = false;
-    //     //if user clicks  on the background image it will diable hero selection
-        
-    // }
+    
     if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound))
     {
         hero_to_be_highlighted_index = 0;
@@ -1695,18 +1673,37 @@ void Game::Game_Screen()
         {
             DrawTextureRec(return_texture_based_on_arguments_passed(user1_hero_arr, user2_hero_arr, User_Turn, hero_to_be_animated_index), return_animation_struct_that_is_going_to_be_played(user1_hero_arr, user2_hero_arr, User_Turn,hero_to_be_animated_index - 1, animation_structs_in_array).frame,{1000- (180.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)},WHITE);
             
+            }
+            }
+            */
+           
+           
+    //panel
+    DrawTexture(Control_panel, 0, 600 - Control_panel.height, WHITE);
+   
+    
+    //this loop and if statement is placed here
+    //to make the heros be drawn in the backgrond
+    //or in front of the animated hero
+    //with out this the animations wont look correct
+    if(hero_to_be_animated_index == 2)
+    {
+        //drawing heros 
+        for(int i = 0 ; i < 3 ; i++)
+        {
+            
+            print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, hero_to_be_highlighted_index, hero_to_be_animated_index);
         }
     }
-    */
-
-   
-   
-   //animating heros
-   
+    
+    
+    //animating heros
    if(should_hero_be_animated)
    {
+
        if(User_Turn == USER1)
        {
+
            switch (user1_hero_arr[hero_to_be_animated_index])
            {
                case DANI_GOLANG:
@@ -1779,7 +1776,7 @@ void Game::Game_Screen()
                 //this is to flip horizontaly so that the animation is facing the correct direction
                 if(Dani_anim_struct.frame_width < 0)
                 {
-                    Dani_anim_struct.frame_width = -dani_frame_width;
+                    Dani_anim_struct.frame_width = dani_frame_width;
                 }
                 DrawTextureRec(Dani_anim_texture,Dani_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
                 update_animation_loop(Dani_anim_struct);
@@ -1788,7 +1785,7 @@ void Game::Game_Screen()
                 case AMIN_EMENI:
                 if(Amin_anim_struct.frame_width < 0)
                 {
-                    Amin_anim_struct.frame_width = -amin_frame_width;
+                    Amin_anim_struct.frame_width = amin_frame_width;
                 }
                 DrawTextureRec(Amin_anim_texture,Amin_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
                 update_animation_loop(Amin_anim_struct);
@@ -1797,7 +1794,7 @@ void Game::Game_Screen()
                 case TAHA_BOZORGE:
                 if(Tbig_anim_struct.frame_width < 0)
                 {
-                    Tbig_anim_struct.frame_width = -tbig_frame_width;
+                    Tbig_anim_struct.frame_width = tbig_frame_width;
                 }
                 DrawTextureRec(Tbig_anim_texture,Tbig_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
                 update_animation_loop(Tbig_anim_struct);
@@ -1805,18 +1802,23 @@ void Game::Game_Screen()
             case TAHA_KOCHIKE:
                 if(Tlittle_anim_struct.frame_width < 0)
                 {
-                    Tlittle_anim_struct.frame_width = -tlittle_frame_width;
+                    Tlittle_anim_struct.frame_width = tlittle_frame_width;
                 }
-                DrawTextureRec(Tlittle_anim_texture,Tlittle_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                DrawTextureRec(Tlittle_anim_texture,Tlittle_anim_struct.frame, {1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
                 update_animation_loop(Tlittle_anim_struct);
                 break;
                 case AGHA_SHAHRIAR:
+                if(Shahriar_anim_struct.frame_width < 0)
+                {
+                    Shahriar_anim_struct.frame_width = shahriar_frame_width;
+                }
+                DrawTextureRec(Shahriar_anim_texture, Shahriar_anim_struct.frame, {1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
                 update_animation_loop(Shahriar_anim_struct);
                 break;
             case WHITEDOCTOR:
                 if(Doc_anim_struct.frame_width < 0)
                 {
-                    Doc_anim_struct.frame_width = - doc_frame_width;
+                    Doc_anim_struct.frame_width =  doc_frame_width;
                 }
                 DrawTextureRec(Doc_anim_texture,Doc_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
                 update_animation_loop(Doc_anim_struct);
@@ -1824,7 +1826,7 @@ void Game::Game_Screen()
             case POUYA_KAJDOM:
                 if(Pouya_anim_struct.frame_width < 0)
                 {
-                    Pouya_anim_struct.frame_width = -pouya_frame_width;
+                    Pouya_anim_struct.frame_width = pouya_frame_width;
                 }
                 DrawTextureRec(Pouya_anim_texture,Pouya_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
                 update_animation_loop(Pouya_anim_struct);
@@ -1832,43 +1834,49 @@ void Game::Game_Screen()
                 
             }
         }
+        //changing the panel to show info and powers
+        DrawTexture(Control_panle_hero_selected,0,600 - Control_panle_hero_selected.height, WHITE);
     }
     
-    
-    //drawing heros 
-    for(int i = 0 ; i < 3 ; i++)
+    if(hero_to_be_animated_index != 2)
     {
-        
-        print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, hero_to_be_highlighted_index, hero_to_be_animated_index);
+        //drawing heros 
+        for(int i = 0 ; i < 3 ; i++)
+        {
+            
+            print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, hero_to_be_highlighted_index, hero_to_be_animated_index);
+        }
     }
+    
+    
 
 
 
-    //panel
-    DrawTexture(Control_panel, 0, 600 - Control_panel.height, WHITE);
 
 
     //drawing name and energy level and round number on the ui panel
     // draw info grayed out and highlight it according to user turn
-    //user1 info
-    DrawTextEx(font, user1_name,{96 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, GRAY);
-    DrawText(user1_energy, 90, 565, 20, GRAY);
-    //user2 info
-    DrawTextEx(font, user2_name,{912 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, GRAY);
-    DrawText(user2_energy, 910, 565, 20, GRAY);
-
-    //now for highlighting  text for whom ever turn it is
-    if(User_Turn == USER1)
+    if(!should_hero_be_animated)
     {
-        DrawTextEx(font, user1_name,{96 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, WHITE);
-        DrawText(user1_energy, 90, 565, 20, WHITE);
-    }
-    else if(User_Turn == USER2)
-    {
-        DrawTextEx(font, user2_name,{912 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, WHITE);
-        DrawText(user2_energy, 910, 565, 20, WHITE);
-    }
+        //user1 info
+        DrawTextEx(font, user1_name,{96 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, GRAY);
+        DrawText(user1_energy, 90, 565, 20, GRAY);
+        //user2 info
+        DrawTextEx(font, user2_name,{912 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, GRAY);
+        DrawText(user2_energy, 910, 565, 20, GRAY);
 
+        //now for highlighting  text for whom ever turn it is
+        if(User_Turn == USER1)
+        {
+            DrawTextEx(font, user1_name,{96 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, WHITE);
+            DrawText(user1_energy, 90, 565, 20, WHITE);
+        }
+        else if(User_Turn == USER2)
+        {
+            DrawTextEx(font, user2_name,{912 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, WHITE);
+            DrawText(user2_energy, 910, 565, 20, WHITE);
+        }
+    }
 
     //drawing heros on the screen
 
