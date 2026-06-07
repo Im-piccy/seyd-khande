@@ -20,7 +20,7 @@ class Game
         void Game_Screen();
         void load_animation_sprite_sheets();
         void unload_animation_sprite_sheets();
-        void print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const std::array <int,3>& user1_heros, const std::array <int,3>&  user2_heros, int index, int user_turn,bool should_highlight,int hero_being_hoverd);  
+        void print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const std::array <int,3>& user1_heros, const std::array <int,3>&  user2_heros, int index, int user_turn,bool should_highlight,int hero_being_hoverd, int hero_to_be_animated_index);  
         Texture2D return_texture_based_on_arguments_passed(const std::array <int,3>& user1_hero_arr, const std::array <int,3>& user2_hero_arr,int user_turn, int hero_index_in_array);
         //bool Game_Over_Screen();
     private:
