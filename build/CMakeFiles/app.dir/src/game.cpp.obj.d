@@ -122,9 +122,6 @@ CMakeFiles/app.dir/src/game.cpp.obj: \
  C:/Users/Bartar404-4/Downloads/w64devkit/include/_mingw_stdarg.h \
  C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/raylib/include/raylib.h \
  C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/hero_abstract_base_class.hpp \
- C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/hero_sub_class_to_instatniate_objects.hpp \
- C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/hero_abstract_base_class.hpp \
- C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/User.hpp \
  C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/ctime \
  C:/Users/Bartar404-4/Downloads/w64devkit/include/time.h \
  C:/Users/Bartar404-4/Downloads/w64devkit/include/sys/timeb.h \
@@ -132,6 +129,9 @@ CMakeFiles/app.dir/src/game.cpp.obj: \
  C:/Users/Bartar404-4/Downloads/w64devkit/include/_timeval.h \
  C:/Users/Bartar404-4/Downloads/w64devkit/include/pthread_time.h \
  C:/Users/Bartar404-4/Downloads/w64devkit/include/pthread_compat.h \
+ C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/hero_sub_class_to_instatniate_objects.hpp \
+ C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/hero_abstract_base_class.hpp \
+ C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/User.hpp \
  C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/user.hpp \
  C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/headers/controller.hpp \
  C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/iostream \
