@@ -4,14 +4,14 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineSystem.cmake:212 (message)"
       - "CMakeLists.txt:2 (project)"
     message: |
       The system is: Windows - 10.0.19045 - AMD64
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeMinGWFindMake.cmake:5 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeMinGWFindMake.cmake:5 (find_program)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_MAKE_PROGRAM"
@@ -27,7 +27,7 @@ events:
     names:
       - "mingw32-make.exe"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -45,11 +45,11 @@ events:
       - "/MinGW/bin/"
       - "/REGISTRY-NOTFOUND/MinGW/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/mingw32-make.exe.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/mingw32-make.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/mingw32-make.exe.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/mingw32-make.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -65,8 +65,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompiler.cmake:63 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompiler.cmake:63 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:64 (_cmake_find_compiler)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_C_COMPILER"
@@ -88,7 +88,7 @@ events:
       - "icx"
       - "clang"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -102,11 +102,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/cc.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/cc.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/cc.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/cc.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -122,11 +122,11 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     mode: "file"
     variable: "src_in"
@@ -142,11 +142,11 @@ events:
     names:
       - "CMakeCCompilerId.c.in"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeCCompilerId.c.in"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeCCompilerId.c.in"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -162,13 +162,13 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-      Compiler: C:/Users/Bartar404-4/Downloads/w64devkit/bin/cc.exe 
+      Compiler: C:/Users/Bartar404-4/Desktop/w64devkit/bin/cc.exe 
       Build flags: 
       Id flags:  
       
@@ -184,8 +184,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_AR"
@@ -201,7 +201,7 @@ events:
     names:
       - "ar"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -215,11 +215,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/ar.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/ar.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/ar.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/ar.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -235,8 +235,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_RANLIB"
@@ -252,7 +252,7 @@ events:
     names:
       - "ranlib"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -266,11 +266,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/ranlib.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/ranlib.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/ranlib.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/ranlib.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -286,8 +286,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_STRIP"
@@ -303,7 +303,7 @@ events:
     names:
       - "strip"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -317,11 +317,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/strip.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/strip.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/strip.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/strip.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -337,8 +337,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
@@ -354,7 +354,7 @@ events:
     names:
       - "ld"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -368,11 +368,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -388,8 +388,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_NM"
@@ -405,7 +405,7 @@ events:
     names:
       - "nm"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -419,11 +419,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/nm.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/nm.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/nm.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/nm.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -439,8 +439,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_OBJDUMP"
@@ -456,7 +456,7 @@ events:
     names:
       - "objdump"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -470,11 +470,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/objdump.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/objdump.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/objdump.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/objdump.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -490,8 +490,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_OBJCOPY"
@@ -507,7 +507,7 @@ events:
     names:
       - "objcopy"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -521,11 +521,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/objcopy.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/objcopy.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/objcopy.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/objcopy.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -541,8 +541,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_READELF"
@@ -558,7 +558,7 @@ events:
     names:
       - "readelf"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -572,9 +572,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/readelf.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/readelf.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/readelf"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/readelf.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/readelf.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/readelf"
       - "C:/Windows/System32/readelf.com"
       - "C:/Windows/System32/readelf.exe"
       - "C:/Windows/System32/readelf"
@@ -597,7 +597,7 @@ events:
     found: "C:/Users/Bartar404-4/scoop/apps/gcc/current/bin/readelf.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -613,8 +613,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_DLLTOOL"
@@ -630,7 +630,7 @@ events:
     names:
       - "dlltool"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -644,11 +644,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/dlltool.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/dlltool.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/dlltool.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/dlltool.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -664,8 +664,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_ADDR2LINE"
@@ -681,7 +681,7 @@ events:
     names:
       - "addr2line"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -695,11 +695,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/addr2line.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/addr2line.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/addr2line.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/addr2line.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -715,8 +715,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_TAPI"
@@ -732,7 +732,7 @@ events:
     names:
       - "tapi"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -746,9 +746,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/tapi.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/tapi.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/tapi"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/tapi.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/tapi.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/tapi"
       - "C:/Windows/System32/tapi.com"
       - "C:/Windows/System32/tapi.exe"
       - "C:/Windows/System32/tapi"
@@ -788,7 +788,7 @@ events:
     found: false
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -804,8 +804,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_C_COMPILER_AR"
@@ -824,7 +824,7 @@ events:
       - "gcc-ar16"
       - "gcc-ar"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -838,9 +838,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.1.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.1.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.1"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.1.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.1.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.1"
       - "C:/Windows/System32/gcc-ar-16.1.com"
       - "C:/Windows/System32/gcc-ar-16.1.exe"
       - "C:/Windows/System32/gcc-ar-16.1"
@@ -877,9 +877,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.1.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.1.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.1"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16"
       - "C:/Windows/System32/gcc-ar-16.com"
       - "C:/Windows/System32/gcc-ar-16.exe"
       - "C:/Windows/System32/gcc-ar-16"
@@ -916,9 +916,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar16.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar16.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar16"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar16.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar16.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar16"
       - "C:/Windows/System32/gcc-ar16.com"
       - "C:/Windows/System32/gcc-ar16.exe"
       - "C:/Windows/System32/gcc-ar16"
@@ -955,11 +955,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar16.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar16.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar16"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -975,8 +975,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_C_COMPILER_RANLIB"
@@ -995,7 +995,7 @@ events:
       - "gcc-ranlib16"
       - "gcc-ranlib"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -1009,9 +1009,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.1.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.1.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.1"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.1.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.1.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.1"
       - "C:/Windows/System32/gcc-ranlib-16.1.com"
       - "C:/Windows/System32/gcc-ranlib-16.1.exe"
       - "C:/Windows/System32/gcc-ranlib-16.1"
@@ -1048,9 +1048,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.1.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.1.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.1"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16"
       - "C:/Windows/System32/gcc-ranlib-16.com"
       - "C:/Windows/System32/gcc-ranlib-16.exe"
       - "C:/Windows/System32/gcc-ranlib-16"
@@ -1087,9 +1087,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib16.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib16.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib16"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib16.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib16.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib16"
       - "C:/Windows/System32/gcc-ranlib16.com"
       - "C:/Windows/System32/gcc-ranlib16.exe"
       - "C:/Windows/System32/gcc-ranlib16"
@@ -1126,11 +1126,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib16.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib16.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib16"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -1146,8 +1146,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompiler.cmake:54 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompiler.cmake:54 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_CXX_COMPILER"
@@ -1168,13 +1168,13 @@ events:
       - "icx"
       - "clang++"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/c++.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/c++.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/c++.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/c++.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -1190,11 +1190,11 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:468 (find_file)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:506 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     mode: "file"
     variable: "src_in"
@@ -1210,11 +1210,11 @@ events:
     names:
       - "CMakeCXXCompilerId.cpp.in"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeCXXCompilerId.cpp.in"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeCXXCompilerId.cpp.in"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -1230,13 +1230,13 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-      Compiler: C:/Users/Bartar404-4/Downloads/w64devkit/bin/c++.exe 
+      Compiler: C:/Users/Bartar404-4/Desktop/w64devkit/bin/c++.exe 
       Build flags: 
       Id flags:  
       
@@ -1252,8 +1252,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_CXX_COMPILER_AR"
@@ -1272,7 +1272,7 @@ events:
       - "gcc-ar16"
       - "gcc-ar"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -1286,9 +1286,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.1.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.1.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.1"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.1.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.1.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.1"
       - "C:/Windows/System32/gcc-ar-16.1.com"
       - "C:/Windows/System32/gcc-ar-16.1.exe"
       - "C:/Windows/System32/gcc-ar-16.1"
@@ -1325,9 +1325,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.1.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.1.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.1"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar-16"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar-16"
       - "C:/Windows/System32/gcc-ar-16.com"
       - "C:/Windows/System32/gcc-ar-16.exe"
       - "C:/Windows/System32/gcc-ar-16"
@@ -1364,9 +1364,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar-16"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar16.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar16.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar16"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar16.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar16.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar16"
       - "C:/Windows/System32/gcc-ar16.com"
       - "C:/Windows/System32/gcc-ar16.exe"
       - "C:/Windows/System32/gcc-ar16"
@@ -1403,11 +1403,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar16.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar16.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ar16"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ar.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ar.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -1423,8 +1423,8 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_CXX_COMPILER_RANLIB"
@@ -1443,7 +1443,7 @@ events:
       - "gcc-ranlib16"
       - "gcc-ranlib"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -1457,9 +1457,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/Microsoft VS Code/bin/"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.1.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.1.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.1"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.1.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.1.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.1"
       - "C:/Windows/System32/gcc-ranlib-16.1.com"
       - "C:/Windows/System32/gcc-ranlib-16.1.exe"
       - "C:/Windows/System32/gcc-ranlib-16.1"
@@ -1496,9 +1496,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.1.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.1.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.1"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib-16"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib-16"
       - "C:/Windows/System32/gcc-ranlib-16.com"
       - "C:/Windows/System32/gcc-ranlib-16.exe"
       - "C:/Windows/System32/gcc-ranlib-16"
@@ -1535,9 +1535,9 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib-16"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib16.com"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib16.exe"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib16"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib16.com"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib16.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib16"
       - "C:/Windows/System32/gcc-ranlib16.com"
       - "C:/Windows/System32/gcc-ranlib16.exe"
       - "C:/Windows/System32/gcc-ranlib16"
@@ -1574,11 +1574,11 @@ events:
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib16.com"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib16.exe"
       - "C:/Users/Bartar404-4/AppData/Local/GitHubDesktop/bin/gcc-ranlib16"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/gcc-ranlib.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/gcc-ranlib.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -1594,10 +1594,10 @@ events:
   -
     kind: "find-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/Platform/Windows-GNU.cmake:167 (enable_language)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/Platform/Windows-GNU-C.cmake:2 (__windows_compiler_gnu)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeCInformation.cmake:48 (include)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineRCCompiler.cmake:40 (find_program)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/Platform/Windows-GNU.cmake:167 (enable_language)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/Platform/Windows-GNU-C.cmake:2 (__windows_compiler_gnu)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeCInformation.cmake:48 (include)"
       - "CMakeLists.txt:2 (project)"
     mode: "program"
     variable: "CMAKE_RC_COMPILER"
@@ -1614,7 +1614,7 @@ events:
       - "windres"
       - "windres"
     candidate_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
       - "C:/Windows/System32/"
       - "C:/Windows/"
       - "C:/Windows/System32/wbem/"
@@ -1633,18 +1633,18 @@ events:
       - "C:/Program Files (x86)/bin/"
       - "C:/Program Files (x86)/sbin/"
       - "C:/Program Files (x86)/"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/sbin/"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/sbin/"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/"
       - "C:/Program Files (x86)/seyd_khande/bin/"
       - "C:/Program Files (x86)/seyd_khande/sbin/"
       - "C:/Program Files (x86)/seyd_khande/"
     searched_directories:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/bin/windres.com"
-    found: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/windres.exe"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/bin/windres.com"
+    found: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/windres.exe"
     search_context:
       ENV{PATH}:
-        - "C:/Users/Bartar404-4/Downloads/w64devkit/bin"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit/bin"
         - "C:/Windows/system32"
         - "C:/Windows"
         - "C:/Windows/System32/Wbem"
@@ -1661,19 +1661,19 @@ events:
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
         - "C:/Program Files (x86)"
-        - "C:/Users/Bartar404-4/Downloads/w64devkit"
+        - "C:/Users/Bartar404-4/Desktop/w64devkit"
         - "C:/Program Files (x86)/seyd_khande"
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-oq46pc"
-      binary: "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-oq46pc"
+      source: "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-vpau3e"
+      binary: "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-vpau3e"
     cmakeVariables:
       CMAKE_CXX_STDLIB_MODULES_JSON: ""
       CMAKE_C_FLAGS: ""
@@ -1683,13 +1683,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-oq46pc'
+        Change Dir: 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-vpau3e'
         
-        Run Build Command(s): C:/Users/Bartar404-4/Downloads/w64devkit/bin/cmake.exe -E env VERBOSE=1 C:/Users/Bartar404-4/Downloads/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_0a80d/fast
-        make  -f CMakeFiles\\cmTC_0a80d.dir\\build.make CMakeFiles/cmTC_0a80d.dir/build
-        make[1]: Entering directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-oq46pc'
-        Building C object CMakeFiles/cmTC_0a80d.dir/CMakeCCompilerABI.c.obj
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cc.exe   -v -o CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c
+        Run Build Command(s): C:/Users/Bartar404-4/Desktop/w64devkit/bin/cmake.exe -E env VERBOSE=1 C:/Users/Bartar404-4/Desktop/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_604b6/fast
+        make  -f CMakeFiles\\cmTC_604b6.dir\\build.make CMakeFiles/cmTC_604b6.dir/build
+        make[1]: Entering directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-vpau3e'
+        Building C object CMakeFiles/cmTC_604b6.dir/CMakeCCompilerABI.c.obj
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cc.exe   -v -o CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=cc
         Target: x86_64-w64-mingw32
@@ -1697,92 +1697,92 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 16.1.0 (GCC) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_0a80d.dir\\'
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/cc1.exe -quiet -v -iprefix C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/ -isysroot C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -D_REENTRANT C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_0a80d.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\cc44Z0dY.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_604b6.dir\\'
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/cc1.exe -quiet -v -iprefix C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/ -isysroot C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -D_REENTRANT C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_604b6.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\ccRJyKOv.s
         GNU C23 (GCC) version 16.1.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 16.1.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.4.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        ignoring nonexistent directory "C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"
-        ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include"
-        ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"
-        ignoring nonexistent directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"
+        ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include"
+        ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"
+        ignoring nonexistent directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"
         #include "..." search starts here:
         #include <...> search starts here:
          C:/Users/Bartar404-4/scoop/apps/gcc/current/include
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed
-         C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed
+         C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include
         End of search list.
         Compiler executable checksum: 8a982ec85e01dbe37739a0ea63d0f848
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_0a80d.dir\\'
-         as -v -o CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\cc44Z0dY.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_604b6.dir\\'
+         as -v -o CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\ccRJyKOv.s
         GNU assembler version 2.46.0 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.46.0.20260210
-        COMPILER_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/
-        LIBRARY_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.'
-        Linking C executable cmTC_0a80d.exe
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_0a80d.dir\\link.txt --verbose=1
+        COMPILER_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/
+        LIBRARY_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.'
+        Linking C executable cmTC_604b6.exe
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_604b6.dir\\link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=cc
-        COLLECT_LTO_WRAPPER=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/lto-wrapper.exe
+        COLLECT_LTO_WRAPPER=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/lto-wrapper.exe
         Target: x86_64-w64-mingw32
         Configured with: /dl/gcc/configure --prefix=/w64devkit --with-sysroot=/w64devkit --with-native-system-header-dir=/include --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --enable-static --disable-shared --with-pic --with-gmp=/deps --with-mpc=/deps --with-mpfr=/deps --enable-languages=c,c++,fortran --enable-libgomp --enable-threads=posix --enable-tls --enable-version-specific-runtime-libs --disable-libstdcxx-verbose --disable-dependency-tracking --disable-lto --disable-multilib --disable-nls --disable-win32-registry --enable-mingw-wildcard CFLAGS_FOR_TARGET=-O2 CXXFLAGS_FOR_TARGET=-O2 LDFLAGS_FOR_TARGET=-s CFLAGS=-O2 CXXFLAGS=-O2 LDFLAGS=-s
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 16.1.0 (GCC) 
-        COMPILER_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/
-        LIBRARY_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0a80d.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0a80d.'
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe --sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_0a80d.exe C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_0a80d.dir/objects.a --no-whole-archive --out-implib libcmTC_0a80d.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o
+        COMPILER_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/
+        LIBRARY_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_604b6.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_604b6.'
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe --sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_604b6.exe C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_604b6.dir/objects.a --no-whole-archive --out-implib libcmTC_604b6.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o
         collect2 version 16.1.0
-        C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe --sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_0a80d.exe C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_0a80d.dir/objects.a --no-whole-archive --out-implib libcmTC_0a80d.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o
+        C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe --sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_604b6.exe C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_604b6.dir/objects.a --no-whole-archive --out-implib libcmTC_604b6.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o
         GNU ld (GNU Binutils) 2.46.0.20260210
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0a80d.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0a80d.'
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_0a80d.dir/objects.a
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\ar.exe qc CMakeFiles\\cmTC_0a80d.dir/objects.a @CMakeFiles\\cmTC_0a80d.dir\\objects1.rsp
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_0a80d.dir/objects.a -Wl,--no-whole-archive -o cmTC_0a80d.exe -Wl,--out-implib,libcmTC_0a80d.dll.a -Wl,--major-image-version,0,--minor-image-version,0
-        make[1]: Leaving directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-oq46pc'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_604b6.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_604b6.'
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_604b6.dir/objects.a
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\ar.exe qc CMakeFiles\\cmTC_604b6.dir/objects.a @CMakeFiles\\cmTC_604b6.dir\\objects1.rsp
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cc.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_604b6.dir/objects.a -Wl,--no-whole-archive -o cmTC_604b6.exe -Wl,--out-implib,libcmTC_604b6.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        make[1]: Leaving directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-vpau3e'
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
           add: [C:/Users/Bartar404-4/scoop/apps/gcc/current/include]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include]
         end of search list found
         collapse include dir [C:/Users/Bartar404-4/scoop/apps/gcc/current/include] ==> [C:/Users/Bartar404-4/scoop/apps/gcc/current/include]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/include]
-        implicit include dirs: [C:/Users/Bartar404-4/scoop/apps/gcc/current/include;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed;C:/Users/Bartar404-4/Downloads/w64devkit/include]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/include]
+        implicit include dirs: [C:/Users/Bartar404-4/scoop/apps/gcc/current/include;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed;C:/Users/Bartar404-4/Desktop/w64devkit/include]
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-oq46pc']
+        ignore line: [Change Dir: 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-vpau3e']
         ignore line: []
-        ignore line: [Run Build Command(s): C:/Users/Bartar404-4/Downloads/w64devkit/bin/cmake.exe -E env VERBOSE=1 C:/Users/Bartar404-4/Downloads/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_0a80d/fast]
-        ignore line: [make  -f CMakeFiles\\cmTC_0a80d.dir\\build.make CMakeFiles/cmTC_0a80d.dir/build]
-        ignore line: [make[1]: Entering directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-oq46pc']
-        ignore line: [Building C object CMakeFiles/cmTC_0a80d.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cc.exe   -v -o CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): C:/Users/Bartar404-4/Desktop/w64devkit/bin/cmake.exe -E env VERBOSE=1 C:/Users/Bartar404-4/Desktop/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_604b6/fast]
+        ignore line: [make  -f CMakeFiles\\cmTC_604b6.dir\\build.make CMakeFiles/cmTC_604b6.dir/build]
+        ignore line: [make[1]: Entering directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-vpau3e']
+        ignore line: [Building C object CMakeFiles/cmTC_604b6.dir/CMakeCCompilerABI.c.obj]
+        ignore line: [C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cc.exe   -v -o CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj -c C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=cc]
         ignore line: [Target: x86_64-w64-mingw32]
@@ -1790,70 +1790,70 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 16.1.0 (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_0a80d.dir\\']
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/cc1.exe -quiet -v -iprefix C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/ -isysroot C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -D_REENTRANT C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_0a80d.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\cc44Z0dY.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_604b6.dir\\']
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/cc1.exe -quiet -v -iprefix C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/ -isysroot C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -D_REENTRANT C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles\\cmTC_604b6.dir\\ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\ccRJyKOv.s]
         ignore line: [GNU C23 (GCC) version 16.1.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 16.1.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.4.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [ignoring nonexistent directory "C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"]
-        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include"]
-        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"]
-        ignore line: [ignoring nonexistent directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include"]
+        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"]
+        ignore line: [ignoring nonexistent directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
         ignore line: [ C:/Users/Bartar404-4/scoop/apps/gcc/current/include]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 8a982ec85e01dbe37739a0ea63d0f848]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_0a80d.dir\\']
-        ignore line: [ as -v -o CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\cc44Z0dY.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_604b6.dir\\']
+        ignore line: [ as -v -o CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\ccRJyKOv.s]
         ignore line: [GNU assembler version 2.46.0 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.46.0.20260210]
-        ignore line: [COMPILER_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/]
-        ignore line: [LIBRARY_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_0a80d.dir\\CMakeCCompilerABI.c.']
-        ignore line: [Linking C executable cmTC_0a80d.exe]
-        ignore line: [C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_0a80d.dir\\link.txt --verbose=1]
+        ignore line: [COMPILER_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_604b6.dir\\CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_604b6.exe]
+        ignore line: [C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_604b6.dir\\link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=cc]
-        ignore line: [COLLECT_LTO_WRAPPER=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/lto-wrapper.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/lto-wrapper.exe]
         ignore line: [Target: x86_64-w64-mingw32]
         ignore line: [Configured with: /dl/gcc/configure --prefix=/w64devkit --with-sysroot=/w64devkit --with-native-system-header-dir=/include --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --enable-static --disable-shared --with-pic --with-gmp=/deps --with-mpc=/deps --with-mpfr=/deps --enable-languages=c c++ fortran --enable-libgomp --enable-threads=posix --enable-tls --enable-version-specific-runtime-libs --disable-libstdcxx-verbose --disable-dependency-tracking --disable-lto --disable-multilib --disable-nls --disable-win32-registry --enable-mingw-wildcard CFLAGS_FOR_TARGET=-O2 CXXFLAGS_FOR_TARGET=-O2 LDFLAGS_FOR_TARGET=-s CFLAGS=-O2 CXXFLAGS=-O2 LDFLAGS=-s]
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 16.1.0 (GCC) ]
-        ignore line: [COMPILER_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/]
-        ignore line: [LIBRARY_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0a80d.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_0a80d.']
-        link line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe --sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_0a80d.exe C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_0a80d.dir/objects.a --no-whole-archive --out-implib libcmTC_0a80d.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
-          arg [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe] ==> ignore
-          arg [--sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit] ==> ignore
+        ignore line: [COMPILER_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_604b6.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_604b6.']
+        link line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe --sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_604b6.exe C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_604b6.dir/objects.a --no-whole-archive --out-implib libcmTC_604b6.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+          arg [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe] ==> ignore
+          arg [--sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit] ==> ignore
           arg [-m] ==> ignore
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_0a80d.exe] ==> ignore
-          arg [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o] ==> obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o]
-          arg [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o] ==> obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o]
-          arg [-LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0] ==> dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0]
-          arg [-LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc] ==> dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc]
-          arg [-LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib] ==> dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib]
-          arg [-LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..] ==> dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..]
+          arg [cmTC_604b6.exe] ==> ignore
+          arg [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o] ==> obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o]
+          arg [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o] ==> obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o]
+          arg [-LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0] ==> dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0]
+          arg [-LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc] ==> dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc]
+          arg [-LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib] ==> dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib]
+          arg [-LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..] ==> dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..]
           arg [-v] ==> ignore
           arg [--whole-archive] ==> ignore
-          arg [CMakeFiles\\cmTC_0a80d.dir/objects.a] ==> ignore
+          arg [CMakeFiles\\cmTC_604b6.dir/objects.a] ==> ignore
           arg [--no-whole-archive] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_0a80d.dll.a] ==> ignore
+          arg [libcmTC_604b6.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -1873,46 +1873,46 @@ events:
           arg [-lmingwex] ==> lib [mingwex]
           arg [-lmsvcrt] ==> lib [msvcrt]
           arg [-lkernel32] ==> lib [kernel32]
-          arg [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o] ==> obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+          arg [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o] ==> obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
         ignore line: [collect2 version 16.1.0]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe --sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_0a80d.exe C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_0a80d.dir/objects.a --no-whole-archive --out-implib libcmTC_0a80d.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
-        linker tool for 'C': C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe --sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_604b6.exe C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_604b6.dir/objects.a --no-whole-archive --out-implib libcmTC_604b6.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+        linker tool for 'C': C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe
         remove lib [msvcrt]
         remove lib [msvcrt]
-        collapse obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/crt2.o]
-        collapse obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o]
-        collapse obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
-        collapse library dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0]
-        collapse library dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc]
-        collapse library dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib]
-        collapse library dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib]
+        collapse obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/crt2.o]
+        collapse obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o]
+        collapse obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+        collapse library dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0]
+        collapse library dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc]
+        collapse library dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib]
+        collapse library dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib]
         implicit libs: [mingw32;gcc;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;mingwex;kernel32]
-        implicit objs: [C:/Users/Bartar404-4/Downloads/w64devkit/lib/crt2.o;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
-        implicit dirs: [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc;C:/Users/Bartar404-4/Downloads/w64devkit/lib]
+        implicit objs: [C:/Users/Bartar404-4/Desktop/w64devkit/lib/crt2.o;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+        implicit dirs: [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc;C:/Users/Bartar404-4/Desktop/w64devkit/lib]
         implicit fwks: []
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
-      Running the C compiler's linker: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe" "-v"
+      Running the C compiler's linker: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.46.0.20260210
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-9wvzny"
-      binary: "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-9wvzny"
+      source: "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-1s4rst"
+      binary: "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-1s4rst"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1923,13 +1923,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-9wvzny'
+        Change Dir: 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-1s4rst'
         
-        Run Build Command(s): C:/Users/Bartar404-4/Downloads/w64devkit/bin/cmake.exe -E env VERBOSE=1 C:/Users/Bartar404-4/Downloads/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_efda4/fast
-        make  -f CMakeFiles\\cmTC_efda4.dir\\build.make CMakeFiles/cmTC_efda4.dir/build
-        make[1]: Entering directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-9wvzny'
-        Building CXX object CMakeFiles/cmTC_efda4.dir/CMakeCXXCompilerABI.cpp.obj
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp
+        Run Build Command(s): C:/Users/Bartar404-4/Desktop/w64devkit/bin/cmake.exe -E env VERBOSE=1 C:/Users/Bartar404-4/Desktop/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_d96ba/fast
+        make  -f CMakeFiles\\cmTC_d96ba.dir\\build.make CMakeFiles/cmTC_d96ba.dir/build
+        make[1]: Entering directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-1s4rst'
+        Building CXX object CMakeFiles/cmTC_d96ba.dir/CMakeCXXCompilerABI.cpp.obj
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=c++
         Target: x86_64-w64-mingw32
@@ -1937,104 +1937,104 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 16.1.0 (GCC) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_efda4.dir\\'
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/cc1plus.exe -quiet -v -iprefix C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/ -isysroot C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -D_REENTRANT C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_efda4.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\cclD7x8Y.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_d96ba.dir\\'
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/cc1plus.exe -quiet -v -iprefix C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/ -isysroot C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -D_REENTRANT C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_d96ba.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\ccr1KvbU.s
         GNU C++20 (GCC) version 16.1.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 16.1.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.4.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        ignoring nonexistent directory "C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"
-        ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++"
-        ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32"
-        ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward"
-        ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include"
-        ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"
-        ignoring nonexistent directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"
+        ignoring nonexistent directory "C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"
+        ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++"
+        ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32"
+        ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward"
+        ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include"
+        ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"
+        ignoring nonexistent directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"
         #include "..." search starts here:
         #include <...> search starts here:
          C:/Users/Bartar404-4/scoop/apps/gcc/current/include
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed
-         C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed
+         C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include
         End of search list.
         Compiler executable checksum: f7f6d01bf4e14c224f03d6f976a58854
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_efda4.dir\\'
-         as -v -o CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\cclD7x8Y.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_d96ba.dir\\'
+         as -v -o CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\ccr1KvbU.s
         GNU assembler version 2.46.0 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.46.0.20260210
-        COMPILER_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/
-        LIBRARY_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_efda4.exe
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_efda4.dir\\link.txt --verbose=1
+        COMPILER_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/
+        LIBRARY_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_d96ba.exe
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_d96ba.dir\\link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=c++
-        COLLECT_LTO_WRAPPER=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/lto-wrapper.exe
+        COLLECT_LTO_WRAPPER=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/lto-wrapper.exe
         Target: x86_64-w64-mingw32
         Configured with: /dl/gcc/configure --prefix=/w64devkit --with-sysroot=/w64devkit --with-native-system-header-dir=/include --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --enable-static --disable-shared --with-pic --with-gmp=/deps --with-mpc=/deps --with-mpfr=/deps --enable-languages=c,c++,fortran --enable-libgomp --enable-threads=posix --enable-tls --enable-version-specific-runtime-libs --disable-libstdcxx-verbose --disable-dependency-tracking --disable-lto --disable-multilib --disable-nls --disable-win32-registry --enable-mingw-wildcard CFLAGS_FOR_TARGET=-O2 CXXFLAGS_FOR_TARGET=-O2 LDFLAGS_FOR_TARGET=-s CFLAGS=-O2 CXXFLAGS=-O2 LDFLAGS=-s
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 16.1.0 (GCC) 
-        COMPILER_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/
-        LIBRARY_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/;C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_efda4.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_efda4.'
-         C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe --sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_efda4.exe C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_efda4.dir/objects.a --no-whole-archive --out-implib libcmTC_efda4.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o
+        COMPILER_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/
+        LIBRARY_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/;C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d96ba.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d96ba.'
+         C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe --sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_d96ba.exe C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_d96ba.dir/objects.a --no-whole-archive --out-implib libcmTC_d96ba.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o
         collect2 version 16.1.0
-        C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe --sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_efda4.exe C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_efda4.dir/objects.a --no-whole-archive --out-implib libcmTC_efda4.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o
+        C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe --sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_d96ba.exe C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_d96ba.dir/objects.a --no-whole-archive --out-implib libcmTC_d96ba.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o
         GNU ld (GNU Binutils) 2.46.0.20260210
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_efda4.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_efda4.'
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_efda4.dir/objects.a
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\ar.exe qc CMakeFiles\\cmTC_efda4.dir/objects.a @CMakeFiles\\cmTC_efda4.dir\\objects1.rsp
-        C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\c++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_efda4.dir/objects.a -Wl,--no-whole-archive -o cmTC_efda4.exe -Wl,--out-implib,libcmTC_efda4.dll.a -Wl,--major-image-version,0,--minor-image-version,0
-        make[1]: Leaving directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-9wvzny'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d96ba.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d96ba.'
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_d96ba.dir/objects.a
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\ar.exe qc CMakeFiles\\cmTC_d96ba.dir/objects.a @CMakeFiles\\cmTC_d96ba.dir\\objects1.rsp
+        C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\c++.exe  -v -Wl,-v -Wl,--whole-archive CMakeFiles\\cmTC_d96ba.dir/objects.a -Wl,--no-whole-archive -o cmTC_d96ba.exe -Wl,--out-implib,libcmTC_d96ba.dll.a -Wl,--major-image-version,0,--minor-image-version,0
+        make[1]: Leaving directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-1s4rst'
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
           add: [C:/Users/Bartar404-4/scoop/apps/gcc/current/include]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
-          add: [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
+          add: [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include]
         end of search list found
         collapse include dir [C:/Users/Bartar404-4/scoop/apps/gcc/current/include] ==> [C:/Users/Bartar404-4/scoop/apps/gcc/current/include]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
-        collapse include dir [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/include]
-        implicit include dirs: [C:/Users/Bartar404-4/scoop/apps/gcc/current/include;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed;C:/Users/Bartar404-4/Downloads/w64devkit/include]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
+        collapse include dir [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/include]
+        implicit include dirs: [C:/Users/Bartar404-4/scoop/apps/gcc/current/include;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed;C:/Users/Bartar404-4/Desktop/w64devkit/include]
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-9wvzny']
+        ignore line: [Change Dir: 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-1s4rst']
         ignore line: []
-        ignore line: [Run Build Command(s): C:/Users/Bartar404-4/Downloads/w64devkit/bin/cmake.exe -E env VERBOSE=1 C:/Users/Bartar404-4/Downloads/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_efda4/fast]
-        ignore line: [make  -f CMakeFiles\\cmTC_efda4.dir\\build.make CMakeFiles/cmTC_efda4.dir/build]
-        ignore line: [make[1]: Entering directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-9wvzny']
-        ignore line: [Building CXX object CMakeFiles/cmTC_efda4.dir/CMakeCXXCompilerABI.cpp.obj]
-        ignore line: [C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): C:/Users/Bartar404-4/Desktop/w64devkit/bin/cmake.exe -E env VERBOSE=1 C:/Users/Bartar404-4/Desktop/w64devkit/bin/mingw32-make.exe -f Makefile cmTC_d96ba/fast]
+        ignore line: [make  -f CMakeFiles\\cmTC_d96ba.dir\\build.make CMakeFiles/cmTC_d96ba.dir/build]
+        ignore line: [make[1]: Entering directory 'C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/build/CMakeFiles/CMakeScratch/TryCompile-1s4rst']
+        ignore line: [Building CXX object CMakeFiles/cmTC_d96ba.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\c++.exe   -v -o CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj -c C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=c++]
         ignore line: [Target: x86_64-w64-mingw32]
@@ -2042,76 +2042,76 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 16.1.0 (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_efda4.dir\\']
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/cc1plus.exe -quiet -v -iprefix C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/ -isysroot C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -D_REENTRANT C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_efda4.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\cclD7x8Y.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_d96ba.dir\\']
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/cc1plus.exe -quiet -v -iprefix C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/ -isysroot C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -D_REENTRANT C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\share\\cmake-4.3\\Modules\\CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles\\cmTC_d96ba.dir\\ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\ccr1KvbU.s]
         ignore line: [GNU C++20 (GCC) version 16.1.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 16.1.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.4.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [ignoring nonexistent directory "C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"]
-        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++"]
-        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32"]
-        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward"]
-        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include"]
-        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"]
-        ignore line: [ignoring nonexistent directory "C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring nonexistent directory "C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"]
+        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++"]
+        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32"]
+        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward"]
+        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include"]
+        ignore line: [ignoring duplicate directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed"]
+        ignore line: [ignoring nonexistent directory "C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/include"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
         ignore line: [ C:/Users/Bartar404-4/scoop/apps/gcc/current/include]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
-        ignore line: [ C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/x86_64-w64-mingw32]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include/c++/backward]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/include-fixed]
+        ignore line: [ C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: f7f6d01bf4e14c224f03d6f976a58854]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_efda4.dir\\']
-        ignore line: [ as -v -o CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\cclD7x8Y.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_d96ba.dir\\']
+        ignore line: [ as -v -o CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj C:\\Users\\BARTAR~1\\AppData\\Local\\Temp\\ccr1KvbU.s]
         ignore line: [GNU assembler version 2.46.0 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.46.0.20260210]
-        ignore line: [COMPILER_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/]
-        ignore line: [LIBRARY_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_efda4.dir\\CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_efda4.exe]
-        ignore line: [C:\\Users\\Bartar404-4\\Downloads\\w64devkit\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_efda4.dir\\link.txt --verbose=1]
+        ignore line: [COMPILER_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles\\cmTC_d96ba.dir\\CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_d96ba.exe]
+        ignore line: [C:\\Users\\Bartar404-4\\Desktop\\w64devkit\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_d96ba.dir\\link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=c++]
-        ignore line: [COLLECT_LTO_WRAPPER=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/lto-wrapper.exe]
+        ignore line: [COLLECT_LTO_WRAPPER=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/lto-wrapper.exe]
         ignore line: [Target: x86_64-w64-mingw32]
         ignore line: [Configured with: /dl/gcc/configure --prefix=/w64devkit --with-sysroot=/w64devkit --with-native-system-header-dir=/include --target=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --enable-static --disable-shared --with-pic --with-gmp=/deps --with-mpc=/deps --with-mpfr=/deps --enable-languages=c c++ fortran --enable-libgomp --enable-threads=posix --enable-tls --enable-version-specific-runtime-libs --disable-libstdcxx-verbose --disable-dependency-tracking --disable-lto --disable-multilib --disable-nls --disable-win32-registry --enable-mingw-wildcard CFLAGS_FOR_TARGET=-O2 CXXFLAGS_FOR_TARGET=-O2 LDFLAGS_FOR_TARGET=-s CFLAGS=-O2 CXXFLAGS=-O2 LDFLAGS=-s]
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 16.1.0 (GCC) ]
-        ignore line: [COMPILER_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/]
-        ignore line: [LIBRARY_PATH=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_efda4.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_efda4.']
-        link line: [ C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe --sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_efda4.exe C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_efda4.dir/objects.a --no-whole-archive --out-implib libcmTC_efda4.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
-          arg [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe] ==> ignore
-          arg [--sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit] ==> ignore
+        ignore line: [COMPILER_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/]
+        ignore line: [LIBRARY_PATH=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/]
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d96ba.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d96ba.']
+        link line: [ C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe --sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_d96ba.exe C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_d96ba.dir/objects.a --no-whole-archive --out-implib libcmTC_d96ba.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+          arg [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/16.1.0/collect2.exe] ==> ignore
+          arg [--sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit] ==> ignore
           arg [-m] ==> ignore
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_efda4.exe] ==> ignore
-          arg [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o] ==> obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o]
-          arg [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o] ==> obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o]
-          arg [-LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0] ==> dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0]
-          arg [-LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc] ==> dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc]
-          arg [-LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib] ==> dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib]
-          arg [-LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..] ==> dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..]
+          arg [cmTC_d96ba.exe] ==> ignore
+          arg [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o] ==> obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o]
+          arg [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o] ==> obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o]
+          arg [-LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0] ==> dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0]
+          arg [-LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc] ==> dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc]
+          arg [-LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib] ==> dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib]
+          arg [-LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..] ==> dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..]
           arg [-v] ==> ignore
           arg [--whole-archive] ==> ignore
-          arg [CMakeFiles\\cmTC_efda4.dir/objects.a] ==> ignore
+          arg [CMakeFiles\\cmTC_d96ba.dir/objects.a] ==> ignore
           arg [--no-whole-archive] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_efda4.dll.a] ==> ignore
+          arg [libcmTC_d96ba.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -2132,33 +2132,33 @@ events:
           arg [-lmingwex] ==> lib [mingwex]
           arg [-lmsvcrt] ==> lib [msvcrt]
           arg [-lkernel32] ==> lib [kernel32]
-          arg [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o] ==> obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+          arg [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o] ==> obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
         ignore line: [collect2 version 16.1.0]
-        ignore line: [C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe --sysroot=C:/Users/Bartar404-4/Downloads/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_efda4.exe C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_efda4.dir/objects.a --no-whole-archive --out-implib libcmTC_efda4.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
-        linker tool for 'CXX': C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe
+        ignore line: [C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe --sysroot=C:/Users/Bartar404-4/Desktop/w64devkit/bin/../../w64devkit -m i386pep -Bdynamic -o cmTC_d96ba.exe C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0 -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib -LC:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../.. -v --whole-archive CMakeFiles\\cmTC_d96ba.dir/objects.a --no-whole-archive --out-implib libcmTC_d96ba.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+        linker tool for 'CXX': C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe
         remove lib [msvcrt]
         remove lib [msvcrt]
-        collapse obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/crt2.o]
-        collapse obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o]
-        collapse obj [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
-        collapse library dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0]
-        collapse library dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc]
-        collapse library dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib]
-        collapse library dir [C:/Users/Bartar404-4/Downloads/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..] ==> [C:/Users/Bartar404-4/Downloads/w64devkit/lib]
+        collapse obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib/crt2.o] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/crt2.o]
+        collapse obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o]
+        collapse obj [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+        collapse library dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0]
+        collapse library dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc]
+        collapse library dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../lib] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib]
+        collapse library dir [C:/Users/Bartar404-4/Desktop/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../..] ==> [C:/Users/Bartar404-4/Desktop/w64devkit/lib]
         implicit libs: [stdc++;mingw32;gcc;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;mingwex;kernel32]
-        implicit objs: [C:/Users/Bartar404-4/Downloads/w64devkit/lib/crt2.o;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
-        implicit dirs: [C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0;C:/Users/Bartar404-4/Downloads/w64devkit/lib/gcc;C:/Users/Bartar404-4/Downloads/w64devkit/lib]
+        implicit objs: [C:/Users/Bartar404-4/Desktop/w64devkit/lib/crt2.o;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtbegin.o;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0/crtend.o]
+        implicit dirs: [C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc/x86_64-w64-mingw32/16.1.0;C:/Users/Bartar404-4/Desktop/w64devkit/lib/gcc;C:/Users/Bartar404-4/Desktop/w64devkit/lib]
         implicit fwks: []
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "C:/Users/Bartar404-4/Downloads/w64devkit/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "C:/Users/Bartar404-4/Desktop/w64devkit/share/cmake-4.3/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
-      Running the CXX compiler's linker: "C:/Users/Bartar404-4/Downloads/w64devkit/bin/ld.exe" "-v"
+      Running the CXX compiler's linker: "C:/Users/Bartar404-4/Desktop/w64devkit/bin/ld.exe" "-v"
       GNU ld (GNU Binutils) 2.46.0.20260210
 ...

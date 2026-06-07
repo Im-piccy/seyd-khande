@@ -34,7 +34,7 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Bartar404-4/Downloads/w64devkit/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/Bartar404-4/Desktop/w64devkit/bin/objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
