@@ -2,7 +2,7 @@
 #include "../headers/hero_sub_class_to_instatniate_objects.hpp"
 
 // -----------------------------white doctor----------------------------------
-WhiteDoctor::WhiteDoctor(User & person):user(person)
+WhiteDoctor::WhiteDoctor()
 {
     this->Current_Hp = 550;
     this->Initial_Hp = 550;
@@ -16,30 +16,15 @@ WhiteDoctor::WhiteDoctor(User & person):user(person)
     this->Is_Doping_Ongoing = false;
 }
 
-bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3])
+bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user)
 {
     if(user.Get_Energy() < Asprin_Ability_Energy_Cost)
         return false;
-    static bool seeded = false;
-    if(!seeded)
-    {
-        std::srand(static_cast<unsigned int>(std::time(0)));
-        seeded = true;
-    }
-    // finding  live allies and not  being null
-    int valid_indexes[3];
-    int valid_count = 0;
-    for(int i = 1; i < 3; i++)
-    {
-        if(allies[i] != nullptr && !allies[i]->Is_Dead())
-        {
-            valid_indexes[valid_count] = i;
-            valid_count++;
-        }
-    }
-    if(valid_count == 0)
+    Seeded();
+    std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
+    if(valid_indexes[3] == 0)
         return false;
-    int random_position = std::rand() % valid_count;
+    int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
 
     allies[selected_index]->Get_Healed(40);
@@ -47,7 +32,7 @@ bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3])
     return true;
 }
 
-bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int target_index)
+bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int target_index, User &user)
 {
     if(user.Get_Energy() < Asprin_Ability_Energy_Cost)
         return false;
@@ -62,69 +47,41 @@ bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], in
     return true;
 }
 
-bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3])
+bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user)
 {
     if(user.Get_Energy() < Doping_Ability_Energy_Cost)
         return false;
-    static bool seeded = false;
-    if(!seeded)
+    Is_Doping_Ongoing = true;
+    if(Rounds_Since_Doping >= 2)
     {
-        std::srand(static_cast<unsigned int>(std::time(0)));
-        seeded = true;
-    }
-    // finding  live allies and not  being null
-    int valid_indexes[3];
-    int valid_count = 0;
-    for(int i = 1; i < 3; i++)
-    {
-        if(allies[i] != nullptr && !allies[i]->Is_Dead())
-        {
-            valid_indexes[valid_count] = i;
-            valid_count++;
-        }
-    }
-    if(valid_count == 0)
+        Rounds_Since_Doping = 0;
+        user.Set_Energy(Doping_Ability_Energy_Cost);
         return false;
-    int random_position = std::rand() % valid_count;
-    int selected_index = valid_indexes[random_position];
-    //........not yet completed
-    user.Set_Energy(Doping_Ability_Energy_Cost);
+    }
+    Rounds_Since_Doping++;
+    //user.Set_Energy(Doping_Ability_Energy_Cost);
     return true;
 }
 
-bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3])
+bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 {
     if(user.Get_Energy() < SuperPower_Energy_Cost)
         return false;
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
-    
-    static bool seeded = false;
-    if(!seeded)
-    {
-        std::srand(static_cast<unsigned int>(std::time(0)));
-        seeded = true;
-    }
-    // finding  live allies and not  being null
-    int valid_indexes[3];
-    int valid_count = 0;
-    for(int i = 1; i < 3; i++)
-    {
-        if(allies[i] != nullptr && allies[i] != this && !allies[i]->Is_Dead())
-        {
-            valid_indexes[valid_count] = i;
-            valid_count++;
-        }
-    }
-    if(valid_count == 0)
+    Seeded();
+    // finding  live allies and not  being null and not this
+    std::array<int,4> valid_indexes = Valid_Index_Hero(allies, 1);
+    if(valid_indexes[3] == 0)
         return false;
-    int random_position = std::rand() % valid_count;
+    int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
     allies[selected_index]->Get_Healed(200);
     user.Set_Energy(SuperPower_Energy_Cost);
     rounds_left_till_superpower_is_ready = 0;
     return true; 
 }
+
 
 //----------------------------------------------------------------------------
 

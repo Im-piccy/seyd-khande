@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/piccy__/Desktop/seyd-khande/src/controller.cpp" "CMakeFiles/app.dir/src/controller.cpp.obj" "gcc" "CMakeFiles/app.dir/src/controller.cpp.obj.d"
-  "C:/Users/piccy__/Desktop/seyd-khande/src/game.cpp" "CMakeFiles/app.dir/src/game.cpp.obj" "gcc" "CMakeFiles/app.dir/src/game.cpp.obj.d"
-  "C:/Users/piccy__/Desktop/seyd-khande/src/main.cpp" "CMakeFiles/app.dir/src/main.cpp.obj" "gcc" "CMakeFiles/app.dir/src/main.cpp.obj.d"
-  "C:/Users/piccy__/Desktop/seyd-khande/src/user.cpp" "CMakeFiles/app.dir/src/user.cpp.obj" "gcc" "CMakeFiles/app.dir/src/user.cpp.obj.d"
+  "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/src/controller.cpp" "CMakeFiles/app.dir/src/controller.cpp.obj" "gcc" "CMakeFiles/app.dir/src/controller.cpp.obj.d"
+  "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/src/game.cpp" "CMakeFiles/app.dir/src/game.cpp.obj" "gcc" "CMakeFiles/app.dir/src/game.cpp.obj.d"
+  "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/src/main.cpp" "CMakeFiles/app.dir/src/main.cpp.obj" "gcc" "CMakeFiles/app.dir/src/main.cpp.obj.d"
+  "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/src/user.cpp" "CMakeFiles/app.dir/src/user.cpp.obj" "gcc" "CMakeFiles/app.dir/src/user.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "C:/Users/piccy__/Desktop/seyd-khande/app.exe"
-  "C:/Users/piccy__/Desktop/seyd-khande/app.exe.manifest"
-  "C:/Users/piccy__/Desktop/seyd-khande/app.pdb"
+  "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/app.exe"
+  "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/app.exe.manifest"
+  "C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/app.pdb"
   "CMakeFiles/app.dir/src/controller.cpp.obj"
   "CMakeFiles/app.dir/src/controller.cpp.obj.d"
   "CMakeFiles/app.dir/src/game.cpp.obj"
