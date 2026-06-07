@@ -21,7 +21,8 @@ void User::Set_Energy(int cost)
 
 void User::Set_Name(std::string username)
 {
-    int i;  
+
+    int i;
     for(i = 0; i < 25; i++)
     {
         this->username[i] = username[i];
