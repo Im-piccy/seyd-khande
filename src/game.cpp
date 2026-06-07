@@ -9,7 +9,7 @@
 #include <array>
 
 const float Animation_Duration = 2.0f;
-const float Animation_Speed = 10.0f;
+const float Animation_Speed = 25.0f;
 const int characters_sprite_sheets_frame_height = 250;
 
 void string_to_char_array(std::string st, char out[])//string should not have more than 25 characters
@@ -296,29 +296,11 @@ Texture2D Return_The_Corresponding_Texture_Based_On_User_Array(const std::array 
 } 
 
 
-void highlight_hero_which_mouse_is_hovering_over(const std::array <int , 3>& user1_hero_array, const std::array <int, 3>& user2_hero_array, int user, int index)
-{
-    if(user == USER1)
-    {
-        switch(user1_hero_array[index])
-        {
-            
-        }
-    }
-    else if (user == USER2)
-    {
 
-    }
-}
-
-Animation return_animation_struct_that_is_going_to_be_played(const std::array <int, 3>& user1_hero_arr, const std::array <int, 3>& user2_hero_arr, int user_turn, int hero_index_in_arr, const std::array <Animation, 7>& animation_sturcts)
-{
-
-}
 
 void set_frame_width_with_respect_to_the_player(Animation& anim, int width , int user)
 {
-    if(user == USER1)
+    if(user == USER2)
     {
         anim.frame_width = width;
     }
@@ -352,34 +334,46 @@ void Game::unload_animation_sprite_sheets()
     UnloadTexture(Shahriar_anim_texture);
 }
 
-void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const std::array <int,3>& user1_heros, const std::array <int,3>&  user2_heros, int index, int user_turn,bool should_highlight,int hero_being_hoverd)
+void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const std::array <int,3>& user1_heros, const std::array <int,3>&  user2_heros, int index, int user_turn,bool should_highlight,int hero_being_hoverd, int hero_to_be_animated_index)
 {
 
     //for player one
     switch (user1_heros[index])
     {
     case WHITEDOCTOR:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Doc_anim_texture,{0,0, -164,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }
+        else if(user_turn == USER1 && hero_to_be_animated_index == index)
+        {
+            break;
         }
         else
             DrawTextureRec(Doc_anim_texture,{0,0, -164,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
         break;
     
     case DANI_GOLANG:
-    if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Dani_anim_texture,{0,0, -136,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }
+        else if(user_turn == USER1 && hero_to_be_animated_index == index)
+        {
+            break;
         }
         else
             DrawTextureRec(Dani_anim_texture,{0,0, -136,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
         break;
     
     case AMIN_EMENI:
-    if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Amin_anim_texture,{0,0, -145,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }
+        else if(user_turn == USER1 && hero_to_be_animated_index == index)
+        {
+            break;
         }
         else
             DrawTextureRec(Amin_anim_texture,{0,0, -145,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
@@ -387,9 +381,13 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case POUYA_KAJDOM:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Pouya_anim_texture,{0,0, -120,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
+        }
+        else if(user_turn == USER1 && hero_to_be_animated_index == index)
+        {
+            break;
         }
         else
             DrawTextureRec(Pouya_anim_texture,{0,0, -120,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
@@ -397,30 +395,42 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AGHA_SHAHRIAR:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
            DrawTextureRec(Shahriar_anim_texture,{0,0, -160,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
-        }     
+        }   
+        else if(user_turn == USER1 && hero_to_be_animated_index == index)
+        {
+            break;
+        }  
         else
             DrawTextureRec(Shahriar_anim_texture,{0,0, -160,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY); 
         
         break;
     
     case TAHA_KOCHIKE:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tlittle_anim_texture,{0,0, -185,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }     
+        else if(user_turn == USER1 && hero_to_be_animated_index == index)
+        {
+            break;
+        }
         else
             DrawTextureRec(Tlittle_anim_texture,{0,0, -185,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
         
         break;
     
     case TAHA_BOZORGE:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tbig_anim_texture,{0,0, -135,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
-        }     
+        }   
+        else if(user_turn == USER1 && hero_to_be_animated_index == index)
+        {
+            break;
+        }  
         else
             DrawTextureRec(Tbig_anim_texture,{0,0, -135,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},GRAY);
         
@@ -432,70 +442,98 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
     switch (user2_heros[index])
     {
     case WHITEDOCTOR:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Doc_anim_texture,{0,0, 164,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
-        }     
+        }    
+        else if(user_turn == USER2 && hero_to_be_animated_index == index)
+        {
+            break;
+        } 
         else
             DrawTextureRec(Doc_anim_texture,{0,0, 164,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
         
         break;
     
     case DANI_GOLANG:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Dani_anim_texture,{0,0, 136,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
+        else if(user_turn == USER2 && hero_to_be_animated_index == index)
+        {
+            break;
+        } 
         else
             DrawTextureRec(Dani_anim_texture,{0,0, 136,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
         
         break;
     
     case AMIN_EMENI:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Amin_anim_texture,{0,0, 145,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
+        else if(user_turn == USER2 && hero_to_be_animated_index == index)
+        {
+            break;
+        } 
         else
             DrawTextureRec(Amin_anim_texture,{0,0, 145,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
         
         break;
     
     case POUYA_KAJDOM:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Pouya_anim_texture,{0,0, 120,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
+        else if(user_turn == USER2 && hero_to_be_animated_index == index)
+        {
+            break;
+        } 
         else
             DrawTextureRec(Pouya_anim_texture,{0,0, 120,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
         
         break;
     
     case AGHA_SHAHRIAR:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Shahriar_anim_texture,{0,0, 160,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
+        else if(user_turn == USER2 && hero_to_be_animated_index == index)
+        {
+            break;
+        } 
         else
             DrawTextureRec(Shahriar_anim_texture,{0,0, 160,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
         
         break;
     
     case TAHA_KOCHIKE:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tlittle_anim_texture,{0,0, 178,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
-        }     
+        }   
+        else if(user_turn == USER2 && hero_to_be_animated_index == index)
+        {
+            break;
+        }   
         else
             DrawTextureRec(Tlittle_anim_texture,{0,0, 178,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
         
         break;
     
     case TAHA_BOZORGE:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd)
+        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tbig_anim_texture,{0,0, 135,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
-        }     
+        }
+        else if(user_turn == USER2 && hero_to_be_animated_index == index)
+        {
+            break;
+        }      
         else
             DrawTextureRec(Tbig_anim_texture,{0,0, 135,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},GRAY);
         
@@ -1438,7 +1476,7 @@ void Game::Game_Screen()
     //animation sprite for users
     static float doc_frame_width = 164;
     static float dani_frame_width = 136;
-    static float amin_frame_width = 145;
+    static float amin_frame_width = 100;
     static float shahriar_frame_width = 160;
     static float pouya_frame_width = 134;
     static float tbig_frame_width = 135;
@@ -1528,40 +1566,92 @@ void Game::Game_Screen()
     Mouse_Positon = GetMousePosition();
 
     //check collision with heros and remember which hero
-    if(CheckCollisionPointRec(Mouse_Positon, user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound))
+    // if(CheckCollisionPointRec(Mouse_Positon, user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound))
+    // {
+    //     hero_to_be_highlighted_index = 0;
+        
+    // }
+    // else if(CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound))
+    // {
+    //     hero_to_be_highlighted_index = 1;
+        
+    // }
+    // else if(CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
+    // {
+    //     hero_to_be_highlighted_index = 2;
+        
+        
+    // }
+    // else
+    // {
+    //     Hero_should_be_highlighted = false;
+    //     //if user clicks  on the background image it will diable hero selection
+        
+    // }
+    if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound))
     {
         hero_to_be_highlighted_index = 0;
-        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 0;
         }
     }
-    else if(CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound))
+    else if(CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound))
     {
         hero_to_be_highlighted_index = 1;
-        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 1;
         }
+
     }
-    else if(CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
+    else if(CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound))
     {
         hero_to_be_highlighted_index = 2;
-        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 2;
         }
+
+    }
+    else if(CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound))
+    {
+        hero_to_be_highlighted_index = 0;
+        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            hero_to_be_animated_index = 0;
+        }
+
+    }
+    else if(CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound))
+    {
+        hero_to_be_highlighted_index = 1;
+        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            hero_to_be_animated_index = 1;
+        }
+
+    }
+    else if(CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
+    {
+        hero_to_be_highlighted_index = 2;
+        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            hero_to_be_animated_index = 2;
+        }
+
     }
     else
     {
         Hero_should_be_highlighted = false;
-        //if user clicks  on the background image it will diable hero selection
         if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             should_hero_be_animated = false;
+            hero_to_be_animated_index = 4;
         }
     }
-    
+
+
     //now we check to see which user is hovering over which character
     //and to see if the character should highlight or not
     if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero3_bound))
@@ -1595,6 +1685,7 @@ void Game::Game_Screen()
     //drawing the background and panels
     DrawTexture(Background_img, 0, -100, WHITE);
 
+    /*
     //this means a hero should be animated
     if(should_hero_be_animated)
     {
@@ -1606,12 +1697,153 @@ void Game::Game_Screen()
             
         }
     }
+    */
+
+   
+   
+   //animating heros
+   
+   if(should_hero_be_animated)
+   {
+       if(User_Turn == USER1)
+       {
+           switch (user1_hero_arr[hero_to_be_animated_index])
+           {
+               case DANI_GOLANG:
+               //this is to flip horizontaly so that the animation is facing the correct direction
+               if(Dani_anim_struct.frame_width > 0)
+               {
+                   Dani_anim_struct.frame_width = -dani_frame_width;
+                }
+                DrawTextureRec(Dani_anim_texture,Dani_anim_struct.frame,{180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Dani_anim_struct);
+                break;
+
+            case AMIN_EMENI:
+            if(Amin_anim_struct.frame_width > 0)
+                {
+                    Amin_anim_struct.frame_width = -amin_frame_width;
+                }
+                DrawTextureRec(Amin_anim_texture,Amin_anim_struct.frame,{180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Amin_anim_struct);
+                break;
+                
+                case TAHA_BOZORGE:
+                if(Tbig_anim_struct.frame_width > 0)
+                {
+                    Tbig_anim_struct.frame_width = -tbig_frame_width;
+                }
+                DrawTextureRec(Tbig_anim_texture,Tbig_anim_struct.frame,{180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Tbig_anim_struct);
+                break;
+                case TAHA_KOCHIKE:
+                if(Tlittle_anim_struct.frame_width > 0)
+                {
+                    Tlittle_anim_struct.frame_width = -tlittle_frame_width;
+                }
+                DrawTextureRec(Tlittle_anim_texture,Tlittle_anim_struct.frame, {180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Tlittle_anim_struct);
+                break;
+                case AGHA_SHAHRIAR:
+                if(Shahriar_anim_struct.frame_width > 0)
+                {
+                    Shahriar_anim_struct.frame_width = -shahriar_frame_width;
+                }
+                DrawTextureRec(Shahriar_anim_texture, Shahriar_anim_struct.frame, {180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Shahriar_anim_struct);
+                break;
+            case WHITEDOCTOR:
+                if(Doc_anim_struct.frame_width > 0)
+                {
+                    Doc_anim_struct.frame_width = - doc_frame_width;
+                }
+                DrawTextureRec(Doc_anim_texture,Doc_anim_struct.frame,{180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Doc_anim_struct);
+                break;
+            case POUYA_KAJDOM:
+                if(Pouya_anim_struct.frame_width > 0)
+                {
+                    Pouya_anim_struct.frame_width = -pouya_frame_width;
+                }
+                DrawTextureRec(Pouya_anim_texture,Pouya_anim_struct.frame,{180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Pouya_anim_struct);
+                break;
+                
+            }
+        }
+        else if(User_Turn == USER2)
+        {
+            switch (user2_hero_arr[hero_to_be_animated_index])
+            {
+                case DANI_GOLANG:
+                //this is to flip horizontaly so that the animation is facing the correct direction
+                if(Dani_anim_struct.frame_width < 0)
+                {
+                    Dani_anim_struct.frame_width = -dani_frame_width;
+                }
+                DrawTextureRec(Dani_anim_texture,Dani_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Dani_anim_struct);
+                break;
+                
+                case AMIN_EMENI:
+                if(Amin_anim_struct.frame_width < 0)
+                {
+                    Amin_anim_struct.frame_width = -amin_frame_width;
+                }
+                DrawTextureRec(Amin_anim_texture,Amin_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Amin_anim_struct);
+                break;
+
+                case TAHA_BOZORGE:
+                if(Tbig_anim_struct.frame_width < 0)
+                {
+                    Tbig_anim_struct.frame_width = -tbig_frame_width;
+                }
+                DrawTextureRec(Tbig_anim_texture,Tbig_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Tbig_anim_struct);
+                break;
+            case TAHA_KOCHIKE:
+                if(Tlittle_anim_struct.frame_width < 0)
+                {
+                    Tlittle_anim_struct.frame_width = -tlittle_frame_width;
+                }
+                DrawTextureRec(Tlittle_anim_texture,Tlittle_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Tlittle_anim_struct);
+                break;
+                case AGHA_SHAHRIAR:
+                update_animation_loop(Shahriar_anim_struct);
+                break;
+            case WHITEDOCTOR:
+                if(Doc_anim_struct.frame_width < 0)
+                {
+                    Doc_anim_struct.frame_width = - doc_frame_width;
+                }
+                DrawTextureRec(Doc_anim_texture,Doc_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Doc_anim_struct);
+                break;
+            case POUYA_KAJDOM:
+                if(Pouya_anim_struct.frame_width < 0)
+                {
+                    Pouya_anim_struct.frame_width = -pouya_frame_width;
+                }
+                DrawTextureRec(Pouya_anim_texture,Pouya_anim_struct.frame,{1000.0f -(350.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)} , WHITE);
+                update_animation_loop(Pouya_anim_struct);
+                break;
+                
+            }
+        }
+    }
+    
     
     //drawing heros 
     for(int i = 0 ; i < 3 ; i++)
     {
-        print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr,i,User_Turn,Hero_should_be_highlighted,hero_to_be_highlighted_index);
+        
+        print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, hero_to_be_highlighted_index, hero_to_be_animated_index);
     }
+
+
+
     //panel
     DrawTexture(Control_panel, 0, 600 - Control_panel.height, WHITE);
 
