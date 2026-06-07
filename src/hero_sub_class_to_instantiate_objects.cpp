@@ -32,22 +32,20 @@ bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User
     return true;
 }
 
-bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int target_index, User &user)
+bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemy, User &user)
 {
     if(user.Get_Energy() < Asprin_Ability_Energy_Cost)
         return false;
-    if(target_index < 0 || target_index >= 3)
+    if(enemy == nullptr)
         return false;
-    if(enemies[target_index] == nullptr)
+    if(enemy->Is_Dead())
         return false;
-    if(enemies[target_index]->Is_Dead())
-        return false;
-    enemies[target_index]->Get_Damaged(40);
+    enemy->Get_Damaged(40);
     user.Set_Energy(Asprin_Ability_Energy_Cost);
     return true;
 }
 
-bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user)
+bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* enemy, float damage_amount, User &user)
 {
     if(user.Get_Energy() < Doping_Ability_Energy_Cost)
         return false;
@@ -58,8 +56,9 @@ bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user)
         user.Set_Energy(Doping_Ability_Energy_Cost);
         return false;
     }
+    damage_amount += damage_amount * 0.2;
+    enemy->Get_Damaged(damage_amount);
     Rounds_Since_Doping++;
-    //user.Set_Energy(Doping_Ability_Energy_Cost);
     return true;
 }
 
@@ -121,28 +120,31 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], U
     return true; 
 }
 
-bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int target_index, User &user)
+bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemy, User &user)
 {
     if(user.Get_Energy() < Tigh_Tiz_Ability_Energy_Cost)
         return false;
-    if(target_index < 0 || target_index >= 3)
+    if(enemy == nullptr)
         return false;
-    if(enemies[target_index] == nullptr)
+    if(enemy->Is_Dead())
         return false;
-    if(enemies[target_index]->Is_Dead())
-        return false;
-    enemies[target_index]->Get_Damaged(30);
+    enemy->Get_Damaged(30);
     user.Set_Energy(Tigh_Tiz_Ability_Energy_Cost);
     return true;
 }
 
-bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &user)
+bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* ally, User &user)
 {
     if(user.Get_Energy() < Serom_Khon_Ability_Energy_Cost)
         return false;
-    //.... not yet completed
-    
-    user.Set_Energy(Serom_Khon_Ability_Energy_Cost);
+    Is_serom_Khon_ongoing = true;
+    if(Round_since_Serom >= 2)
+    {
+        user.Set_Energy(Serom_Khon_Ability_Energy_Cost);
+        Round_since_Serom = 0;
+    }
+    ally->Get_Healed(40);
+    Round_since_Serom++;
     return true;
 }
 

@@ -3,8 +3,8 @@
 #include <array>
 
 //declare to avoid compile time error
-//hello
-class User;
+
+//class User;
 class Hero_Abstaction;
 
 
