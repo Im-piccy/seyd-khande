@@ -82,14 +82,11 @@ bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
     return true; 
 }
 
-
-
-
 //----------------------------------------------------------------------------
 
 //-----------------------------------taha kochike-----------------------------
 
-Taha_Kochike::Taha_Kochike(User & person):user(person)
+Taha_Kochike::Taha_Kochike()
 {
     this->Current_Hp = 500;
     this->Initial_Hp = 500;
@@ -104,7 +101,7 @@ Taha_Kochike::Taha_Kochike(User & person):user(person)
     
 }
 
-bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3])
+bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user)
 {
     if(user.Get_Energy() < Tigh_Tiz_Ability_Energy_Cost)
         return false;
@@ -124,7 +121,7 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3])
     return true; 
 }
 
-bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int target_index)
+bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int target_index, User &user)
 {
     if(user.Get_Energy() < Tigh_Tiz_Ability_Energy_Cost)
         return false;
@@ -139,7 +136,7 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], 
     return true;
 }
 
-bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3])
+bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &user)
 {
     if(user.Get_Energy() < Serom_Khon_Ability_Energy_Cost)
         return false;
@@ -149,7 +146,7 @@ bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3])
     return true;
 }
 
-bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3])
+bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 {
     if(user.Get_Energy() < SuperPower_Energy_Cost)
         return false;

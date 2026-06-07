@@ -27,18 +27,17 @@ class WhiteDoctor : public Hero_Abstaction//healer
 class Taha_Kochike : public Hero_Abstaction//healer
 {
     public:
-        Taha_Kochike(User & user); // constructor to initilize the hero information
-        bool Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3]);
-        bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* allies[3], int target_index); 
-        bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3]); 
-        bool Execute_SuperPower(Hero_Abstaction* allies[3]);
+        Taha_Kochike(); // constructor to initilize the hero information
+        bool Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user);
+        bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* allies[3], int target_index, User&user); 
+        bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &user); 
+        bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
     private:
         int Tigh_Tiz_Ability_Energy_Cost;
         int Serom_Khon_Ability_Energy_Cost;
         bool Is_serom_Khon_ongoing;
         int Round_since_Serom;
         int Hero_under_Serom;
-        User & user;
 };
 
 class Dani_Golang : public Hero_Abstaction //defender

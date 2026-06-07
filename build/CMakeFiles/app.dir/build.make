@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = C:\Users\Bartar404-4\Downloads\w64devkit\bin\cmake.exe
+CMAKE_COMMAND = C:\Users\Bartar404-4\Desktop\w64devkit\bin\cmake.exe
 
 # The command to remove a file.
-RM = C:\Users\Bartar404-4\Downloads\w64devkit\bin\cmake.exe -E rm -f
+RM = C:\Users\Bartar404-4\Desktop\w64devkit\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -76,60 +76,60 @@ CMakeFiles/app.dir/src/main.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
 CMakeFiles/app.dir/src/main.cpp.obj: C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/src/main.cpp
 CMakeFiles/app.dir/src/main.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/src/main.cpp.obj"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/main.cpp.obj -MF CMakeFiles\app.dir\src\main.cpp.obj.d -o CMakeFiles\app.dir\src\main.cpp.obj -c C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\main.cpp
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/main.cpp.obj -MF CMakeFiles\app.dir\src\main.cpp.obj.d -o CMakeFiles\app.dir\src\main.cpp.obj -c C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\main.cpp
 
 CMakeFiles/app.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/main.cpp.i"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\main.cpp > CMakeFiles\app.dir\src\main.cpp.i
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\main.cpp > CMakeFiles\app.dir\src\main.cpp.i
 
 CMakeFiles/app.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/main.cpp.s"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\main.cpp -o CMakeFiles\app.dir\src\main.cpp.s
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\main.cpp -o CMakeFiles\app.dir\src\main.cpp.s
 
 CMakeFiles/app.dir/src/game.cpp.obj: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/game.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
 CMakeFiles/app.dir/src/game.cpp.obj: C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/src/game.cpp
 CMakeFiles/app.dir/src/game.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/app.dir/src/game.cpp.obj"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/game.cpp.obj -MF CMakeFiles\app.dir\src\game.cpp.obj.d -o CMakeFiles\app.dir\src\game.cpp.obj -c C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\game.cpp
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/game.cpp.obj -MF CMakeFiles\app.dir\src\game.cpp.obj.d -o CMakeFiles\app.dir\src\game.cpp.obj -c C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\game.cpp
 
 CMakeFiles/app.dir/src/game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/game.cpp.i"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\game.cpp > CMakeFiles\app.dir\src\game.cpp.i
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\game.cpp > CMakeFiles\app.dir\src\game.cpp.i
 
 CMakeFiles/app.dir/src/game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/game.cpp.s"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\game.cpp -o CMakeFiles\app.dir\src\game.cpp.s
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\game.cpp -o CMakeFiles\app.dir\src\game.cpp.s
 
 CMakeFiles/app.dir/src/user.cpp.obj: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/user.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
 CMakeFiles/app.dir/src/user.cpp.obj: C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/src/user.cpp
 CMakeFiles/app.dir/src/user.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/app.dir/src/user.cpp.obj"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/user.cpp.obj -MF CMakeFiles\app.dir\src\user.cpp.obj.d -o CMakeFiles\app.dir\src\user.cpp.obj -c C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\user.cpp
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/user.cpp.obj -MF CMakeFiles\app.dir\src\user.cpp.obj.d -o CMakeFiles\app.dir\src\user.cpp.obj -c C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\user.cpp
 
 CMakeFiles/app.dir/src/user.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/user.cpp.i"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\user.cpp > CMakeFiles\app.dir\src\user.cpp.i
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\user.cpp > CMakeFiles\app.dir\src\user.cpp.i
 
 CMakeFiles/app.dir/src/user.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/user.cpp.s"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\user.cpp -o CMakeFiles\app.dir\src\user.cpp.s
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\user.cpp -o CMakeFiles\app.dir\src\user.cpp.s
 
 CMakeFiles/app.dir/src/controller.cpp.obj: CMakeFiles/app.dir/flags.make
 CMakeFiles/app.dir/src/controller.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
 CMakeFiles/app.dir/src/controller.cpp.obj: C:/Users/Bartar404-4/Desktop/vscode/temp/seyd-khande/src/controller.cpp
 CMakeFiles/app.dir/src/controller.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/app.dir/src/controller.cpp.obj"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/controller.cpp.obj -MF CMakeFiles\app.dir\src\controller.cpp.obj.d -o CMakeFiles\app.dir\src\controller.cpp.obj -c C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\controller.cpp
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/controller.cpp.obj -MF CMakeFiles\app.dir\src\controller.cpp.obj.d -o CMakeFiles\app.dir\src\controller.cpp.obj -c C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\controller.cpp
 
 CMakeFiles/app.dir/src/controller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/controller.cpp.i"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\controller.cpp > CMakeFiles\app.dir\src\controller.cpp.i
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\controller.cpp > CMakeFiles\app.dir\src\controller.cpp.i
 
 CMakeFiles/app.dir/src/controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/controller.cpp.s"
-	C:\Users\Bartar404-4\Downloads\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\controller.cpp -o CMakeFiles\app.dir\src\controller.cpp.s
+	C:\Users\Bartar404-4\Desktop\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartar404-4\Desktop\vscode\temp\seyd-khande\src\controller.cpp -o CMakeFiles\app.dir\src\controller.cpp.s
 
 # Object files for target app
 app_OBJECTS = \

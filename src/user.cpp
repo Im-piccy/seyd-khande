@@ -19,17 +19,14 @@ void User::Set_Energy(int cost)
         energy -= cost;
 }
 
-bool User::Set_Name(std::string username)
+void User::Set_Name(std::string username)
 {
-    if(username.length() > 25)
-        return false;
-    int i;    
+    int i;
     for(i = 0; i < 25; i++)
     {
         this->username[i] = username[i];
     }
     this->username[i] = '\0';
-    return true;
 }
 
 std::string User::Get_Name_String() const

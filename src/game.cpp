@@ -309,7 +309,7 @@ void set_frame_width_with_respect_to_the_player(Animation& anim, int width , int
         anim.frame_width = -width;
     }
 }
-Game::Game() : current_screen(CHARACTER_SELECT_SCREEN)
+Game::Game() : current_screen(MENU_SCREEN)
 {}
 
 void Game::load_animation_sprite_sheets()
@@ -1304,15 +1304,15 @@ void Game::Character_Select_Screen()
                         {
                             // we set the name inside the object that is the game class
                             // attribute
+                            
                             user1.Set_Name(User_Input_Name);
                             string_to_char_array(User_Input_Name, user1_name);
                         }
                         else if(User_Turn == USER2)
-                        {
-                            string_to_char_array(User_Input_Name, user2_name);
+                        { 
                             user2.Set_Name(User_Input_Name);
+                            string_to_char_array(User_Input_Name, user2_name);
                         }
-
                         
                         // we reset the variables so that the next user can use them
                         User_Input_Name.erase();
@@ -1366,7 +1366,6 @@ void Game::Character_Select_Screen()
             }
             SetMusicVolume(background_music, 1.0 - fade/255.0);
             break;
-
     }
 
     EndDrawing();
