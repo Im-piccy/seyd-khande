@@ -313,6 +313,59 @@ Taha_Bozorge::Taha_Bozorge()
     this->rounds_left_till_superpower_is_ready = 4;
     this->Is_Xray_Ongoing = false;
     this->Rounds_Since_Xray = 0;
+    this->Rounds_Since_SuperPower = 0;
+    this->Save_Selected_Enemy_Index = 0;
+}
+
+bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user)
+{
+    if(user.Get_Energy() < Ragbar_Ability_Energy_Cost)
+        return false;
+    for(int i = 0; i < 3; i++)
+    {
+        if(enemies[i] != nullptr && !enemies[i]->Is_Dead())
+            enemies[i]->Get_Damaged(30);
+    }
+    user.Set_Energy(Ragbar_Ability_Energy_Cost);
+    return true;
+}
+
+bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemy, User &user)
+{
+    enemy->Get_Damaged(90);
+    Is_Xray_Ongoing = true;
+    Rounds_Since_Xray++;
+    // not complete yet......
+    user.Set_Energy(Xray_Ability_Energy_Cost);
+    return true;
+}
+
+bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
+{
+    if(rounds_left_till_superpower_is_ready != 0)
+        return false;
+    if(Rounds_Since_SuperPower == 0)
+    {
+        Seeded();
+        std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
+        if(valid_indexes[3] == 0)
+            return false;
+        int random_position = std::rand() % valid_indexes[3];
+        Save_Selected_Enemy_Index = valid_indexes[random_position];
+    }
+    if(Rounds_Since_SuperPower != 0)
+    {
+        if(enemies[Save_Selected_Enemy_Index]->Get_Current_Hp() < 360)
+            enemies[Save_Selected_Enemy_Index]->Get_Damaged(0);
+        if(enemies[Save_Selected_Enemy_Index]->Get_Current_Hp() > 360)
+            enemies[Save_Selected_Enemy_Index]->Get_Damaged(200);
+        user.Set_Energy(SuperPower_Energy_Cost);
+        rounds_left_till_superpower_is_ready = 0;
+        Save_Selected_Enemy_Index = 0;
+        Rounds_Since_SuperPower = 0;
+    }
+    Rounds_Since_SuperPower++;
+    return true;
 }
 //----------------------------------------------------------------------------
 

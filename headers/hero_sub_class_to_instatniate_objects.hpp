@@ -77,14 +77,16 @@ class Taha_Bozorge : public Hero_Abstaction // attacker
 {
     public:
         Taha_Bozorge();//constructor to initiate info
-        bool Execute_Ragbar_Ability(int current_energy); 
-        bool Execute_Xray_Ability(int current_energy); 
-        bool Execute_SuperPower(int current_energy);
+        bool Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user);
+        bool Execute_Xray_Ability(Hero_Abstaction* enemy, User &user); 
+        bool Execute_SuperPower(Hero_Abstaction* enemy[3], User &user);
     private:
         int Ragbar_Ability_Energy_Cost;
         int Xray_Ability_Energy_Cost;
         bool Is_Xray_Ongoing;
         int Rounds_Since_Xray;
+        int Rounds_Since_SuperPower;
+        int Save_Selected_Enemy_Index;
 };
 
 class Pouya_Kajdom : public Hero_Abstaction // attacker
