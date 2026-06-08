@@ -309,7 +309,7 @@ void set_frame_width_with_respect_to_the_player(Animation& anim, int width , int
         anim.frame_width = -width;
     }
 }
-Game::Game() : current_screen(CHARACTER_SELECT_SCREEN)
+Game::Game() : current_screen(MENU_SCREEN)
 {}
 
 void Game::load_animation_sprite_sheets()
@@ -1849,7 +1849,7 @@ void Game::Game_Screen()
     }
     
     
-
+    //
 
 
 
@@ -1878,7 +1878,6 @@ void Game::Game_Screen()
         }
     }
 
-    //drawing heros on the screen
 
 
 
