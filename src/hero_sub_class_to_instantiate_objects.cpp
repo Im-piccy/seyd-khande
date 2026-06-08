@@ -246,6 +246,58 @@ Amin_Emeni::Amin_Emeni()
     this->Is_Hero_Dead = false;
     this->rounds_left_till_superpower_is_ready = 3;
 }
+
+bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemy, User &user)
+{
+    if(user.Get_Energy() < Akharin_Feshang_Ability_Energy_Cost)
+        return false;
+    if(enemy->Get_Current_Hp() <= 110)
+        enemy->Get_Damaged(110);
+    else
+        enemy->Get_Damaged(55);
+    user.Set_Energy(Akharin_Feshang_Ability_Energy_Cost);
+    return true;
+}
+
+bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &user)
+{
+    if(user.Get_Energy() < Zarbe_Be_Khodi_Ability_Energy_Cost)
+        return false;
+    Seeded();
+    std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
+    if(valid_indexes[3] == 0)
+        return false;
+    int random_position = std::rand() % valid_indexes[3];
+    int selected_index = valid_indexes[random_position];
+
+    allies[selected_index]->Get_Damaged(20);
+    this->Get_Healed(75);
+    user.Set_Energy(Zarbe_Be_Khodi_Ability_Energy_Cost);
+    return true;
+}
+
+bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user)
+{
+    if(user.Get_Energy() < SuperPower_Energy_Cost)
+        return false;
+    if(rounds_left_till_superpower_is_ready != 3)
+        return false;
+    Seeded();
+    std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
+    if(valid_indexes[3] == 0)
+        return false;
+    int random_position = std::rand() % valid_indexes[3];
+    int selected_index = valid_indexes[random_position];
+    enemies[selected_index]->Get_Damaged(250);
+    for(int i = 0; i < 3; i++)
+    {
+        if(allies[i] != nullptr && !allies[i]->Is_Dead() && allies[i] != this)
+            allies[i]->Get_Damaged(30);
+    }
+    user.Set_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 0;
+    return true;
+}
 //----------------------------------------------------------------------------
 
 //-----------------------------------taha bozorge-----------------------------

@@ -64,9 +64,9 @@ class Amin_Emeni : public Hero_Abstaction //attacker
 {
     public:
         Amin_Emeni();//constructor to initiate info
-        bool Execute_Akharin_Feshang_Ability(int current_energy); 
-        bool Execute_Zarbe_Be_Khody_Ability(int current_energy); 
-        bool Execute_SuperPower(int current_energy);
+        bool Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemy, User &user); 
+        bool Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &usser); 
+        bool Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user);
     private:
         int Akharin_Feshang_Ability_Energy_Cost;
         int Zarbe_Be_Khodi_Ability_Energy_Cost;
@@ -114,4 +114,5 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
         bool Is_SuperPower_Active;
         int Rounds_Since_SuperPower;
 };
+
 #endif

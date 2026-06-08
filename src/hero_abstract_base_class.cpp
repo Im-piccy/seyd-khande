@@ -35,7 +35,7 @@ bool Hero_Abstaction::Is_Dead() const
     return Is_Hero_Dead;
 }
 
-std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* allies[3], int choose = 0) const
+std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], int choose = 0) const
 {
    std::array<int,4> valid_indexes;
     int valid_count = 0;
@@ -44,7 +44,7 @@ std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* allies[3],
     {
         for(int i = 0; i < 3; i++)
         {
-            if(allies[i] != nullptr && !allies[i]->Is_Dead() && allies[i] != this)
+            if(heros[i] != nullptr && !heros[i]->Is_Dead() && heros[i] != this)
             {
                 valid_indexes[valid_count] = i;
                 valid_count++;
@@ -55,7 +55,7 @@ std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* allies[3],
     {
         for(int i = 0; i < 3; i++)
         {
-            if(allies[i] != nullptr && !allies[i]->Is_Dead())
+            if(heros[i] != nullptr && !heros[i]->Is_Dead())
             {
                 valid_indexes[valid_count] = i;
                 valid_count++;
