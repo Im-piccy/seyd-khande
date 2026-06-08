@@ -44,14 +44,18 @@ class Dani_Golang : public Hero_Abstaction //defender
 {
     public:
         Dani_Golang(); // conctructor to initiate info
-        bool Execute_Ghofli_Ability(int current_energy); 
-        bool Execute_Fil_kosh_Ability(int current_energy); 
-        bool Execute_SuperPower(int current_energy);
+        bool Execute_Ghofli_Ability(Hero_Abstaction* enemy, User &user); 
+        bool Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
+        bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
 
     private:
         int Last_Attacked_Enemy;
         int Ghofli_Ability_Energy_Cost;
         int Fil_kosh_Ability_Energy_Cost;
+        int Round_Use_Ghofli_Ability;
+        bool Repete_Ghofli_Ability;
+        bool Start_SuperPower;
+        int Round_Use_SuperPower;
 
 };
 

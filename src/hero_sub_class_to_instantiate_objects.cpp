@@ -105,14 +105,7 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], U
     if(user.Get_Energy() < Tigh_Tiz_Ability_Energy_Cost)
         return false;
     //find the ally with the lowest Hp
-    Hero_Abstaction* Lowest_Hp_Ally = nullptr;
-    for(int i = 0; i < 3; i++)
-    {
-        if(allies[i] == nullptr || allies[i]->Is_Dead())
-            continue;
-        if(Lowest_Hp_Ally == nullptr || allies[i]->Get_Current_Hp() < Lowest_Hp_Ally->Get_Current_Hp())
-            Lowest_Hp_Ally = allies[i];
-    }
+    Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
     if(Lowest_Hp_Ally == nullptr)
         return false;
     Lowest_Hp_Ally->Get_Healed(20);
@@ -154,14 +147,7 @@ bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
         return false;
     if(rounds_left_till_superpower_is_ready != 3)
         return false;
-    Hero_Abstaction* Lowest_Hp_Ally = nullptr;
-    for(int i = 0; i < 3; i++)
-    {
-        if(allies[i] == nullptr || allies[i]->Is_Dead())
-            continue;
-        if(Lowest_Hp_Ally == nullptr || allies[i]->Get_Current_Hp() < Lowest_Hp_Ally->Get_Current_Hp())
-            Lowest_Hp_Ally = allies[i];
-    }
+    Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
     if(Lowest_Hp_Ally == nullptr)
         return false;
     Lowest_Hp_Ally->Get_Healed(200);
@@ -179,10 +165,72 @@ Dani_Golang::Dani_Golang()
     this->Initial_Hp = 600;
     this->hero_type = DEFENDER;
     this->Ghofli_Ability_Energy_Cost = 2;
+    this->Repete_Ghofli_Ability = false;
+    this->Round_Use_Ghofli_Ability = 0;
     this->Fil_kosh_Ability_Energy_Cost = 4;
     this->SuperPower_Energy_Cost = 4;
+    this->Start_SuperPower =  false;
     this->Is_Hero_Dead = false;
+    this->Round_Use_SuperPower = 0;
     this->rounds_left_till_superpower_is_ready = 4;    
+}
+
+bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemy, User &user)
+{
+    if(user.Get_Energy() < Ghofli_Ability_Energy_Cost)
+        return false;
+    if(Repete_Ghofli_Ability && Round_Use_Ghofli_Ability == 1)
+    {
+        enemy->Get_Damaged(38);
+        Repete_Ghofli_Ability = false;
+        Round_Use_Ghofli_Ability = 0;
+    }
+    enemy->Get_Damaged(20);
+    Round_Use_Ghofli_Ability++;
+    Repete_Ghofli_Ability = true;
+    user.Set_Energy(Ghofli_Ability_Energy_Cost);
+    return true;
+}
+
+bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
+{
+    if(user.Get_Energy() < Fil_kosh_Ability_Energy_Cost)
+        return false;
+    Hero_Abstaction* Highest_Hp_Enemy = Find_Highest_Or_Lowest_Hp(enemies, 1);
+    if(Highest_Hp_Enemy == nullptr)
+        return false;
+    Highest_Hp_Enemy->Get_Damaged(50);
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3 || enemies[selected_enemy_index] == nullptr)
+        return false;
+    enemies[selected_enemy_index]->Get_Damaged(50);
+    user.Set_Energy(Fil_kosh_Ability_Energy_Cost);
+    return true;
+}
+
+bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
+{
+    if(user.Get_Energy() < SuperPower_Energy_Cost)
+        return false;
+    if(rounds_left_till_superpower_is_ready != 4)
+        return false;
+    Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
+    if(Lowest_Hp_Ally == nullptr)
+        return false;
+
+    int Amount_Hp_Befor_Healed =  Get_Current_Hp();
+    Start_SuperPower = true;
+    Round_Use_SuperPower++;
+    int Amount_Hp_After_Healed = Get_Current_Hp();
+
+    if(Start_SuperPower && Round_Use_SuperPower == 2)
+        Lowest_Hp_Ally->Get_Damaged(250);
+    else if(Amount_Hp_Befor_Healed - Amount_Hp_After_Healed < 250)
+        Lowest_Hp_Ally->Get_Damaged(250);  
+    
+    rounds_left_till_superpower_is_ready = 0;
+    user.Set_Energy(SuperPower_Energy_Cost);
+    Lowest_Hp_Ally->Get_Healed(250);
+    return true;
 }
 //----------------------------------------------------------------------------
 

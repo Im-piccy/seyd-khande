@@ -75,3 +75,31 @@ void Hero_Abstaction::Seeded()
         seeded = true;
     }
 }
+
+Hero_Abstaction * Hero_Abstaction::Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], int turn) const
+{
+    if(turn == 0)
+    {
+        Hero_Abstaction* Lowest_Hp_Hero = nullptr;
+        for(int i = 0; i < 3; i++)
+        {
+            if(heros[i] == nullptr || heros[i]->Is_Dead())
+                continue;
+            if(Lowest_Hp_Hero == nullptr || heros[i]->Get_Current_Hp() < Lowest_Hp_Hero->Get_Current_Hp())
+                Lowest_Hp_Hero = heros[i];
+        }
+        return Lowest_Hp_Hero;
+    }
+    else
+    {
+        Hero_Abstaction* Highest_Hp_Hero = nullptr;
+        for(int i = 0; i < 3; i++)
+        {
+            if(heros[i] == nullptr || heros[i]->Is_Dead())
+                continue;
+            if(Highest_Hp_Hero == nullptr || heros[i]->Get_Current_Hp() > Highest_Hp_Hero->Get_Current_Hp())
+               Highest_Hp_Hero = heros[i];
+        }
+        return Highest_Hp_Hero;
+    }
+}
