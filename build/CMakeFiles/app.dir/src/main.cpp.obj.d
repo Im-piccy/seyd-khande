@@ -107,4 +107,5 @@ CMakeFiles/app.dir/src/main.cpp.obj: \
  C:/w64devkit/x86_64-w64-mingw32/include/stddef.h \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/uses_allocator.h \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/uses_allocator_args.h \
- C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/tuple
+ C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/tuple \
+ C:/Users/piccy__/Desktop/seyd-khande/raylib/include/raylib.h
