@@ -93,7 +93,7 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
 {
     public:
         Pouya_Kajdom();//constructor to initiate info
-        bool Execute_Khanjar_Ability(int current_energy); 
+        bool Execute_Khanjar_Ability(Hero_Abstaction* enemy); 
         bool Execute_Aghrab_Ability(int current_energy); 
         bool Execute_SuperPower(int current_energy);
     private:
@@ -107,9 +107,9 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
 {
     public:
         Agha_Shahriar();//constructor to initiate info
-        bool Execute_Maskhare_Ability(int current_energy); 
-        bool Execute_Lajbaz_Ability(int current_energy); 
-        bool Execute_SuperPower(int current_energy);
+        bool Execute_Maskhare_Ability(Hero_Abstaction* enemy, User &user); 
+        bool Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
+        bool Execute_SuperPower(User &user);
     private:
         int Maskhare_Ability_Energy_Cost;
         int Lajbaz_Ability_Energy_Cost;
