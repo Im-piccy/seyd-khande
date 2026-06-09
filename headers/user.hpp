@@ -9,7 +9,7 @@ class User
     friend bool Controller::Is_Hero_Array_Full(User &user);
     public:
         User();
-        void call_hero_abillity(); //user decides which hero's ability to use and it tells the controller object
+        std::array<int,2> call_hero_abillity(int hero_type, int abillity_type); //user decides which hero's ability to use and it tells the controller object
         void terminate_user_turn_manually(); //this means that user is skiping turn or ending attacks before energy is 0
         int return_currnet_energy();
         int Get_Energy() const;
