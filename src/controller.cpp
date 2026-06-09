@@ -1,6 +1,8 @@
 #include "../headers/controller.hpp"
-#include "../headers/user.hpp"
 #include "../headers/hero_sub_class_to_instatniate_objects.hpp"
+#include "../headers/game.hpp"
+#include "../headers/user.hpp"
+
 
 void Controller::Empty_User_Array(User &user)
 {
@@ -78,4 +80,16 @@ void Controller::Fill_Hero_object_Array(int user_number, int index, HERO_TYPE he
 int Controller::return_round_number()
 {
     return round_number;
+}
+
+int Controller::return_rounds_left_till_hero_ability_is_ready(int hero, int user)
+{
+    if(user == USER1)
+    {
+        return Hero_Arr_User1[hero]->return_rounds_left_till_superpower_is_ready();
+    }
+    else if(user == USER2)
+    {
+        return Hero_Arr_User2[hero]->return_rounds_left_till_superpower_is_ready();
+    }
 }
