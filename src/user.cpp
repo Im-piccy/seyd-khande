@@ -68,3 +68,9 @@ int User::return_currnet_energy()
 {
     return energy;
 }
+
+std::array<int,2> User::call_hero_abillity(int hero_type, int abillity_type)
+{
+    std::array<int,2> Hero_And_HisAbillity = {hero_type, abillity_type};
+    return Hero_And_HisAbillity;
+}
