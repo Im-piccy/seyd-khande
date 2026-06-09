@@ -309,7 +309,7 @@ void set_frame_width_with_respect_to_the_player(Animation& anim, int width , int
         anim.frame_width = -width;
     }
 }
-Game::Game() : current_screen(MENU_SCREEN)
+Game::Game() : current_screen(CHARACTER_SELECT_SCREEN)
 {}
 
 void Game::load_game_screen_animation_sprite_sheets()
@@ -378,10 +378,10 @@ void Game::load_game_screen_abilities_textures()
         
         shahriar_dummy = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/shahriar-dummy.png");
         shahriar_stubborn = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/shahriar-stubborn.png");
-        pouya_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar/shahriar-super-power-3rounds-left.png");
-        pouya_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar-super-power-2rounds-left.png");
-        pouya_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar-super-power-1round-left.png");
-        pouya_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar-super-power-ready.png");
+        shahriar_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar/shahriar-super-power-3rounds-left.png");
+        shahriar_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar-super-power-2rounds-left.png");
+        shahriar_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar-super-power-1round-left.png");
+        shahriar_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar-super-power-ready.png");
 }
 
 void Game::unload_game_screen_abilities_textures()
@@ -865,6 +865,7 @@ void Game::Character_Select_Screen()
     static int User_Turn = USER1; // to know whos turn it is
     static int temp_hero_being_selected = NONSELECT; // this is to know which hero the hero wants to select
     static bool fading_out = false;
+    static int index_for_hero_array = 0;
     
     //keeping track of user inputs
     static std::array <bool,8> user1_chosen_heros = {};
@@ -1005,12 +1006,20 @@ void Game::Character_Select_Screen()
                 {
                     case USER1:
                         //just add the selected hero to the user object array and user hero tracker array
+                        control.Fill_Hero_object_Array(USER1,index_for_hero_array,temp_hero_being_selected);
+                        index_for_hero_array++;
                         user1.add_hero_to_hero_array(temp_hero_being_selected);
                         user1_chosen_heros[temp_hero_being_selected] = true;
                         temp_hero_being_selected = NONSELECT;
+                        if(index_for_hero_array == 3)
+                        {
+                            index_for_hero_array = 0;
+                        }
                         break;
                     
                     case USER2:
+                        control.Fill_Hero_object_Array(USER2, index_for_hero_array, temp_hero_being_selected);
+                        index_for_hero_array++;
                         user2.add_hero_to_hero_array(temp_hero_being_selected);
                         user2_chosen_heros[temp_hero_being_selected] = true;
                         temp_hero_being_selected = NONSELECT;
@@ -1036,11 +1045,13 @@ void Game::Character_Select_Screen()
             switch (User_Turn)
             {
             case USER1 :
+                control.Empty_Array_Which_Stores_Hero_Base_Class_Pointers(USER1, index_for_hero_array);
                 user1_chosen_heros.fill(0);
                 control.Empty_User_Array(user1);
                 break;
             
             case USER2:
+                control.Empty_Array_Which_Stores_Hero_Base_Class_Pointers(USER2, index_for_hero_array);
                 user2_chosen_heros.fill(0);
                 control.Empty_User_Array(user2);
                 break;
@@ -1561,184 +1572,196 @@ void Game::return_skill_texture_based_on_arguments_passed_onto_the_texture_array
     //but there is another switch inside each case
     //that shows how many round is left till the super power is ready
     //and should return the texture accordingly
-    case DANI_GOLANG:
-        //these two are normal power textures
-        array[SKILL1] = Dani_fil_kosh;
-        array[SKILL2] = Dani_lock;
-
-        //this switch returns the superpower texture
-        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        case DANI_GOLANG:
         {
-        case 0:
-            array[SUPERPOWER] = Dani_super_power_ready;
+            //these two are normal power textures
+            array[SKILL1] = Dani_fil_kosh;
+            array[SKILL2] = Dani_lock;
+            //this switch returns the superpower texture
+
+            std::cout << "this is what return rounds left till super power returns: " << control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array,USER1) <<std::endl;
+            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            {
+            case 0:
+                array[SUPERPOWER] = Dani_super_power_ready;
+                break;
+            
+            case 1:
+                array[SUPERPOWER] = Dani_super_power_1rounds_left;
+                break;
+            
+            case 2:
+                array[SUPERPOWER] = Dani_super_power_2rounds_left;
+                break;
+            
+            case 3:
+                array[SUPERPOWER] = Dani_super_power_3rounds_left;
+                break;
+            
+            }
             break;
-        
-        case 1:
-            array[SUPERPOWER] = Dani_super_power_1rounds_left;
-            break;
-        
-        case 2:
-            array[SUPERPOWER] = Dani_super_power_2rounds_left;
-            break;
-        
-        case 3:
-            array[SUPERPOWER] = Dani_super_power_3rounds_left;
-            break;
-        
         }
-        break;
+        case AMIN_EMENI:
+        {
+            array[SKILL1] = amin_friendly_fire;
+            array[SKILL2] = amin_last_bullet;
+
+            //this switch returns the superpower texture
+            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            {
+            case 0:
+                array[SUPERPOWER] = amin_super_power_ready;
+                break;
+            
+            case 1:
+                array[SUPERPOWER] = amin_super_power_1rounds_left;
+                break;
+            
+            case 2:
+                array[SUPERPOWER] = amin_super_power_2rounds_left;
+                break;
+            
+            
+            }
+            break;
+        }
+        case TAHA_BOZORGE:
+        {
+            array[SKILL1] = tbig_machine_gun;
+            array[SKILL2] = tbig_xray;
+
+            //this switch returns the superpower texture
+            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            {
+            case 0:
+                array[SUPERPOWER] = tbig_super_power_ready;
+                break;
+            
+            case 1:
+                array[SUPERPOWER] = tbig_super_power_1rounds_left;
+                break;
+            
+            case 2:
+                array[SUPERPOWER] = tbig_super_power_2rounds_left;
+                break;
+            
+            case 3:
+                array[SUPERPOWER] = tbig_super_power_3rounds_left;
+                break;
+            
+            }
+            break;
+        }
     
-    case AMIN_EMENI:
-        array[SKILL1] = amin_friendly_fire;
-        array[SKILL2] = amin_last_bullet;
-
-        //this switch returns the superpower texture
-        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        case TAHA_KOCHIKE:
         {
-        case 0:
-            array[SUPERPOWER] = amin_super_power_ready;
+            array[SKILL1] = tlittle_blood_bag;
+            array[SKILL2] = tlittle_razor_sharp;
+
+            //this switch returns the superpower texture
+            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            {
+            case 0:
+                array[SUPERPOWER] = tlittle_super_power_ready;
+                break;
+            
+            case 1:
+                array[SUPERPOWER] = tlittle_super_power_1rounds_left;
+                break;
+            
+            case 2:
+                array[SUPERPOWER] = tlittle_super_power_2rounds_left;
+                break;
+            
+            
+            }
             break;
-        
-        case 1:
-            array[SUPERPOWER] = amin_super_power_1rounds_left;
-            break;
-        
-        case 2:
-            array[SUPERPOWER] = amin_super_power_2rounds_left;
-            break;
-        
-        
         }
-        break;
     
-    case TAHA_BOZORGE:
-        array[SKILL1] = tbig_machine_gun;
-        array[SKILL2] = tbig_xray;
-
-        //this switch returns the superpower texture
-        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        case AGHA_SHAHRIAR:
         {
-        case 0:
-            array[SUPERPOWER] = tbig_super_power_ready;
+            array[SKILL1] = shahriar_dummy;
+            array[SKILL2] = shahriar_stubborn;
+
+            //this switch returns the superpower texture
+            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            {
+            case 0:
+                array[SUPERPOWER] = shahriar_super_power_ready;
+                break;
+            
+            case 1:
+                array[SUPERPOWER] = shahriar_super_power_1rounds_left;
+                break;
+            
+            case 2:
+                array[SUPERPOWER] = shahriar_super_power_2rounds_left;
+                break;
+            
+            case 3:
+                array[SUPERPOWER] = shahriar_super_power_3rounds_left;
+                break;
+            
+            }
             break;
-        
-        case 1:
-            array[SUPERPOWER] = tbig_super_power_1rounds_left;
-            break;
-        
-        case 2:
-            array[SUPERPOWER] = tbig_super_power_2rounds_left;
-            break;
-        
-        case 3:
-            array[SUPERPOWER] = tbig_super_power_3rounds_left;
-            break;
-        
         }
-        break;
+        
+        case WHITEDOCTOR:
+        {
+            array[SKILL1] = doc_asprin;
+            array[SKILL2] = doc_doping;
+
+            //this switch returns the superpower texture
+            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            {
+            case 0:
+                array[SUPERPOWER] = doc_super_power_ready;
+                break;
+            
+            case 1:
+                array[SUPERPOWER] = doc_super_power_1rounds_left;
+                break;
+            
+            case 2:
+                array[SUPERPOWER] = doc_super_power_2rounds_left;
+                break;
+            
+            case 3:
+                array[SUPERPOWER] = doc_super_power_3rounds_left;
+                break;
+            
+            }
+            break;
+        }
     
-    case TAHA_KOCHIKE:
-        array[SKILL1] = tlittle_blood_bag;
-        array[SKILL2] = tlittle_razor_sharp;
-
-        //this switch returns the superpower texture
-        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        case POUYA_KAJDOM:
         {
-        case 0:
-            array[SUPERPOWER] = tlittle_super_power_ready;
-            break;
-        
-        case 1:
-            array[SUPERPOWER] = tlittle_super_power_1rounds_left;
-            break;
-        
-        case 2:
-            array[SUPERPOWER] = tlittle_super_power_2rounds_left;
-            break;
-        
-        
-        }
-        break;
-    
-    case AGHA_SHAHRIAR:
-        array[SKILL1] = shahriar_dummy;
-        array[SKILL2] = shahriar_stubborn;
+            array[SKILL1] = pouya_dagger;
+            array[SKILL2] = pouya_scorpion;
 
-        //this switch returns the superpower texture
-        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
-        {
-        case 0:
-            array[SUPERPOWER] = shahriar_super_power_ready;
+            //this switch returns the superpower texture
+            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            {
+            case 0:
+                array[SUPERPOWER] = pouya_super_power_ready;
+                break;
+            
+            case 1:
+                array[SUPERPOWER] = pouya_super_power_1rounds_left;
+                break;
+            
+            case 2:
+                array[SUPERPOWER] = pouya_super_power_2rounds_left;
+                break;
+            
+            case 3:
+                array[SUPERPOWER] = pouya_super_power_3rounds_left;
+                break;
+            
+            }
             break;
-        
-        case 1:
-            array[SUPERPOWER] = shahriar_super_power_1rounds_left;
-            break;
-        
-        case 2:
-            array[SUPERPOWER] = shahriar_super_power_2rounds_left;
-            break;
-        
-        case 3:
-            array[SUPERPOWER] = shahriar_super_power_3rounds_left;
-            break;
-        
         }
-        break;
-    
-    case WHITEDOCTOR:
-        array[SKILL1] = doc_asprin;
-        array[SKILL2] = doc_doping;
-
-        //this switch returns the superpower texture
-        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
-        {
-        case 0:
-            array[SUPERPOWER] = doc_super_power_ready;
-            break;
-        
-        case 1:
-            array[SUPERPOWER] = doc_super_power_1rounds_left;
-            break;
-        
-        case 2:
-            array[SUPERPOWER] = doc_super_power_2rounds_left;
-            break;
-        
-        case 3:
-            array[SUPERPOWER] = doc_super_power_3rounds_left;
-            break;
-        
-        }
-        break;
-    
-    case POUYA_KAJDOM:
-        array[SKILL1] = pouya_dagger;
-        array[SKILL2] = pouya_scorpion;
-
-        //this switch returns the superpower texture
-        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
-        {
-        case 0:
-            array[SUPERPOWER] = pouya_super_power_ready;
-            break;
-        
-        case 1:
-            array[SUPERPOWER] = pouya_super_power_1rounds_left;
-            break;
-        
-        case 2:
-            array[SUPERPOWER] = pouya_super_power_2rounds_left;
-            break;
-        
-        case 3:
-            array[SUPERPOWER] = pouya_super_power_3rounds_left;
-            break;
-        
-        }
-        break;
     }
-
 }
 
 void game_screen_draw_abilities_grayed_out(const std::array<Texture2D,3>& textures, const Rectangle & skill1_bound, const Rectangle& skill2_bound, const Rectangle& superpower_bound)
@@ -1788,8 +1811,8 @@ void Game::Game_Screen()
     static bool are_textures_loaded = false;
     static bool should_hero_be_animated = false;
     static bool Hero_should_be_highlighted = false;
-    int hero_to_be_highlighted_index = 0;
-    int hero_to_be_animated_index = 0;
+    int hero_to_be_highlighted_index = 4;
+    int hero_to_be_animated_index;
 
 
     if(!are_textures_loaded)
@@ -1968,20 +1991,7 @@ void Game::Game_Screen()
     //drawing the background and panels
     DrawTexture(Background_img, 0, -100, WHITE);
 
-    /*
-    //this means a hero should be animated
-    if(should_hero_be_animated)
-    {
-        if(User_Turn == USER1)
-            DrawTextureRec(return_texture_based_on_arguments_passed(user1_hero_arr, user2_hero_arr, User_Turn, hero_to_be_animated_index), return_animation_struct_that_is_going_to_be_played(user1_hero_arr, user2_hero_arr, User_Turn,hero_to_be_animated_index - 1, animation_structs_in_array).frame,{180.0f - (100 * (hero_to_be_animated_index % 2)), 80.0f + (hero_to_be_animated_index * 50)},WHITE);
-        else if(User_Turn == USER2)
-        {
-            DrawTextureRec(return_texture_based_on_arguments_passed(user1_hero_arr, user2_hero_arr, User_Turn, hero_to_be_animated_index), return_animation_struct_that_is_going_to_be_played(user1_hero_arr, user2_hero_arr, User_Turn,hero_to_be_animated_index - 1, animation_structs_in_array).frame,{1000- (180.0f - (100 * (hero_to_be_animated_index % 2))), 80.0f + (hero_to_be_animated_index * 50)},WHITE);
-            
-            }
-            }
-            */
-           
+   
            
     //panel
     DrawTexture(Control_panel, 0, 600 - Control_panel.height, WHITE);
@@ -2190,8 +2200,13 @@ void Game::Game_Screen()
     {
         if(User_Turn == USER1)
         {
+            std::cout << "this means someone has been clicked on \n";
+            std::cout << "user index to be animated is -> " << hero_to_be_animated_index << std::endl;
+
             return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user1_hero_arr,hero_to_be_animated_index, user1_ability_texture_array);
+            std::cout << "now at this point the array has been filled \n";
             game_screen_draw_abilities_grayed_out(user1_ability_texture_array,Skill_1_bound,Skill_2_bound,superpower_bound);
+            std::cout << "now the heros should be printed \n";
         }
         else if(User_Turn == USER2)
         {
