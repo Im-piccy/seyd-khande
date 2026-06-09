@@ -35,7 +35,7 @@ bool Hero_Abstaction::Is_Dead() const
     return Is_Hero_Dead;
 }
 
-std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], int choose = 0) const
+std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], int choose ) const
 {
    std::array<int,4> valid_indexes;
     int valid_count = 0;
@@ -102,4 +102,9 @@ Hero_Abstaction * Hero_Abstaction::Find_Highest_Or_Lowest_Hp(Hero_Abstaction* he
         }
         return Highest_Hp_Hero;
     }
+}
+
+int Hero_Abstaction::return_rounds_left_till_superpower_is_ready()
+{
+    return rounds_left_till_superpower_is_ready;
 }
