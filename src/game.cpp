@@ -1764,7 +1764,7 @@ void Game::Game_Screen()
 
     
     //transition fade and music control variables
-    static float fade = 255.0;
+    static float fade = 255.0f;
     static bool is_fading_in = true;
     static bool is_music_playing = false;
     
@@ -1788,8 +1788,8 @@ void Game::Game_Screen()
     static bool are_textures_loaded = false;
     static bool should_hero_be_animated = false;
     static bool Hero_should_be_highlighted = false;
-    int hero_to_be_highlighted_index;
-    int hero_to_be_animated_index;
+    int hero_to_be_highlighted_index = 0;
+    int hero_to_be_animated_index = 0;
 
 
     if(!are_textures_loaded)
@@ -1802,13 +1802,13 @@ void Game::Game_Screen()
 
     //animation struct declarations
     //initialization goes like this -> {first frame, last frame, current frame, frame-width, frame-height, first-frame-x, first-frame-y, animation-speed, duration-left, initial-duration, {rectangle frame x, rectangle frame y, width , height}}
-    static Animation Doc_anim_struct = {0, 4, 0, doc_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, doc_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Dani_anim_struct = {0, 4, 0, dani_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, dani_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Amin_anim_struct = {0, 4, 0, amin_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, amin_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Shahriar_anim_struct = {0, 4, 0, shahriar_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, shahriar_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Pouya_anim_struct = {0, 4, 0, pouya_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, pouya_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Tbig_anim_struct = {0, 4, 0, tbig_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tbig_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Tlittle_anim_struct = {0, 4, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Doc_anim_struct = {0, 4, 0, -doc_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, doc_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Dani_anim_struct = {0, 4, 0, -dani_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, dani_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Amin_anim_struct = {0, 4, 0, -amin_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, amin_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Shahriar_anim_struct = {0, 4, 0, -shahriar_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, shahriar_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Pouya_anim_struct = {0, 4, 0, -pouya_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, pouya_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Tbig_anim_struct = {0, 4, 0, -tbig_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tbig_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Tlittle_anim_struct = {0, 4, 0, -tlittle_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height}};
     std::array <Animation, 7> animation_structs_in_array {Doc_anim_struct, Tlittle_anim_struct,Dani_anim_struct,Amin_anim_struct,Tbig_anim_struct,Pouya_anim_struct,Shahriar_anim_struct};
     
 

@@ -92,23 +92,25 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
 {
     public:
         Pouya_Kajdom();//constructor to initiate info
-        bool Execute_Khanjar_Ability(int current_energy); 
-        bool Execute_Aghrab_Ability(int current_energy); 
-        bool Execute_SuperPower(int current_energy);
+        bool Activate_scorpien(Hero_Abstaction* enemies[3]);
+        bool Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
+        bool Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
+        bool Execute_SuperPower(Hero_Abstaction* enemies[3], User &user);
     private:
         int Khanjar_Ability_Energy_Cost;
         int Aghrab_Ability_Energy_Cost;
         int Enemy_Array_With_Respect_To_Active_Scorpiens[3];
         bool Is_SuperPower_Active;
+        int Rounds_Since_SuperPower;
 };
 
 class Agha_Shahriar : public Hero_Abstaction // attacker
 {
     public:
         Agha_Shahriar();//constructor to initiate info
-        bool Execute_Maskhare_Ability(int current_energy); 
-        bool Execute_Lajbaz_Ability(int current_energy); 
-        bool Execute_SuperPower(int current_energy);
+        bool Execute_Maskhare_Ability(Hero_Abstaction* enemy, User &user); 
+        bool Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
+        bool Execute_SuperPower(User &user);
     private:
         int Maskhare_Ability_Energy_Cost;
         int Lajbaz_Ability_Energy_Cost;

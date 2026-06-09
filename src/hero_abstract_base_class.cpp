@@ -35,7 +35,7 @@ bool Hero_Abstaction::Is_Dead() const
     return Is_Hero_Dead;
 }
 
-std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], int choose ) const
+std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], int choose) const
 {
    std::array<int,4> valid_indexes;
     int valid_count = 0;
@@ -68,7 +68,6 @@ std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], 
 
 void Hero_Abstaction::Seeded()
 {
-    seeded = false;
     if(!seeded)
     {
         std::srand(static_cast<unsigned int>(std::time(0)));
@@ -76,9 +75,9 @@ void Hero_Abstaction::Seeded()
     }
 }
 
-Hero_Abstaction * Hero_Abstaction::Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], int turn) const
+Hero_Abstaction * Hero_Abstaction::Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], std::string choose ) const
 {
-    if(turn == 0)
+    if(choose == "min")
     {
         Hero_Abstaction* Lowest_Hp_Hero = nullptr;
         for(int i = 0; i < 3; i++)
