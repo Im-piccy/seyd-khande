@@ -386,13 +386,84 @@ Pouya_Kajdom::Pouya_Kajdom()
     this->Aghrab_Ability_Energy_Cost = 4;
     this->SuperPower_Energy_Cost = 5;
     this->Is_Hero_Dead = false;
-    this->rounds_left_till_superpower_is_ready = 3;
+    this->rounds_left_till_superpower_is_ready = 4;
+    Is_SuperPower_Active = false;
+    this->Rounds_Since_SuperPower = 0;
     for(int i = 0 ; i < 3 ; i++)
     {
         this->Enemy_Array_With_Respect_To_Active_Scorpiens[i] = NONE;
     }
-    Is_SuperPower_Active = false;
 }
+
+bool Pouya_Kajdom::Activate_scorpien(Hero_Abstaction* enemies[3])
+{
+    for(int i = 0; i < 3; i++)
+    {
+        switch (Enemy_Array_With_Respect_To_Active_Scorpiens[i])
+        {
+            case SCORPIEN:
+                enemies[i]->Get_Damaged(20);
+                break;
+            case BUFFED_SCORPIEN:
+                enemies[i]->Get_Damaged(60);
+                break;
+        }
+    }
+    return true;
+}
+
+bool Pouya_Kajdom::Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
+{
+    if(user.Get_Energy() < Khanjar_Ability_Energy_Cost)
+        return false;
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
+    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == BUFFED_SCORPIEN)
+        return false;
+    Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] = BUFFED_SCORPIEN;
+    Activate_scorpien(enemies);
+    user.Set_Energy(Khanjar_Ability_Energy_Cost);
+    return true;
+}
+
+bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
+{
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
+    if(user.Get_Energy() < Aghrab_Ability_Energy_Cost)
+        return false;
+    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] != NONE)
+        return false;
+    Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] =  SCORPIEN;
+    Activate_scorpien(enemies);
+    user.Set_Energy(Aghrab_Ability_Energy_Cost);
+    return true;
+}
+
+bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
+{
+    if(user.Get_Energy() < SuperPower_Energy_Cost)
+        return false;
+    if(rounds_left_till_superpower_is_ready != 4)
+        return false;
+    Is_SuperPower_Active = true;
+    Rounds_Since_SuperPower++;
+    if(Rounds_Since_SuperPower >= 3)
+    {
+        Rounds_Since_SuperPower = 0;
+        Is_SuperPower_Active = false;
+        Seeded();
+        std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
+        if(valid_indexes[3] == 0)
+            return false;
+        int random_position = std::rand() % valid_indexes[3];
+        int selected_index = valid_indexes[random_position];
+        enemies[selected_index]->Get_Damaged(450);
+        user.Set_Energy(SuperPower_Energy_Cost);
+    }
+    return true;
+}
+
 //----------------------------------------------------------------------------
 
 //-----------------------------------agha shahriar----------------------------
