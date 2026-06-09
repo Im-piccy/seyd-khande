@@ -337,8 +337,12 @@ bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemy, User &user)
     enemy->Get_Damaged(90);
     Is_Xray_Ongoing = true;
     Rounds_Since_Xray++;
-    // not complete yet......
-    user.Set_Energy(Xray_Ability_Energy_Cost);
+    if(Rounds_Since_Xray != 0)
+    {
+        Is_Xray_Ongoing = false;
+        Rounds_Since_Xray = 0;
+        user.Set_Energy(Xray_Ability_Energy_Cost);
+    }
     return true;
 }
 
