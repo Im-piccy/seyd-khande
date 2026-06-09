@@ -1,11 +1,10 @@
 #ifndef HERO_SUB_CLASS_TO_INSTATIATE_OBJECTS_HPP
 #define HERO_SUB_CLASS_TO_INSTATIATE_OBJECTS_HPP
-#include "hero_abstract_base_class.hpp"
 #include "User.hpp"
+#include "hero_abstract_base_class.hpp"
 #include <cstdlib>
 #include <ctime>
 #include <array>
-
 
 enum POUYA_KAJDOM_SCORPIENS{NONE, SCORPIEN, BUFFED_SCORPIEN};
 class WhiteDoctor : public Hero_Abstaction//healer

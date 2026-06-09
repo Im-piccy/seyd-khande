@@ -102,3 +102,8 @@ Hero_Abstaction * Hero_Abstaction::Find_Highest_Or_Lowest_Hp(Hero_Abstaction* he
         return Highest_Hp_Hero;
     }
 }
+
+int Hero_Abstaction::return_rounds_left_till_superpower_is_ready()
+{
+    return rounds_left_till_superpower_is_ready;
+}

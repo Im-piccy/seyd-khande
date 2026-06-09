@@ -19,7 +19,7 @@ void User::Set_Energy(int cost)
         energy -= cost;
 }
 
-void User::Set_Name(std::string username)
+void User::Set_Name(const std::string& username)
 {
 
     int i;
