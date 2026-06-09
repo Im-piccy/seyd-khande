@@ -13,6 +13,7 @@ class Hero_Abstaction //abstract class
         void Get_Healed(int healing_points);
         void Get_Damaged(int damaging_point);//if damage is more than hp it will edit the boolian value
         void Seeded();
+        int return_rounds_left_till_superpower_is_ready();
         std::array<int, 4> Valid_Index_Hero(Hero_Abstaction* allies[3], int choose = 0) const;
         Hero_Abstaction * Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], int turn = 0) const;//to find the hero with the highest or lowest Hp(0 != Highest & 0== lowest)
     protected:
