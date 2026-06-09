@@ -30,7 +30,8 @@ CMakeFiles/app.dir/src/controller.cpp.obj: \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bit \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/concepts \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/range_access.h \
- C:/Users/piccy__/Desktop/seyd-khande/headers/user.hpp \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/hero_sub_class_to_instatniate_objects.hpp \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/User.hpp \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/string \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/requires_hosted.h \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/stringfwd.h \
@@ -104,12 +105,18 @@ CMakeFiles/app.dir/src/controller.cpp.obj: \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/bits/uses_allocator_args.h \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/tuple \
  C:/Users/piccy__/Desktop/seyd-khande/headers/controller.hpp \
- C:/Users/piccy__/Desktop/seyd-khande/headers/hero_sub_class_to_instatniate_objects.hpp \
  C:/Users/piccy__/Desktop/seyd-khande/headers/hero_abstract_base_class.hpp \
- C:/Users/piccy__/Desktop/seyd-khande/headers/User.hpp \
  C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/c++/ctime \
  C:/w64devkit/x86_64-w64-mingw32/include/time.h \
  C:/w64devkit/x86_64-w64-mingw32/include/sys/timeb.h \
  C:/w64devkit/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
  C:/w64devkit/x86_64-w64-mingw32/include/_timeval.h \
- C:/w64devkit/x86_64-w64-mingw32/include/pthread_time.h
+ C:/w64devkit/x86_64-w64-mingw32/include/pthread_time.h \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/game.hpp \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/controller.hpp \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/user.hpp \
+ C:/Users/piccy__/Desktop/seyd-khande/raylib/include/raylib.h \
+ C:/w64devkit/lib/gcc/x86_64-w64-mingw32/14.1.0/include/stdarg.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/stdarg.h \
+ C:/w64devkit/x86_64-w64-mingw32/include/_mingw_stdarg.h \
+ C:/Users/piccy__/Desktop/seyd-khande/headers/user.hpp

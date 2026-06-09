@@ -2,8 +2,7 @@
 #define USER_HPP
 #include <array>
 #include <string>
-#include "controller.hpp"
-
+#include "../headers/controller.hpp"
 class User
 {
     friend void Controller::Empty_User_Array(User &user);
@@ -15,7 +14,7 @@ class User
         int return_currnet_energy();
         int Get_Energy() const;
         void Set_Energy(int cost);
-        bool Set_Name(std::string usrname);// booleaan returned false beacause it was more than 25 char
+        void Set_Name(const std::string& usrname);// booleaan returned false beacause it was more than 25 char
         std::string Get_Name_String() const;
         std::array<char,26> Get_Name_Char_Array() const;
         void add_hero_to_hero_array(int hero);//when player chooses a hero it will be stored using this function

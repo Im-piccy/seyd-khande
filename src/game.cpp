@@ -312,7 +312,7 @@ void set_frame_width_with_respect_to_the_player(Animation& anim, int width , int
 Game::Game() : current_screen(MENU_SCREEN)
 {}
 
-void Game::load_animation_sprite_sheets()
+void Game::load_game_screen_animation_sprite_sheets()
 {
     Doc_anim_texture = LoadTexture("game_assets/game_screen_assets/doc-sprite-sheet.png");
     Dani_anim_texture = LoadTexture("game_assets/game_screen_assets/dani-sprite.png");
@@ -323,7 +323,7 @@ void Game::load_animation_sprite_sheets()
     Shahriar_anim_texture = LoadTexture("game_assets/game_screen_assets/shahriar-sprite.png");
 }
 
-void Game::unload_animation_sprite_sheets()
+void Game::unload_game_screen_animation_sprite_sheets()
 {
     UnloadTexture(Doc_anim_texture);
     UnloadTexture(Dani_anim_texture);
@@ -334,6 +334,105 @@ void Game::unload_animation_sprite_sheets()
     UnloadTexture(Shahriar_anim_texture);
 }
 
+void Game::load_game_screen_abilities_textures()
+{
+        Dani_fil_kosh = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/fil-kosh.png");
+        Dani_lock = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/the-lock.png");
+        Dani_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/dani/trenches-3rounds-left.png");
+        Dani_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/dani/trenches-2rounds-left.png");
+        Dani_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/dani/trenches-1round-left.png");
+        Dani_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/dani/trenches-ready.png");
+        
+        amin_friendly_fire = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/friendly-fire.png");
+        amin_last_bullet = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/last-bullet.png");
+        amin_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/amin/the-shout-2rounds-left.png");
+        amin_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/amin/the-shout-1round-left.png");
+        amin_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/amin/the-shout-ready.png");
+
+        doc_asprin = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/asprin.png");
+        doc_doping = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/doping.png");
+        doc_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/doc/revival-3rounds-left.png");
+        doc_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/doc/revival-2rounds-left.png");
+        doc_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/doc/revival-1round-left.png");
+        doc_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/doc/revival-ready.png");
+        
+        tlittle_razor_sharp = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/razor-sharp.png");
+        tlittle_blood_bag = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/blood-bag.png");
+        tlittle_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tlittle/quarantine-2rounds-left.png");
+        tlittle_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tlittle/quarantine-1round-left.png");
+        tlittle_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tlittle/quarantine-ready.png");
+        
+        tbig_machine_gun = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/machine-gun.png");
+        tbig_xray = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/xray.png");
+        tbig_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tbig/revenge-3rounds-left.png");
+        tbig_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tbig/revenge-2rounds-left.png");
+        tbig_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tbig/revenge-1round-left.png");
+        tbig_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tbig/revenge-ready.png");
+        
+        pouya_dagger = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/dagger-kajdom.png");
+        pouya_scorpion = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/scorpion-kajdom.png");
+        pouya_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/pouya/venomous-bite-kajdom-3rounds-left.png");
+        pouya_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/pouya/venomous-bite-kajdom-2rounds-left.png");
+        pouya_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/pouya/venomous-bite-kajdom-1round-left.png");
+        pouya_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/pouya/venomous-bite-kajdom-ready.png");
+        
+        shahriar_dummy = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/shahriar-dummy.png");
+        shahriar_stubborn = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/shahriar-stubborn.png");
+        pouya_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar/shahriar-super-power-3rounds-left.png");
+        pouya_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar-super-power-2rounds-left.png");
+        pouya_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar-super-power-1round-left.png");
+        pouya_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar-super-power-ready.png");
+}
+
+void Game::unload_game_screen_abilities_textures()
+{
+        UnloadTexture( Dani_fil_kosh);
+        UnloadTexture( Dani_lock);
+        UnloadTexture( Dani_super_power_3rounds_left);
+        UnloadTexture( Dani_super_power_2rounds_left);
+        UnloadTexture( Dani_super_power_1rounds_left);
+        UnloadTexture( Dani_super_power_ready);
+        
+        UnloadTexture( amin_friendly_fire);
+        UnloadTexture( amin_last_bullet);
+        UnloadTexture( amin_super_power_2rounds_left);
+        UnloadTexture( amin_super_power_1rounds_left);
+        UnloadTexture( amin_super_power_ready);
+
+        UnloadTexture( doc_asprin);
+        UnloadTexture( doc_doping);
+        UnloadTexture( doc_super_power_3rounds_left);
+        UnloadTexture( doc_super_power_2rounds_left);
+        UnloadTexture( doc_super_power_1rounds_left);
+        UnloadTexture( doc_super_power_ready);
+        
+        UnloadTexture( tlittle_razor_sharp);
+        UnloadTexture( tlittle_blood_bag);
+        UnloadTexture( tlittle_super_power_2rounds_left);
+        UnloadTexture( tlittle_super_power_1rounds_left);
+        UnloadTexture( tlittle_super_power_ready);
+        
+        UnloadTexture( tbig_machine_gun);
+        UnloadTexture( tbig_xray);
+        UnloadTexture( tbig_super_power_3rounds_left);
+        UnloadTexture( tbig_super_power_2rounds_left);
+        UnloadTexture( tbig_super_power_1rounds_left);
+        UnloadTexture( tbig_super_power_ready);
+        
+        UnloadTexture( pouya_dagger);
+        UnloadTexture( pouya_scorpion);
+        UnloadTexture( pouya_super_power_3rounds_left);
+        UnloadTexture( pouya_super_power_2rounds_left);
+        UnloadTexture( pouya_super_power_1rounds_left);
+        UnloadTexture( pouya_super_power_ready);
+        
+        UnloadTexture( shahriar_dummy);
+        UnloadTexture( shahriar_stubborn);
+        UnloadTexture( pouya_super_power_3rounds_left);
+        UnloadTexture( pouya_super_power_2rounds_left);
+        UnloadTexture( pouya_super_power_1rounds_left);
+        UnloadTexture( pouya_super_power_ready);
+}
 void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const std::array <int,3>& user1_heros, const std::array <int,3>&  user2_heros, int index, int user_turn,bool should_highlight,int hero_being_hoverd, int hero_to_be_animated_index)
 {
 
@@ -1304,15 +1403,15 @@ void Game::Character_Select_Screen()
                         {
                             // we set the name inside the object that is the game class
                             // attribute
+                            
                             user1.Set_Name(User_Input_Name);
                             string_to_char_array(User_Input_Name, user1_name);
                         }
                         else if(User_Turn == USER2)
-                        {
-                            string_to_char_array(User_Input_Name, user2_name);
+                        { 
                             user2.Set_Name(User_Input_Name);
+                            string_to_char_array(User_Input_Name, user2_name);
                         }
-
                         
                         // we reset the variables so that the next user can use them
                         User_Input_Name.erase();
@@ -1366,7 +1465,6 @@ void Game::Character_Select_Screen()
             }
             SetMusicVolume(background_music, 1.0 - fade/255.0);
             break;
-
     }
 
     EndDrawing();
@@ -1406,7 +1504,7 @@ void Game::Character_Select_Screen()
     }
 }
 
-Texture2D Game::return_texture_based_on_arguments_passed(const std::array <int,3>& user1_hero_arr, const std::array <int,3>& user2_hero_arr,int user_turn, int hero_index_in_array)
+Texture2D Game::return_animation_texture_based_on_arguments_passed(const std::array <int,3>& user1_hero_arr, const std::array <int,3>& user2_hero_arr,int user_turn, int hero_index_in_array)
 {
     if(user_turn == USER1)
     {
@@ -1452,9 +1550,207 @@ Texture2D Game::return_texture_based_on_arguments_passed(const std::array <int,3
     }
 }
 
+void Game::return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(const std::array <int,3>& user_hero_arr, int hero_index_in_array, std::array <Texture2D,3>& array)
+{
+    
+    
+    switch (user_hero_arr[hero_index_in_array])
+    {
+    //its gonna get a bit complicated
+    //each case returns textures of the normal abilities
+    //but there is another switch inside each case
+    //that shows how many round is left till the super power is ready
+    //and should return the texture accordingly
+    case DANI_GOLANG:
+        //these two are normal power textures
+        array[SKILL1] = Dani_fil_kosh;
+        array[SKILL2] = Dani_lock;
 
+        //this switch returns the superpower texture
+        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        {
+        case 0:
+            array[SUPERPOWER] = Dani_super_power_ready;
+            break;
+        
+        case 1:
+            array[SUPERPOWER] = Dani_super_power_1rounds_left;
+            break;
+        
+        case 2:
+            array[SUPERPOWER] = Dani_super_power_2rounds_left;
+            break;
+        
+        case 3:
+            array[SUPERPOWER] = Dani_super_power_3rounds_left;
+            break;
+        
+        }
+        break;
+    
+    case AMIN_EMENI:
+        array[SKILL1] = amin_friendly_fire;
+        array[SKILL2] = amin_last_bullet;
+
+        //this switch returns the superpower texture
+        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        {
+        case 0:
+            array[SUPERPOWER] = amin_super_power_ready;
+            break;
+        
+        case 1:
+            array[SUPERPOWER] = amin_super_power_1rounds_left;
+            break;
+        
+        case 2:
+            array[SUPERPOWER] = amin_super_power_2rounds_left;
+            break;
+        
+        
+        }
+        break;
+    
+    case TAHA_BOZORGE:
+        array[SKILL1] = tbig_machine_gun;
+        array[SKILL2] = tbig_xray;
+
+        //this switch returns the superpower texture
+        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        {
+        case 0:
+            array[SUPERPOWER] = tbig_super_power_ready;
+            break;
+        
+        case 1:
+            array[SUPERPOWER] = tbig_super_power_1rounds_left;
+            break;
+        
+        case 2:
+            array[SUPERPOWER] = tbig_super_power_2rounds_left;
+            break;
+        
+        case 3:
+            array[SUPERPOWER] = tbig_super_power_3rounds_left;
+            break;
+        
+        }
+        break;
+    
+    case TAHA_KOCHIKE:
+        array[SKILL1] = tlittle_blood_bag;
+        array[SKILL2] = tlittle_razor_sharp;
+
+        //this switch returns the superpower texture
+        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        {
+        case 0:
+            array[SUPERPOWER] = tlittle_super_power_ready;
+            break;
+        
+        case 1:
+            array[SUPERPOWER] = tlittle_super_power_1rounds_left;
+            break;
+        
+        case 2:
+            array[SUPERPOWER] = tlittle_super_power_2rounds_left;
+            break;
+        
+        
+        }
+        break;
+    
+    case AGHA_SHAHRIAR:
+        array[SKILL1] = shahriar_dummy;
+        array[SKILL2] = shahriar_stubborn;
+
+        //this switch returns the superpower texture
+        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        {
+        case 0:
+            array[SUPERPOWER] = shahriar_super_power_ready;
+            break;
+        
+        case 1:
+            array[SUPERPOWER] = shahriar_super_power_1rounds_left;
+            break;
+        
+        case 2:
+            array[SUPERPOWER] = shahriar_super_power_2rounds_left;
+            break;
+        
+        case 3:
+            array[SUPERPOWER] = shahriar_super_power_3rounds_left;
+            break;
+        
+        }
+        break;
+    
+    case WHITEDOCTOR:
+        array[SKILL1] = doc_asprin;
+        array[SKILL2] = doc_doping;
+
+        //this switch returns the superpower texture
+        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        {
+        case 0:
+            array[SUPERPOWER] = doc_super_power_ready;
+            break;
+        
+        case 1:
+            array[SUPERPOWER] = doc_super_power_1rounds_left;
+            break;
+        
+        case 2:
+            array[SUPERPOWER] = doc_super_power_2rounds_left;
+            break;
+        
+        case 3:
+            array[SUPERPOWER] = doc_super_power_3rounds_left;
+            break;
+        
+        }
+        break;
+    
+    case POUYA_KAJDOM:
+        array[SKILL1] = pouya_dagger;
+        array[SKILL2] = pouya_scorpion;
+
+        //this switch returns the superpower texture
+        switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+        {
+        case 0:
+            array[SUPERPOWER] = pouya_super_power_ready;
+            break;
+        
+        case 1:
+            array[SUPERPOWER] = pouya_super_power_1rounds_left;
+            break;
+        
+        case 2:
+            array[SUPERPOWER] = pouya_super_power_2rounds_left;
+            break;
+        
+        case 3:
+            array[SUPERPOWER] = pouya_super_power_3rounds_left;
+            break;
+        
+        }
+        break;
+    }
+
+}
+
+void game_screen_draw_abilities_grayed_out(const std::array<Texture2D,3>& textures, const Rectangle & skill1_bound, const Rectangle& skill2_bound, const Rectangle& superpower_bound)
+{
+    DrawTexture(textures[SKILL1],skill1_bound.x,skill1_bound.y,GRAY);
+    DrawTexture(textures[SKILL2],skill2_bound.x,skill2_bound.y,GRAY);
+    DrawTexture(textures[SUPERPOWER],superpower_bound.x, superpower_bound.y,GRAY);
+            
+}
 void Game::Game_Screen()
 {
+
 
     //music and sound and font
     static Music Background_music = LoadMusicStream("game_assets/game_screen_assets/game_background_music.mp3");
@@ -1468,7 +1764,7 @@ void Game::Game_Screen()
 
     
     //transition fade and music control variables
-    static float fade = 255.0;
+    static float fade = 255.0f;
     static bool is_fading_in = true;
     static bool is_music_playing = false;
     
@@ -1481,31 +1777,38 @@ void Game::Game_Screen()
     static float pouya_frame_width = 134;
     static float tbig_frame_width = 135;
     static float tlittle_frame_width = 178;
+    
+    //abilities bounds
+    static Rectangle Skill_1_bound = {322, 445, 45, 45};
+    static Rectangle Skill_2_bound = {566, 445, 45, 45};
+    static Rectangle superpower_bound = {435, 402, 92, 92};
+
 
     //animation and screen control
     static bool are_textures_loaded = false;
     static bool should_hero_be_animated = false;
     static bool Hero_should_be_highlighted = false;
-    int hero_to_be_highlighted_index;
-    int hero_to_be_animated_index;
+    int hero_to_be_highlighted_index = 0;
+    int hero_to_be_animated_index = 0;
 
 
     if(!are_textures_loaded)
     {
-        load_animation_sprite_sheets();
+        load_game_screen_abilities_textures();
+        load_game_screen_animation_sprite_sheets();
         are_textures_loaded = true;
     }
 
 
     //animation struct declarations
     //initialization goes like this -> {first frame, last frame, current frame, frame-width, frame-height, first-frame-x, first-frame-y, animation-speed, duration-left, initial-duration, {rectangle frame x, rectangle frame y, width , height}}
-    static Animation Doc_anim_struct = {0, 4, 0, doc_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, doc_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Dani_anim_struct = {0, 4, 0, dani_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, dani_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Amin_anim_struct = {0, 4, 0, amin_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, amin_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Shahriar_anim_struct = {0, 4, 0, shahriar_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, shahriar_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Pouya_anim_struct = {0, 4, 0, pouya_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, pouya_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Tbig_anim_struct = {0, 4, 0, tbig_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tbig_frame_width,  characters_sprite_sheets_frame_height}};
-    static Animation Tlittle_anim_struct = {0, 4, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Doc_anim_struct = {0, 4, 0, -doc_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, doc_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Dani_anim_struct = {0, 4, 0, -dani_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, dani_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Amin_anim_struct = {0, 4, 0, -amin_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, amin_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Shahriar_anim_struct = {0, 4, 0, -shahriar_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, shahriar_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Pouya_anim_struct = {0, 4, 0, -pouya_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, pouya_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Tbig_anim_struct = {0, 4, 0, -tbig_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tbig_frame_width,  characters_sprite_sheets_frame_height}};
+    static Animation Tlittle_anim_struct = {0, 4, 0, -tlittle_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height}};
     std::array <Animation, 7> animation_structs_in_array {Doc_anim_struct, Tlittle_anim_struct,Dani_anim_struct,Amin_anim_struct,Tbig_anim_struct,Pouya_anim_struct,Shahriar_anim_struct};
     
 
@@ -1533,6 +1836,8 @@ void Game::Game_Screen()
     static Vector2 User2_name_size;
     static char user1_energy[2] = {};
     static char user2_energy[2] = {};
+    static std::array <Texture2D,3> user1_ability_texture_array;
+    static std::array <Texture2D,3> user2_ability_texture_array;
 
     //music control 
     if(!is_music_playing)
@@ -1881,7 +2186,19 @@ void Game::Game_Screen()
 
 
 
-
+    if(should_hero_be_animated)
+    {
+        if(User_Turn == USER1)
+        {
+            return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user1_hero_arr,hero_to_be_animated_index, user1_ability_texture_array);
+            game_screen_draw_abilities_grayed_out(user1_ability_texture_array,Skill_1_bound,Skill_2_bound,superpower_bound);
+        }
+        else if(User_Turn == USER2)
+        {
+            return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user2_hero_arr,hero_to_be_animated_index, user2_ability_texture_array);
+            game_screen_draw_abilities_grayed_out(user2_ability_texture_array,Skill_1_bound,Skill_2_bound,superpower_bound);
+        }
+    }
     
 
     if(is_fading_in)

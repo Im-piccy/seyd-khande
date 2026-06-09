@@ -3,7 +3,6 @@
 #include <array>
 
 //declare to avoid compile time error
-//hello
 class User;
 class Hero_Abstaction;
 
@@ -25,6 +24,7 @@ class Controller
         void Fill_Hero_object_Array(std::array<Hero_Abstaction*,3>, int index, HERO_TYPE hero_type);
         void Set_User_Hero_Array_Index(int index);
         int return_round_number();
+        int return_rounds_left_till_hero_ability_is_ready(int hero, int user);
         //~Controller();
         
     private:

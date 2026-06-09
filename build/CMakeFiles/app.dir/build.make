@@ -128,12 +128,44 @@ CMakeFiles/app.dir/src/controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/controller.cpp.s"
 	C:\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\piccy__\Desktop\seyd-khande\src\controller.cpp -o CMakeFiles\app.dir\src\controller.cpp.s
 
+CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
+CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj: C:/Users/piccy__/Desktop/seyd-khande/src/hero_abstract_base_class.cpp
+CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\piccy__\Desktop\seyd-khande\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj"
+	C:\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj -MF CMakeFiles\app.dir\src\hero_abstract_base_class.cpp.obj.d -o CMakeFiles\app.dir\src\hero_abstract_base_class.cpp.obj -c C:\Users\piccy__\Desktop\seyd-khande\src\hero_abstract_base_class.cpp
+
+CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.i"
+	C:\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\piccy__\Desktop\seyd-khande\src\hero_abstract_base_class.cpp > CMakeFiles\app.dir\src\hero_abstract_base_class.cpp.i
+
+CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.s"
+	C:\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\piccy__\Desktop\seyd-khande\src\hero_abstract_base_class.cpp -o CMakeFiles\app.dir\src\hero_abstract_base_class.cpp.s
+
+CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj: CMakeFiles/app.dir/includes_CXX.rsp
+CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj: C:/Users/piccy__/Desktop/seyd-khande/src/hero_sub_class_to_instantiate_objects.cpp
+CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj: CMakeFiles/app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\piccy__\Desktop\seyd-khande\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj"
+	C:\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj -MF CMakeFiles\app.dir\src\hero_sub_class_to_instantiate_objects.cpp.obj.d -o CMakeFiles\app.dir\src\hero_sub_class_to_instantiate_objects.cpp.obj -c C:\Users\piccy__\Desktop\seyd-khande\src\hero_sub_class_to_instantiate_objects.cpp
+
+CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.i"
+	C:\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\piccy__\Desktop\seyd-khande\src\hero_sub_class_to_instantiate_objects.cpp > CMakeFiles\app.dir\src\hero_sub_class_to_instantiate_objects.cpp.i
+
+CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.s"
+	C:\w64devkit\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\piccy__\Desktop\seyd-khande\src\hero_sub_class_to_instantiate_objects.cpp -o CMakeFiles\app.dir\src\hero_sub_class_to_instantiate_objects.cpp.s
+
 # Object files for target app
 app_OBJECTS = \
 "CMakeFiles/app.dir/src/main.cpp.obj" \
 "CMakeFiles/app.dir/src/game.cpp.obj" \
 "CMakeFiles/app.dir/src/user.cpp.obj" \
-"CMakeFiles/app.dir/src/controller.cpp.obj"
+"CMakeFiles/app.dir/src/controller.cpp.obj" \
+"CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj" \
+"CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj"
 
 # External object files for target app
 app_EXTERNAL_OBJECTS =
@@ -142,12 +174,14 @@ C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/src/main.cpp.ob
 C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/src/game.cpp.obj
 C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/src/user.cpp.obj
 C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/src/controller.cpp.obj
+C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj
+C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj
 C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/build.make
 C:/Users/piccy__/Desktop/seyd-khande/app.exe: C:/Users/piccy__/Desktop/seyd-khande/raylib/lib/libraylib.a
 C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/linkLibs.rsp
 C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/objects1.rsp
 C:/Users/piccy__/Desktop/seyd-khande/app.exe: CMakeFiles/app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\piccy__\Desktop\seyd-khande\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable C:\Users\piccy__\Desktop\seyd-khande\app.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\piccy__\Desktop\seyd-khande\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable C:\Users\piccy__\Desktop\seyd-khande\app.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\app.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

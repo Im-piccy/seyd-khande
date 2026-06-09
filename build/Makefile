@@ -176,6 +176,54 @@ src/game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/game.cpp.s
 .PHONY : src/game.cpp.s
 
+src/hero_abstract_base_class.obj: src/hero_abstract_base_class.cpp.obj
+.PHONY : src/hero_abstract_base_class.obj
+
+# target to build an object file
+src/hero_abstract_base_class.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.obj
+.PHONY : src/hero_abstract_base_class.cpp.obj
+
+src/hero_abstract_base_class.i: src/hero_abstract_base_class.cpp.i
+.PHONY : src/hero_abstract_base_class.i
+
+# target to preprocess a source file
+src/hero_abstract_base_class.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.i
+.PHONY : src/hero_abstract_base_class.cpp.i
+
+src/hero_abstract_base_class.s: src/hero_abstract_base_class.cpp.s
+.PHONY : src/hero_abstract_base_class.s
+
+# target to generate assembly for a file
+src/hero_abstract_base_class.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/hero_abstract_base_class.cpp.s
+.PHONY : src/hero_abstract_base_class.cpp.s
+
+src/hero_sub_class_to_instantiate_objects.obj: src/hero_sub_class_to_instantiate_objects.cpp.obj
+.PHONY : src/hero_sub_class_to_instantiate_objects.obj
+
+# target to build an object file
+src/hero_sub_class_to_instantiate_objects.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.obj
+.PHONY : src/hero_sub_class_to_instantiate_objects.cpp.obj
+
+src/hero_sub_class_to_instantiate_objects.i: src/hero_sub_class_to_instantiate_objects.cpp.i
+.PHONY : src/hero_sub_class_to_instantiate_objects.i
+
+# target to preprocess a source file
+src/hero_sub_class_to_instantiate_objects.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.i
+.PHONY : src/hero_sub_class_to_instantiate_objects.cpp.i
+
+src/hero_sub_class_to_instantiate_objects.s: src/hero_sub_class_to_instantiate_objects.cpp.s
+.PHONY : src/hero_sub_class_to_instantiate_objects.s
+
+# target to generate assembly for a file
+src/hero_sub_class_to_instantiate_objects.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\app.dir\build.make CMakeFiles/app.dir/src/hero_sub_class_to_instantiate_objects.cpp.s
+.PHONY : src/hero_sub_class_to_instantiate_objects.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -239,6 +287,12 @@ help:
 	@echo ... src/game.obj
 	@echo ... src/game.i
 	@echo ... src/game.s
+	@echo ... src/hero_abstract_base_class.obj
+	@echo ... src/hero_abstract_base_class.i
+	@echo ... src/hero_abstract_base_class.s
+	@echo ... src/hero_sub_class_to_instantiate_objects.obj
+	@echo ... src/hero_sub_class_to_instantiate_objects.i
+	@echo ... src/hero_sub_class_to_instantiate_objects.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
