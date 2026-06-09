@@ -4,7 +4,6 @@
 #include "user.hpp"
 #include <raylib.h>
 enum SCREENS{MENU_SCREEN, CHARACTER_SELECT_SCREEN, GAME_SCREEN, GAME_OVER_SCREEN, WINDOWSHOULDCLOSE};
-enum TURN{USER1, USER2};
 enum ABILITIES{SKILL1, SKILL2, SUPERPOWER};
 
 //this class actually runs the game and ties everything together
