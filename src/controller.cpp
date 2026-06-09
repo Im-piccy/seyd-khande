@@ -3,7 +3,7 @@
 #include "../headers/game.hpp"
 #include "../headers/user.hpp"
 
-
+Controller::Controller(User &user, Hero_Abstaction &Hero):user(user), Hero(Hero){}
 void Controller::Empty_User_Array(User &user)
 {
     user.Hero_Arr.fill(0);

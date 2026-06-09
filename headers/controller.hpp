@@ -13,6 +13,7 @@ enum HERO_TYPE{NONSELECT, WHITEDOCTOR, TAHA_KOCHIKE, DANI_GOLANG, AMIN_EMENI, TA
 class Controller
 {
     public:
+        Controller(User &user, Hero_Abstaction &Hero);
         bool Is_game_over(); // checks to see if game raound is 15 or one players heros are all dead
         void execute_user_ask_to_use_hero_ability_if_possible(); //it gets user request to atteck and does the logic (considering energy cost)
         void Refill_Players_Energy(); // after each round ends it refill energies accordingly
@@ -32,5 +33,7 @@ class Controller
         int which_user_started_the_game; // to remember which user started first
         std::array<Hero_Abstaction*,3> Hero_Arr_User1;
         std::array<Hero_Abstaction*,3> Hero_Arr_User2;
-};  
+        Hero_Abstaction &Hero;
+        User &user;
+    };  
 #endif
