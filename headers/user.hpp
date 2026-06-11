@@ -11,10 +11,10 @@ class User
         User();
         std::array<int,2> call_hero_abillity(int hero_type, int abillity_type); //user decides which hero's ability to use and it tells the controller object
         void terminate_user_turn_manually(); //this means that user is skiping turn or ending attacks before energy is 0
-        int return_currnet_energy();
         int Get_Energy() const;
         void Set_Energy(int cost);
         void Set_Name(const std::string& usrname);// booleaan returned false beacause it was more than 25 char
+        bool can_ability_be_used_based_on_energy_points(int hero_array_index, ABILITIES which_skill, int user_turn, int current_energy);
         std::string Get_Name_String() const;
         std::array<char,26> Get_Name_Char_Array() const;
         void add_hero_to_hero_array(int hero);//when player chooses a hero it will be stored using this function

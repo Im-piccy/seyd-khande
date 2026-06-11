@@ -4,7 +4,7 @@
 #include "user.hpp"
 #include <raylib.h>
 enum SCREENS{MENU_SCREEN, CHARACTER_SELECT_SCREEN, GAME_SCREEN, GAME_OVER_SCREEN, WINDOWSHOULDCLOSE};
-enum ABILITIES{SKILL1, SKILL2, SUPERPOWER};
+
 
 //this class actually runs the game and ties everything together
 
@@ -23,7 +23,7 @@ class Game
         void load_game_screen_abilities_textures();
         void unload_game_screen_abilities_textures();
         Texture2D return_animation_texture_based_on_arguments_passed(const std::array <int,3>& user1_hero_arr, const std::array <int,3>& user2_hero_arr,int user_turn, int hero_index_in_array);
-        void return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(const std::array <int,3>& user_hero_arr, int hero_index_in_array, std::array <Texture2D,3>& texture_array);
+        void return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(const std::array<int,3>& user_hero_array,  std::array <Texture2D, 3>& user_texture_array, int user_turn, int hero_index_in_array);// pass a texture 2d array to this function by refrence and it will fill it for you
         
         //bool Game_Over_Screen();
     private:
@@ -48,12 +48,14 @@ class Game
         Texture2D Dani_super_power_2rounds_left;
         Texture2D Dani_super_power_1rounds_left;
         Texture2D Dani_super_power_ready;
+        Texture2D Dani_super_power_not_ready;
         
         Texture2D amin_friendly_fire;
         Texture2D amin_last_bullet;
         Texture2D amin_super_power_2rounds_left;
         Texture2D amin_super_power_1rounds_left;
         Texture2D amin_super_power_ready;
+        Texture2D amin_super_power_not_ready;
 
         Texture2D doc_asprin;
         Texture2D doc_doping;
@@ -61,12 +63,14 @@ class Game
         Texture2D doc_super_power_2rounds_left;
         Texture2D doc_super_power_1rounds_left;
         Texture2D doc_super_power_ready;
+        Texture2D doc_super_power_not_ready;
         
         Texture2D tlittle_razor_sharp;
         Texture2D tlittle_blood_bag;
         Texture2D tlittle_super_power_2rounds_left;
         Texture2D tlittle_super_power_1rounds_left;
         Texture2D tlittle_super_power_ready;
+        Texture2D tlittle_super_power_not_ready;
         
         Texture2D tbig_machine_gun;
         Texture2D tbig_xray;
@@ -74,6 +78,7 @@ class Game
         Texture2D tbig_super_power_2rounds_left;
         Texture2D tbig_super_power_1rounds_left;
         Texture2D tbig_super_power_ready;
+        Texture2D tbig_super_power_not_ready;
         
         Texture2D pouya_dagger;
         Texture2D pouya_scorpion;
@@ -81,6 +86,7 @@ class Game
         Texture2D pouya_super_power_2rounds_left;
         Texture2D pouya_super_power_1rounds_left;
         Texture2D pouya_super_power_ready;
+        Texture2D pouya_super_power_not_ready;
         
         Texture2D shahriar_dummy;
         Texture2D shahriar_stubborn;
@@ -88,6 +94,7 @@ class Game
         Texture2D shahriar_super_power_2rounds_left;
         Texture2D shahriar_super_power_1rounds_left;
         Texture2D shahriar_super_power_ready;
+        Texture2D shahriar_super_power_not_ready;
         
 
     };

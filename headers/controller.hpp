@@ -1,7 +1,9 @@
 #ifndef CONTROLLER_HPP
 #define CONTROLLER_HPP
 #include <array>
-
+#include <typeinfo>
+#include <iostream>
+enum ABILITIES{SKILL1, SKILL2, SUPERPOWER, NON};
 enum TURN{USER1, USER2};
 //declare to avoid compile time error
 class User;
@@ -14,27 +16,32 @@ enum HERO_TYPE{NONSELECT, WHITEDOCTOR, TAHA_KOCHIKE, DANI_GOLANG, AMIN_EMENI, TA
 class Controller
 {
     public:
+        Controller();
         bool Is_game_over(); // checks to see if game raound is 15 or one players heros are all dead
         void execute_user_ask_to_use_hero_ability_if_possible(); //it gets user request to atteck and does the logic (considering energy cost)
         void Refill_Players_Energy(); // after each round ends it refill energies accordingly
         void Finish_Round(); // this function increments the private round_number variable by one
-        void manage_chosing_character_screen_logic();//this function instantiates objects and let users pick their heros
         void Empty_User_Array(User &user);
         bool Is_Hero_Array_Full(User &user);
         void Fill_Hero_object_Array(TURN user, int index, int hero_type);
         void Fill_Hero_object_Array(std::array<Hero_Abstaction*,3>&, int index, int hero_type);
         void Set_User_Hero_Array_Index(int index);
         int return_round_number();
-        int return_rounds_left_till_hero_ability_is_ready(int array_index, TURN user);
+        int return_rounds_left_till_hero_ability_is_ready(int array_index, int user);
         void Empty_Array_Which_Stores_Hero_Base_Class_Pointers(TURN user_turn, int filled_to_which_index);
-        //~Controller();
+        bool can_ability_be_used_based_on_energy_points(int hero_index_in_array, ABILITIES which_ability, int user_turn , int user1_current_energy, int user2_current_energy);
+        bool should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy);
+
+        
+        ~Controller();
         
     private:
         int round_number; // to keep track of the current game round
         int which_user_started_the_game; // to remember which user started first
         std::array<Hero_Abstaction*,3> Hero_Arr_User1;
         std::array<Hero_Abstaction*,3> Hero_Arr_User2;
-        Hero_Abstaction &Hero;
-        User &user;
+        // Hero_Abstaction &Hero;
+        // User &user;
     };  
+    
 #endif
