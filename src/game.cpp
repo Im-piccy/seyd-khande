@@ -1791,177 +1791,177 @@ void highlight_ability(const std::array<Texture2D, 3>& textures, const Rectangle
     }
 }
 
-void display_ability_defenition_and_detail(const std::array<int,3>& user_hero_array, int user_turn, int hero_index_in_array, ABILITIES which_ability, Font font)
+void display_ability_defenition_and_detail(const std::array<int,3>& user_hero_array, int user_turn, int hero_index_in_array, ABILITIES which_ability, Font font, Color color)
 {
-    DrawTextEx(font, "ENERGY REQUIRED", {127.0f - (MeasureTextEx(font,"ENERGY REQUIRED",20.0f,0).x/2),540.0f}, 20.0f, 0.0f, LIGHTGRAY);
+    DrawTextEx(font, "ENERGY REQUIRED", {127.0f - (MeasureTextEx(font,"ENERGY REQUIRED",20.0f,0).x/2),540.0f}, 20.0f, 0.0f,  color);
 
     switch (user_hero_array[hero_index_in_array])
     {
     case DANI_GOLANG:
         if(which_ability == SKILL1)
         {
-            DrawTextEx(font, "FIL KOSH ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 50 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND THE ENEMY WITH THE HIGHEST HP", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "FIL KOSH ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 50 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND THE ENEMY WITH THE HIGHEST HP", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         else if(which_ability == SKILL2)
         {
-            DrawTextEx(font, "THE LOCK: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 20 POINTS OF DAMAGE TO THE CHOSEN ENEMY CONSECUTIVE ATTACK TO THE SAME ENEMY INCREASES DAMAGE BY 60%", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE LOCK: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 20 POINTS OF DAMAGE TO THE CHOSEN ENEMY CONSECUTIVE ATTACK TO THE SAME ENEMY INCREASES DAMAGE BY 60%", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         if(which_ability == SUPERPOWER)
         {
-            DrawTextEx(font, "TRENCHES: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "GIVES 250 SHIELD POINTS TO THE LOWEST HP TEAMMATE AND THE EFFECT LASTS FOR 2 ROUNDS", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "TRENCHES: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "GIVES 250 SHIELD POINTS TO THE LOWEST HP TEAMMATE AND THE EFFECT LASTS FOR 2 ROUNDS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         break;
     
     case AMIN_EMENI:
         if(which_ability == SKILL1)
         {
-            DrawTextEx(font, "FRIENDLY FIRE:", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 25 POINTS OF DAMAGE TO A RANDOM TEAMMATES AND HEALS HIMSELF BY 75 HP", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "FRIENDLY FIRE:", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 25 POINTS OF DAMAGE TO A RANDOM TEAMMATES AND HEALS HIMSELF BY 75 HP", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         else if(which_ability == SKILL2)
         {
-            DrawTextEx(font, "LAST BULLET: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 55 POINTS OF DAMAGE TO THE CHOSEN ENEMY. KILLING THE ENEMY DOUBLES AMIN'S DAMAGE", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "LAST BULLET: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 55 POINTS OF DAMAGE TO THE CHOSEN ENEMY. KILLING THE ENEMY DOUBLES AMIN'S DAMAGE", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         if(which_ability == SUPERPOWER)
         {
-            DrawTextEx(font, "THE SHOUT: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 250 POINTS OF DAMAGE TO A RANDOM ENEMY BUT ALSO DAMAGES BOTH TEAMMATES BY 30 POINTS", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE SHOUT: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 250 POINTS OF DAMAGE TO A RANDOM ENEMY BUT ALSO DAMAGES BOTH TEAMMATES BY 30 POINTS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         break;
     
     case AGHA_SHAHRIAR:
         if(which_ability == SKILL1)
         {
-            DrawTextEx(font, "THE DUMMY:", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 60 POINTS OF DAMAGE TO A CHOSEN ENEMY WITH A 20\% CHANCE OF MISSING THE SHOT", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE DUMMY:", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 60 POINTS OF DAMAGE TO A CHOSEN ENEMY WITH A 20\% CHANCE OF MISSING THE SHOT", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         else if(which_ability == SKILL2)
         {
-            DrawTextEx(font, "THE STUBBORN: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 100 POINTS OF DAMAGE TO A RANDOM ENEMY ANYONE BUT THE CHOSEN ENEMY", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE STUBBORN: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 100 POINTS OF DAMAGE TO A RANDOM ENEMY ANYONE BUT THE CHOSEN ENEMY", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         if(which_ability == SUPERPOWER)
         {
-            DrawTextEx(font, "THE REVERSION: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "HEALING ABILITIES DAMAGE TEAMMATES AND ATTACKING ABILITIES HEAL ENEMIES FOR 2ROUNDS", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE REVERSION: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "HEALING ABILITIES DAMAGE TEAMMATES AND ATTACKING ABILITIES HEAL ENEMIES FOR 2ROUNDS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "8 POINTS", {127.0f - (MeasureTextEx(font,"8 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "8 POINTS", {127.0f - (MeasureTextEx(font,"8 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         break;
     
     case POUYA_KAJDOM:
         if(which_ability == SKILL1)
         {
-            DrawTextEx(font, "THE DAGGER:", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 20 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND BUFFS THE SCORPION DAMAGE BY 40 POINTS ON THAT ENEMY", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE DAGGER:", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 20 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND BUFFS THE SCORPION DAMAGE BY 40 POINTS ON THAT ENEMY", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         else if(which_ability == SKILL2)
         {
-            DrawTextEx(font, "THE SCORPION: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "PUTS A SCORPION ON THE CHOSEN ENEMY WHICH DEALS 20 POINTS OF DAMAGE PER ROUND ", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE SCORPION: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "PUTS A SCORPION ON THE CHOSEN ENEMY WHICH DEALS 20 POINTS OF DAMAGE PER ROUND ", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         if(which_ability == SUPERPOWER)
         {
-            DrawTextEx(font, "THE VENOMOUS BITE: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "HIDES FOR 3 ROUNDS (CAN'T BE DIRECTLY TARGETED BY ENEMIES) AND DEALS 450 POINTS OF DAMAGE TO A RANDOM ENEMY WHEN THE 3 ROUNDS ARE OVER", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE VENOMOUS BITE: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "HIDES FOR 3 ROUNDS (CAN'T BE DIRECTLY TARGETED BY ENEMIES) AND DEALS 450 POINTS OF DAMAGE TO A RANDOM ENEMY WHEN THE 3 ROUNDS ARE OVER", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "5 POINTS", {127.0f - (MeasureTextEx(font,"5 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "5 POINTS", {127.0f - (MeasureTextEx(font,"5 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         break;
     
     case TAHA_BOZORGE:
         if(which_ability == SKILL1)
         {
-            DrawTextEx(font, "THE MACHINE GUN:", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 30 POINTS OF DAMAGE TO EVERY ENEMY", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE MACHINE GUN:", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 30 POINTS OF DAMAGE TO EVERY ENEMY", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         else if(which_ability == SKILL2)
         {
-            DrawTextEx(font, "XRAY: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 90 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HIDES FOR ONE ROUND (CAN'T BE TARGETED DIRECTLY)", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "XRAY: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 90 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HIDES FOR ONE ROUND (CAN'T BE TARGETED DIRECTLY)", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         if(which_ability == SUPERPOWER)
         {
-            DrawTextEx(font, "REVENGE: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "REVENGE: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         break;
     
     case TAHA_KOCHIKE:
         if(which_ability == SKILL1)
         {
-            DrawTextEx(font, "THE MACHINE GUN:", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 30 POINTS OF DAMAGE TO EVERY ENEMY", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "THE MACHINE GUN:", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 30 POINTS OF DAMAGE TO EVERY ENEMY", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         else if(which_ability == SKILL2)
         {
-            DrawTextEx(font, "XRAY: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 90 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HIDES FOR ONE ROUND (CAN'T BE TARGETED DIRECTLY)", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "XRAY: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 90 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HIDES FOR ONE ROUND (CAN'T BE TARGETED DIRECTLY)", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         if(which_ability == SUPERPOWER)
         {
-            DrawTextEx(font, "REVENGE: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "REVENGE: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         break;
     
     case WHITEDOCTOR:
         if(which_ability == SKILL1)
         {
-            DrawTextEx(font, "ASPRIN:", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "DEALS 40 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HEALS A RANDOM TEAMMATE BY 40 POINTS", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "ASPRIN:", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 40 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HEALS A RANDOM TEAMMATE BY 40 POINTS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         else if(which_ability == SKILL2)
         {
-            DrawTextEx(font, "DOPING: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "BUFFS ONE TEAMMATE ATTACKING DAMAGE BY 20 POINTS FOR 2ROUNDS ", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "DOPING: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "BUFFS ONE TEAMMATE ATTACKING DAMAGE BY 20 POINTS FOR 2ROUNDS ", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         if(which_ability == SUPERPOWER)
         {
-            DrawTextEx(font, "REVIVAL: ", {260, 520}, 35,0,LIGHTGRAY);
-            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0,LIGHTGRAY);
+            DrawTextEx(font, "REVIVAL: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         break;
     
@@ -2516,6 +2516,11 @@ void Game::Game_Screen()
     {
         if(User_Turn == USER1)
         {
+            //just khoshgelasion
+            if(!should_ability_stay_highlighted && should_ability_be_highlighted)
+            {
+                display_ability_defenition_and_detail(user1_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_be_highlighted, font, GRAY);
+            }
 
             return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user1_hero_arr, user1_ability_texture_array, User_Turn,hero_to_be_animated_index);
             game_screen_draw_abilities_grayed_out(user1_ability_texture_array,Skill_1_bound,Skill_2_bound,superpower_bound);
@@ -2524,7 +2529,7 @@ void Game::Game_Screen()
             {
                 highlight_ability(user1_ability_texture_array, Skill_1_bound, Skill_2_bound, superpower_bound, ability_to_stay_highlighted);
                 //print ability info on screen
-                display_ability_defenition_and_detail(user1_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_stay_highlighted, font);
+                display_ability_defenition_and_detail(user1_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_stay_highlighted, font, LIGHTGRAY);
                 DrawTexture(attack_button_textrue, Attack_button_bound.x, Attack_button_bound.y, LIGHTGRAY);                
                 DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, LIGHTGRAY);                
                 //checking to see if attack button is pressed
@@ -2549,6 +2554,13 @@ void Game::Game_Screen()
         }
         else if(User_Turn == USER2)
         {
+            //merely khoshgelasion has no logical benefit
+            if(!should_ability_stay_highlighted && should_ability_be_highlighted)
+            {
+                display_ability_defenition_and_detail(user2_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_be_highlighted, font, GRAY);
+            }
+
+
             return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user2_hero_arr, user2_ability_texture_array, User_Turn,hero_to_be_animated_index);
             game_screen_draw_abilities_grayed_out(user2_ability_texture_array,Skill_1_bound,Skill_2_bound,superpower_bound);
             highlight_ability(user2_ability_texture_array, Skill_1_bound, Skill_2_bound, superpower_bound, ability_to_be_highlighted);
@@ -2556,7 +2568,7 @@ void Game::Game_Screen()
             {
                 highlight_ability(user2_ability_texture_array, Skill_1_bound, Skill_2_bound, superpower_bound, ability_to_stay_highlighted);
                 //print ability info on screen
-                display_ability_defenition_and_detail(user2_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_stay_highlighted, font);
+                display_ability_defenition_and_detail(user2_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_stay_highlighted, font, LIGHTGRAY);
                 DrawTexture(attack_button_textrue, Attack_button_bound.x, Attack_button_bound.y, LIGHTGRAY);                
                 DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, LIGHTGRAY);   
                 
