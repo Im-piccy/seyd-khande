@@ -2,6 +2,25 @@
 #include "../headers/hero_sub_class_to_instatniate_objects.hpp"
 #include "../headers/game.hpp"
 #include "../headers/user.hpp"
+#include <ctime>
+#include <random>
+#include <iostream>
+
+
+Controller::Controller()
+{
+    this->round_number = 1;
+    srand(time(0));
+    this->which_user_started_the_game = rand() % 2;
+
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        Hero_Arr_User1[i] = nullptr;
+        Hero_Arr_User2[i] = nullptr;
+    }
+
+}
+
 
 void Controller::Empty_User_Array(User &user)
 {
@@ -10,6 +29,7 @@ void Controller::Empty_User_Array(User &user)
 
 bool Controller::Is_Hero_Array_Full(User &user)
 {
+    
     for(int i = 0; i < 3; i++)
     {
         if(user.Hero_Arr[i] == 0)
@@ -58,30 +78,30 @@ void Controller::Fill_Hero_object_Array(TURN  user_number, int index, int hero_t
 {
     if(index < 0 || index >= 3)
         return;
-    if(user_number == 1)
+    if(user_number == 0)
         Fill_Hero_object_Array(this->Hero_Arr_User1, index, hero_type);
-    else
+    else if(user_number == 1)
         Fill_Hero_object_Array(this->Hero_Arr_User2, index, hero_type);   
 }
 
-// Controller::~Controller()
-// {
-//     for( int i = 0; i < 3; i++)
-//     {
-//         delete Hero_Arr_User1[i];
-//         Hero_Arr_User1[i] = nullptr;
+Controller::~Controller()
+{
+    for( int i = 0; i < 3; i++)
+    {
+        delete Hero_Arr_User1[i];
+        Hero_Arr_User1[i] = nullptr;
         
-//         delete Hero_Arr_User2[i];
-//         Hero_Arr_User2[i] = nullptr;
-//     }
-// }
+        delete Hero_Arr_User2[i];
+        Hero_Arr_User2[i] = nullptr;
+    }
+}
 
 int Controller::return_round_number()
 {
     return round_number;
 }
 
-int Controller::return_rounds_left_till_hero_ability_is_ready(int array_index, TURN user)
+int Controller::return_rounds_left_till_hero_ability_is_ready(int array_index, int user)
 {
     if(user == USER1)
     {
@@ -113,5 +133,114 @@ void Controller::Empty_Array_Which_Stores_Hero_Base_Class_Pointers(TURN user_tur
         }
         break;
     
+    }
+}
+
+bool Controller::can_ability_be_used_based_on_energy_points(int hero_index_in_array, ABILITIES which_ability, int user_turn , int user1_current_energy, int user2_current_energy)
+{
+    if(user_turn == USER1)
+    {
+        switch (which_ability)
+        {
+        case SKILL1:
+            if(Hero_Arr_User1[hero_index_in_array]->Return_Skill1_Energy_Cost() <= user1_current_energy)
+            {
+                return true;
+            }
+            return false;
+        
+        case SKILL2:
+            if(Hero_Arr_User1[hero_index_in_array]->Return_Skill2_Energy_Cost() <= user1_current_energy)
+            {
+                return true;
+            }
+            return false;
+        
+        case SUPERPOWER:
+            if(Hero_Arr_User1[hero_index_in_array]->return_rounds_left_till_superpower_is_ready() != 0)
+            {
+                return false;
+            }
+            if(Hero_Arr_User1[hero_index_in_array]->Return_SuperPower_Energy_Cost() <= user1_current_energy)
+            {
+                return true;
+            }
+            return false;    
+        
+        
+        }
+    }
+    else if(user_turn == USER2)
+    {
+        switch (which_ability)
+        {
+            case SKILL1:
+                if(Hero_Arr_User2[hero_index_in_array]->Return_Skill2_Energy_Cost() <= user2_current_energy)
+                {
+                    return true;
+                }
+                return false;
+            
+            case SKILL2:
+                if(Hero_Arr_User2[hero_index_in_array]->Return_Skill2_Energy_Cost() <= user2_current_energy)
+                {
+                    return true;
+                }
+                return false;
+            
+            case SUPERPOWER:
+                if(Hero_Arr_User2[hero_index_in_array]->return_rounds_left_till_superpower_is_ready() != 0)
+                {
+                    return false;
+                }
+                if(Hero_Arr_User2[hero_index_in_array]->Return_SuperPower_Energy_Cost() <= user2_current_energy)
+                {
+                    return true;
+                }
+                return false;    
+        }
+    }
+}
+
+
+bool Controller::should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy)
+{
+    if(user_turn == USER1)
+    {
+        for(int i = 0 ; i < 3 ; i++)
+        {
+            if(Hero_Arr_User1[i]->Return_Skill1_Energy_Cost() <= user1_current_energy)
+            {
+                return false;
+            }
+            if(Hero_Arr_User1[i]->Return_Skill2_Energy_Cost() <= user1_current_energy)
+            {
+                return false;
+            }
+            if(Hero_Arr_User1[i]->Return_SuperPower_Energy_Cost() <= user1_current_energy)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    else if (user_turn == USER2)
+    {
+        for(int i = 0 ; i < 3 ; i++)
+        {
+            if(Hero_Arr_User2[i]->Return_Skill1_Energy_Cost() <= user2_current_energy)
+            {
+                return false;
+            }
+            if(Hero_Arr_User2[i]->Return_Skill2_Energy_Cost() <= user2_current_energy)
+            {
+                return false;
+            }
+            if(Hero_Arr_User2[i]->Return_SuperPower_Energy_Cost() <= user2_current_energy)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
