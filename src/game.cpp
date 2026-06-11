@@ -310,7 +310,7 @@ void set_frame_width_with_respect_to_the_player(Animation& anim, int width , int
     }
 }
 Game::Game() : current_screen(CHARACTER_SELECT_SCREEN){}
-
+ 
 void Game::load_game_screen_animation_sprite_sheets()
 {
     Doc_anim_texture = LoadTexture("game_assets/game_screen_assets/doc-sprite-sheet.png");
@@ -341,12 +341,14 @@ void Game::load_game_screen_abilities_textures()
         Dani_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/dani/trenches-2rounds-left.png");
         Dani_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/dani/trenches-1round-left.png");
         Dani_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/dani/trenches-ready.png");
+        Dani_super_power_not_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/dani/trenches-not-ready.png");
         
         amin_friendly_fire = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/friendly-fire.png");
         amin_last_bullet = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/last-bullet.png");
         amin_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/amin/the-shout-2rounds-left.png");
         amin_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/amin/the-shout-1round-left.png");
         amin_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/amin/the-shout-ready.png");
+        amin_super_power_not_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/amin/the-shout-not-ready.png");
 
         doc_asprin = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/asprin.png");
         doc_doping = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/doping.png");
@@ -354,12 +356,14 @@ void Game::load_game_screen_abilities_textures()
         doc_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/doc/revival-2rounds-left.png");
         doc_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/doc/revival-1round-left.png");
         doc_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/doc/revival-ready.png");
+        doc_super_power_not_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/doc/revival-not-ready.png");
         
         tlittle_razor_sharp = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/razor-sharp.png");
         tlittle_blood_bag = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/blood-bag.png");
         tlittle_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tlittle/quarantine-2rounds-left.png");
         tlittle_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tlittle/quarantine-1round-left.png");
         tlittle_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tlittle/quarantine-ready.png");
+        tlittle_super_power_not_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tlittle/quarantine-not-ready.png");
         
         tbig_machine_gun = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/machine-gun.png");
         tbig_xray = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/xray.png");
@@ -367,6 +371,7 @@ void Game::load_game_screen_abilities_textures()
         tbig_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tbig/revenge-2rounds-left.png");
         tbig_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tbig/revenge-1round-left.png");
         tbig_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tbig/revenge-ready.png");
+        tbig_super_power_not_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/tbig/revenge-not-ready.png");
         
         pouya_dagger = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/dagger-kajdom.png");
         pouya_scorpion = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/scorpion-kajdom.png");
@@ -374,13 +379,15 @@ void Game::load_game_screen_abilities_textures()
         pouya_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/pouya/venomous-bite-kajdom-2rounds-left.png");
         pouya_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/pouya/venomous-bite-kajdom-1round-left.png");
         pouya_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/pouya/venomous-bite-kajdom-ready.png");
+        pouya_super_power_not_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/pouya/venomous-bite-kajdom-not-ready.png");
         
         shahriar_dummy = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/shahriar-dummy.png");
         shahriar_stubborn = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/shahriar-stubborn.png");
-        shahriar_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar/shahriar-super-power-3rounds-left.png");
-        shahriar_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar-super-power-2rounds-left.png");
-        shahriar_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/shahriar/superpowers/shahriar-super-power-1round-left.png");
-        shahriar_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar-super-power-ready.png");
+        shahriar_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar/shahriar-super-power-3rounds-left.png");
+        shahriar_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar-super-power-2rounds-left.png");
+        shahriar_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar-super-power-1round-left.png");
+        shahriar_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar-super-power-ready.png");
+        shahriar_super_power_not_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar-super-power-not-ready.png");
 }
 
 void Game::unload_game_screen_abilities_textures()
@@ -706,7 +713,7 @@ void Game::Menu_Screen()
     BeginDrawing();
     DrawTexture(background,0,0,WHITE);
     DrawTexture(Button,40,280,GRAY);
-    DrawTexture(Button,40,430,GRAY);
+    DrawTexture(Button,40,420,GRAY);
     DrawTexture(Sign,15,0,WHITE);
     DrawText(start_txt,136 - (Start_txt_width/2),320, font_size, GRAY);//printing start txt on screen
     DrawText(Exit_txt,136 - (Exit_txt_width/2),470, font_size, GRAY);//printing exit txt on screen
@@ -1512,6 +1519,7 @@ void Game::Character_Select_Screen()
         }
         break;
     }
+    
 }
 
 Texture2D Game::return_animation_texture_based_on_arguments_passed(const std::array <int,3>& user1_hero_arr, const std::array <int,3>& user2_hero_arr,int user_turn, int hero_index_in_array)
@@ -1560,207 +1568,198 @@ Texture2D Game::return_animation_texture_based_on_arguments_passed(const std::ar
     }
 }
 
-void Game::return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(const std::array <int,3>& user_hero_arr, int hero_index_in_array, std::array <Texture2D,3>& array)
+void Game::return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(const std::array<int,3>& user_hero_array,  std::array <Texture2D, 3>& user_texture_array, int user_turn, int hero_index_in_array)
 {
-    
-    
-    switch (user_hero_arr[hero_index_in_array])
+    switch (user_hero_array[hero_index_in_array])
     {
-    //its gonna get a bit complicated
-    //each case returns textures of the normal abilities
-    //but there is another switch inside each case
-    //that shows how many round is left till the super power is ready
-    //and should return the texture accordingly
         case DANI_GOLANG:
         {
-            //these two are normal power textures
-            array[SKILL1] = Dani_fil_kosh;
-            array[SKILL2] = Dani_lock;
-            //this switch returns the superpower texture
+            //SO WE HAVE TO FILL THE PASSED ARRAY WITH DANI ABILITIES
+            //FIRST ABILITY
+            user_texture_array[SKILL1] = Dani_fil_kosh;
+            user_texture_array[SKILL2] = Dani_lock;
+            //HOW MANY ROUNDS IS LEFT TILL THE SUPER POWER IS READY
+            //TO RETURN THE CORRECT TEXTURE
 
-            std::cout << "this is what return rounds left till super power returns: " << control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array,USER1) <<std::endl;
-            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            //I KNOW I SHOULDN'T WRITE NESTED IFS AND ELSES 
+            //LORD FORGIVE ME I HAD TO I HAD NO OTHER CHOICE
+            //HOLD YOUR BRAETH I AM GOING TO COMMIT A CODE CRIME!
+            
+            if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 0)
             {
-            case 0:
-                array[SUPERPOWER] = Dani_super_power_ready;
-                break;
-            
-            case 1:
-                array[SUPERPOWER] = Dani_super_power_1rounds_left;
-                break;
-            
-            case 2:
-                array[SUPERPOWER] = Dani_super_power_2rounds_left;
-                break;
-            
-            case 3:
-                array[SUPERPOWER] = Dani_super_power_3rounds_left;
-                break;
-            
+               user_texture_array[SUPERPOWER] = Dani_super_power_ready;
             }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 1)
+            {
+                user_texture_array[SUPERPOWER] = Dani_super_power_1rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 2)
+            {
+                user_texture_array[SUPERPOWER] = Dani_super_power_2rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 3)
+            {
+                user_texture_array[SUPERPOWER] = Dani_super_power_3rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 4)
+            {
+                user_texture_array[SUPERPOWER] = Dani_super_power_not_ready;
+            }
+            
             break;
         }
         case AMIN_EMENI:
-        {
-            array[SKILL1] = amin_friendly_fire;
-            array[SKILL2] = amin_last_bullet;
-
-            //this switch returns the superpower texture
-            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            user_texture_array[SKILL1] = amin_friendly_fire;
+            user_texture_array[SKILL2] = amin_last_bullet;
+            //super powers
+            if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 0)
             {
-            case 0:
-                array[SUPERPOWER] = amin_super_power_ready;
-                break;
-            
-            case 1:
-                array[SUPERPOWER] = amin_super_power_1rounds_left;
-                break;
-            
-            case 2:
-                array[SUPERPOWER] = amin_super_power_2rounds_left;
-                break;
-            
-            
+               user_texture_array[SUPERPOWER] = amin_super_power_ready;
             }
-            break;
-        }
-        case TAHA_BOZORGE:
-        {
-            array[SKILL1] = tbig_machine_gun;
-            array[SKILL2] = tbig_xray;
-
-            //this switch returns the superpower texture
-            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 1)
             {
-            case 0:
-                array[SUPERPOWER] = tbig_super_power_ready;
-                break;
-            
-            case 1:
-                array[SUPERPOWER] = tbig_super_power_1rounds_left;
-                break;
-            
-            case 2:
-                array[SUPERPOWER] = tbig_super_power_2rounds_left;
-                break;
-            
-            case 3:
-                array[SUPERPOWER] = tbig_super_power_3rounds_left;
-                break;
-            
+                user_texture_array[SUPERPOWER] = amin_super_power_1rounds_left;
             }
-            break;
-        }
-    
-        case TAHA_KOCHIKE:
-        {
-            array[SKILL1] = tlittle_blood_bag;
-            array[SKILL2] = tlittle_razor_sharp;
-
-            //this switch returns the superpower texture
-            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 2)
             {
-            case 0:
-                array[SUPERPOWER] = tlittle_super_power_ready;
-                break;
-            
-            case 1:
-                array[SUPERPOWER] = tlittle_super_power_1rounds_left;
-                break;
-            
-            case 2:
-                array[SUPERPOWER] = tlittle_super_power_2rounds_left;
-                break;
-            
-            
+                user_texture_array[SUPERPOWER] = amin_super_power_2rounds_left;
             }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 3)
+            {
+                user_texture_array[SUPERPOWER] = amin_super_power_not_ready;
+            }
+            
             break;
-        }
-    
+            
         case AGHA_SHAHRIAR:
-        {
-            array[SKILL1] = shahriar_dummy;
-            array[SKILL2] = shahriar_stubborn;
-
-            //this switch returns the superpower texture
-            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            user_texture_array[SKILL1] = shahriar_dummy;
+            user_texture_array[SKILL2] = shahriar_stubborn;
+            //super powers
+            if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 0)
             {
-            case 0:
-                array[SUPERPOWER] = shahriar_super_power_ready;
-                break;
-            
-            case 1:
-                array[SUPERPOWER] = shahriar_super_power_1rounds_left;
-                break;
-            
-            case 2:
-                array[SUPERPOWER] = shahriar_super_power_2rounds_left;
-                break;
-            
-            case 3:
-                array[SUPERPOWER] = shahriar_super_power_3rounds_left;
-                break;
-            
+               user_texture_array[SUPERPOWER] = shahriar_super_power_ready;
             }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 1)
+            {
+                user_texture_array[SUPERPOWER] = shahriar_super_power_1rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 2)
+            {
+                user_texture_array[SUPERPOWER] = shahriar_super_power_2rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 3)
+            {
+                user_texture_array[SUPERPOWER] = shahriar_super_power_3rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 4)
+            {
+                user_texture_array[SUPERPOWER] = shahriar_super_power_not_ready;
+            }
+            
             break;
-        }
         
         case WHITEDOCTOR:
-        {
-            array[SKILL1] = doc_asprin;
-            array[SKILL2] = doc_doping;
-
-            //this switch returns the superpower texture
-            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            user_texture_array[SKILL1] = doc_asprin;
+            user_texture_array[SKILL2] = doc_doping;
+            //super powers
+            if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 0)
             {
-            case 0:
-                array[SUPERPOWER] = doc_super_power_ready;
-                break;
+               user_texture_array[SUPERPOWER] = doc_super_power_ready;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 1)
+            {
+                user_texture_array[SUPERPOWER] = doc_super_power_1rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 2)
+            {
+                user_texture_array[SUPERPOWER] = doc_super_power_2rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 3)
+            {
+                user_texture_array[SUPERPOWER] = doc_super_power_3rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 4)
+            {
+                user_texture_array[SUPERPOWER] = doc_super_power_not_ready;
+            }
             
-            case 1:
-                array[SUPERPOWER] = doc_super_power_1rounds_left;
-                break;
-            
-            case 2:
-                array[SUPERPOWER] = doc_super_power_2rounds_left;
-                break;
-            
-            case 3:
-                array[SUPERPOWER] = doc_super_power_3rounds_left;
-                break;
-            
+            break;
+        
+        case TAHA_BOZORGE:
+            user_texture_array[SKILL1] = tbig_machine_gun;
+            user_texture_array[SKILL2] = tbig_xray;
+            //super powers
+            if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 0)
+            {
+               user_texture_array[SUPERPOWER] = tbig_super_power_ready;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 1)
+            {
+                user_texture_array[SUPERPOWER] = tbig_super_power_1rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 2)
+            {
+                user_texture_array[SUPERPOWER] = tbig_super_power_2rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 3)
+            {
+                user_texture_array[SUPERPOWER] = tbig_super_power_3rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 4)
+            {
+                user_texture_array[SUPERPOWER] = tbig_super_power_not_ready;
             }
             break;
-        }
-    
+        
+        case TAHA_KOCHIKE:
+            user_texture_array[SKILL1] = tlittle_blood_bag;
+            user_texture_array[SKILL2] = tlittle_razor_sharp;
+            //super powers
+            if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 0)
+            {
+               user_texture_array[SUPERPOWER] = tlittle_super_power_ready;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 1)
+            {
+                user_texture_array[SUPERPOWER] = tlittle_super_power_1rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 2)
+            {
+                user_texture_array[SUPERPOWER] = tlittle_super_power_2rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 3)
+            {
+                user_texture_array[SUPERPOWER] = tlittle_super_power_not_ready;
+            }
+            
+            break;
+        
         case POUYA_KAJDOM:
-        {
-            array[SKILL1] = pouya_dagger;
-            array[SKILL2] = pouya_scorpion;
-
-            //this switch returns the superpower texture
-            switch (control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, USER1))
+            user_texture_array[SKILL1] = pouya_dagger;
+            user_texture_array[SKILL2] = pouya_scorpion;
+            //super powers
+            if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 0)
             {
-            case 0:
-                array[SUPERPOWER] = pouya_super_power_ready;
-                break;
-            
-            case 1:
-                array[SUPERPOWER] = pouya_super_power_1rounds_left;
-                break;
-            
-            case 2:
-                array[SUPERPOWER] = pouya_super_power_2rounds_left;
-                break;
-            
-            case 3:
-                array[SUPERPOWER] = pouya_super_power_3rounds_left;
-                break;
-            
+               user_texture_array[SUPERPOWER] = pouya_super_power_ready;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 1)
+            {
+                user_texture_array[SUPERPOWER] = pouya_super_power_1rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 2)
+            {
+                user_texture_array[SUPERPOWER] = pouya_super_power_2rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 3)
+            {
+                user_texture_array[SUPERPOWER] = pouya_super_power_3rounds_left;
+            }
+            else if(control.return_rounds_left_till_hero_ability_is_ready(hero_index_in_array, user_turn) == 4)
+            {
+                user_texture_array[SUPERPOWER] = pouya_super_power_not_ready;
             }
             break;
-        }
-    }
+    }    
 }
 
 void game_screen_draw_abilities_grayed_out(const std::array<Texture2D,3>& textures, const Rectangle & skill1_bound, const Rectangle& skill2_bound, const Rectangle& superpower_bound)
@@ -1770,6 +1769,206 @@ void game_screen_draw_abilities_grayed_out(const std::array<Texture2D,3>& textur
     DrawTexture(textures[SUPERPOWER],superpower_bound.x, superpower_bound.y,GRAY);
             
 }
+
+void highlight_ability(const std::array<Texture2D, 3>& textures, const Rectangle & skill1_bound, const Rectangle& skill2_bound, const Rectangle& superpower_bound,ABILITIES skill_to_be_highlighted)
+{
+    switch (skill_to_be_highlighted)
+    {
+    case SKILL1:
+        DrawTexture(textures[SKILL1],skill1_bound.x,skill1_bound.y,WHITE);
+        break;
+    
+    case SKILL2:
+        DrawTexture(textures[SKILL2],skill2_bound.x,skill2_bound.y,WHITE);
+        break;
+    
+    case SUPERPOWER:
+        DrawTexture(textures[SUPERPOWER],superpower_bound.x, superpower_bound.y,WHITE);
+        break;
+    
+    default:
+        break;
+    }
+}
+
+void display_ability_defenition_and_detail(const std::array<int,3>& user_hero_array, int user_turn, int hero_index_in_array, ABILITIES which_ability, Font font)
+{
+    DrawTextEx(font, "ENERGY REQUIRED", {127.0f - (MeasureTextEx(font,"ENERGY REQUIRED",20.0f,0).x/2),540.0f}, 20.0f, 0.0f, LIGHTGRAY);
+
+    switch (user_hero_array[hero_index_in_array])
+    {
+    case DANI_GOLANG:
+        if(which_ability == SKILL1)
+        {
+            DrawTextEx(font, "FIL KOSH ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 50 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND THE ENEMY WITH THE HIGHEST HP", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        else if(which_ability == SKILL2)
+        {
+            DrawTextEx(font, "THE LOCK: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 20 POINTS OF DAMAGE TO THE CHOSEN ENEMY CONSECUTIVE ATTACK TO THE SAME ENEMY INCREASES DAMAGE BY 60%", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        if(which_ability == SUPERPOWER)
+        {
+            DrawTextEx(font, "TRENCHES: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "GIVES 250 SHIELD POINTS TO THE LOWEST HP TEAMMATE AND THE EFFECT LASTS FOR 2 ROUNDS", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        break;
+    
+    case AMIN_EMENI:
+        if(which_ability == SKILL1)
+        {
+            DrawTextEx(font, "FRIENDLY FIRE:", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 25 POINTS OF DAMAGE TO A RANDOM TEAMMATES AND HEALS HIMSELF BY 75 HP", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        else if(which_ability == SKILL2)
+        {
+            DrawTextEx(font, "LAST BULLET: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 55 POINTS OF DAMAGE TO THE CHOSEN ENEMY. KILLING THE ENEMY DOUBLES AMIN'S DAMAGE", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        if(which_ability == SUPERPOWER)
+        {
+            DrawTextEx(font, "THE SHOUT: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 250 POINTS OF DAMAGE TO A RANDOM ENEMY BUT ALSO DAMAGES BOTH TEAMMATES BY 30 POINTS", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        break;
+    
+    case AGHA_SHAHRIAR:
+        if(which_ability == SKILL1)
+        {
+            DrawTextEx(font, "THE DUMMY:", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 60 POINTS OF DAMAGE TO A CHOSEN ENEMY WITH A 20\% CHANCE OF MISSING THE SHOT", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        else if(which_ability == SKILL2)
+        {
+            DrawTextEx(font, "THE STUBBORN: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 100 POINTS OF DAMAGE TO A RANDOM ENEMY ANYONE BUT THE CHOSEN ENEMY", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        if(which_ability == SUPERPOWER)
+        {
+            DrawTextEx(font, "THE REVERSION: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "HEALING ABILITIES DAMAGE TEAMMATES AND ATTACKING ABILITIES HEAL ENEMIES FOR 2ROUNDS", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "8 POINTS", {127.0f - (MeasureTextEx(font,"8 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        break;
+    
+    case POUYA_KAJDOM:
+        if(which_ability == SKILL1)
+        {
+            DrawTextEx(font, "THE DAGGER:", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 20 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND BUFFS THE SCORPION DAMAGE BY 40 POINTS ON THAT ENEMY", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "2 POINTS", {127.0f - (MeasureTextEx(font,"2 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        else if(which_ability == SKILL2)
+        {
+            DrawTextEx(font, "THE SCORPION: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "PUTS A SCORPION ON THE CHOSEN ENEMY WHICH DEALS 20 POINTS OF DAMAGE PER ROUND ", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        if(which_ability == SUPERPOWER)
+        {
+            DrawTextEx(font, "THE VENOMOUS BITE: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "HIDES FOR 3 ROUNDS (CAN'T BE DIRECTLY TARGETED BY ENEMIES) AND DEALS 450 POINTS OF DAMAGE TO A RANDOM ENEMY WHEN THE 3 ROUNDS ARE OVER", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "5 POINTS", {127.0f - (MeasureTextEx(font,"5 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        break;
+    
+    case TAHA_BOZORGE:
+        if(which_ability == SKILL1)
+        {
+            DrawTextEx(font, "THE MACHINE GUN:", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 30 POINTS OF DAMAGE TO EVERY ENEMY", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        else if(which_ability == SKILL2)
+        {
+            DrawTextEx(font, "XRAY: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 90 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HIDES FOR ONE ROUND (CAN'T BE TARGETED DIRECTLY)", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        if(which_ability == SUPERPOWER)
+        {
+            DrawTextEx(font, "REVENGE: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        break;
+    
+    case TAHA_KOCHIKE:
+        if(which_ability == SKILL1)
+        {
+            DrawTextEx(font, "THE MACHINE GUN:", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 30 POINTS OF DAMAGE TO EVERY ENEMY", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        else if(which_ability == SKILL2)
+        {
+            DrawTextEx(font, "XRAY: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 90 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HIDES FOR ONE ROUND (CAN'T BE TARGETED DIRECTLY)", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        if(which_ability == SUPERPOWER)
+        {
+            DrawTextEx(font, "REVENGE: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        break;
+    
+    case WHITEDOCTOR:
+        if(which_ability == SKILL1)
+        {
+            DrawTextEx(font, "ASPRIN:", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "DEALS 40 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HEALS A RANDOM TEAMMATE BY 40 POINTS", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        else if(which_ability == SKILL2)
+        {
+            DrawTextEx(font, "DOPING: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "BUFFS ONE TEAMMATE ATTACKING DAMAGE BY 20 POINTS FOR 2ROUNDS ", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        if(which_ability == SUPERPOWER)
+        {
+            DrawTextEx(font, "REVIVAL: ", {260, 520}, 35,0,LIGHTGRAY);
+            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0,LIGHTGRAY);
+            //extra detail
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0, LIGHTGRAY);
+        }
+        break;
+    
+    }
+}
+
+
 void Game::Game_Screen()
 {
 
@@ -1783,6 +1982,9 @@ void Game::Game_Screen()
     static Texture2D Control_panel = LoadTexture("game_assets/game_screen_assets/control-panel-hero-not-selected.png");
     static Texture2D Control_panle_hero_selected = LoadTexture("game_assets/game_screen_assets/control-panel-hero-selected.png");
 
+    //button related textures
+    static Texture2D attack_button_textrue = LoadTexture("game_assets/game_screen_assets/Attack.png");
+    static Texture2D end_turn_texture = LoadTexture("game_assets/game_screen_assets/end-turn.png");
 
     
     //transition fade and music control variables
@@ -1790,6 +1992,19 @@ void Game::Game_Screen()
     static bool is_fading_in = true;
     static bool is_music_playing = false;
     
+    //abilities bounds
+    static Rectangle Skill_1_bound = {315, 420, 75, 50};
+    static Rectangle Skill_2_bound = {600, 420, 75, 50};
+    static Rectangle superpower_bound = {450, 402, 135, 90};
+
+    //abilities logic related variables
+    static ABILITIES ability_to_be_highlighted = NON;
+    static ABILITIES ability_to_stay_highlighted = NON;
+    static bool should_ability_be_highlighted = false;
+    static bool should_ability_stay_highlighted = false;
+    static bool is_mouse_hovering_over_abilities = false;
+
+
     // these variables are going to be used for fliping the 
     //animation sprite for users
     static float doc_frame_width = 164;
@@ -1800,28 +2015,20 @@ void Game::Game_Screen()
     static float tbig_frame_width = 135;
     static float tlittle_frame_width = 178;
     
-    //abilities bounds
-    static Rectangle Skill_1_bound = {322, 445, 45, 45};
-    static Rectangle Skill_2_bound = {566, 445, 45, 45};
-    static Rectangle superpower_bound = {435, 402, 92, 92};
-
-
+    
+    
     //animation and screen control
     static bool are_textures_loaded = false;
     static bool should_hero_be_animated = false;
     static bool Hero_should_be_highlighted = false;
-    int hero_to_be_highlighted_index = 4;
-    int hero_to_be_animated_index;
-
-
-    if(!are_textures_loaded)
-    {
-        load_game_screen_abilities_textures();
-        load_game_screen_animation_sprite_sheets();
-        are_textures_loaded = true;
-    }
-
-
+    static int hero_to_be_highlighted_index = 4;
+    static int hero_to_be_animated_index = 4;
+    
+    //end turn and attack button bounds
+    Rectangle End_turn_button_bound = {900, 497, 82, 92};
+    Rectangle Attack_button_bound = {818, 497, 82,92};
+    
+    
     //animation struct declarations
     //initialization goes like this -> {first frame, last frame, current frame, frame-width, frame-height, first-frame-x, first-frame-y, animation-speed, duration-left, initial-duration, {rectangle frame x, rectangle frame y, width , height}}
     static Animation Doc_anim_struct = {0, 4, 0, -doc_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, doc_frame_width,  characters_sprite_sheets_frame_height}};
@@ -1833,9 +2040,9 @@ void Game::Game_Screen()
     static Animation Tlittle_anim_struct = {0, 4, 0, -tlittle_frame_width,  characters_sprite_sheets_frame_height, 0, 0, Animation_Speed,  Animation_Duration,  Animation_Duration,  {0, 0, tlittle_frame_width,  characters_sprite_sheets_frame_height}};
     std::array <Animation, 7> animation_structs_in_array {Doc_anim_struct, Tlittle_anim_struct,Dani_anim_struct,Amin_anim_struct,Tbig_anim_struct,Pouya_anim_struct,Shahriar_anim_struct};
     
-
-
-
+    
+    
+    
     //variables for logic of the program
     static int User_Turn = USER1;
     static bool copied_user1_info = false;
@@ -1847,8 +2054,11 @@ void Game::Game_Screen()
     static Rectangle user2_hero1_bound = {660,104,120,102};
     static Rectangle user2_hero2_bound = {773,136,120,250};
     static Rectangle user2_hero3_bound = {660,206,120,250};
-
-
+    static bool is_mouse_hovering_over_enemy = false;
+    static bool should_execute_ability = false;
+    static bool should_end_turn = false;
+    
+    
     //user info
     static char user1_name[26];
     static char user2_name[26];
@@ -1856,11 +2066,20 @@ void Game::Game_Screen()
     static std::array <int, 3> user2_hero_arr;
     static Vector2 User1_name_size;
     static Vector2 User2_name_size;
-    static char user1_energy[2] = {};
-    static char user2_energy[2] = {};
+    static char user1_energy[10] = {};
+    static char user2_energy[10] = {};
     static std::array <Texture2D,3> user1_ability_texture_array;
     static std::array <Texture2D,3> user2_ability_texture_array;
-
+    
+    //loading game screen textures
+    if(!are_textures_loaded)
+    {
+        load_game_screen_abilities_textures();
+        load_game_screen_animation_sprite_sheets();
+        are_textures_loaded = true;
+    }
+    
+    
     //music control 
     if(!is_music_playing)
     {
@@ -1869,7 +2088,7 @@ void Game::Game_Screen()
     }
     UpdateMusicStream(Background_music);
     
-
+    
     //storing users info in this local scope
     //we use boolian variables to run this part just once
     if(!copied_user1_info)
@@ -1887,12 +2106,53 @@ void Game::Game_Screen()
         User2_name_size = MeasureTextEx(font, user2_name, 20, 0);
     }
 
-    user1_energy[0] = user1.Get_Energy() + '0';
-    user2_energy[0] = user2.Get_Energy() + '0';
+    string_to_char_array(std::to_string(user1.Get_Energy()), user1_energy);
+    string_to_char_array(std::to_string(user2.Get_Energy()), user2_energy);
+    
+
+
 
     Mouse_Positon = GetMousePosition();
-
     
+    
+    //check to see if mouse on the abilities position
+    if(CheckCollisionPointRec(Mouse_Positon,Skill_1_bound) || CheckCollisionPointRec(Mouse_Positon,Skill_2_bound) || CheckCollisionPointRec(Mouse_Positon,superpower_bound))
+    {
+        is_mouse_hovering_over_abilities = true;
+    }
+    else
+    {
+        is_mouse_hovering_over_abilities = false;
+    }
+
+    //checking to see if mouse is hovering over enemy
+    if(User_Turn == USER1)
+    {
+        if(CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
+        {
+            is_mouse_hovering_over_enemy = true;
+        }
+        else
+        {
+            is_mouse_hovering_over_enemy = false;
+        }
+    }
+    else if(User_Turn == USER2)
+    {
+        if(CheckCollisionPointRec(Mouse_Positon, user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound))
+        {
+            is_mouse_hovering_over_enemy = true;
+        }
+        else
+        {
+            is_mouse_hovering_over_enemy = false;
+        }
+    }
+
+
+
+
+    //checking to see user is hovering over heros
     if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound))
     {
         hero_to_be_highlighted_index = 0;
@@ -1949,16 +2209,27 @@ void Game::Game_Screen()
     else
     {
         Hero_should_be_highlighted = false;
-        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !is_mouse_hovering_over_abilities)
         {
+
             should_hero_be_animated = false;
             hero_to_be_animated_index = 4;
         }
     }
 
 
-    //now we check to see which user is hovering over which character
-    //and to see if the character should highlight or not
+    //turning off the highlighted ability if necessary
+    if(!is_mouse_hovering_over_abilities && !is_mouse_hovering_over_enemy)
+    {
+        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            should_ability_stay_highlighted = false;
+            ability_to_stay_highlighted = NON;
+        }
+    }
+
+    //to see if the character should highlight or not
+    //and see if the character should be animated or not
     if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero3_bound))
     {
         if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && User_Turn == USER1)
@@ -1984,22 +2255,22 @@ void Game::Game_Screen()
         }
     }
 
+
+
     //drawing part
     BeginDrawing();
-
-    //drawing the background and panels
+    //drawing the background
     DrawTexture(Background_img, 0, -100, WHITE);
-
    
-           
-    //panel
+    //game info panel
     DrawTexture(Control_panel, 0, 600 - Control_panel.height, WHITE);
    
     
-    //this loop and if statement is placed here
-    //to make the heros be drawn in the backgrond
-    //or in front of the animated hero
-    //with out this the animations wont look correct
+    //drawing heros animated or non animated
+        //this loop and if statement is placed here
+        //to make the heros be drawn in the backgrond
+        //or in front of the animated hero
+        //with out this the animations wont look correct
     if(hero_to_be_animated_index == 2)
     {
         //drawing heros 
@@ -2009,7 +2280,6 @@ void Game::Game_Screen()
             print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, hero_to_be_highlighted_index, hero_to_be_animated_index);
         }
     }
-    
     
     //animating heros
    if(should_hero_be_animated)
@@ -2163,7 +2433,6 @@ void Game::Game_Screen()
     }
     
     
-    //
 
 
 
@@ -2192,25 +2461,123 @@ void Game::Game_Screen()
         }
     }
 
+    //checking to see if user is hovering over abilities
+    if(should_hero_be_animated)
+    {
+        if(CheckCollisionPointRec(Mouse_Positon, Skill_1_bound))
+        {
 
+            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SKILL1,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
+            {
+                ability_to_be_highlighted = SKILL1;
+            }
+            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SKILL1)
+            {
+                ability_to_stay_highlighted = SKILL1;
+                should_ability_stay_highlighted = true;
+            }
+        }
+        else if(CheckCollisionPointRec(Mouse_Positon, Skill_2_bound))
+        {
+            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SKILL2,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
+            {
+                ability_to_be_highlighted = SKILL2;
+            }
+            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SKILL2)
+            {
+                ability_to_stay_highlighted = SKILL2;
+                should_ability_stay_highlighted = true;
+            }
+        }
+        else if(CheckCollisionPointRec(Mouse_Positon, superpower_bound))
+        {
+            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SUPERPOWER,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
+            {
+                ability_to_be_highlighted = SUPERPOWER;
+            }
+            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SUPERPOWER)
+            {
+                ability_to_stay_highlighted = SUPERPOWER;
+                should_ability_stay_highlighted = true;
+            }
+        }
+        else
+        {
+            //this means no ability should be highlighted
+            ability_to_be_highlighted = NON;
+            
+
+        }
+        
+    }
 
 
     if(should_hero_be_animated)
     {
         if(User_Turn == USER1)
         {
-            std::cout << "this means someone has been clicked on \n";
-            std::cout << "user index to be animated is -> " << hero_to_be_animated_index << std::endl;
 
-            return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user1_hero_arr,hero_to_be_animated_index, user1_ability_texture_array);
-            std::cout << "now at this point the array has been filled \n";
+            return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user1_hero_arr, user1_ability_texture_array, User_Turn,hero_to_be_animated_index);
             game_screen_draw_abilities_grayed_out(user1_ability_texture_array,Skill_1_bound,Skill_2_bound,superpower_bound);
-            std::cout << "now the heros should be printed \n";
+            highlight_ability(user1_ability_texture_array, Skill_1_bound, Skill_2_bound, superpower_bound, ability_to_be_highlighted);
+            if(should_ability_stay_highlighted)
+            {
+                highlight_ability(user1_ability_texture_array, Skill_1_bound, Skill_2_bound, superpower_bound, ability_to_stay_highlighted);
+                //print ability info on screen
+                display_ability_defenition_and_detail(user1_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_stay_highlighted, font);
+                DrawTexture(attack_button_textrue, Attack_button_bound.x, Attack_button_bound.y, LIGHTGRAY);                
+                DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, LIGHTGRAY);                
+                //checking to see if attack button is pressed
+                if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound))
+                {
+                    DrawTexture(attack_button_textrue, Attack_button_bound.x, Attack_button_bound.y, WHITE);
+                    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                    {
+                        should_execute_ability = true;
+                    }
+                }
+                //checking to see end turn button has been pressed or not
+                else if(CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound))
+                {
+                    DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, WHITE);  
+                    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                    {
+                        should_end_turn = true;
+                    }
+                }
+            }
         }
         else if(User_Turn == USER2)
         {
-            return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user2_hero_arr,hero_to_be_animated_index, user2_ability_texture_array);
+            return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user2_hero_arr, user2_ability_texture_array, User_Turn,hero_to_be_animated_index);
             game_screen_draw_abilities_grayed_out(user2_ability_texture_array,Skill_1_bound,Skill_2_bound,superpower_bound);
+            highlight_ability(user2_ability_texture_array, Skill_1_bound, Skill_2_bound, superpower_bound, ability_to_be_highlighted);
+            if(should_ability_stay_highlighted)
+            {
+                highlight_ability(user2_ability_texture_array, Skill_1_bound, Skill_2_bound, superpower_bound, ability_to_stay_highlighted);
+                //print ability info on screen
+                display_ability_defenition_and_detail(user2_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_stay_highlighted, font);
+                DrawTexture(attack_button_textrue, Attack_button_bound.x, Attack_button_bound.y, LIGHTGRAY);                
+                DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, LIGHTGRAY);   
+                
+
+                if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound))
+                {
+                    DrawTextureEx(attack_button_textrue, {Attack_button_bound.x, Attack_button_bound.y}, 0, 0, WHITE);
+                    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                    {
+                        should_execute_ability = true;
+                    }
+                }
+                else if(CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound))
+                {
+                    DrawTextureEx(end_turn_texture, {End_turn_button_bound.x, End_turn_button_bound.y}, 0, 0, WHITE);
+                    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                    {
+                        should_end_turn = true;
+                    }
+                }
+            }
         }
     }
     
@@ -2228,6 +2595,34 @@ void Game::Game_Screen()
     
 
     EndDrawing();
+
+    if(should_end_turn || control.should_change_turn(User_Turn, user1.Get_Energy(), user2.Get_Energy()))
+    {
+        if(User_Turn == USER1)
+        {
+            //changing every logic variable to the default for the next player
+            User_Turn = USER2;
+            should_end_turn = false;
+            hero_to_be_animated_index = 4;
+            should_ability_be_highlighted = false;
+            should_hero_be_animated = false;
+            hero_to_be_highlighted_index = 4;
+            ability_to_stay_highlighted = NON;
+        }
+        else if(User_Turn == USER2)
+        {
+            User_Turn = USER1;
+            should_end_turn = false;
+            hero_to_be_animated_index = 4;
+            should_ability_be_highlighted = false;
+            should_hero_be_animated = false;
+            hero_to_be_highlighted_index = 4;
+            ability_to_stay_highlighted = NON;
+            //new round
+        }
+
+    }
+
     if(IsKeyPressed(KEY_K))
     {
         if(User_Turn == USER1)
@@ -2239,5 +2634,7 @@ void Game::Game_Screen()
             User_Turn = USER1;
         }
     }
+    
+    
 }
 
