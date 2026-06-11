@@ -107,3 +107,16 @@ int Hero_Abstaction::return_rounds_left_till_superpower_is_ready()
 {
     return rounds_left_till_superpower_is_ready;
 }
+
+int Hero_Abstaction::Return_Skill1_Energy_Cost()
+{
+    return Skill1_Energy_Cost;
+}
+int Hero_Abstaction::Return_Skill2_Energy_Cost()
+{
+    return Skill2_Energy_Cost;
+}
+int Hero_Abstaction::Return_SuperPower_Energy_Cost()
+{
+    return SuperPower_Energy_Cost;
+}
