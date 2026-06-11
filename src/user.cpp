@@ -4,6 +4,9 @@ User::User()
 {
     this->Hero_Arr = {0, 0 ,0};
     this->username = {};
+
+    //testing to be deleted
+    this->energy = 10;
 }
 
 int User::Get_Energy() const
@@ -64,10 +67,7 @@ std::array<int,3> User::Get_Hero_Array() const
     return Hero_Arr;
 }
 
-int User::return_currnet_energy()
-{
-    return energy;
-}
+
 
 std::array<int,2> User::call_hero_abillity(int hero_type, int abillity_type)
 {
