@@ -439,14 +439,14 @@ void Game::unload_game_screen_abilities_textures()
         UnloadTexture( pouya_super_power_1rounds_left);
         UnloadTexture( pouya_super_power_ready);
 }
-void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const std::array <int,3>& user1_heros, const std::array <int,3>&  user2_heros, int index, int user_turn,bool should_highlight,int hero_being_hoverd, int hero_to_be_animated_index)
+void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const std::array <int,3>& user1_heros, const std::array <int,3>&  user2_heros, int index, int user_turn,bool should_highlight,int user1_hero_being_hoverd, int user2_hero_being_hoverd, int hero_to_be_animated_index)
 {
 
     //for player one
     switch (user1_heros[index])
     {
     case WHITEDOCTOR:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Doc_anim_texture,{0,0, -164,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }
@@ -459,7 +459,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case DANI_GOLANG:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Dani_anim_texture,{0,0, -136,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }
@@ -472,7 +472,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AMIN_EMENI:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Amin_anim_texture,{0,0, -145,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }
@@ -486,7 +486,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case POUYA_KAJDOM:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Pouya_anim_texture,{0,0, -120,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }
@@ -500,7 +500,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AGHA_SHAHRIAR:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
            DrawTextureRec(Shahriar_anim_texture,{0,0, -160,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }   
@@ -514,7 +514,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case TAHA_KOCHIKE:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tlittle_anim_texture,{0,0, -185,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }     
@@ -528,7 +528,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case TAHA_BOZORGE:
-        if(user_turn == USER1 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tbig_anim_texture,{0,0, -135,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }   
@@ -547,7 +547,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
     switch (user2_heros[index])
     {
     case WHITEDOCTOR:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Doc_anim_texture,{0,0, 164,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }    
@@ -561,7 +561,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case DANI_GOLANG:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Dani_anim_texture,{0,0, 136,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
@@ -575,7 +575,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AMIN_EMENI:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Amin_anim_texture,{0,0, 145,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
@@ -589,7 +589,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case POUYA_KAJDOM:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Pouya_anim_texture,{0,0, 120,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
@@ -603,7 +603,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AGHA_SHAHRIAR:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Shahriar_anim_texture,{0,0, 160,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
@@ -617,7 +617,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case TAHA_KOCHIKE:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tlittle_anim_texture,{0,0, 178,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }   
@@ -631,7 +631,7 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case TAHA_BOZORGE:
-        if(user_turn == USER2 && should_highlight && index == hero_being_hoverd && hero_to_be_animated_index != index)
+        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tbig_anim_texture,{0,0, 135,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }
@@ -1968,7 +1968,79 @@ void display_ability_defenition_and_detail(const std::array<int,3>& user_hero_ar
     }
 }
 
-
+void Game::highlight_enemy(const std::array <int, 3>& user1_hero_arr, const std::array <int, 3>& user2_hero_arr, int user_turn, int enemy_to_be_highlighted, Color color)
+{   
+    if(user_turn == USER1)
+    { 
+        switch (user2_hero_arr[enemy_to_be_highlighted])
+        {
+            case WHITEDOCTOR:
+                DrawTextureRec(Doc_anim_texture,{0,0, 164,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (enemy_to_be_highlighted % 2))), 80.0f + (enemy_to_be_highlighted * 50)},  color);
+                break;
+            
+            case DANI_GOLANG:
+                DrawTextureRec(Dani_anim_texture,{0,0, 136,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (enemy_to_be_highlighted % 2))), 80.0f + (enemy_to_be_highlighted * 50)},  color);
+                break;
+            
+            case AMIN_EMENI:
+                DrawTextureRec(Amin_anim_texture,{0,0, 145,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (enemy_to_be_highlighted % 2))), 80.0f + (enemy_to_be_highlighted * 50)},  color);
+                break;
+            
+            case POUYA_KAJDOM:
+                DrawTextureRec(Pouya_anim_texture,{0,0, 120,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (enemy_to_be_highlighted % 2))), 80.0f + (enemy_to_be_highlighted * 50)},  color);
+                break;
+            
+            case AGHA_SHAHRIAR:
+                DrawTextureRec(Shahriar_anim_texture,{0,0, 160,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (enemy_to_be_highlighted % 2))), 80.0f + (enemy_to_be_highlighted * 50)},  color);
+                    break;
+            
+            case TAHA_KOCHIKE:
+                DrawTextureRec(Tlittle_anim_texture,{0,0, 185,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (enemy_to_be_highlighted % 2))), 80.0f + (enemy_to_be_highlighted * 50)},  color);
+                break;
+            
+            case TAHA_BOZORGE:
+                DrawTextureRec(Tbig_anim_texture,{0,0, 135,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (enemy_to_be_highlighted % 2))), 80.0f + (enemy_to_be_highlighted * 50)},  color);
+                break;
+            
+        }
+    }  
+    
+    
+    else if(user_turn == USER2)
+    { 
+        switch (user1_hero_arr[enemy_to_be_highlighted])
+        {
+            case WHITEDOCTOR:
+                DrawTextureRec(Doc_anim_texture,{0,0, -164,characters_sprite_sheets_frame_height}, {180.0f - (100 * (enemy_to_be_highlighted % 2)), 80.0f + (enemy_to_be_highlighted * 50)}, color);
+                break;
+            
+            case DANI_GOLANG:
+                DrawTextureRec(Dani_anim_texture,{0,0, -136,characters_sprite_sheets_frame_height}, {180.0f - (100 * (enemy_to_be_highlighted % 2)), 80.0f + (enemy_to_be_highlighted * 50)}, color);
+                break;
+            
+            case AMIN_EMENI:
+                DrawTextureRec(Amin_anim_texture,{0,0, -145,characters_sprite_sheets_frame_height}, {180.0f - (100 * (enemy_to_be_highlighted % 2)), 80.0f + (enemy_to_be_highlighted * 50)}, color);
+                break;
+            
+            case POUYA_KAJDOM:
+                DrawTextureRec(Pouya_anim_texture,{0,0, -120,characters_sprite_sheets_frame_height}, {180.0f - (100 * (enemy_to_be_highlighted % 2)), 80.0f + (enemy_to_be_highlighted * 50)}, color);
+                break;
+            
+            case AGHA_SHAHRIAR:
+                DrawTextureRec(Shahriar_anim_texture,{0,0, -160,characters_sprite_sheets_frame_height}, {180.0f - (100 * (enemy_to_be_highlighted % 2)), 80.0f + (enemy_to_be_highlighted * 50)}, color);
+                    break;
+            
+            case TAHA_KOCHIKE:
+                DrawTextureRec(Tlittle_anim_texture,{0,0, -185,characters_sprite_sheets_frame_height}, {180.0f - (100 * (enemy_to_be_highlighted % 2)), 80.0f + (enemy_to_be_highlighted * 50)}, color);
+                break;
+            
+            case TAHA_BOZORGE:
+                DrawTextureRec(Tbig_anim_texture,{0,0, -135,characters_sprite_sheets_frame_height}, {180.0f - (100 * (enemy_to_be_highlighted % 2)), 80.0f + (enemy_to_be_highlighted * 50)}, color);
+                break;
+            
+        }
+    }  
+}
 void Game::Game_Screen()
 {
 
@@ -1993,8 +2065,8 @@ void Game::Game_Screen()
     static bool is_music_playing = false;
     
     //abilities bounds
-    static Rectangle Skill_1_bound = {315, 420, 75, 50};
-    static Rectangle Skill_2_bound = {600, 420, 75, 50};
+    static Rectangle Skill_1_bound = {315, 420, 75, 100};
+    static Rectangle Skill_2_bound = {600, 420, 75, 100};
     static Rectangle superpower_bound = {450, 402, 135, 90};
 
     //abilities logic related variables
@@ -2021,8 +2093,11 @@ void Game::Game_Screen()
     static bool are_textures_loaded = false;
     static bool should_hero_be_animated = false;
     static bool Hero_should_be_highlighted = false;
-    static int hero_to_be_highlighted_index = 4;
+    static int user1_hero_to_be_highlighted_index = 4;
+    static int user2_hero_to_be_highlighted_index = 4;
     static int hero_to_be_animated_index = 4;
+    static int enemy_to_be_highlighted = 4;
+    static int enemy_to_stay_highlighted = 4;
     
     //end turn and attack button bounds
     Rectangle End_turn_button_bound = {900, 497, 82, 92};
@@ -2057,6 +2132,8 @@ void Game::Game_Screen()
     static bool is_mouse_hovering_over_enemy = false;
     static bool should_execute_ability = false;
     static bool should_end_turn = false;
+    static bool should_enemy_be_highlighted = false;
+    static bool should_enemy_stay_highlighted = false;
     
     
     //user info
@@ -2116,6 +2193,7 @@ void Game::Game_Screen()
     
     
     //check to see if mouse on the abilities position
+
     if(CheckCollisionPointRec(Mouse_Positon,Skill_1_bound) || CheckCollisionPointRec(Mouse_Positon,Skill_2_bound) || CheckCollisionPointRec(Mouse_Positon,superpower_bound))
     {
         is_mouse_hovering_over_abilities = true;
@@ -2151,11 +2229,27 @@ void Game::Game_Screen()
 
 
 
-
     //checking to see user is hovering over heros
     if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound))
     {
-        hero_to_be_highlighted_index = 0;
+        user1_hero_to_be_highlighted_index = 0;
+
+        //checking to see if enemy should be highlighted
+        if(User_Turn == USER2)
+        {
+            if(should_ability_stay_highlighted)
+            {
+                enemy_to_be_highlighted = 0;
+            }
+            //checking to see if the enemy should stay highlighted
+            if(should_ability_stay_highlighted && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_enemy_stay_highlighted = true;
+                enemy_to_stay_highlighted = 0;
+            }
+        }
+
+
         if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 0;
@@ -2163,7 +2257,24 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound))
     {
-        hero_to_be_highlighted_index = 1;
+
+        
+        //checking to see if enemy should be highlighted
+        if(User_Turn == USER2)
+        {
+            if(should_ability_stay_highlighted)
+            {
+                enemy_to_be_highlighted = 1;
+            }
+            //checking to see if the enemy should stay highlighted
+            if(should_ability_stay_highlighted && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_enemy_stay_highlighted = true;
+                enemy_to_stay_highlighted = 1;
+            }
+        }
+
+        user1_hero_to_be_highlighted_index = 1;
         if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 1;
@@ -2172,7 +2283,25 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound))
     {
-        hero_to_be_highlighted_index = 2;
+        user1_hero_to_be_highlighted_index = 2;
+        
+        
+        //checking to see if enemy should be highlighted
+        if(User_Turn == USER2)
+        {
+            if(should_ability_stay_highlighted)
+            {
+                enemy_to_be_highlighted = 2;
+            }
+            //checking to see if the enemy should stay highlighted
+            if(should_ability_stay_highlighted && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_enemy_stay_highlighted = true;
+                enemy_to_stay_highlighted = 2;
+            }
+        }
+
+
         if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 2;
@@ -2181,7 +2310,28 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound))
     {
-        hero_to_be_highlighted_index = 0;
+        user2_hero_to_be_highlighted_index = 0;
+        
+        
+        //checking to see if enemy should be highlighted
+        if(User_Turn == USER1)
+        {
+            //checking to see if enemy should be highlighted
+            if(User_Turn == USER1)
+            {
+                if(should_ability_stay_highlighted)
+                {
+                    enemy_to_be_highlighted = 0;
+                }
+                //checking to see if the enemy should stay highlighted
+                if(should_ability_stay_highlighted && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                {
+                    should_enemy_stay_highlighted = true;
+                    enemy_to_stay_highlighted = 0;
+                }
+            }
+        }
+     
         if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 0;
@@ -2190,7 +2340,23 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound))
     {
-        hero_to_be_highlighted_index = 1;
+        user2_hero_to_be_highlighted_index = 1;
+        
+        //checking to see if enemy should be highlighted
+        if(User_Turn == USER1)
+        {
+            if(should_ability_stay_highlighted)
+            {
+                enemy_to_be_highlighted = 1;
+            }
+            //checking to see if the enemy should stay highlighted
+            if(should_ability_stay_highlighted && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_enemy_stay_highlighted = true;
+                enemy_to_stay_highlighted = 1;
+            }
+        }
+        
         if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 1;
@@ -2199,7 +2365,23 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
     {
-        hero_to_be_highlighted_index = 2;
+        user2_hero_to_be_highlighted_index = 2;
+        
+        //checking to see if enemy should be highlighted
+        if(User_Turn == USER1)
+        {
+            if(should_ability_stay_highlighted)
+            {
+                enemy_to_be_highlighted = 2;
+            }
+            //checking to see if the enemy should stay highlighted
+            if(should_ability_stay_highlighted && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_enemy_stay_highlighted = true;
+                enemy_to_stay_highlighted = 2;
+            }
+        }
+        
         if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
             hero_to_be_animated_index = 2;
@@ -2226,6 +2408,11 @@ void Game::Game_Screen()
             should_ability_stay_highlighted = false;
             ability_to_stay_highlighted = NON;
         }
+    }
+
+    if(should_hero_be_animated && should_ability_stay_highlighted)
+    {
+        should_enemy_be_highlighted = true;
     }
 
     //to see if the character should highlight or not
@@ -2255,6 +2442,87 @@ void Game::Game_Screen()
         }
     }
 
+//checking to see if user is hovering over abilities
+    if(should_hero_be_animated)
+    {
+        if(CheckCollisionPointRec(Mouse_Positon, Skill_1_bound))
+        {
+
+            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SKILL1,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
+            {
+                ability_to_be_highlighted = SKILL1;
+                should_ability_be_highlighted = true;
+            }
+            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SKILL1)
+            {
+                ability_to_stay_highlighted = SKILL1;
+                should_ability_stay_highlighted = true;
+            }
+        }
+        else if(CheckCollisionPointRec(Mouse_Positon, Skill_2_bound))
+        {
+            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SKILL2,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
+            {
+                should_ability_be_highlighted = true;
+                ability_to_be_highlighted = SKILL2;
+            }
+            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SKILL2)
+            {
+                ability_to_stay_highlighted = SKILL2;
+                should_ability_stay_highlighted = true;
+            }
+        }
+        else if(CheckCollisionPointRec(Mouse_Positon, superpower_bound))
+        {
+            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SUPERPOWER,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
+            {
+                ability_to_be_highlighted = SUPERPOWER;
+                should_ability_be_highlighted = true;
+            }
+            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SUPERPOWER)
+            {
+                ability_to_stay_highlighted = SUPERPOWER;
+                should_ability_stay_highlighted = true;
+            }
+        }
+        else
+        {
+            //this means no ability should be highlighted
+            ability_to_be_highlighted = NON;
+            should_ability_be_highlighted = false; 
+        }
+    }
+
+    //here i check to see if i should still highlight the enemy or not
+    if(User_Turn == USER1)
+    {
+        if(!(CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound) || CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound)))
+        {
+            enemy_to_be_highlighted = 4;
+            should_enemy_be_highlighted = false;
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                enemy_to_stay_highlighted = 4;
+                should_enemy_stay_highlighted = false;
+            }
+        }
+    }
+    else if(User_Turn == USER2)
+    {
+        if(!(CheckCollisionPointRec(Mouse_Positon, user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound)))
+        {
+            enemy_to_be_highlighted = 4;
+            should_enemy_be_highlighted = false;
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                enemy_to_stay_highlighted = 4;
+                should_enemy_stay_highlighted = false;
+            }
+        }
+    }
+
+
+
 
 
     //drawing part
@@ -2277,9 +2545,12 @@ void Game::Game_Screen()
         for(int i = 0 ; i < 3 ; i++)
         {
             
-            print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, hero_to_be_highlighted_index, hero_to_be_animated_index);
+            print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, user1_hero_to_be_highlighted_index, user2_hero_to_be_highlighted_index, hero_to_be_animated_index);
         }
     }
+
+   
+
     
     //animating heros
    if(should_hero_be_animated)
@@ -2428,10 +2699,40 @@ void Game::Game_Screen()
         for(int i = 0 ; i < 3 ; i++)
         {
             
-            print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, hero_to_be_highlighted_index, hero_to_be_animated_index);
+            print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(user1_hero_arr, user2_hero_arr, i, User_Turn,Hero_should_be_highlighted, user1_hero_to_be_highlighted_index, user2_hero_to_be_highlighted_index, hero_to_be_animated_index);
         }
     }
+
+    if(enemy_to_be_highlighted == 0 && should_enemy_be_highlighted)
+    {
+        //if i dont draw the second line the hero will be display
+        //on top of the 3rd enemy and make it look wierd
+        highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, enemy_to_be_highlighted);
+        highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, 2, GRAY);
+    }
+    else if(should_enemy_be_highlighted)
+    {
+        highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, enemy_to_be_highlighted);
+    }
     
+    
+    if(enemy_to_stay_highlighted == 0 && should_enemy_stay_highlighted)
+    {
+        highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, enemy_to_stay_highlighted);
+        if(enemy_to_be_highlighted != 2)
+        {
+            highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, 2, GRAY);
+        }
+        else
+        {
+            highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, enemy_to_be_highlighted);
+        }
+    }
+    else if(should_enemy_stay_highlighted)
+    {
+        highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, enemy_to_stay_highlighted);
+    }
+
     
 
 
@@ -2461,55 +2762,7 @@ void Game::Game_Screen()
         }
     }
 
-    //checking to see if user is hovering over abilities
-    if(should_hero_be_animated)
-    {
-        if(CheckCollisionPointRec(Mouse_Positon, Skill_1_bound))
-        {
-
-            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SKILL1,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
-            {
-                ability_to_be_highlighted = SKILL1;
-            }
-            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SKILL1)
-            {
-                ability_to_stay_highlighted = SKILL1;
-                should_ability_stay_highlighted = true;
-            }
-        }
-        else if(CheckCollisionPointRec(Mouse_Positon, Skill_2_bound))
-        {
-            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SKILL2,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
-            {
-                ability_to_be_highlighted = SKILL2;
-            }
-            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SKILL2)
-            {
-                ability_to_stay_highlighted = SKILL2;
-                should_ability_stay_highlighted = true;
-            }
-        }
-        else if(CheckCollisionPointRec(Mouse_Positon, superpower_bound))
-        {
-            if(control.can_ability_be_used_based_on_energy_points(hero_to_be_animated_index,SUPERPOWER,User_Turn,user1.Get_Energy(), user2.Get_Energy()))
-            {
-                ability_to_be_highlighted = SUPERPOWER;
-            }
-            if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && ability_to_be_highlighted == SUPERPOWER)
-            {
-                ability_to_stay_highlighted = SUPERPOWER;
-                should_ability_stay_highlighted = true;
-            }
-        }
-        else
-        {
-            //this means no ability should be highlighted
-            ability_to_be_highlighted = NON;
-            
-
-        }
-        
-    }
+    
 
 
     if(should_hero_be_animated)
@@ -2618,7 +2871,7 @@ void Game::Game_Screen()
             hero_to_be_animated_index = 4;
             should_ability_be_highlighted = false;
             should_hero_be_animated = false;
-            hero_to_be_highlighted_index = 4;
+            user1_hero_to_be_highlighted_index = 4;
             ability_to_stay_highlighted = NON;
         }
         else if(User_Turn == USER2)
@@ -2628,7 +2881,7 @@ void Game::Game_Screen()
             hero_to_be_animated_index = 4;
             should_ability_be_highlighted = false;
             should_hero_be_animated = false;
-            hero_to_be_highlighted_index = 4;
+            user2_hero_to_be_highlighted_index = 4;
             ability_to_stay_highlighted = NON;
             //new round
         }
