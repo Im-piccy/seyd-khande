@@ -14,7 +14,12 @@ class Hero_Abstaction //abstract class
         void Get_Healed(int healing_points);
         void Get_Damaged(int damaging_point);//if damage is more than hp it will edit the boolian value
         void Seeded();
-        int return_rounds_left_till_superpower_is_ready();
+
+        int Return_Skill1_Energy_Cost();
+        int Return_Skill2_Energy_Cost();
+        int Return_SuperPower_Energy_Cost();
+
+        virtual int return_rounds_left_till_superpower_is_ready() = 0;
         std::array<int, 4> Valid_Index_Hero(Hero_Abstaction* allies[3], int chosee = 0) const;
         Hero_Abstaction * Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], std::string choose = "min") const;//to find the hero with the highest or lowest Hp
     protected:
@@ -26,6 +31,8 @@ class Hero_Abstaction //abstract class
         bool Is_Hero_Dead;
         int hero_type; // is the hero a Healer? Attacker? Defender? or a joker?
         int SuperPower_Energy_Cost;
+        int Skill1_Energy_Cost;
+        int Skill2_Energy_Cost;
 };
 
 

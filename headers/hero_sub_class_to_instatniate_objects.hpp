@@ -15,9 +15,8 @@ class WhiteDoctor : public Hero_Abstaction//healer
         bool Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemy, User &user);
         bool Execute_Doping_Ability(Hero_Abstaction* enemy, float damage_amount, User &user);  
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
+        virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        int Asprin_Ability_Energy_Cost;
-        int Doping_Ability_Energy_Cost;
         bool Is_Doping_Ongoing;//to know if any of team heros are being doped
         int Rounds_Since_Doping;//keeping track of Doping duration
         int Hero_Being_Doped;//keeping track of who is being doped
@@ -31,9 +30,8 @@ class Taha_Kochike : public Hero_Abstaction//healer
         bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* ally, User&user); 
         bool Execute_Serom_Khon_Ability(Hero_Abstaction* ally, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
+        virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        int Tigh_Tiz_Ability_Energy_Cost;
-        int Serom_Khon_Ability_Energy_Cost;
         bool Is_serom_Khon_ongoing;
         int Round_since_Serom;
         int Hero_under_Serom;
@@ -47,10 +45,9 @@ class Dani_Golang : public Hero_Abstaction //defender
         bool Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
 
+        virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         int Last_Attacked_Enemy;
-        int Ghofli_Ability_Energy_Cost;
-        int Fil_kosh_Ability_Energy_Cost;
         int Round_Use_Ghofli_Ability;
         bool Repete_Ghofli_Ability;
         bool Start_SuperPower;
@@ -66,9 +63,8 @@ class Amin_Emeni : public Hero_Abstaction //attacker
         bool Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemy, User &user); 
         bool Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &usser); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user);
+        virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        int Akharin_Feshang_Ability_Energy_Cost;
-        int Zarbe_Be_Khodi_Ability_Energy_Cost;
 };
 
 
@@ -79,9 +75,8 @@ class Taha_Bozorge : public Hero_Abstaction // attacker
         bool Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user);
         bool Execute_Xray_Ability(Hero_Abstaction* enemy, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* enemy[3], User &user);
+        virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        int Ragbar_Ability_Energy_Cost;
-        int Xray_Ability_Energy_Cost;
         bool Is_Xray_Ongoing;
         int Rounds_Since_Xray;
         int Rounds_Since_SuperPower;
@@ -96,9 +91,8 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
         bool Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* enemies[3], User &user);
+        virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        int Khanjar_Ability_Energy_Cost;
-        int Aghrab_Ability_Energy_Cost;
         int Enemy_Array_With_Respect_To_Active_Scorpiens[3];
         bool Is_SuperPower_Active;
         int Rounds_Since_SuperPower;
@@ -111,9 +105,8 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
         bool Execute_Maskhare_Ability(Hero_Abstaction* enemy, User &user); 
         bool Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_SuperPower(User &user);
+        virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        int Maskhare_Ability_Energy_Cost;
-        int Lajbaz_Ability_Energy_Cost;
         bool Is_SuperPower_Active;
         int Rounds_Since_SuperPower;
 };
