@@ -4,7 +4,6 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
-enum Hero_Type{HELAER, ATTACKER, DEFENDER, JOKER};
 
 class Hero_Abstaction //abstract class
 {

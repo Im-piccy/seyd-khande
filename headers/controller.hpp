@@ -3,14 +3,12 @@
 #include <array>
 #include <typeinfo>
 #include <iostream>
-enum ABILITIES{SKILL1, SKILL2, SUPERPOWER, NON};
-enum TURN{USER1, USER2};
+#include "enums.hpp"
 //declare to avoid compile time error
 class User;
 class Hero_Abstaction;
 
 
-enum HERO_TYPE{NONSELECT, WHITEDOCTOR, TAHA_KOCHIKE, DANI_GOLANG, AMIN_EMENI, TAHA_BOZORGE, POUYA_KAJDOM, AGHA_SHAHRIAR};
 
 
 class Controller

@@ -1,6 +1,21 @@
 cmake_minimum_required(VERSION 3.10)
 project(seyd_khande)
-add_executable(app src/main.cpp src/game.cpp src/user.cpp src/controller.cpp src/hero_abstract_base_class.cpp src/hero_sub_class_to_instantiate_objects.cpp)
-target_include_directories(app PRIVATE raylib/include)
+
+
+add_library(Mylib src/controller 
+            src/game_character_select_screen.cpp 
+            src/game_menu_screen.cpp
+            src/game_nonScreen_memberFunctions_implementations.cpp
+            src/game_Screen.cpp
+            src/hero_abstract_base_class.cpp
+            src/hero_sub_class_to_instantiate_objects.cpp
+            src/user.cpp
+            )
+
+target_include_directories(Mylib PUBLIC headers)
+
+add_executable(app src/main.cpp)
+target_include_directories(app PRIVATE "${CMAKE_SOURCE_DIR}/raylib/include headers")
+target_link_libraries(app PRIVATE Mylib)
 target_link_libraries(app PRIVATE ${CMAKE_SOURCE_DIR}/raylib/lib/libraylib.a opengl32 gdi32 winmm)
 set_target_properties(app PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}")

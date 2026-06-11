@@ -3,7 +3,6 @@
 #include "controller.hpp"
 #include "user.hpp"
 #include <raylib.h>
-enum SCREENS{MENU_SCREEN, CHARACTER_SELECT_SCREEN, GAME_SCREEN, GAME_OVER_SCREEN, WINDOWSHOULDCLOSE};
 
 
 //this class actually runs the game and ties everything together
