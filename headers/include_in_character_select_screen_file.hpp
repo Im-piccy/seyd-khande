@@ -226,18 +226,21 @@ void Get_keyboard_Input_And_Add_To_The_String_Passed_By_Refrence(std::string & s
 }
 
 
-void string_to_char_array(std::string st, char out[])//string should not have more than 25 characters
+void string_to_char_array(const std::string& st, char out[])//string should not have more than 25 characters
 {
+    
     if(st.empty())
     {
         out[0] = '\0';
+        return;
     }
     int i;
-    for(i = 0 ; st[i] != '\0'  && i < 25; i++)
+    for(i = 0 ; i < st.length()  && i < 25; i++)
     {
         out[i] = st[i];
     }
     out[i] = '\0';
+    
 }
 
 

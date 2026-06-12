@@ -7,17 +7,17 @@
 #include <iostream>
 
 
-Controller::Controller(Hero_Abstaction &hero, User &user1, User &user2):Hero(hero) , user1(user1), user2(user2)
+Controller::Controller(/*Hero_Abstaction &hero, User &user1, User &user2):Hero(hero) , user1(user1), user2(user2*/)
 {
     this->round_number = 1;
     srand(time(0));
     this->which_user_started_the_game = rand() % 2;
 
-    for(int i = 0 ; i < 3 ; i++)
-    {
-        Hero_Arr_User1[i] = nullptr;
-        Hero_Arr_User2[i] = nullptr;
-    }
+    // for(int i = 0 ; i < 3 ; i++)
+    // {
+    //     Hero_Arr_User1[i] = nullptr;
+    //     Hero_Arr_User2[i] = nullptr;
+    // }
 
 }
 

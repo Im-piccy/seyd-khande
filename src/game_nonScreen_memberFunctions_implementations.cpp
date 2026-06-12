@@ -7,7 +7,7 @@ const int characters_sprite_sheets_frame_height = 250;
 
 
 
-Game::Game() : current_screen(CHARACTER_SELECT_SCREEN){}
+Game::Game() : current_screen(MENU_SCREEN){}
 
 void Game::return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(const std::array<int,3>& user_hero_array,  std::array <Texture2D, 3>& user_texture_array, int user_turn, int hero_index_in_array)
 {

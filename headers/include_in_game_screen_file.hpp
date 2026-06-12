@@ -13,7 +13,7 @@ const float Animation_Speed = 25.0f;
 const int characters_sprite_sheets_frame_height = 250;
 
 
-void string_to_char_array(std::string st, char out[]);//string should not have more than 25 characters
+void string_to_char_array(const std::string& st, char out[]);//string should not have more than 25 characters
 
 
 struct Animation

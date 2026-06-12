@@ -310,7 +310,7 @@ void Game::Character_Select_Screen()
     
     //if this condition is true it means the user has clicked on a card
     //and we have to highligh the card
-    if(!temp_hero_being_selected == NONSELECT)
+    if(temp_hero_being_selected != NONSELECT)
     {
         switch (temp_hero_being_selected)
         {
@@ -595,7 +595,7 @@ void Game::Character_Select_Screen()
                 {
                     //this means user is hovering over the button
                     //now we check to see if user has clicked
-                    if(!IsSoundPlaying(Card_sfx));
+                    if(!IsSoundPlaying(Card_sfx))
                         PlaySound(Card_sfx);
                     if((IsMouseButtonPressed(MOUSE_LEFT_BUTTON) || IsKeyPressed(KEY_ENTER)) && !User_Input_Name.empty())
                     {

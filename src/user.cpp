@@ -25,12 +25,11 @@ void User::Set_Energy(int cost)
 void User::Set_Name(const std::string& username)
 {
 
-    int i;
-    for(i = 0; i < 25; i++)
+    std::fill(this->username.begin(), this->username.end(), '\0');
+    for(int i = 0; i < 25 && i < username.length(); i++)
     {
         this->username[i] = username[i];
     }
-    this->username[i] = '\0';
 }
 
 std::string User::Get_Name_String() const
