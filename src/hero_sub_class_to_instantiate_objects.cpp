@@ -21,8 +21,6 @@ WhiteDoctor::WhiteDoctor()
 
 bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user)
 {
-    if(user.Get_Energy() < Skill1_Energy_Cost)
-        return false;
     Seeded();
     std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
     if(valid_indexes[3] == 0)
@@ -35,23 +33,17 @@ bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User
     return true;
 }
 
-bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemy, User &user)
+bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
-    if(user.Get_Energy() < Skill1_Energy_Cost)
+    if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
-    if(enemy == nullptr)
-        return false;
-    if(enemy->Is_Dead())
-        return false;
-    enemy->Get_Damaged(40);
+    enemies[selected_enemy_index]->Get_Damaged(40);
     user.Set_Energy(Skill1_Energy_Cost);
     return true;
 }
 
-bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* enemy, float damage_amount, User &user)
+bool WhiteDoctor::Execute_Doping_Ability(User &user)
 {
-    if(user.Get_Energy() < Skill2_Energy_Cost)
-        return false;
     Is_Doping_Ongoing = true;
     if(Rounds_Since_Doping >= 2)
     {
@@ -59,16 +51,12 @@ bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* enemy, float damage_am
         user.Set_Energy(Skill2_Energy_Cost);
         return false;
     }
-    damage_amount += damage_amount * 0.2;
-    enemy->Get_Damaged(damage_amount);
     Rounds_Since_Doping++;
     return true;
 }
 
 bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 {
-    if(user.Get_Energy() < SuperPower_Energy_Cost)
-        return false;
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
     Seeded();
@@ -112,8 +100,6 @@ Taha_Kochike::Taha_Kochike()
 
 bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user)
 {
-    if(user.Get_Energy() < Skill2_Energy_Cost)
-        return false;
     //find the ally with the lowest Hp
     Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
     if(Lowest_Hp_Ally == nullptr)
@@ -123,38 +109,30 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], U
     return true; 
 }
 
-bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemy, User &user)
+bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
-    if(user.Get_Energy() < Skill2_Energy_Cost)
+    if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
-    if(enemy == nullptr)
-        return false;
-    if(enemy->Is_Dead())
-        return false;
-    enemy->Get_Damaged(30);
+    enemies[selected_enemy_index]->Get_Damaged(30);
     user.Set_Energy(Skill2_Energy_Cost);
     return true;
 }
 
-bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* ally, User &user)
+bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], int selected_ally_index , User &user)
 {
-    if(user.Get_Energy() < Skill1_Energy_Cost)
-        return false;
     Is_serom_Khon_ongoing = true;
     if(Round_since_Serom >= 2)
     {
         user.Set_Energy(Skill1_Energy_Cost);
         Round_since_Serom = 0;
     }
-    ally->Get_Healed(40);
+    allies[selected_ally_index]->Get_Healed(40);
     Round_since_Serom++;
     return true;
 }
 
 bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 {
-    if(user.Get_Energy() < SuperPower_Energy_Cost)
-        return false;
     if(rounds_left_till_superpower_is_ready != 3)
         return false;
     Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);

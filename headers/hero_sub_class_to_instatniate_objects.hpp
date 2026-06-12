@@ -12,8 +12,8 @@ class WhiteDoctor : public Hero_Abstaction//healer
     public:
         WhiteDoctor();//this constructor should initilize heros info like hp, superpower cost ...
         bool Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user);//return type is bool that means if there is not enaugh energy for the attack it will return false
-        bool Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemy, User &user);
-        bool Execute_Doping_Ability(Hero_Abstaction* enemy, float damage_amount, User &user);  
+        bool Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user);
+        bool Execute_Doping_Ability(User &user);  
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
@@ -27,8 +27,8 @@ class Taha_Kochike : public Hero_Abstaction//healer
     public:
         Taha_Kochike(); // constructor to initilize the hero information
         bool Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user);
-        bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* ally, User&user); 
-        bool Execute_Serom_Khon_Ability(Hero_Abstaction* ally, User &user); 
+        bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
+        bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3] , int selected_ally_index, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
