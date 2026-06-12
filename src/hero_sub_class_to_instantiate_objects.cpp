@@ -81,6 +81,21 @@ bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
     return true; 
 }
 
+bool WhiteDoctor::Execute_Skill1(Argument_Skills_Functions parameters)
+{
+    return Execute_Asprin_Ability(parameters.allies, parameters.enemies, parameters.selected_enemy_index, parameters.user);
+}
+
+bool WhiteDoctor::Execute_Skill1(Argument_Skills_Functions parameters)
+{
+    return Execute_Doping_Ability(parameters.user);
+}
+
+bool WhiteDoctor::Execute_SuperSkill(Argument_Skills_Functions parameters)
+{
+    return Execute_SuperPower(parameters.allies, parameters.user);
+}
+
 int WhiteDoctor::return_rounds_left_till_superpower_is_ready()
 {
     return this->rounds_left_till_superpower_is_ready;

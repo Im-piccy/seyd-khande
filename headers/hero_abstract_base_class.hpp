@@ -5,6 +5,14 @@
 #include <cstdlib>
 #include <ctime>
 class User;
+class Hero_Abstaction;
+struct Argument_Skills_Functions{
+    Hero_Abstaction* allies[3];
+    Hero_Abstaction* enemies[3];
+    int selected_enemy_index;
+    int selected_ally_index;
+    User &user;
+};
 
 class Hero_Abstaction //abstract class
 {
@@ -17,7 +25,7 @@ class Hero_Abstaction //abstract class
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) = 0;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) = 0;
-        virtual bool Execute_SkillPower(Argument_Skills_Functions parameters) = 0;
+        virtual bool Execute_SuperSkill(Argument_Skills_Functions parameters) = 0;
 
         int Return_Skill1_Energy_Cost();
         int Return_Skill2_Energy_Cost();
