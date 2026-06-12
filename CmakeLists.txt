@@ -12,7 +12,10 @@ add_library(Mylib src/controller
             src/user.cpp
             )
 
-target_include_directories(Mylib PUBLIC headers)
+target_include_directories(Mylib PUBLIC 
+    headers
+    ${CMAKE_SOURCE_DIR}/raylib/include #it has been updated here
+)
 
 add_executable(app src/main.cpp)
 target_include_directories(app PRIVATE "${CMAKE_SOURCE_DIR}/raylib/include headers")
