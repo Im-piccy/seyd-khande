@@ -44,6 +44,13 @@ bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], in
     return true;
 }
 
+bool WhiteDoctor::Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
+{
+    if(Execute_Asprin_Ability_Healed(allies, user) && Execute_Asprin_Ability_Damaged(enemies, selected_enemy_index, user))
+        return true;
+    return false;
+}
+
 bool WhiteDoctor::Execute_Doping_Ability(User &user)
 {
     Is_Doping_Ongoing = true;
@@ -120,6 +127,13 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], 
     enemies[selected_enemy_index]->Get_Damaged(30);
     user.Set_Energy(Skill2_Energy_Cost);
     return true;
+}
+
+bool Taha_Kochike::Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
+{
+    if(Execute_Tigh_Tiz_Ability_Healed(allies, user) && Execute_Tigh_Tiz_Ability_Damage(enemies, selected_enemy_index, user))
+        return true;
+    return false;
 }
 
 bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], int selected_ally_index , User &user)
