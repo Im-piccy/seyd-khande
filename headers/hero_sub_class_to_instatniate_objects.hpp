@@ -41,7 +41,7 @@ class Dani_Golang : public Hero_Abstaction //defender
 {
     public:
         Dani_Golang(); // conctructor to initiate info
-        bool Execute_Ghofli_Ability(Hero_Abstaction* enemy, User &user); 
+        bool Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
 
@@ -60,7 +60,7 @@ class Amin_Emeni : public Hero_Abstaction //attacker
 {
     public:
         Amin_Emeni();//constructor to initiate info
-        bool Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemy, User &user); 
+        bool Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index,  User &user); 
         bool Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &usser); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user);
         virtual int return_rounds_left_till_superpower_is_ready() override;    

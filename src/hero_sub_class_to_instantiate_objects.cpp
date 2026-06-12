@@ -171,17 +171,15 @@ Dani_Golang::Dani_Golang()
     this->rounds_left_till_superpower_is_ready = 4;    
 }
 
-bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemy, User &user)
+bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
-    if(user.Get_Energy() < Skill2_Energy_Cost)
-        return false;
     if(Repete_Ghofli_Ability && Round_Use_Ghofli_Ability == 1)
     {
-        enemy->Get_Damaged(38);
+        enemies[selected_enemy_index]->Get_Damaged(38);
         Repete_Ghofli_Ability = false;
         Round_Use_Ghofli_Ability = 0;
     }
-    enemy->Get_Damaged(20);
+    enemies[selected_enemy_index]->Get_Damaged(20);
     Round_Use_Ghofli_Ability++;
     Repete_Ghofli_Ability = true;
     user.Set_Energy(Skill2_Energy_Cost);
@@ -190,8 +188,6 @@ bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemy, User &user)
 
 bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
-    if(user.Get_Energy() < Skill1_Energy_Cost)
-        return false;
     Hero_Abstaction* Highest_Hp_Enemy = Find_Highest_Or_Lowest_Hp(enemies, "max");
     if(Highest_Hp_Enemy == nullptr)
         return false;
@@ -205,8 +201,6 @@ bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int sele
 
 bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 {
-    if(user.Get_Energy() < SuperPower_Energy_Cost)
-        return false;
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
     Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
@@ -228,6 +222,7 @@ bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
     Lowest_Hp_Ally->Get_Healed(250);
     return true;
 }
+
 int Dani_Golang::return_rounds_left_till_superpower_is_ready()
 {
     return this->rounds_left_till_superpower_is_ready;
@@ -250,22 +245,18 @@ Amin_Emeni::Amin_Emeni()
     this->rounds_left_till_superpower_is_ready = 3;
 }
 
-bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemy, User &user)
+bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
-    if(user.Get_Energy() < Skill2_Energy_Cost)
-        return false;
-    if(enemy->Get_Current_Hp() <= 110)
-        enemy->Get_Damaged(110);
+    if(enemies[selected_enemy_index]->Get_Current_Hp() <= 110)
+        enemies[selected_enemy_index]->Get_Damaged(110);
     else
-        enemy->Get_Damaged(55);
+        enemies[selected_enemy_index]->Get_Damaged(55);
     user.Set_Energy(Skill2_Energy_Cost);
     return true;
 }
 
 bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &user)
 {
-    if(user.Get_Energy() < Skill1_Energy_Cost)
-        return false;
     Seeded();
     std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
     if(valid_indexes[3] == 0)
@@ -281,8 +272,6 @@ bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User
 
 bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user)
 {
-    if(user.Get_Energy() < SuperPower_Energy_Cost)
-        return false;
     if(rounds_left_till_superpower_is_ready != 3)
         return false;
     Seeded();
@@ -301,6 +290,7 @@ bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction*
     rounds_left_till_superpower_is_ready = 0;
     return true;
 }
+
 int Amin_Emeni::return_rounds_left_till_superpower_is_ready()
 {
     return this->rounds_left_till_superpower_is_ready;
