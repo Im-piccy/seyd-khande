@@ -7,7 +7,7 @@
 #include <iostream>
 
 
-Controller::Controller(Hero_Abstaction &hero, User &user1, User &user2):Hero(hero) , user1(user1), user2(user2)
+Controller::Controller()
 {
     this->round_number = 1;
     srand(time(0));
@@ -36,16 +36,11 @@ bool Controller::Is_Hero_Array_Full(User &user)
             return false;
     }
     return true;
-}
-
-void Controller::Set_User_Hero_Array_Index(int index)
-{
-}
+} 
 
 
 void Controller::Fill_Hero_object_Array(std::array<Hero_Abstaction*,3>& hero_arr, int index, int hero_type)
 {
-
     switch (hero_type)
     {
         case WHITEDOCTOR:
@@ -202,7 +197,6 @@ bool Controller::can_ability_be_used_based_on_energy_points(int hero_index_in_ar
     }
 }
 
-
 bool Controller::should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy)
 {
     if(user_turn == USER1)
@@ -278,7 +272,7 @@ bool Controller::Is_game_over(int user_turn)
     return false;
 }
 
-void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions parameters)
+void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions parameters, User &user1, User &user2)
 {
     if(user_turn == USER1)
     {
@@ -304,9 +298,9 @@ void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_e
     }
 }
 
-void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn)
+void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn, User &user1, User &user2)
 {
-    Fill_Struct_For_Virtual_Functions(user_turn, selected_enemy_index, selected_ally_index, parameters);
+    Fill_Struct_For_Virtual_Functions(user_turn, selected_enemy_index, selected_ally_index, parameters, user1, user2);
     if(user_turn == USER1)
     {
         if(which_ability == SKILL1)

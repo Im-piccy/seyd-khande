@@ -6,6 +6,8 @@ enum ABILITIES{SKILL1, SKILL2, SUPERPOWER, NON};
 enum TURN{USER1, USER2};
 enum Hero_Type{HELAER, ATTACKER, DEFENDER, JOKER};
 
+class Hero_Abstaction;
+class User;
 struct Argument_Skills_Functions{
     Hero_Abstaction* allies[3];
     Hero_Abstaction* enemies[3];
