@@ -15,6 +15,10 @@ class WhiteDoctor : public Hero_Abstaction//healer
         bool Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user);
         bool Execute_Doping_Ability(User &user);  
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
+
+        virtual bool Execute_Skill1(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, int selected_ally_index, User &user) override;
+        virtual bool Execute_Skill2(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user) override;
+        virtual bool Execute_SkillPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         bool Is_Doping_Ongoing;//to know if any of team heros are being doped
@@ -30,6 +34,10 @@ class Taha_Kochike : public Hero_Abstaction//healer
         bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3] , int selected_ally_index, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
+
+        virtual bool Execute_Skill1(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, int selected_ally_index, User &user) override;
+        virtual bool Execute_Skill2(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user) override;
+        virtual bool Execute_SkillPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         bool Is_serom_Khon_ongoing;
@@ -45,6 +53,9 @@ class Dani_Golang : public Hero_Abstaction //defender
         bool Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
 
+        virtual bool Execute_Skill1(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, int selected_ally_index, User &user) override;
+        virtual bool Execute_Skill2(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user) override;
+        virtual bool Execute_SkillPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         int Last_Attacked_Enemy;
@@ -63,6 +74,10 @@ class Amin_Emeni : public Hero_Abstaction //attacker
         bool Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index,  User &user); 
         bool Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &usser); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user);
+
+        virtual bool Execute_Skill1(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, int selected_ally_index, User &user) override;
+        virtual bool Execute_Skill2(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user) override;
+        virtual bool Execute_SkillPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
 };
@@ -74,7 +89,11 @@ class Taha_Bozorge : public Hero_Abstaction // attacker
         Taha_Bozorge();//constructor to initiate info
         bool Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user);
         bool Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
-        bool Execute_SuperPower(Hero_Abstaction* enemy[3], User &user);
+        bool Execute_SuperPower(Hero_Abstaction* enemies[3], User &user);
+
+        virtual bool Execute_Skill1(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, int selected_ally_index, User &user) override;
+        virtual bool Execute_Skill2(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user) override;
+        virtual bool Execute_SkillPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         bool Is_Xray_Ongoing;
@@ -91,6 +110,10 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
         bool Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_SuperPower(Hero_Abstaction* enemies[3], User &user);
+
+        virtual bool Execute_Skill1(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, int selected_ally_index, User &user) override;
+        virtual bool Execute_Skill2(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user) override;
+        virtual bool Execute_SkillPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         int Enemy_Array_With_Respect_To_Active_Scorpiens[3];
@@ -105,6 +128,10 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
         bool Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_SuperPower(User &user);
+
+        virtual bool Execute_Skill1(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, int selected_ally_index, User &user) override;
+        virtual bool Execute_Skill2(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user) override;
+        virtual bool Execute_SkillPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         bool Is_SuperPower_Active;

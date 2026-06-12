@@ -4,6 +4,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+class User;
 
 class Hero_Abstaction //abstract class
 {
@@ -13,6 +14,10 @@ class Hero_Abstaction //abstract class
         void Get_Healed(int healing_points);
         void Get_Damaged(int damaging_point);//if damage is more than hp it will edit the boolian value
         void Seeded();
+
+        virtual bool Execute_Skill1(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, int selected_ally_index, User &user) = 0;
+        virtual bool Execute_Skill2(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user) = 0;
+        virtual bool Execute_SkillPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user) = 0;
 
         int Return_Skill1_Energy_Cost();
         int Return_Skill2_Energy_Cost();
