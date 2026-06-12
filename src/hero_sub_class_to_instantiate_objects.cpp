@@ -86,7 +86,7 @@ bool WhiteDoctor::Execute_Skill1(Argument_Skills_Functions parameters)
     return Execute_Asprin_Ability(parameters.allies, parameters.enemies, parameters.selected_enemy_index, parameters.user);
 }
 
-bool WhiteDoctor::Execute_Skill1(Argument_Skills_Functions parameters)
+bool WhiteDoctor::Execute_Skill2(Argument_Skills_Functions parameters)
 {
     return Execute_Doping_Ability(parameters.user);
 }
@@ -177,6 +177,21 @@ bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
     user.Set_Energy(SuperPower_Energy_Cost);
     rounds_left_till_superpower_is_ready = 0;
     return true;   
+}
+
+bool Taha_Kochike::Execute_Skill1(Argument_Skills_Functions parameters)
+{
+    return Execute_Tigh_Tiz_Abillity(parameters.allies, parameters.enemies, parameters.selected_enemy_index, parameters.user);
+}
+
+bool Taha_Kochike::Execute_Skill2(Argument_Skills_Functions parameters)
+{
+    return Execute_Serom_Khon_Ability(parameters.allies, parameters.selected_ally_index, parameters.user);
+}
+
+bool Taha_Kochike::Execute_SuperSkill(Argument_Skills_Functions parameters)
+{
+    return Execute_SuperPower(parameters.allies, parameters.user);
 }
 
 int Taha_Kochike::return_rounds_left_till_superpower_is_ready()
