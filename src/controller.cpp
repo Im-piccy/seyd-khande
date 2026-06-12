@@ -263,7 +263,7 @@ bool Controller::Is_game_over(int user_turn)
                 count++;
         }
         if(round_number == 15 || count == 3)
-            return false;
+            return true;
     }
     else
     {
@@ -273,9 +273,9 @@ bool Controller::Is_game_over(int user_turn)
                 count++;
         }
         if(round_number == 15 || count == 3)
-            return false;
+            return true;
     }
-    return true;
+    return false;
 }
 
 void Controller::execute_user_ask_to_use_hero_ability_if_possible(int hero_index_in_array, ABILITIES which_ability, int user_turn)
