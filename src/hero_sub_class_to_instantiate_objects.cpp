@@ -319,8 +319,6 @@ Taha_Bozorge::Taha_Bozorge()
 
 bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user)
 {
-    if(user.Get_Energy() < Skill1_Energy_Cost)
-        return false;
     for(int i = 0; i < 3; i++)
     {
         if(enemies[i] != nullptr && !enemies[i]->Is_Dead())
@@ -330,11 +328,9 @@ bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &use
     return true;
 }
 
-bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemy, User &user)
+bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index , User &user)
 {
-    if(user.Get_Energy() < Skill2_Energy_Cost)
-        return false;
-    enemy->Get_Damaged(90);
+    enemies[selected_enemy_index]->Get_Damaged(90);
     Is_Xray_Ongoing = true;
     Rounds_Since_Xray++;
     if(Rounds_Since_Xray != 0)
@@ -348,7 +344,6 @@ bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemy, User &user)
 
 bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
 {
-    if(user.Get_Energy() < SuperPower_Energy_Cost)
     if(rounds_left_till_superpower_is_ready != 0)
         return false;
     if(Rounds_Since_SuperPower == 0)
@@ -374,6 +369,7 @@ bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
     Rounds_Since_SuperPower++;
     return true;
 }
+
 int Taha_Bozorge::return_rounds_left_till_superpower_is_ready()
 {
     return this->rounds_left_till_superpower_is_ready;
@@ -421,8 +417,6 @@ bool Pouya_Kajdom::Activate_scorpien(Hero_Abstaction* enemies[3])
 
 bool Pouya_Kajdom::Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
-    if(user.Get_Energy() < Skill1_Energy_Cost)
-        return false;
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
     if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == BUFFED_SCORPIEN)
@@ -437,8 +431,6 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
 {
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
-    if(user.Get_Energy() < Skill2_Energy_Cost)
-        return false;
     if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] != NONE)
         return false;
     Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] =  SCORPIEN;
@@ -449,8 +441,6 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
 
 bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
 {
-    if(user.Get_Energy() < SuperPower_Energy_Cost)
-        return false;
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
     Is_SuperPower_Active = true;
@@ -496,21 +486,18 @@ Agha_Shahriar::Agha_Shahriar()
     
 }
 
-bool Agha_Shahriar::Execute_Maskhare_Ability(Hero_Abstaction* enemy, User &user)
+bool Agha_Shahriar::Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
-    if(user.Get_Energy() < Skill1_Energy_Cost)
-        return false;
     Seeded();
     int chance = rand() % 100 + 1;
     if(chance > 80)
-        enemy->Get_Damaged(60);
+        enemies[selected_enemy_index]->Get_Damaged(60);
     user.Set_Energy(Skill1_Energy_Cost);
         return true;
 }
 
 bool Agha_Shahriar::Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
-    if(user.Get_Energy() < Skill2_Energy_Cost)
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
     enemies[selected_enemy_index]->Get_Damaged(100);
@@ -537,8 +524,6 @@ bool Agha_Shahriar::Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int sele
 
 bool Agha_Shahriar::Execute_SuperPower(User &user)
 {
-    if(user.Get_Energy() < SuperPower_Energy_Cost)
-        return false;
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
     rounds_left_till_superpower_is_ready =  true;
