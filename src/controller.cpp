@@ -7,7 +7,7 @@
 #include <iostream>
 
 
-Controller::Controller()
+Controller::Controller(Hero_Abstaction &hero, User &user1, User &user2):Hero(hero) , user1(user1), user2(user2)
 {
     this->round_number = 1;
     srand(time(0));
@@ -244,3 +244,73 @@ bool Controller::should_change_turn(int user_turn, int user1_current_energy, int
         return true;
     }
 }
+
+void Controller::Finish_Round()
+{
+    if(round_number >= 15)
+        return;
+    round_number++;
+}
+
+bool Controller::Is_game_over(int user_turn)
+{
+    int count  = 0;
+    if(user_turn == USER1)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User1[i]->Is_Dead())
+                count++;
+        }
+        if(round_number == 15 || count == 3)
+            return false;
+    }
+    else
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User2[i]->Is_Dead())
+                count++;
+        }
+        if(round_number == 15 || count == 3)
+            return false;
+    }
+    return true;
+}
+
+void Controller::execute_user_ask_to_use_hero_ability_if_possible(int hero_index_in_array, ABILITIES which_ability, int user_turn)
+{
+    if(user_turn == USER1)
+    {
+        if(which_ability == SKILL1)
+        {
+           //Hero_Arr_User1[hero_index_in_array]->Execute_Asprin_Ability_Healed(Hero_Arr_User1, user1);
+           //Hero_Arr_User1[hero_index_in_array]->Execute_Asprin_Ability_Damaged(Hero_Arr_User2, user1);
+        }
+        else if(which_ability == SKILL2)
+        {
+            //Hero_Arr_User1[hero_index_in_array]->
+        }
+        else if(which_ability == SUPERPOWER)
+        {
+
+        }
+
+    }
+    else
+    {
+        if(which_ability == SKILL1)
+        {
+
+        }
+        else if(which_ability == SKILL2)
+        {
+
+        }
+        else if(which_ability == SUPERPOWER)
+        {
+            
+        }
+    }
+}
+

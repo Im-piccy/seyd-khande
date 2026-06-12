@@ -14,9 +14,9 @@ class Hero_Abstaction;
 class Controller
 {
     public:
-        Controller();
-        bool Is_game_over(); // checks to see if game raound is 15 or one players heros are all dead
-        void execute_user_ask_to_use_hero_ability_if_possible(); //it gets user request to atteck and does the logic (considering energy cost)
+        Controller(Hero_Abstaction &hero, User &user1, User &user2);
+        bool Is_game_over(int user_turn); // checks to see if game raound is 15 or one players heros are all dead
+        void execute_user_ask_to_use_hero_ability_if_possible(int hero_index_in_array, ABILITIES which_ability, int user_turn); //it gets user request to atteck and does the logic (considering energy cost)
         void Refill_Players_Energy(); // after each round ends it refill energies accordingly
         void Finish_Round(); // this function increments the private round_number variable by one
         void Empty_User_Array(User &user);
@@ -38,8 +38,9 @@ class Controller
         int which_user_started_the_game; // to remember which user started first
         std::array<Hero_Abstaction*,3> Hero_Arr_User1;
         std::array<Hero_Abstaction*,3> Hero_Arr_User2;
-        // Hero_Abstaction &Hero;
-        // User &user;
+        Hero_Abstaction &Hero;
+        User &user1;
+        User &user2;
     };  
     
 #endif
