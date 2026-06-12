@@ -34,14 +34,7 @@ void User::Set_Name(const std::string& username)
 
 std::string User::Get_Name_String() const
 {
-    std::string username;
-    int i;
-    for(i = 0; i < 25; i++)
-    {
-        username[i] = this->username[i];
-    }
-    username[i] = '\0';
-    return username;
+    return std::string (this->username.data());
 }
 
 std::array<char,26> User::Get_Name_Char_Array() const

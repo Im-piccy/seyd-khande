@@ -544,11 +544,11 @@ bool Agha_Shahriar::Execute_SuperPower(User &user)
 {
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
-    rounds_left_till_superpower_is_ready =  true;
+    Is_SuperPower_Active =  true;
     Rounds_Since_SuperPower++;
     if(Rounds_Since_SuperPower == 2)
     {
-        rounds_left_till_superpower_is_ready =  false;
+        Is_SuperPower_Active =  false;
         Rounds_Since_SuperPower = 0;
         user.Set_Energy(SuperPower_Energy_Cost);
     }

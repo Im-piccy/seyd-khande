@@ -612,12 +612,17 @@ void Game::Character_Select_Screen()
                             // attribute
                             
                             user1.Set_Name(User_Input_Name);
-                            string_to_char_array(User_Input_Name, user1_name);
+                            std::cout << "this is what i stored in the use1 username attribute: " << User_Input_Name << std::endl;
+                            string_to_char_array(User_Input_Name, user1_name);std::cout << "i am trying to see if the get name member function works or not so this is what it returns for user 2 " << user2.Get_Name_String() << std::endl;
+                            std::cout << "i am trying to see if the get name member function works or not so this is what it returns for user 2 " << user2.Get_Name_String() << std::endl;
                         }
                         else if(User_Turn == USER2)
                         { 
                             user2.Set_Name(User_Input_Name);
+                            std::cout << "this is what i stored in the use2 username attribute: " << User_Input_Name << std::endl;
                             string_to_char_array(User_Input_Name, user2_name);
+
+                            std::cout << "i am trying to see if the get name member function works or not so this is what it returns for user 2 " << user2.Get_Name_String() << std::endl;
                         }
                         
                         // we reset the variables so that the next user can use them

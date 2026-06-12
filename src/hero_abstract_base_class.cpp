@@ -62,7 +62,8 @@ std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], 
             }
         }
     }
-    valid_argument[3] = valid_count;
+    //check check bug
+    valid_indexes[3] = valid_count;
     return valid_indexes;
 }
 
