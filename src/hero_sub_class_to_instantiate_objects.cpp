@@ -35,6 +35,8 @@ bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User
 
 bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
     enemies[selected_enemy_index]->Get_Damaged(40);
@@ -111,6 +113,8 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], U
 
 bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
     enemies[selected_enemy_index]->Get_Damaged(30);
@@ -120,6 +124,8 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], 
 
 bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], int selected_ally_index , User &user)
 {
+    if(selected_ally_index < 0 || selected_ally_index >= 3)
+        return false;
     Is_serom_Khon_ongoing = true;
     if(Round_since_Serom >= 2)
     {
@@ -173,6 +179,8 @@ Dani_Golang::Dani_Golang()
 
 bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     if(Repete_Ghofli_Ability && Round_Use_Ghofli_Ability == 1)
     {
         enemies[selected_enemy_index]->Get_Damaged(38);
@@ -188,6 +196,8 @@ bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int select
 
 bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     Hero_Abstaction* Highest_Hp_Enemy = Find_Highest_Or_Lowest_Hp(enemies, "max");
     if(Highest_Hp_Enemy == nullptr)
         return false;
@@ -247,6 +257,8 @@ Amin_Emeni::Amin_Emeni()
 
 bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     if(enemies[selected_enemy_index]->Get_Current_Hp() <= 110)
         enemies[selected_enemy_index]->Get_Damaged(110);
     else
@@ -330,6 +342,8 @@ bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &use
 
 bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index , User &user)
 {
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     enemies[selected_enemy_index]->Get_Damaged(90);
     Is_Xray_Ongoing = true;
     Rounds_Since_Xray++;
@@ -488,6 +502,8 @@ Agha_Shahriar::Agha_Shahriar()
 
 bool Agha_Shahriar::Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     Seeded();
     int chance = rand() % 100 + 1;
     if(chance > 80)
@@ -498,6 +514,8 @@ bool Agha_Shahriar::Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int se
 
 bool Agha_Shahriar::Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user)
 {
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
     enemies[selected_enemy_index]->Get_Damaged(100);
@@ -536,6 +554,7 @@ bool Agha_Shahriar::Execute_SuperPower(User &user)
     }
     return true;
 }
+
 int Agha_Shahriar::return_rounds_left_till_superpower_is_ready()
 {
     return this->rounds_left_till_superpower_is_ready;
