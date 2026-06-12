@@ -7,7 +7,7 @@
 #include <iostream>
 
 
-Controller::Controller(/*Hero_Abstaction &hero, User &user1, User &user2):Hero(hero) , user1(user1), user2(user2*/)
+Controller::Controller(Hero_Abstaction &hero, User &user1, User &user2):Hero(hero) , user1(user1), user2(user2)
 {
     this->round_number = 1;
     srand(time(0));
@@ -278,39 +278,87 @@ bool Controller::Is_game_over(int user_turn)
     return false;
 }
 
-void Controller::execute_user_ask_to_use_hero_ability_if_possible(int hero_index_in_array, ABILITIES which_ability, int user_turn)
+void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions parameters)
 {
+    if(user_turn == USER1)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            parameters.allies[i] = Hero_Arr_User1[i];
+            parameters.enemies[i]= Hero_Arr_User2[i];
+        }
+        parameters.selected_ally_index = selected_ally_index;
+        parameters.selected_enemy_index = selected_enemy_index;
+        parameters.user =  user1;
+    }
+    else 
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            parameters.allies[i] = Hero_Arr_User2[i];
+            parameters.enemies[i]= Hero_Arr_User1[i];
+        }
+        parameters.selected_ally_index = selected_ally_index;
+        parameters.selected_enemy_index = selected_enemy_index;
+        parameters.user =  user2;
+    }
+}
+
+void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn)
+{
+    Fill_Struct_For_Virtual_Functions(user_turn, selected_enemy_index, selected_ally_index, parameters);
     if(user_turn == USER1)
     {
         if(which_ability == SKILL1)
         {
-           //Hero_Arr_User1[hero_index_in_array]->Execute_Asprin_Ability_Healed(Hero_Arr_User1, user1);
-           //Hero_Arr_User1[hero_index_in_array]->Execute_Asprin_Ability_Damaged(Hero_Arr_User2, user1);
+            if(Hero_Arr_User1[hero_index_in_array]->Return_Skill1_Energy_Cost() > user1.Get_Energy())
+                Finish_Round();
+            else  
+                Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
         }
         else if(which_ability == SKILL2)
         {
-            //Hero_Arr_User1[hero_index_in_array]->
+            if(Hero_Arr_User1[hero_index_in_array]->Return_Skill2_Energy_Cost() > user1.Get_Energy())
+                Finish_Round();
+            else  
+                Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);
         }
         else if(which_ability == SUPERPOWER)
         {
-
+            if(Hero_Arr_User1[hero_index_in_array]->Return_SuperPower_Energy_Cost() > user1.Get_Energy())
+                Finish_Round();
+            else 
+                Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
         }
-
     }
     else
     {
         if(which_ability == SKILL1)
         {
-
+            if(Hero_Arr_User2[hero_index_in_array]->Return_Skill1_Energy_Cost() > user2.Get_Energy())
+                Finish_Round();
+            else  
+                Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);
         }
         else if(which_ability == SKILL2)
         {
-
+            if(Hero_Arr_User2[hero_index_in_array]->Return_Skill2_Energy_Cost() > user2.Get_Energy())
+                Finish_Round();
+            else  
+                Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters);
         }
         else if(which_ability == SUPERPOWER)
         {
-            
+            if(Hero_Arr_User2[hero_index_in_array]->Return_SuperPower_Energy_Cost() > user2.Get_Energy())
+                Finish_Round();
+            else 
+                Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters);
         }
     }
+}
+
+void Controller::Refill_Players_Energy()
+{
+
 }
 
