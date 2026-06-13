@@ -14,8 +14,8 @@ struct Argument_Skills_Functions{
     Hero_Abstaction* enemies[3];
     int selected_enemy_index;
     int selected_ally_index;
-    Controller &controller;
-    User &user;
+    Controller *controller;
+    User *user;
 };
 
 #endif

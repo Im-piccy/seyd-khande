@@ -324,6 +324,7 @@ bool Controller::Is_game_over(int user_turn)
 
 void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions& parameters, User &user1, User &user2)
 {
+    parameters.controller = this;
     if(user_turn == USER1)
     {
         for(int i = 0; i < 3; i++)
@@ -333,7 +334,7 @@ void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_e
         }
         parameters.selected_ally_index = selected_ally_index;
         parameters.selected_enemy_index = selected_enemy_index;
-        parameters.user =  user1;
+        parameters.user =  &user1;
     }
     else 
     {
@@ -344,7 +345,7 @@ void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_e
         }
         parameters.selected_ally_index = selected_ally_index;
         parameters.selected_enemy_index = selected_enemy_index;
-        parameters.user =  user2;
+        parameters.user =  &user2;
     }
 }
 
