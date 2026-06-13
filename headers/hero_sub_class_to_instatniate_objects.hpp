@@ -32,11 +32,11 @@ class Taha_Kochike : public Hero_Abstaction//healer
 {
     public:
         Taha_Kochike(); // constructor to initilize the hero information
-        bool Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user);
-        bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user);
-        bool Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user);
-        bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3] , int selected_ally_index, User &user); 
-        bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
+        bool Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller);
+        bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller);
+        bool Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller);
+        bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3] , int selected_ally_index, User &user, Controller &controller); 
+        bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) override;
@@ -52,9 +52,9 @@ class Dani_Golang : public Hero_Abstaction //defender
 {
     public:
         Dani_Golang(); // conctructor to initiate info
-        bool Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
-        bool Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
-        bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
+        bool Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller); 
+        bool Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller); 
+        bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) override;
@@ -74,9 +74,9 @@ class Amin_Emeni : public Hero_Abstaction //attacker
 {
     public:
         Amin_Emeni();//constructor to initiate info
-        bool Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index,  User &user); 
-        bool Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &usser); 
-        bool Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user);
+        bool Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller); 
+        bool Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &usser, Controller &controller); 
+        bool Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) override;
@@ -90,9 +90,9 @@ class Taha_Bozorge : public Hero_Abstaction // attacker
 {
     public:
         Taha_Bozorge();//constructor to initiate info
-        bool Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user);
-        bool Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
-        bool Execute_SuperPower(Hero_Abstaction* enemies[3], User &user);
+        bool Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user, Controller &controller);
+        bool Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller); 
+        bool Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) override;
@@ -109,10 +109,10 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
 {
     public:
         Pouya_Kajdom();//constructor to initiate info
-        bool Activate_scorpien(Hero_Abstaction* enemies[3]);
-        bool Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
-        bool Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
-        bool Execute_SuperPower(Hero_Abstaction* enemies[3], User &user);
+        bool Activate_scorpien(Hero_Abstaction* enemies[3], Controller &controller);
+        bool Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller); 
+        bool Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller); 
+        bool Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) override;
@@ -128,8 +128,8 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
 {
     public:
         Agha_Shahriar();//constructor to initiate info
-        bool Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
-        bool Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
+        bool Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller); 
+        bool Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller); 
         bool Execute_SuperPower(User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
