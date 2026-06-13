@@ -22,7 +22,6 @@ class Controller
         void Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions& parameters, User &user1, User &user2);
         void Fill_Hero_object_Array(TURN user, int index, int hero_type);
         void Fill_Hero_object_Array(std::array<Hero_Abstaction*,3>&, int index, int hero_type);
-        void Set_User_Hero_Array_Index(int index);
         int return_round_number();
         int return_rounds_left_till_hero_ability_is_ready(int array_index, int user);
         void Empty_Array_Which_Stores_Hero_Base_Class_Pointers(TURN user_turn, int filled_to_which_index);

@@ -305,48 +305,66 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
     {
         if(which_ability == SKILL1)
         {
-            if(Hero_Arr_User1[hero_index_in_array]->Return_Skill1_Energy_Cost() > user1.Get_Energy())
-                Finish_Round();// i think you ment change turn
-            else  
-                Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
+            if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
+            {
+                if(Hero_Arr_User1[hero_index_in_array]->Return_Skill1_Energy_Cost() > user1.Get_Energy())
+                    Finish_Round();// i think you ment change turn
+                else  
+                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
+            }
         }
         else if(which_ability == SKILL2)
         {
-            if(Hero_Arr_User1[hero_index_in_array]->Return_Skill2_Energy_Cost() > user1.Get_Energy())
-                Finish_Round();
-            else  
-                Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);
+            if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
+            {
+                if(Hero_Arr_User1[hero_index_in_array]->Return_Skill2_Energy_Cost() > user1.Get_Energy())
+                    Finish_Round();
+                else  
+                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);
+            }
         }
         else if(which_ability == SUPERPOWER)
         {
-            if(Hero_Arr_User1[hero_index_in_array]->Return_SuperPower_Energy_Cost() > user1.Get_Energy())
-                Finish_Round();
-            else 
-                Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
+            if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
+            {
+                if(Hero_Arr_User1[hero_index_in_array]->Return_SuperPower_Energy_Cost() > user1.Get_Energy())
+                    Finish_Round();
+                else 
+                    Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
+            }
         }
     }
     else
     {
         if(which_ability == SKILL1)
         {
-            if(Hero_Arr_User2[hero_index_in_array]->Return_Skill1_Energy_Cost() > user2.Get_Energy())
-                Finish_Round();
-            else  
-                Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);
+            if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
+            {
+                if(Hero_Arr_User2[hero_index_in_array]->Return_Skill1_Energy_Cost() > user2.Get_Energy())
+                    Finish_Round();
+                else  
+                    Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);
+            }
         }
         else if(which_ability == SKILL2)
         {
-            if(Hero_Arr_User2[hero_index_in_array]->Return_Skill2_Energy_Cost() > user2.Get_Energy())
-                Finish_Round();
-            else  
-                Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters);
+            if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
+            {
+                if(Hero_Arr_User2[hero_index_in_array]->Return_Skill2_Energy_Cost() > user2.Get_Energy())
+                    Finish_Round();
+                else  
+                    Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters);
+            }
         }
         else if(which_ability == SUPERPOWER)
         {
-            if(Hero_Arr_User2[hero_index_in_array]->Return_SuperPower_Energy_Cost() > user2.Get_Energy())
-                Finish_Round();
-            else 
-                Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters);
+            if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
+            {
+                if(Hero_Arr_User2[hero_index_in_array]->Return_SuperPower_Energy_Cost() > user2.Get_Energy())
+                    Finish_Round();
+                else 
+                    Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters);
+            }
         }
     }
 }
