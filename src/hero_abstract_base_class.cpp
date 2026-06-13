@@ -37,7 +37,7 @@ bool Hero_Abstaction::Is_Dead() const
 
 std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], int choose) const
 {
-   std::array<int,4> valid_indexes;
+    std::array<int,4> valid_indexes = {};
     int valid_count = 0;
     std::array<int, 3> valid_argument;
     if(choose != 0)
@@ -76,7 +76,7 @@ void Hero_Abstaction::Seeded()
     }
 }
 
-Hero_Abstaction * Hero_Abstaction::Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], std::string choose ) const
+Hero_Abstaction * Hero_Abstaction::Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], const std::string& choose ) const
 {
     if(choose == "min")
     {

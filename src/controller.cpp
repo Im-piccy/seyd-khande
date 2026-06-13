@@ -13,11 +13,11 @@ Controller::Controller()
     srand(time(0));
     this->which_user_started_the_game = rand() % 2;
 
-    // for(int i = 0 ; i < 3 ; i++)
-    // {
-    //     Hero_Arr_User1[i] = nullptr;
-    //     Hero_Arr_User2[i] = nullptr;
-    // }
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        Hero_Arr_User1[i] = nullptr;
+        Hero_Arr_User2[i] = nullptr;
+    }
 
 }
 
@@ -272,7 +272,7 @@ bool Controller::Is_game_over(int user_turn)
     return false;
 }
 
-void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions parameters, User &user1, User &user2)
+void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions& parameters, User &user1, User &user2)
 {
     if(user_turn == USER1)
     {
@@ -306,7 +306,7 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         if(which_ability == SKILL1)
         {
             if(Hero_Arr_User1[hero_index_in_array]->Return_Skill1_Energy_Cost() > user1.Get_Energy())
-                Finish_Round();
+                Finish_Round();// i think you ment change turn
             else  
                 Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
         }

@@ -25,7 +25,7 @@ class Hero_Abstaction //abstract class
 
         virtual int return_rounds_left_till_superpower_is_ready() = 0;
         std::array<int, 4> Valid_Index_Hero(Hero_Abstaction* allies[3], int chosee = 0) const;
-        Hero_Abstaction * Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], std::string choose = "min") const;//to find the hero with the highest or lowest Hp
+        Hero_Abstaction * Find_Highest_Or_Lowest_Hp(Hero_Abstaction* heros[3], const std::string& choose = "min") const;//to find the hero with the highest or lowest Hp
     protected:
         int Current_Hp; // this shows how much health the hero has got left
         int Initial_Hp; // this is how much hp a hero has with out any damage

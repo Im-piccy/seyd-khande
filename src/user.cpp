@@ -39,7 +39,7 @@ std::string User::Get_Name_String() const
 
 std::array<char,26> User::Get_Name_Char_Array() const
 {
-    this->username;
+    return this->username;
 }
 
 void User::add_hero_to_hero_array(int hero)

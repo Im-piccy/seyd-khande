@@ -19,7 +19,7 @@ class Controller
         void Finish_Round(); // this function increments the private round_number variable by one
         void Empty_User_Array(User &user);
         bool Is_Hero_Array_Full(User &user);
-        void Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions parameters, User &user1, User &user2);
+        void Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions& parameters, User &user1, User &user2);
         void Fill_Hero_object_Array(TURN user, int index, int hero_type);
         void Fill_Hero_object_Array(std::array<Hero_Abstaction*,3>&, int index, int hero_type);
         void Set_User_Hero_Array_Index(int index);
