@@ -18,7 +18,9 @@ Controller::Controller()
         Hero_Arr_User1[i] = nullptr;
         Hero_Arr_User2[i] = nullptr;
     }
-
+    //for agha_shahriar
+    this->Reverse_World_Active = false;
+    this->Reverse_World_Rounds_Left = 0;
 }
 
 
@@ -197,7 +199,7 @@ bool Controller::can_ability_be_used_based_on_energy_points(int hero_index_in_ar
     }
 }
 
-bool Controller::should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy)
+/*bool Controller::should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy)
 {
     if(user_turn == USER1)
     {
@@ -237,6 +239,54 @@ bool Controller::should_change_turn(int user_turn, int user1_current_energy, int
         }
         return true;
     }
+}*/
+
+
+bool Controller::Is_Reverse_World_Active()
+{
+    return this->Reverse_World_Active;
+}
+
+void Controller::Activate_Reverse_World()
+{
+    Reverse_World_Active = true;
+    Reverse_World_Rounds_Left = 2;
+}
+
+void Controller::Update_Reverse_World()
+{
+    if(!Reverse_World_Active)
+        return;
+
+    Reverse_World_Rounds_Left--;
+
+    if(Reverse_World_Rounds_Left <= 0)
+    {
+        Reverse_World_Active = false;
+        Reverse_World_Rounds_Left = 0;
+    }
+}
+
+
+void Controller::Apply_Healed(Hero_Abstaction* ally, int healing_points)
+{
+    if(ally == nullptr)
+        return;
+    if(Reverse_World_Active)
+        ally->Get_Healed(healing_points);
+    else
+        ally->Get_Damaged(healing_points);
+}
+
+void Controller::Apply_Damaged(Hero_Abstaction* enemy, int damaging_point)
+{
+
+    if(enemy == nullptr)
+        return;
+    if(Reverse_World_Active)
+        enemy->Get_Damaged(damaging_point);
+    else
+        enemy->Get_Healed(damaging_point);
 }
 
 void Controller::Finish_Round()

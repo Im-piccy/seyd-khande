@@ -12,11 +12,11 @@ class WhiteDoctor : public Hero_Abstaction//healer
 {
     public:
         WhiteDoctor();//this constructor should initilize heros info like hp, superpower cost ...
-        bool Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user);//return type is bool that means if there is not enaugh energy for the attack it will return false
-        bool Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user);
-        bool Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user);
+        bool Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller);//return type is bool that means if there is not enaugh energy for the attack it will return false
+        bool Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller);
+        bool Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller);
         bool Execute_Doping_Ability(User &user);  
-        bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user);
+        bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) override;

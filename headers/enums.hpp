@@ -8,11 +8,13 @@ enum Hero_Type{HELAER, ATTACKER, DEFENDER, JOKER};
 
 class Hero_Abstaction;
 class User;
+class Controller;
 struct Argument_Skills_Functions{
     Hero_Abstaction* allies[3];
     Hero_Abstaction* enemies[3];
     int selected_enemy_index;
     int selected_ally_index;
+    Controller &controller;
     User &user;
 };
 

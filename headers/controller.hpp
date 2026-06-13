@@ -28,6 +28,13 @@ class Controller
         bool can_ability_be_used_based_on_energy_points(int hero_index_in_array, ABILITIES which_ability, int user_turn , int user1_current_energy, int user2_current_energy);
         bool should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy);
    
+        //for the superpower of agha_shahriar
+        bool Is_Reverse_World_Active();
+        void Activate_Reverse_World();
+        void Update_Reverse_World();
+        void Apply_Healed(Hero_Abstaction* ally, int healing_points);
+        void Apply_Damaged(Hero_Abstaction* enemy, int damaging_point);
+        
         ~Controller();
         
     private:
@@ -35,7 +42,10 @@ class Controller
         int which_user_started_the_game; // to remember which user started first
         std::array<Hero_Abstaction*,3> Hero_Arr_User1;
         std::array<Hero_Abstaction*,3> Hero_Arr_User2;
-        //Hero_Abstaction &Hero;
+
+        //for the suoerpower of agha_shahriar
+        bool Reverse_World_Active;
+        int Reverse_World_Rounds_Left;
     };  
     
 #endif
