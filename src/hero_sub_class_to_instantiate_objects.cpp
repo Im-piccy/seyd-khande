@@ -671,13 +671,13 @@ bool Agha_Shahriar::Execute_SuperPower(User &user)
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
     Is_SuperPower_Active =  true;
-    Rounds_Since_SuperPower++;
-    if(Rounds_Since_SuperPower == 2)
-    {
-        Is_SuperPower_Active =  false;
-        Rounds_Since_SuperPower = 0;
+    //Rounds_Since_SuperPower++;
+    //if(Rounds_Since_SuperPower == 2)
+    //{
+        //Is_SuperPower_Active =  false;
+        //Rounds_Since_SuperPower = 0;
         user.Set_Energy(SuperPower_Energy_Cost);
-    }
+    //}
     Set_Is_Hero_Dead();
     return true;
 }
