@@ -87,17 +87,17 @@ bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Con
 
 bool WhiteDoctor::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Asprin_Ability(parameters.allies, parameters.enemies, parameters.selected_enemy_index, parameters.user, parameters.controller);
+    return Execute_Asprin_Ability(parameters.allies, parameters.enemies, parameters.selected_enemy_index, *parameters.user, *parameters.controller);
 }
 
 bool WhiteDoctor::Execute_Skill2(Argument_Skills_Functions parameters)
 {
-    return Execute_Doping_Ability(parameters.user);
+    return Execute_Doping_Ability(*parameters.user);
 }
 
 bool WhiteDoctor::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.allies, parameters.user, parameters.controller);
+    return Execute_SuperPower(parameters.allies, *parameters.user, *parameters.controller);
 }
 
 int WhiteDoctor::return_rounds_left_till_superpower_is_ready()
@@ -189,17 +189,17 @@ bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 
 bool Taha_Kochike::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Serom_Khon_Ability(parameters.allies, parameters.selected_ally_index, parameters.user);
+    return Execute_Serom_Khon_Ability(parameters.allies, parameters.selected_ally_index, *parameters.user);
 }
 
 bool Taha_Kochike::Execute_Skill2(Argument_Skills_Functions parameters)
 {
-    return Execute_Tigh_Tiz_Abillity(parameters.allies, parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Tigh_Tiz_Abillity(parameters.allies, parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Taha_Kochike::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.allies, parameters.user);
+    return Execute_SuperPower(parameters.allies, *parameters.user);
 }
 
 int Taha_Kochike::return_rounds_left_till_superpower_is_ready()
@@ -290,17 +290,17 @@ bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 
 bool Dani_Golang::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Fil_kosh_Ability(parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Fil_kosh_Ability(parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Dani_Golang::Execute_Skill2(Argument_Skills_Functions parameters)
 {
-    return Execute_Ghofli_Ability(parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Ghofli_Ability(parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Dani_Golang::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.allies, parameters.user);
+    return Execute_SuperPower(parameters.allies, *parameters.user);
 }
 
 int Dani_Golang::return_rounds_left_till_superpower_is_ready()
@@ -378,17 +378,17 @@ bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction*
 
 bool Amin_Emeni::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Zarbe_Be_Khody_Ability(parameters.allies, parameters.user);
+    return Execute_Zarbe_Be_Khody_Ability(parameters.allies, *parameters.user);
 }
 
 bool Amin_Emeni::Execute_Skill2(Argument_Skills_Functions parameters)
 {
-    return Execute_Akharin_Feshang_Ability(parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Akharin_Feshang_Ability(parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Amin_Emeni::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.allies, parameters.enemies, parameters.user);
+    return Execute_SuperPower(parameters.allies, parameters.enemies, *parameters.user);
 }
 
 int Amin_Emeni::return_rounds_left_till_superpower_is_ready()
@@ -477,17 +477,17 @@ bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
 
 bool Taha_Bozorge::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Ragbar_Ability(parameters.enemies, parameters.user);
+    return Execute_Ragbar_Ability(parameters.enemies, *parameters.user);
 }
 
 bool Taha_Bozorge::Execute_Skill2(Argument_Skills_Functions parameters)
 {
-    return Execute_Xray_Ability(parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Xray_Ability(parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Taha_Bozorge::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.enemies, parameters.user);
+    return Execute_SuperPower(parameters.enemies, *parameters.user);
 }
 
 int Taha_Bozorge::return_rounds_left_till_superpower_is_ready()
@@ -586,17 +586,17 @@ bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
 
 bool Pouya_Kajdom::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Khanjar_Ability(parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Khanjar_Ability(parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Pouya_Kajdom::Execute_Skill2(Argument_Skills_Functions parameters)
 {
-    return Execute_Aghrab_Ability(parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Aghrab_Ability(parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Pouya_Kajdom::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.enemies, parameters.user);
+    return Execute_SuperPower(parameters.enemies, *parameters.user);
 }
 
 int Pouya_Kajdom::return_rounds_left_till_superpower_is_ready()
@@ -684,17 +684,17 @@ bool Agha_Shahriar::Execute_SuperPower(User &user)
 
 bool Agha_Shahriar::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Maskhare_Ability(parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Maskhare_Ability(parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Agha_Shahriar::Execute_Skill2(Argument_Skills_Functions parameters)
 {
-    return Execute_Lajbaz_Ability(parameters.enemies, parameters.selected_enemy_index, parameters.user);
+    return Execute_Lajbaz_Ability(parameters.enemies, parameters.selected_enemy_index, *parameters.user);
 }
 
 bool Agha_Shahriar::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.user);
+    return Execute_SuperPower(*parameters.user);
 }
 
 int Agha_Shahriar::return_rounds_left_till_superpower_is_ready()
