@@ -666,18 +666,13 @@ bool Agha_Shahriar::Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int sele
     return true;
 }
 
-bool Agha_Shahriar::Execute_SuperPower(User &user)
+bool Agha_Shahriar::Execute_SuperPower(User &user, Controller &controller)
 {
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
-    Is_SuperPower_Active =  true;
-    //Rounds_Since_SuperPower++;
-    //if(Rounds_Since_SuperPower == 2)
-    //{
-        //Is_SuperPower_Active =  false;
-        //Rounds_Since_SuperPower = 0;
-        user.Set_Energy(SuperPower_Energy_Cost);
-    //}
+    controller.Activate_Reverse_World();
+    controller.Update_Reverse_World();
+    user.Set_Energy(SuperPower_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
 }
@@ -694,7 +689,7 @@ bool Agha_Shahriar::Execute_Skill2(Argument_Skills_Functions parameters)
 
 bool Agha_Shahriar::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(*parameters.user);
+    return Execute_SuperPower(*parameters.user, *parameters.controller);
 }
 
 int Agha_Shahriar::return_rounds_left_till_superpower_is_ready()

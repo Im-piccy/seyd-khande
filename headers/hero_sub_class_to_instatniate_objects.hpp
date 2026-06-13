@@ -130,7 +130,7 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
         Agha_Shahriar();//constructor to initiate info
         bool Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
         bool Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user); 
-        bool Execute_SuperPower(User &user);
+        bool Execute_SuperPower(User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) override;

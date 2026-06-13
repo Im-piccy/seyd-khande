@@ -267,7 +267,6 @@ void Controller::Update_Reverse_World()
     }
 }
 
-
 void Controller::Apply_Healed(Hero_Abstaction* ally, int healing_points)
 {
     if(ally == nullptr)
