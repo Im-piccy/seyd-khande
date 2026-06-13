@@ -30,6 +30,7 @@ bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User
 
     allies[selected_index]->Get_Healed(40);
     user.Set_Energy(Skill1_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -41,6 +42,7 @@ bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], in
         return false;
     enemies[selected_enemy_index]->Get_Damaged(40);
     user.Set_Energy(Skill1_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -61,6 +63,7 @@ bool WhiteDoctor::Execute_Doping_Ability(User &user)
         return false;
     }
     Rounds_Since_Doping++;
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -78,6 +81,7 @@ bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
     allies[selected_index]->Get_Healed(200);
     user.Set_Energy(SuperPower_Energy_Cost);
     rounds_left_till_superpower_is_ready = 0;
+    Set_Is_Hero_Dead();
     return true; 
 }
 
@@ -130,6 +134,7 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], U
         return false;
     Lowest_Hp_Ally->Get_Healed(20);
     user.Set_Energy(Skill2_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true; 
 }
 
@@ -141,6 +146,7 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], 
         return false;
     enemies[selected_enemy_index]->Get_Damaged(30);
     user.Set_Energy(Skill2_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -163,6 +169,7 @@ bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], int se
     }
     allies[selected_ally_index]->Get_Healed(40);
     Round_since_Serom++;
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -176,6 +183,7 @@ bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
     Lowest_Hp_Ally->Get_Healed(200);
     user.Set_Energy(SuperPower_Energy_Cost);
     rounds_left_till_superpower_is_ready = 0;
+    Set_Is_Hero_Dead();
     return true;   
 }
 
@@ -235,6 +243,7 @@ bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int select
     Round_Use_Ghofli_Ability++;
     Repete_Ghofli_Ability = true;
     user.Set_Energy(Skill2_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -250,6 +259,7 @@ bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int sele
         return false;
     enemies[selected_enemy_index]->Get_Damaged(50);
     user.Set_Energy(Skill1_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -274,6 +284,7 @@ bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
     rounds_left_till_superpower_is_ready = 0;
     user.Set_Energy(SuperPower_Energy_Cost);
     Lowest_Hp_Ally->Get_Healed(250);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -323,6 +334,7 @@ bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], in
     else
         enemies[selected_enemy_index]->Get_Damaged(55);
     user.Set_Energy(Skill2_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -338,6 +350,7 @@ bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User
     allies[selected_index]->Get_Damaged(20);
     this->Get_Healed(75);
     user.Set_Energy(Skill1_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -359,6 +372,7 @@ bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction*
     }
     user.Set_Energy(SuperPower_Energy_Cost);
     rounds_left_till_superpower_is_ready = 0;
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -411,6 +425,7 @@ bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &use
             enemies[i]->Get_Damaged(30);
     }
     user.Set_Energy(Skill1_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -427,6 +442,7 @@ bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selecte
         Rounds_Since_Xray = 0;
         user.Set_Energy(Skill2_Energy_Cost);
     }
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -455,6 +471,7 @@ bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
         Rounds_Since_SuperPower = 0;
     }
     Rounds_Since_SuperPower++;
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -527,6 +544,7 @@ bool Pouya_Kajdom::Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int sele
     Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] = BUFFED_SCORPIEN;
     Activate_scorpien(enemies);
     user.Set_Energy(Skill1_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -539,6 +557,7 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
     Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] =  SCORPIEN;
     Activate_scorpien(enemies);
     user.Set_Energy(Skill2_Energy_Cost);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -561,6 +580,7 @@ bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
         enemies[selected_index]->Get_Damaged(450);
         user.Set_Energy(SuperPower_Energy_Cost);
     }
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -613,6 +633,7 @@ bool Agha_Shahriar::Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int se
     if(chance > 80)
         enemies[selected_enemy_index]->Get_Damaged(60);
     user.Set_Energy(Skill1_Energy_Cost);
+    Set_Is_Hero_Dead();
         return true;
 }
 
@@ -641,6 +662,7 @@ bool Agha_Shahriar::Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int sele
     }
     user.Set_Energy(Skill2_Energy_Cost);
     enemies[selected_index]->Get_Damaged(100);
+    Set_Is_Hero_Dead();
     return true;
 }
 
@@ -656,6 +678,7 @@ bool Agha_Shahriar::Execute_SuperPower(User &user)
         Rounds_Since_SuperPower = 0;
         user.Set_Energy(SuperPower_Energy_Cost);
     }
+    Set_Is_Hero_Dead();
     return true;
 }
 

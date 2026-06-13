@@ -4,6 +4,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include "enums.hpp"
 class User;
 
 class Hero_Abstaction //abstract class
@@ -11,6 +12,7 @@ class Hero_Abstaction //abstract class
     public:
         int Get_Current_Hp() const;//returns hero current health
         bool Is_Dead() const;// indicates hero living status 
+        void Set_Is_Hero_Dead();
         void Get_Healed(int healing_points);
         void Get_Damaged(int damaging_point);//if damage is more than hp it will edit the boolian value
         void Seeded();

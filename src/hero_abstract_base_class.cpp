@@ -35,6 +35,12 @@ bool Hero_Abstaction::Is_Dead() const
     return Is_Hero_Dead;
 }
 
+void Hero_Abstaction::Set_Is_Hero_Dead()
+{
+    if(Current_Hp <= 0)
+        Is_Hero_Dead = true;
+}
+
 std::array<int, 4> Hero_Abstaction::Valid_Index_Hero(Hero_Abstaction* heros[3], int choose) const
 {
     std::array<int,4> valid_indexes = {};
