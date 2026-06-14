@@ -51,7 +51,6 @@ bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], in
         return false;
     if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 40);
-    user.Set_Energy(Skill1_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
 }
@@ -170,7 +169,6 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], 
         return false;
     if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 30);
-    user.Set_Energy(Skill2_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
 }
@@ -512,6 +510,7 @@ bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, C
     int random_position = std::rand() % valid_indexes[3];
     Save_Selected_Enemy_Index = valid_indexes[random_position];
     enemies[Save_Selected_Enemy_Index]->Activate_Brother_revenge();
+    rounds_left_till_superpower_is_ready = 0;
     Set_Is_Hero_Dead();
     return true;
 }
@@ -621,6 +620,7 @@ bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, C
         return false;
     Is_Hidden = true;
     Hidden_Round_Left = 3;
+    rounds_left_till_superpower_is_ready = 0;
     Set_Is_Hero_Dead();
     return true;
 }
@@ -693,13 +693,9 @@ bool Agha_Shahriar::Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int sele
         return false;
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
-    controller.Apply_Damaged(enemies[selected_enemy_index], 100);
+    if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+        controller.Apply_Damaged(enemies[selected_enemy_index], 100);
     Seeded();
-    std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
-    if(valid_indexes[3] == 0)
-        return false;
-    int random_position = std::rand() % valid_indexes[3];
-    int selected_index = valid_indexes[random_position];
     while (true)
     {
         std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
@@ -708,10 +704,15 @@ bool Agha_Shahriar::Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int sele
         int random_position = std::rand() % valid_indexes[3];
         int selected_index = valid_indexes[random_position];
         if(enemies[selected_index] != enemies[selected_enemy_index])
-            break;
+        {
+            if(!enemies[selected_index]->Return_Is_Hidden())
+            {
+                controller.Apply_Damaged(enemies[selected_index], 100);
+                break;
+            }
+        }
     }
     user.Set_Energy(Skill2_Energy_Cost);
-    controller.Apply_Damaged(enemies[selected_index], 100);
     Set_Is_Hero_Dead();
     return true;
 }
@@ -723,6 +724,7 @@ bool Agha_Shahriar::Execute_SuperPower(User &user, Controller &controller)
     controller.Activate_Reverse_World();
     //controller.Update_Reverse_World(); at the end of each round
     user.Set_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 0;
     Set_Is_Hero_Dead();
     return true;
 }
