@@ -16,7 +16,7 @@ WhiteDoctor::WhiteDoctor()
     this->Is_Hero_Dead = false;
     this->rounds_left_till_superpower_is_ready = 4;
     this->Rounds_Since_Doping = 0;
-    this->Is_Doping_Ongoing = false;
+    this->Is_Doped = false;
 }
 
 bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller)
@@ -53,16 +53,21 @@ bool WhiteDoctor::Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstac
     return false;
 }
 
-bool WhiteDoctor::Execute_Doping_Ability(User &user)
+bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user)
 {
-    Is_Doping_Ongoing = true;
-    if(Rounds_Since_Doping >= 2)
+    static int selected_index;
+    if(!Is_Doped)
     {
-        Rounds_Since_Doping = 0;
+        Seeded();
+        std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
+        if(valid_indexes[3] == 0)
+            return false;
+        int random_position = std::rand() % valid_indexes[3];
+        selected_index = valid_indexes[random_position];
+        allies[selected_index]->Activate_Doping();
         user.Set_Energy(Skill2_Energy_Cost);
-        return false;
     }
-    Rounds_Since_Doping++;
+    allies[selected_index]->Updated_Doping_Status();
     Set_Is_Hero_Dead();
     return true;
 }
@@ -92,7 +97,7 @@ bool WhiteDoctor::Execute_Skill1(Argument_Skills_Functions parameters)
 
 bool WhiteDoctor::Execute_Skill2(Argument_Skills_Functions parameters)
 {
-    return Execute_Doping_Ability(*parameters.user);
+    return Execute_Doping_Ability(parameters.allies, *parameters.user);
 }
 
 bool WhiteDoctor::Execute_SuperSkill(Argument_Skills_Functions parameters)

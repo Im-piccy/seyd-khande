@@ -15,7 +15,7 @@ class WhiteDoctor : public Hero_Abstaction//healer
         bool Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller);//return type is bool that means if there is not enaugh energy for the attack it will return false
         bool Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller);
         bool Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller);
-        bool Execute_Doping_Ability(User &user);  
+        bool Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user);  
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
@@ -23,8 +23,8 @@ class WhiteDoctor : public Hero_Abstaction//healer
         virtual bool Execute_SuperSkill(Argument_Skills_Functions parameters) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        bool Is_Doping_Ongoing;//to know if any of team heros are being doped
-        int Rounds_Since_Doping;//keeping track of Doping duration
+        //bool Is_Doping_Ongoing;//to know if any of team heros are being doped
+        //int Rounds_Since_Doping;//keeping track of Doping duration
         int Hero_Being_Doped;//keeping track of who is being doped
 };
 

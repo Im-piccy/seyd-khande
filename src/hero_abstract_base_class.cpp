@@ -2,6 +2,9 @@
 
 void Hero_Abstaction::Get_Damaged(int damaging_points)
 {
+    if(Is_Doped)
+        damaging_points = damaging_points * 1,2; 
+        
     if(damaging_points >= Current_Hp)
     {
         Current_Hp = 0;
@@ -126,4 +129,20 @@ int Hero_Abstaction::Return_Skill2_Energy_Cost()
 int Hero_Abstaction::Return_SuperPower_Energy_Cost()
 {
     return SuperPower_Energy_Cost;
+}
+
+void Hero_Abstaction::Activate_Doping()
+{
+    Is_Doped = true;
+    Rounds_Since_Doping = 2;
+}
+
+void Hero_Abstaction::Updated_Doping_Status()
+{
+    if(Is_Doped)
+    {
+        Rounds_Since_Doping--;
+        if(Rounds_Since_Doping == 0)
+            Is_Doped = false;
+    }
 }
