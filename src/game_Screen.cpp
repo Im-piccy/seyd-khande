@@ -147,6 +147,7 @@ void Game::Game_Screen()
         user1_hero_arr = user1.Get_Hero_Array();
         User1_name_size = MeasureTextEx(font, user1_name, 20, 0);
     }
+    
     if(!copied_user2_info)
     {
         copied_user2_info = true;
