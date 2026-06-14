@@ -27,7 +27,8 @@ class Controller
         void Empty_Array_Which_Stores_Hero_Base_Class_Pointers(TURN user_turn, int filled_to_which_index);
         bool can_ability_be_used_based_on_energy_points(int hero_index_in_array, ABILITIES which_ability, int user_turn , int user1_current_energy, int user2_current_energy);
         bool should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy);
-   
+        int return_user_whom_started_the_game_as_an_int() const;
+
         //for the superpower of agha_shahriar
         bool Is_Reverse_World_Active();
         void Activate_Reverse_World();

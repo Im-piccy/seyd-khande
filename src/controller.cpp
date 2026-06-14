@@ -419,6 +419,12 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
     }
 }
 
+
+int Controller::return_user_whom_started_the_game_as_an_int() const
+{
+    return which_user_started_the_game;
+}
+
 void Controller::Refill_Players_Energy()
 {
 
