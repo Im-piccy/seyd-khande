@@ -147,7 +147,7 @@ void Game::Game_Screen()
         user1_hero_arr = user1.Get_Hero_Array();
         User1_name_size = MeasureTextEx(font, user1_name, 20, 0);
     }
-    
+
     if(!copied_user2_info)
     {
         copied_user2_info = true;
@@ -836,7 +836,16 @@ void Game::Game_Screen()
     }
     
 
+
+
     EndDrawing();
+
+    if(should_execute_ability)
+    {
+        
+    }
+
+
 
     if(should_end_turn || control.should_change_turn(User_Turn, user1.Get_Energy(), user2.Get_Energy()))
     {
