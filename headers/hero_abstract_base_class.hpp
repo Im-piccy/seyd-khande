@@ -42,6 +42,11 @@ class Hero_Abstaction //abstract class
         void Activate_Family_StrongHold();
         void Updated_Family_StrongHold_Status();
 
+        //for XRay power (taha_bozorge)
+        bool Return_Is_Hidden() const;
+        void Updated_Round_Hidden();
+
+
         //for brother revenge power(superpower of taha_ozorge)
         //void Activate_Brother_revenge();
         //void Updated_Brother_Revenge_Status();
@@ -70,6 +75,11 @@ class Hero_Abstaction //abstract class
         bool Is_Family_StrongHold_ongoing;
         int Round_Since_Family_StrongHold;
         int amount_damage_when_family_stronghold_is_active;
+
+        //for XRay power (taha_bozorge)
+        bool Is_Hidden = false;
+        int Hidden_Round_Left = 0;
+
 };
 
 

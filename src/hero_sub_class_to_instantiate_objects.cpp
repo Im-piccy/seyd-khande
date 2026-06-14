@@ -34,7 +34,6 @@ bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User
         return false;
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
-
     controller.Apply_Healed(allies[selected_index], 40);
     user.Set_Energy(Skill1_Energy_Cost);
     Set_Is_Hero_Dead();
@@ -47,7 +46,8 @@ bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], in
         return false;
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
-    controller.Apply_Damaged(enemies[selected_enemy_index], 40);
+    if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+        controller.Apply_Damaged(enemies[selected_enemy_index], 40);
     user.Set_Energy(Skill1_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
@@ -163,7 +163,8 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], 
         return false;
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
-    controller.Apply_Damaged(enemies[selected_enemy_index], 30);
+    if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+        controller.Apply_Damaged(enemies[selected_enemy_index], 30);
     user.Set_Energy(Skill2_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
@@ -265,11 +266,13 @@ bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int select
     if(Last_Attacked_Enemy != selected_enemy_index)
     {
         Last_Attacked_Enemy = selected_enemy_index;
-        controller.Apply_Damaged(enemies[selected_enemy_index], 20);
+        if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+            controller.Apply_Damaged(enemies[selected_enemy_index], 20);
     }
     else 
     {
-        controller.Apply_Damaged(enemies[selected_enemy_index], 38);
+        if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+            controller.Apply_Damaged(enemies[selected_enemy_index], 38);
     }
     user.Set_Energy(Skill2_Energy_Cost);
     Set_Is_Hero_Dead();
@@ -283,10 +286,12 @@ bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int sele
     Hero_Abstaction* Highest_Hp_Enemy = Find_Highest_Or_Lowest_Hp(enemies, "max");
     if(Highest_Hp_Enemy == nullptr)
         return false;
-    controller.Apply_Damaged(Highest_Hp_Enemy, 50);
+    if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+        controller.Apply_Damaged(Highest_Hp_Enemy, 50);
     if(selected_enemy_index < 0 || selected_enemy_index >= 3 || enemies[selected_enemy_index] == nullptr)
         return false;
-    controller.Apply_Damaged(enemies[selected_enemy_index], 50);
+    if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+        controller.Apply_Damaged(enemies[selected_enemy_index], 50);
     user.Set_Energy(Skill1_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
@@ -356,9 +361,15 @@ bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], in
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
     if(enemies[selected_enemy_index]->Get_Current_Hp() <= 110)
-        controller.Apply_Damaged(enemies[selected_enemy_index], 110);
+    {
+        if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+            controller.Apply_Damaged(enemies[selected_enemy_index], 110);
+    }
     else
-        controller.Apply_Damaged(enemies[selected_enemy_index], 55);
+    {
+        if(!enemies[selected_enemy_index]->Return_Is_Hidden())
+            controller.Apply_Damaged(enemies[selected_enemy_index], 55);
+    }
     user.Set_Energy(Skill2_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
@@ -373,7 +384,8 @@ bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
 
-    controller.Apply_Damaged(allies[selected_index], 25);
+    if(!allies[selected_index]->Return_Is_Hidden())
+        controller.Apply_Damaged(allies[selected_index], 25);
     controller.Apply_Healed(this, 75);
     user.Set_Energy(Skill1_Energy_Cost);
     Set_Is_Hero_Dead();
@@ -390,11 +402,13 @@ bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction*
         return false;
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
-    controller.Apply_Damaged(enemies[selected_index], 250);
+    if(!enemies[selected_index]->Return_Is_Hidden())
+        controller.Apply_Damaged(enemies[selected_index], 250);
     for(int i = 0; i < 3; i++)
     {
         if(allies[i] != nullptr && !allies[i]->Is_Dead() && allies[i] != this)
-            controller.Apply_Damaged(allies[i], 30);
+            if(!allies[i]->Return_Is_Hidden())
+                controller.Apply_Damaged(allies[i], 30);
     }
     user.Set_Energy(SuperPower_Energy_Cost);
     rounds_left_till_superpower_is_ready = 0;
@@ -465,19 +479,13 @@ bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &use
 
 bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index , User &user, Controller &controller)
 {
-    //not completed yet...
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
-    Is_Xray_Ongoing = true;
-    if(!Is_Xray_Ongoing)
+    Is_Hidden = true;
+    Hidden_Round_Left = 1;
+    if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 90);
-    Rounds_Since_Xray++;
-    if(Rounds_Since_Xray == 2)
-    {
-        Is_Xray_Ongoing = false;
-        Rounds_Since_Xray = 0;
-        user.Set_Energy(Skill2_Energy_Cost);
-    }
+    user.Set_Energy(Skill2_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
 }

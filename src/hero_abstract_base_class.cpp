@@ -190,3 +190,20 @@ void Hero_Abstaction::Updated_Family_StrongHold_Status()
             Is_Family_StrongHold_ongoing = false;
     }
 }
+
+bool Hero_Abstaction::Return_Is_Hidden() const
+{
+    return this->Is_Hidden;
+}
+
+void Hero_Abstaction::Updated_Round_Hidden()
+{
+    if(Is_Hidden)
+    {
+        Hidden_Round_Left--;
+        if(Hidden_Round_Left <= 0)
+        {
+            Is_Hidden = false;
+        }
+    }
+}
