@@ -4,15 +4,26 @@ void Hero_Abstaction::Get_Damaged(int damaging_points)
 {
     if(Is_Doped)
         damaging_points = damaging_points * 1,2; 
-        
-    if(damaging_points >= Current_Hp)
+    if(Is_Family_StrongHold_ongoing)
     {
-        Current_Hp = 0;
-        Is_Hero_Dead = true;
+        amount_damage_when_family_stronghold_is_active += damaging_points;
+        if(amount_damage_when_family_stronghold_is_active >= 250)
+        {
+            amount_damage_when_family_stronghold_is_active = 0;
+            Is_Family_StrongHold_ongoing = false;
+        }
     }
     else
     {
-        Current_Hp -= damaging_points;
+        if(damaging_points >= Current_Hp)
+        {
+            Current_Hp = 0;
+            Is_Hero_Dead = true;
+        }
+        else
+        {
+            Current_Hp -= damaging_points;
+        }
     }
 }
 
@@ -158,10 +169,24 @@ void Hero_Abstaction::Updated_Serom_Khon_Status(Controller &controller)
     if(Is_serom_Khon_ongoing)
     {
         controller.Apply_Healed(this, 40);
-
         Round_since_Serom_khon--;
-
         if(Is_serom_Khon_ongoing == 0)
-            Round_since_Serom_khon = false;
+            Is_serom_Khon_ongoing = false;
+    }
+}
+
+void Hero_Abstaction::Activate_Family_StrongHold()
+{
+    Is_Family_StrongHold_ongoing = true;
+    Round_Since_Family_StrongHold = 2;
+}
+
+void Hero_Abstaction::Updated_Family_StrongHold_Status(int selected_enemy_index, Controller &controller)
+{
+    if(Is_Family_StrongHold_ongoing)
+    {
+        Round_Since_Family_StrongHold--;
+        if(Round_Since_Family_StrongHold == 0)
+            Is_Family_StrongHold_ongoing = false;
     }
 }

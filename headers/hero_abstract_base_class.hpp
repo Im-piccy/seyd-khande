@@ -37,6 +37,10 @@ class Hero_Abstaction //abstract class
         //for serom_khon power (taha_kochike)
         void Activate_Serom_Khon();
         void Updated_Serom_Khon_Status(Controller &controller);
+
+        //for family stronghold (superpower of dani_golang)
+        void Activate_Family_StrongHold();
+        void Updated_Family_StrongHold_Status(int selected_enemy_index, Controller &controller);
     protected:
         int Current_Hp; // this shows how much health the hero has got left
         int Initial_Hp; // this is how much hp a hero has with out any damage
@@ -56,6 +60,11 @@ class Hero_Abstaction //abstract class
         //for serom_khon power (taha_kochike)
         bool Is_serom_Khon_ongoing;
         int Round_since_Serom_khon;
+
+        //for family stronghold (superpower of dani_golang)
+        bool Is_Family_StrongHold_ongoing;
+        int Round_Since_Family_StrongHold;
+        int amount_damage_when_family_stronghold_is_active;
 };
 
 

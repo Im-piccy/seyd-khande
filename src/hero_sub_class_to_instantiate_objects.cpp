@@ -278,26 +278,9 @@ bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Con
     Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
     if(Lowest_Hp_Ally == nullptr)
         return false;
-
-    Round_Use_SuperPower++;
-    static int Amount_Hp_Befor_Healed;
-
-    if(!Start_SuperPower)
-    {
-        Amount_Hp_Befor_Healed =  Get_Current_Hp();
-        rounds_left_till_superpower_is_ready = 0;
-        user.Set_Energy(SuperPower_Energy_Cost);
-        controller.Apply_Healed(Lowest_Hp_Ally, 250);
-    }
-
-    Start_SuperPower = true;
-    if(Start_SuperPower && Round_Use_SuperPower == 2)
-    {
-        int Amount_Hp_After_Healed = Get_Current_Hp();
-        int amount_damage  = Amount_Hp_Befor_Healed - Amount_Hp_After_Healed;
-        controller.Apply_Damaged(Lowest_Hp_Ally, 250  - amount_damage);
-    }
-
+    Lowest_Hp_Ally->Activate_Family_StrongHold();
+    user.Set_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 0;
     Set_Is_Hero_Dead();
     return true;
 }
