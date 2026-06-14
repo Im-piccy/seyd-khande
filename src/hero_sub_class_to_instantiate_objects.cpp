@@ -157,17 +157,22 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Ab
     return false;
 }
 
-bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], int selected_ally_index , User &user, Controller &controller)
+bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &user, Controller &controller)
 {
-    if(selected_ally_index < 0 || selected_ally_index >= 3)
+    Seeded();
+    std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
+    if(valid_indexes[3] == 0)
         return false;
+    int random_position = std::rand() % valid_indexes[3];
+    int selected_index = valid_indexes[random_position];
+
     Is_serom_Khon_ongoing = true;
     if(Round_since_Serom >= 2)
     {
         user.Set_Energy(Skill1_Energy_Cost);
         Round_since_Serom = 0;
     }
-    controller.Apply_Healed(allies[selected_ally_index], 40);
+    controller.Apply_Healed(allies[selected_index], 40);
     Round_since_Serom++;
     Set_Is_Hero_Dead();
     return true;
@@ -189,7 +194,7 @@ bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Co
 
 bool Taha_Kochike::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Serom_Khon_Ability(parameters.allies, parameters.selected_ally_index, *parameters.user, *parameters.controller);
+    return Execute_Serom_Khon_Ability(parameters.allies, *parameters.user, *parameters.controller);
 }
 
 bool Taha_Kochike::Execute_Skill2(Argument_Skills_Functions parameters)

@@ -321,7 +321,7 @@ bool Controller::Is_game_over(int user_turn)
     return false;
 }
 
-void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions& parameters, User &user1, User &user2)
+void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, Argument_Skills_Functions& parameters, User &user1, User &user2)
 {
     parameters.controller = this;
     if(user_turn == USER1)
@@ -331,7 +331,6 @@ void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_e
             parameters.allies[i] = Hero_Arr_User1[i];
             parameters.enemies[i]= Hero_Arr_User2[i];
         }
-        parameters.selected_ally_index = selected_ally_index;
         parameters.selected_enemy_index = selected_enemy_index;
         parameters.user =  &user1;
     }
@@ -342,15 +341,14 @@ void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_e
             parameters.allies[i] = Hero_Arr_User2[i];
             parameters.enemies[i]= Hero_Arr_User1[i];
         }
-        parameters.selected_ally_index = selected_ally_index;
         parameters.selected_enemy_index = selected_enemy_index;
         parameters.user =  &user2;
     }
 }
 
-void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, int selected_ally_index, Argument_Skills_Functions &parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn, User &user1, User &user2)
+void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, Argument_Skills_Functions &parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn, User &user1, User &user2)
 {
-    Fill_Struct_For_Virtual_Functions(user_turn, selected_enemy_index, selected_ally_index, parameters, user1, user2);
+    Fill_Struct_For_Virtual_Functions(user_turn, selected_enemy_index, parameters, user1, user2);
     if(user_turn == USER1)
     {
         if(which_ability == SKILL1)

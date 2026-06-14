@@ -35,7 +35,7 @@ class Taha_Kochike : public Hero_Abstaction//healer
         bool Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller);
         bool Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller);
         bool Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller);
-        bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3] , int selected_ally_index, User &user, Controller &controller); 
+        bool Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3] , User &user, Controller &controller); 
         bool Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Controller &controller);
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) override;
