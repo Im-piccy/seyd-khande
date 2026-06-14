@@ -423,8 +423,50 @@ int Controller::return_user_whom_started_the_game_as_an_int() const
     return which_user_started_the_game;
 }
 
-void Controller::Refill_Players_Energy()
+void Controller::Refill_Players_Energy(User &user1, User &user2)
 {
-
+    switch (round_number)
+    {
+    case 1:
+        if(which_user_started_the_game == USER1)
+        {
+            user1.Set_Energy(5);
+            user2.Set_Energy(8);
+        }
+        else
+        {
+            user2.Set_Energy(5);
+            user1.Set_Energy(8);
+        }
+        break;
+    case 2:
+        if(which_user_started_the_game == USER1)
+        {
+            user1.Set_Energy(8);
+            user2.Set_Energy(9);
+        }
+        else
+        {
+            user2.Set_Energy(8);
+            user1.Set_Energy(9);
+        }
+        break;
+    case 3:
+        if(which_user_started_the_game == USER1)
+        {
+            user1.Set_Energy(9);
+            user2.Set_Energy(10);
+        }
+        else
+        {
+            user2.Set_Energy(9);
+            user1.Set_Energy(10);
+        }
+        break;
+    default:
+        user1.Set_Energy(10);
+        user2.Set_Energy(10);
+        break;
+    }
 }
 

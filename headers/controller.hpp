@@ -15,7 +15,7 @@ class Controller
         Controller();
         bool Is_game_over(int user_turn); // checks to see if game raound is 15 or one players heros are all dead
         void execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, Argument_Skills_Functions &parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn, User &user1, User &user2); //it gets user request to atteck and does the logic (considering energy cost)
-        void Refill_Players_Energy(); // after each round ends it refill energies accordingly
+        void Refill_Players_Energy(User &user, User &usr); // after each round ends it refill energies accordingly
         void Finish_Round(); // this function increments the private round_number variable by one
         void Empty_User_Array(User &user);
         bool Is_Hero_Array_Full(User &user);
