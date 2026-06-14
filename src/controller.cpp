@@ -199,7 +199,7 @@ bool Controller::can_ability_be_used_based_on_energy_points(int hero_index_in_ar
     }
 }
 
-/*bool Controller::should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy)
+bool Controller::should_change_turn(int user_turn, int user1_current_energy, int user2_current_energy)
 {
     if(user_turn == USER1)
     {
@@ -239,7 +239,7 @@ bool Controller::can_ability_be_used_based_on_energy_points(int hero_index_in_ar
         }
         return true;
     }
-}*/
+}
 
 
 bool Controller::Is_Reverse_World_Active()
