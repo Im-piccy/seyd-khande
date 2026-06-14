@@ -153,7 +153,7 @@ void Hero_Abstaction::Updated_Doping_Status()
     if(Is_Doped)
     {
         Rounds_Since_Doping--;
-        if(Rounds_Since_Doping == 0)
+        if(Rounds_Since_Doping <= 0)
             Is_Doped = false;
     }
 }
@@ -164,13 +164,13 @@ void Hero_Abstaction::Activate_Serom_Khon()
     Round_since_Serom_khon = 2;
 }
 
-void Hero_Abstaction::Updated_Serom_Khon_Status(Controller &controller)
+void Hero_Abstaction::Updated_Serom_Khon_Status(Controller &controller)// initailize when put in controller (whit object from Hero_Abstaction class)
 {
     if(Is_serom_Khon_ongoing)
     {
         controller.Apply_Healed(this, 40);
         Round_since_Serom_khon--;
-        if(Is_serom_Khon_ongoing == 0)
+        if(Round_since_Serom_khon <= 0)
             Is_serom_Khon_ongoing = false;
     }
 }
@@ -186,7 +186,7 @@ void Hero_Abstaction::Updated_Family_StrongHold_Status()
     if(Is_Family_StrongHold_ongoing)
     {
         Round_Since_Family_StrongHold--;
-        if(Round_Since_Family_StrongHold == 0)
+        if(Round_Since_Family_StrongHold <= 0)
             Is_Family_StrongHold_ongoing = false;
     }
 }
@@ -204,6 +204,50 @@ void Hero_Abstaction::Updated_Round_Hidden()
         if(Hidden_Round_Left <= 0)
         {
             Is_Hidden = false;
+        }
+    }
+}
+
+void Hero_Abstaction::Activate_Brother_revenge()
+{
+    Is_Brother_Revenge_Ongoing = true;
+    Round_Brother_Revenge_Left = 1;
+}
+
+void Hero_Abstaction::Updated_Brother_Revenge_Status(Controller &controller)// initailize when put in controller (whit object from Hero_Abstaction class)
+{
+    if(Is_Brother_Revenge_Ongoing)
+    {
+        Round_Brother_Revenge_Left--;
+        if(Round_Brother_Revenge_Left <= 0)
+        {
+            if(Get_Current_Hp() <= 360)
+                if(!this->Return_Is_Hidden())
+                    controller.Apply_Damaged(this, Get_Current_Hp());
+            else 
+                if(!this->Return_Is_Hidden())
+                    controller.Apply_Damaged(this, 200);
+            Is_Brother_Revenge_Ongoing = false;
+        }
+    }
+}
+
+void Hero_Abstaction::Activate_Dom_Kajdom(Argument_Skills_Functions parameters)// initailize when put in controller (whit object from Hero_Abstaction class)
+{
+    if(Is_Hidden)
+    {
+        Hidden_Round_Left--;
+        if(Hidden_Round_Left <= 0)
+        {
+            Is_Hidden = false;
+            Seeded();
+            std::array<int,4> valid_indexes = Valid_Index_Hero(parameters.enemies);
+            if(valid_indexes[3] == 0)
+                return;
+            int random_position = std::rand() % valid_indexes[3];
+            int selected_index = valid_indexes[random_position];
+            if(!parameters.enemies[selected_index]->Return_Is_Hidden())
+                (*parameters.controller).Apply_Damaged(parameters.enemies[selected_index], 450);
         }
     }
 }

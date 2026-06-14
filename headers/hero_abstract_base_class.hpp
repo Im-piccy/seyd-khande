@@ -46,10 +46,12 @@ class Hero_Abstaction //abstract class
         bool Return_Is_Hidden() const;
         void Updated_Round_Hidden();
 
-
         //for brother revenge power(superpower of taha_ozorge)
-        //void Activate_Brother_revenge();
-        //void Updated_Brother_Revenge_Status();
+        void Activate_Brother_revenge();
+        void Updated_Brother_Revenge_Status(Controller &controller);
+
+        //for superpower of pouya_kajdom
+        void Activate_Dom_Kajdom(Argument_Skills_Functions parameters);
         
     protected:
         int Current_Hp; // this shows how much health the hero has got left
@@ -77,12 +79,13 @@ class Hero_Abstaction //abstract class
         int amount_damage_when_family_stronghold_is_active;
 
         //for XRay power (taha_bozorge)
-        bool Is_Hidden = false;
-        int Hidden_Round_Left = 0;
+        bool Is_Hidden;
+        int Hidden_Round_Left;
+
+        //for brother revenge power(superpower of taha_ozorge)
+        bool Is_Brother_Revenge_Ongoing;
+        int Round_Brother_Revenge_Left;
 
 };
-
-
-
 
 #endif

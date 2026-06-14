@@ -88,9 +88,6 @@ class Taha_Bozorge : public Hero_Abstaction // attacker
         virtual bool Execute_SuperSkill(Argument_Skills_Functions parameters) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        bool Is_Xray_Ongoing;
-        int Rounds_Since_Xray;
-        int Rounds_Since_SuperPower;
         int Save_Selected_Enemy_Index;
 };
 
@@ -109,8 +106,6 @@ class Pouya_Kajdom : public Hero_Abstaction // attacker
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         int Enemy_Array_With_Respect_To_Active_Scorpiens[3];
-        bool Is_SuperPower_Active;
-        int Rounds_Since_SuperPower;
 };
 
 class Agha_Shahriar : public Hero_Abstaction // attacker
@@ -126,8 +121,6 @@ class Agha_Shahriar : public Hero_Abstaction // attacker
         virtual bool Execute_SuperSkill(Argument_Skills_Functions parameters) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        bool Is_SuperPower_Active;
-        int Rounds_Since_SuperPower;
 };
 
 #endif
