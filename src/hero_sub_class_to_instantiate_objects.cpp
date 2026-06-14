@@ -15,8 +15,15 @@ WhiteDoctor::WhiteDoctor()
     this->SuperPower_Energy_Cost = 4;
     this->Is_Hero_Dead = false;
     this->rounds_left_till_superpower_is_ready = 4;
+
     this->Rounds_Since_Doping = 0;
     this->Is_Doped = false;
+
+    this->Is_serom_Khon_ongoing = false;
+    this->Round_since_Serom_khon =  0;
+    this->Is_Family_StrongHold_ongoing = false;
+    this->Round_Since_Family_StrongHold = 0;
+    this->amount_damage_when_family_stronghold_is_active = 0;
 }
 
 bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller)
@@ -126,8 +133,15 @@ Taha_Kochike::Taha_Kochike()
     this->SuperPower_Energy_Cost = 4;
     this->Is_Hero_Dead = false;
     this->rounds_left_till_superpower_is_ready = 3;
+
     this->Is_serom_Khon_ongoing = false;
     this->Round_since_Serom_khon  = 0;
+
+    this->Rounds_Since_Doping = 0;
+    this->Is_Doped = false;
+    this->Is_Family_StrongHold_ongoing = false;
+    this->Round_Since_Family_StrongHold = 0;
+    this->amount_damage_when_family_stronghold_is_active = 0;
     
 }
 
@@ -231,10 +245,17 @@ Dani_Golang::Dani_Golang()
     this->Skill2_Energy_Cost = 2;
     this->Skill1_Energy_Cost = 4;
     this->SuperPower_Energy_Cost = 4;
-    this->Start_SuperPower =  false;
     this->Is_Hero_Dead = false;
-    this->Round_Use_SuperPower = 0;
-    this->rounds_left_till_superpower_is_ready = 4;    
+    this->rounds_left_till_superpower_is_ready = 4;
+
+    this->Is_Family_StrongHold_ongoing = false;
+    this->Round_Since_Family_StrongHold = 0;
+    this->amount_damage_when_family_stronghold_is_active = 0;
+    
+    this->Rounds_Since_Doping = 0;
+    this->Is_Doped = false;
+    this->Is_serom_Khon_ongoing = false;
+    this->Round_since_Serom_khon =  0;
 }
 
 bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
@@ -320,6 +341,14 @@ Amin_Emeni::Amin_Emeni()
     this->SuperPower_Energy_Cost = 4;
     this->Is_Hero_Dead = false;
     this->rounds_left_till_superpower_is_ready = 3;
+
+    this->Rounds_Since_Doping = 0;
+    this->Is_Doped = false;
+    this->Is_serom_Khon_ongoing = false;
+    this->Round_since_Serom_khon =  0;
+    this->Is_Family_StrongHold_ongoing = false;
+    this->Round_Since_Family_StrongHold = 0;
+    this->amount_damage_when_family_stronghold_is_active = 0;
 }
 
 bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
@@ -412,6 +441,14 @@ Taha_Bozorge::Taha_Bozorge()
     this->Rounds_Since_Xray = 0;
     this->Rounds_Since_SuperPower = 0;
     this->Save_Selected_Enemy_Index = 0;
+
+    this->Rounds_Since_Doping = 0;
+    this->Is_Doped = false;
+    this->Is_serom_Khon_ongoing = false;
+    this->Round_since_Serom_khon =  0;
+    this->Is_Family_StrongHold_ongoing = false;
+    this->Round_Since_Family_StrongHold = 0;
+    this->amount_damage_when_family_stronghold_is_active = 0;
 }
 
 bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user, Controller &controller)
@@ -514,6 +551,14 @@ Pouya_Kajdom::Pouya_Kajdom()
     {
         this->Enemy_Array_With_Respect_To_Active_Scorpiens[i] = NONE;
     }
+
+    this->Rounds_Since_Doping = 0;
+    this->Is_Doped = false;
+    this->Is_serom_Khon_ongoing = false;
+    this->Round_since_Serom_khon =  0;
+    this->Is_Family_StrongHold_ongoing = false;
+    this->Round_Since_Family_StrongHold = 0;
+    this->amount_damage_when_family_stronghold_is_active = 0;
 }
 
 bool Pouya_Kajdom::Activate_scorpien(Hero_Abstaction* enemies[3], Controller &controller)
@@ -619,6 +664,14 @@ Agha_Shahriar::Agha_Shahriar()
     this->rounds_left_till_superpower_is_ready = 4;
     this->Is_SuperPower_Active = false;
     this->Rounds_Since_SuperPower = 0;
+
+    this->Rounds_Since_Doping = 0;
+    this->Is_Doped = false;
+    this->Is_serom_Khon_ongoing = false;
+    this->Round_since_Serom_khon =  0;
+    this->Is_Family_StrongHold_ongoing = false;
+    this->Round_Since_Family_StrongHold = 0;
+    this->amount_damage_when_family_stronghold_is_active = 0;
     
 }
 
