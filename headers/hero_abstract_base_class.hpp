@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "enums.hpp"
+#include "controller.hpp"
 class User;
 
 class Hero_Abstaction //abstract class
@@ -32,6 +33,10 @@ class Hero_Abstaction //abstract class
         //for doping power (whitedoctor)
         void Activate_Doping();
         void Updated_Doping_Status();
+
+        //for serom_khon power (taha_kochike)
+        void Activate_Serom_Khon();
+        void Updated_Serom_Khon_Status(Controller &controller);
     protected:
         int Current_Hp; // this shows how much health the hero has got left
         int Initial_Hp; // this is how much hp a hero has with out any damage
@@ -47,6 +52,10 @@ class Hero_Abstaction //abstract class
         //for doping power (whitedoctor)
         bool Is_Doped;
         int Rounds_Since_Doping;//keeping track of Doping duration
+
+        //for serom_khon power (taha_kochike)
+        bool Is_serom_Khon_ongoing;
+        int Round_since_Serom_khon;
 };
 
 

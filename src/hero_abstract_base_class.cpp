@@ -146,3 +146,22 @@ void Hero_Abstaction::Updated_Doping_Status()
             Is_Doped = false;
     }
 }
+
+void Hero_Abstaction::Activate_Serom_Khon()
+{
+    Is_serom_Khon_ongoing = true;
+    Round_since_Serom_khon = 2;
+}
+
+void Hero_Abstaction::Updated_Serom_Khon_Status(Controller &controller)
+{
+    if(Is_serom_Khon_ongoing)
+    {
+        controller.Apply_Healed(this, 40);
+
+        Round_since_Serom_khon--;
+
+        if(Is_serom_Khon_ongoing == 0)
+            Round_since_Serom_khon = false;
+    }
+}

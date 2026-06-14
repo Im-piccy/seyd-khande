@@ -67,7 +67,7 @@ bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user)
         allies[selected_index]->Activate_Doping();
         user.Set_Energy(Skill2_Energy_Cost);
     }
-    allies[selected_index]->Updated_Doping_Status();
+    //allies[selected_index]->Updated_Doping_Status();    at the end of each round
     Set_Is_Hero_Dead();
     return true;
 }
@@ -127,7 +127,7 @@ Taha_Kochike::Taha_Kochike()
     this->Is_Hero_Dead = false;
     this->rounds_left_till_superpower_is_ready = 3;
     this->Is_serom_Khon_ongoing = false;
-    this->Round_since_Serom = 0;
+    this->Round_since_Serom_khon  = 0;
     
 }
 
@@ -164,21 +164,20 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Ab
 
 bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &user, Controller &controller)
 {
-    Seeded();
-    std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
-    if(valid_indexes[3] == 0)
-        return false;
-    int random_position = std::rand() % valid_indexes[3];
-    int selected_index = valid_indexes[random_position];
-
-    Is_serom_Khon_ongoing = true;
-    if(Round_since_Serom >= 2)
+    static int selected_index;
+    if(!Is_serom_Khon_ongoing)
     {
+        Seeded();
+        std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
+        if(valid_indexes[3] == 0)
+            return false;
+        int random_position = std::rand() % valid_indexes[3];
+        selected_index = valid_indexes[random_position];
+        allies[selected_index]->Activate_Serom_Khon();
         user.Set_Energy(Skill1_Energy_Cost);
-        Round_since_Serom = 0;
     }
-    controller.Apply_Healed(allies[selected_index], 40);
-    Round_since_Serom++;
+    //Updated_Serom_Khon_Status(controller);   at the end of each round 
+    controller.Apply_Healed(allies[selected_index], 80);
     Set_Is_Hero_Dead();
     return true;
 }
@@ -688,7 +687,7 @@ bool Agha_Shahriar::Execute_SuperPower(User &user, Controller &controller)
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
     controller.Activate_Reverse_World();
-    controller.Update_Reverse_World();
+    //controller.Update_Reverse_World(); at the end of each round
     user.Set_Energy(SuperPower_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;

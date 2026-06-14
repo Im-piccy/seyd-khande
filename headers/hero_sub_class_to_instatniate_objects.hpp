@@ -25,7 +25,7 @@ class WhiteDoctor : public Hero_Abstaction//healer
     private:
         //bool Is_Doping_Ongoing;//to know if any of team heros are being doped
         //int Rounds_Since_Doping;//keeping track of Doping duration
-        int Hero_Being_Doped;//keeping track of who is being doped
+        //int Hero_Being_Doped;//keeping track of who is being doped
 };
 
 class Taha_Kochike : public Hero_Abstaction//healer
@@ -43,8 +43,8 @@ class Taha_Kochike : public Hero_Abstaction//healer
         virtual bool Execute_SuperSkill(Argument_Skills_Functions parameters) override;
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
-        bool Is_serom_Khon_ongoing;
-        int Round_since_Serom;
+        //bool Is_serom_Khon_ongoing;
+        //int Round_since_Serom;
         int Hero_under_Serom;
 };
 
