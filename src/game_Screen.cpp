@@ -112,8 +112,9 @@ void Game::Game_Screen()
     static std::array <int, 3> user2_hero_arr;
     static Vector2 User1_name_size;
     static Vector2 User2_name_size;
-    static char user1_energy[10] = {};
-    static char user2_energy[10] = {};
+    static char user1_energy[5] = {};
+    static char user2_energy[5] = {};
+    static char current_round[5] = {};
     static std::array <Texture2D,3> user1_ability_texture_array;
     static std::array <Texture2D,3> user2_ability_texture_array;
     
@@ -156,6 +157,7 @@ void Game::Game_Screen()
 
     string_to_char_array(std::to_string(user1.Get_Energy()), user1_energy);
     string_to_char_array(std::to_string(user2.Get_Energy()), user2_energy);
+    string_to_char_array(std::to_string(control.return_round_number()), current_round);
     
 
 
@@ -719,6 +721,9 @@ void Game::Game_Screen()
         //user2 info
         DrawTextEx(font, user2_name,{912 - (User2_name_size.x / 2), 524 - (User2_name_size.y / 2)}, 20, 0, GRAY);
         DrawText(user2_energy, 910, 565, 20, GRAY);
+
+        //round number
+        DrawText(current_round, 480, 540, 30, WHITE);
 
         //now for highlighting  text for whom ever turn it is
         if(User_Turn == USER1)
