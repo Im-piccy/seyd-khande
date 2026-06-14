@@ -62,8 +62,6 @@ class Dani_Golang : public Hero_Abstaction //defender
         virtual int return_rounds_left_till_superpower_is_ready() override;    
     private:
         int Last_Attacked_Enemy;
-        int Round_Use_Ghofli_Ability;
-        bool Repete_Ghofli_Ability;
         bool Start_SuperPower;
         int Round_Use_SuperPower;
 

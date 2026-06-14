@@ -227,9 +227,8 @@ Dani_Golang::Dani_Golang()
     this->Current_Hp = 600;
     this->Initial_Hp = 600;
     this->hero_type = DEFENDER;
+    this->Last_Attacked_Enemy = 3; // any number except from [0,3)
     this->Skill2_Energy_Cost = 2;
-    this->Repete_Ghofli_Ability = false;
-    this->Round_Use_Ghofli_Ability = 0;
     this->Skill1_Energy_Cost = 4;
     this->SuperPower_Energy_Cost = 4;
     this->Start_SuperPower =  false;
@@ -242,15 +241,15 @@ bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int select
 {
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
-    if(Repete_Ghofli_Ability && Round_Use_Ghofli_Ability == 1)
+    if(Last_Attacked_Enemy != selected_enemy_index)
+    {
+        Last_Attacked_Enemy = selected_enemy_index;
+        controller.Apply_Damaged(enemies[selected_enemy_index], 20);
+    }
+    else 
     {
         controller.Apply_Damaged(enemies[selected_enemy_index], 38);
-        Repete_Ghofli_Ability = false;
-        Round_Use_Ghofli_Ability = 0;
     }
-    controller.Apply_Damaged(enemies[selected_enemy_index], 20);
-    Round_Use_Ghofli_Ability++;
-    Repete_Ghofli_Ability = true;
     user.Set_Energy(Skill2_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
