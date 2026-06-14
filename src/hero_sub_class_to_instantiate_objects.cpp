@@ -191,7 +191,7 @@ bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &
         user.Set_Energy(Skill1_Energy_Cost);
     }
     //Updated_Serom_Khon_Status(controller);   at the end of each round 
-    controller.Apply_Healed(allies[selected_index], 80);
+    //controller.Apply_Healed(allies[selected_index], 80);
     Set_Is_Hero_Dead();
     return true;
 }
@@ -373,7 +373,7 @@ bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
 
-    controller.Apply_Damaged(allies[selected_index], 20);
+    controller.Apply_Damaged(allies[selected_index], 25);
     controller.Apply_Healed(this, 75);
     user.Set_Energy(Skill1_Energy_Cost);
     Set_Is_Hero_Dead();
@@ -465,6 +465,7 @@ bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &use
 
 bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index , User &user, Controller &controller)
 {
+    //not completed yet...
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
     Is_Xray_Ongoing = true;
@@ -483,9 +484,17 @@ bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selecte
 
 bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, Controller &controller)
 {
+    // not completed yet.....
     if(rounds_left_till_superpower_is_ready != 0)
         return false;
-    if(Rounds_Since_SuperPower == 0)
+
+    Seeded();
+    std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
+    if(valid_indexes[3] == 0)
+        return false;
+    int random_position = std::rand() % valid_indexes[3];
+    Save_Selected_Enemy_Index = valid_indexes[random_position];
+    /*if(Rounds_Since_SuperPower == 0)
     {
         Seeded();
         std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
@@ -505,7 +514,7 @@ bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, C
         Save_Selected_Enemy_Index = 0;
         Rounds_Since_SuperPower = 0;
     }
-    Rounds_Since_SuperPower++;
+    Rounds_Since_SuperPower++;*/
     Set_Is_Hero_Dead();
     return true;
 }
@@ -595,7 +604,7 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
 {
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
-    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] != NONE)
+    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == SCORPIEN)
         return false;
     Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] =  SCORPIEN;
     Activate_scorpien(enemies, controller);

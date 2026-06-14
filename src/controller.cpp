@@ -247,13 +247,13 @@ bool Controller::Is_Reverse_World_Active()
     return this->Reverse_World_Active;
 }
 
-void Controller::Activate_Reverse_World()
+void Controller::Activate_Reverse_World()// for superpower of joker
 {
     Reverse_World_Active = true;
     Reverse_World_Rounds_Left = 2;
 }
 
-void Controller::Update_Reverse_World()
+void Controller::Update_Reverse_World()// for superpower of joker
 {
     if(!Reverse_World_Active)
         return;
@@ -267,7 +267,7 @@ void Controller::Update_Reverse_World()
     }
 }
 
-void Controller::Apply_Healed(Hero_Abstaction* ally, int healing_points)
+void Controller::Apply_Healed(Hero_Abstaction* ally, int healing_points)// for superpower of joker
 {
     if(ally == nullptr)
         return;
@@ -277,7 +277,7 @@ void Controller::Apply_Healed(Hero_Abstaction* ally, int healing_points)
         ally->Get_Damaged(healing_points);
 }
 
-void Controller::Apply_Damaged(Hero_Abstaction* enemy, int damaging_point)
+void Controller::Apply_Damaged(Hero_Abstaction* enemy, int damaging_point)// for superpower of joker
 {
 
     if(enemy == nullptr)

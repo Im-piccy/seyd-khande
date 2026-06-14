@@ -3,7 +3,7 @@
 void Hero_Abstaction::Get_Damaged(int damaging_points)
 {
     if(Is_Doped)
-        damaging_points = damaging_points * 1,2; 
+        damaging_points = damaging_points * 1.2; 
     if(Is_Family_StrongHold_ongoing)
     {
         amount_damage_when_family_stronghold_is_active += damaging_points;
@@ -181,7 +181,7 @@ void Hero_Abstaction::Activate_Family_StrongHold()
     Round_Since_Family_StrongHold = 2;
 }
 
-void Hero_Abstaction::Updated_Family_StrongHold_Status(int selected_enemy_index, Controller &controller)
+void Hero_Abstaction::Updated_Family_StrongHold_Status()
 {
     if(Is_Family_StrongHold_ongoing)
     {

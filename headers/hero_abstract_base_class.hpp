@@ -40,7 +40,12 @@ class Hero_Abstaction //abstract class
 
         //for family stronghold (superpower of dani_golang)
         void Activate_Family_StrongHold();
-        void Updated_Family_StrongHold_Status(int selected_enemy_index, Controller &controller);
+        void Updated_Family_StrongHold_Status();
+
+        //for brother revenge power(superpower of taha_ozorge)
+        //void Activate_Brother_revenge();
+        //void Updated_Brother_Revenge_Status();
+        
     protected:
         int Current_Hp; // this shows how much health the hero has got left
         int Initial_Hp; // this is how much hp a hero has with out any damage
