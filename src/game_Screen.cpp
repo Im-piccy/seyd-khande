@@ -118,6 +118,7 @@ void Game::Game_Screen()
     static char current_round[5] = {};
     static std::array <Texture2D,3> user1_ability_texture_array;
     static std::array <Texture2D,3> user2_ability_texture_array;
+    static Argument_Skills_Functions parameters;
     
     //loading game screen textures
     if(!are_textures_loaded)
@@ -884,7 +885,7 @@ void Game::Game_Screen()
 
     if(should_execute_ability)
     {
-        
+        control.execute_user_ask_to_use_hero_ability_if_possible(enemy_to_stay_highlighted, parameters, hero_to_be_animated_index, ability_to_stay_highlighted, User_Turn, user1, user2);
     }
 
 
@@ -913,6 +914,8 @@ void Game::Game_Screen()
         if(change_turn_or_finish_round(User_Turn, control.return_user_whom_started_the_game_as_an_int()))
         {
             control.Finish_Round();
+            control.Updated_Doping_Status(User_Turn);
+            control.Updated_Serom_Khon_Status(User_Turn);
         }
 
 

@@ -94,7 +94,6 @@ bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Con
     int selected_index = valid_indexes[random_position];
     controller.Apply_Healed(allies[selected_index], 200);
     user.Set_Energy(SuperPower_Energy_Cost);
-    rounds_left_till_superpower_is_ready = 0;
     Set_Is_Hero_Dead();
     return true; 
 }

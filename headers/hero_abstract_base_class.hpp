@@ -33,11 +33,17 @@ class Hero_Abstaction //abstract class
         
         //for doping power (whitedoctor)
         void Activate_Doping();
-        void Updated_Doping_Status();
+        bool Return_Is_Doped() const;
+        int Return_Rounds_Since_Doping() const;
+        void Reduce_Round_Doping();
+        void Set_Is_Doped();
 
         //for serom_khon power (taha_kochike)
         void Activate_Serom_Khon();
-        void Updated_Serom_Khon_Status(Controller &controller);
+        bool Return_Is_serom_Khon_ongoing() const;
+        int Return_Round_since_Serom_khon() const;
+        void Reduce_Round_Serom_Khon();
+        void Set_Is_serom_Khon_ongoing();
 
         //for family stronghold (superpower of dani_golang)
         void Activate_Family_StrongHold();

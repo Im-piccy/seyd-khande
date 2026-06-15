@@ -478,3 +478,63 @@ void Controller::Refill_Players_Energy(User &user1, User &user2)
     }
 }
 
+void Controller::Updated_Doping_Status(int user_turn)
+{
+    if(user_turn == USER1)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User1[i]->Return_Is_Doped())
+            {
+                Hero_Arr_User1[i]->Reduce_Round_Doping();
+                if(Hero_Arr_User1[i]->Return_Rounds_Since_Doping() <= 0)
+                    Hero_Arr_User1[i]->Set_Is_Doped();
+                break;
+            }
+        }
+    }
+    else
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User2[i]->Return_Is_Doped())
+            {
+                Hero_Arr_User2[i]->Reduce_Round_Doping();
+                if(Hero_Arr_User2[i]->Return_Rounds_Since_Doping() <= 0)
+                    Hero_Arr_User2[i]->Set_Is_Doped();
+                break;
+            }
+        }
+    }
+}
+
+void Controller::Updated_Serom_Khon_Status(int user_turn)
+{
+    if(user_turn == USER1)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User1[i]->Return_Is_serom_Khon_ongoing())
+            {
+                Hero_Arr_User1[i]->Reduce_Round_Serom_Khon();
+                if(Hero_Arr_User1[i]->Return_Round_since_Serom_khon() <= 0)
+                    Hero_Arr_User1[i]->Set_Is_serom_Khon_ongoing();
+                break;
+            }
+        }
+    }
+    else
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User2[i]->Return_Is_serom_Khon_ongoing())
+            {
+                Apply_Healed(Hero_Arr_User2[i], 40);
+                Hero_Arr_User2[i]->Reduce_Round_Serom_Khon();
+                if(Hero_Arr_User2[i]->Return_Round_since_Serom_khon() <= 0)
+                    Hero_Arr_User2[i]->Set_Is_serom_Khon_ongoing();
+                break;
+            }
+        }
+    }
+}

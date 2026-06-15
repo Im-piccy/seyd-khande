@@ -142,21 +142,35 @@ int Hero_Abstaction::Return_SuperPower_Energy_Cost()
     return SuperPower_Energy_Cost;
 }
 
+
+//-----------------------------------------Doping(whitedoctor)-----------------------------------------
 void Hero_Abstaction::Activate_Doping()
 {
     Is_Doped = true;
     Rounds_Since_Doping = 2;
 }
 
-void Hero_Abstaction::Updated_Doping_Status()
+bool Hero_Abstaction::Return_Is_Doped() const
 {
-    if(Is_Doped)
-    {
-        Rounds_Since_Doping--;
-        if(Rounds_Since_Doping <= 0)
-            Is_Doped = false;
-    }
+    return Is_Doped;
 }
+
+int Hero_Abstaction::Return_Rounds_Since_Doping() const
+{
+    return Rounds_Since_Doping;
+}
+
+void Hero_Abstaction::Reduce_Round_Doping()
+{
+    Rounds_Since_Doping--;
+}
+
+void Hero_Abstaction::Set_Is_Doped()
+{
+    Is_Doped = false;
+}
+//-------------------------------------------------------------------------------------------------
+//-------------------------------------serom_khon(taha-kochike)------------------------------------
 
 void Hero_Abstaction::Activate_Serom_Khon()
 {
@@ -164,17 +178,27 @@ void Hero_Abstaction::Activate_Serom_Khon()
     Round_since_Serom_khon = 2;
 }
 
-void Hero_Abstaction::Updated_Serom_Khon_Status(Controller &controller)// initailize when put in controller (whit object from Hero_Abstaction class)
+bool Hero_Abstaction::Return_Is_serom_Khon_ongoing() const
 {
-    if(Is_serom_Khon_ongoing)
-    {
-        controller.Apply_Healed(this, 40);
-        Round_since_Serom_khon--;
-        if(Round_since_Serom_khon <= 0)
-            Is_serom_Khon_ongoing = false;
-    }
+    return Is_serom_Khon_ongoing;
 }
 
+int Hero_Abstaction::Return_Round_since_Serom_khon() const
+{
+    return Round_since_Serom_khon;
+}
+
+void Hero_Abstaction::Reduce_Round_Serom_Khon()
+{
+    Round_since_Serom_khon--;
+}
+
+void Hero_Abstaction::Set_Is_serom_Khon_ongoing()
+{
+    Is_serom_Khon_ongoing = false;
+}
+//----------------------------------------------------------------------------------------------------
+//----------------------------------familiy_stronghold(dani_golang)-----------------------------------
 void Hero_Abstaction::Activate_Family_StrongHold()
 {
     Is_Family_StrongHold_ongoing = true;

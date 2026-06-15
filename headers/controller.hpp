@@ -35,6 +35,12 @@ class Controller
         void Update_Reverse_World();
         void Apply_Healed(Hero_Abstaction* ally, int healing_points);
         void Apply_Damaged(Hero_Abstaction* enemy, int damaging_point);
+
+        //for the doping power of whitedoctor
+        void Updated_Doping_Status(int user_turn);
+        //for the serom_khon power of taha_kochike
+        void Updated_Serom_Khon_Status(int user_turn);
+        
         
         ~Controller();
         
