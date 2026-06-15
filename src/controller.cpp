@@ -292,6 +292,14 @@ void Controller::Finish_Round()
 {
     if(round_number >= 15)
         return;
+
+    //this loop is to update hero superpower variable
+    //that indicates how many rounds is left to make it avaible
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        Hero_Arr_User1[i]->update_superpower_rounds_left_at_the_end_of_round();
+        Hero_Arr_User2[i]->update_superpower_rounds_left_at_the_end_of_round();
+    }
     round_number++;
 }
 
