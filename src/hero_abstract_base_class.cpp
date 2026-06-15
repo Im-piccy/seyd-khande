@@ -225,7 +225,7 @@ void Hero_Abstaction::Set_Is_Family_StrongHold_ongoing()
     Is_Family_StrongHold_ongoing = false;
 }
 //-------------------------------------------------------------------------------------------------------
-//----------------
+//---------------------------superpower(pouya_kajdom) & XRay(taha_bozorge)-------------------------------
 
 bool Hero_Abstaction::Return_Is_Hidden() const
 {
@@ -244,7 +244,7 @@ void Hero_Abstaction::Updated_Round_Hidden()
     }
 }
 
-//------------------------------------------brother_revenge(taha_bozorge)------------------------------------
+//--------------------------------------brother_revenge(taha_bozorge)------------------------------------
 void Hero_Abstaction::Activate_Brother_revenge()
 {
     Is_Brother_Revenge_Ongoing = true;

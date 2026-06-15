@@ -181,22 +181,16 @@ bool Taha_Kochike::Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Ab
     return false;
 }
 
-bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &user, Controller &controller)
+bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &user)
 {
-    static int selected_index;
-    if(!Is_serom_Khon_ongoing)
-    {
-        Seeded();
-        std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
-        if(valid_indexes[3] == 0)
-            return false;
-        int random_position = std::rand() % valid_indexes[3];
-        selected_index = valid_indexes[random_position];
-        allies[selected_index]->Activate_Serom_Khon();
-        user.Set_Energy(Skill1_Energy_Cost);
-    }
-    //Updated_Serom_Khon_Status(controller);   at the end of each round 
-    //controller.Apply_Healed(allies[selected_index], 80);
+    Seeded();
+    std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
+    if(valid_indexes[3] == 0)
+        return false;
+    int random_position = std::rand() % valid_indexes[3];
+    int selected_index = valid_indexes[random_position];
+    allies[selected_index]->Activate_Serom_Khon();
+    user.Set_Energy(Skill1_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
 }
@@ -217,7 +211,7 @@ bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Co
 
 bool Taha_Kochike::Execute_Skill1(Argument_Skills_Functions parameters)
 {
-    return Execute_Serom_Khon_Ability(parameters.allies, *parameters.user, *parameters.controller);
+    return Execute_Serom_Khon_Ability(parameters.allies, *parameters.user);
 }
 
 bool Taha_Kochike::Execute_Skill2(Argument_Skills_Functions parameters)
@@ -305,7 +299,7 @@ bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int sele
     return true;
 }
 
-bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Controller &controller)
+bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 {
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
@@ -330,7 +324,7 @@ bool Dani_Golang::Execute_Skill2(Argument_Skills_Functions parameters)
 
 bool Dani_Golang::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.allies, *parameters.user, *parameters.controller);
+    return Execute_SuperPower(parameters.allies, *parameters.user);
 }
 
 int Dani_Golang::return_rounds_left_till_superpower_is_ready()
@@ -461,7 +455,6 @@ Taha_Bozorge::Taha_Bozorge()
     this->SuperPower_Energy_Cost = 4;
     this->Is_Hero_Dead = false;
     this->rounds_left_till_superpower_is_ready = 4;
-    this->Save_Selected_Enemy_Index = 0;
 
     this->Rounds_Since_Doping = 0;
     this->Is_Doped = false;
@@ -504,7 +497,7 @@ bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selecte
     return true;
 }
 
-bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, Controller &controller)
+bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
 {
     if(rounds_left_till_superpower_is_ready != 0)
         return false;
@@ -513,9 +506,8 @@ bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, C
     if(valid_indexes[3] == 0)
         return false;
     int random_position = std::rand() % valid_indexes[3];
-    Save_Selected_Enemy_Index = valid_indexes[random_position];
-    enemies[Save_Selected_Enemy_Index]->Activate_Brother_revenge();
-    rounds_left_till_superpower_is_ready = 0;
+    int selected_index = valid_indexes[random_position];
+    enemies[selected_index]->Activate_Brother_revenge();
     Set_Is_Hero_Dead();
     return true;
 }
@@ -532,7 +524,7 @@ bool Taha_Bozorge::Execute_Skill2(Argument_Skills_Functions parameters)
 
 bool Taha_Bozorge::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.enemies, *parameters.user, *parameters.controller);
+    return Execute_SuperPower(parameters.enemies, *parameters.user);
 }
 
 int Taha_Bozorge::return_rounds_left_till_superpower_is_ready()
@@ -621,7 +613,7 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
     return true;
 }
 
-bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, Controller &controller)
+bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
 {
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
@@ -651,7 +643,7 @@ bool Pouya_Kajdom::Execute_Skill2(Argument_Skills_Functions parameters)
 
 bool Pouya_Kajdom::Execute_SuperSkill(Argument_Skills_Functions parameters)
 {
-    return Execute_SuperPower(parameters.enemies, *parameters.user, *parameters.controller);
+    return Execute_SuperPower(parameters.enemies, *parameters.user);
 }
 
 int Pouya_Kajdom::return_rounds_left_till_superpower_is_ready()

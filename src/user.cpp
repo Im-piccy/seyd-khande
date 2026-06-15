@@ -58,11 +58,3 @@ std::array<int,3> User::Get_Hero_Array() const
 {
     return Hero_Arr;
 }
-
-
-
-std::array<int,2> User::call_hero_abillity(int hero_type, int abillity_type)
-{
-    std::array<int,2> Hero_And_HisAbillity = {hero_type, abillity_type};
-    return Hero_And_HisAbillity;
-}
