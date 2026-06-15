@@ -191,7 +191,66 @@ void Hero_Abstaction::Updated_Family_StrongHold_Status()
     }
 }
 
+bool Hero_Abstaction::Return_Is_Hidden() const
+{
+    return this->Is_Hidden;
+}
 
+void Hero_Abstaction::Updated_Round_Hidden()
+{
+    if(Is_Hidden)
+    {
+        Hidden_Round_Left--;
+        if(Hidden_Round_Left <= 0)
+        {
+            Is_Hidden = false;
+        }
+    }
+}
+
+void Hero_Abstaction::Activate_Brother_revenge()
+{
+    Is_Brother_Revenge_Ongoing = true;
+    Round_Brother_Revenge_Left = 1;
+}
+
+void Hero_Abstaction::Updated_Brother_Revenge_Status(Controller &controller)// initailize when put in controller (whit object from Hero_Abstaction class)
+{
+    if(Is_Brother_Revenge_Ongoing)
+    {
+        Round_Brother_Revenge_Left--;
+        if(Round_Brother_Revenge_Left <= 0)
+        {
+            if(Get_Current_Hp() <= 360)
+                if(!this->Return_Is_Hidden())
+                    controller.Apply_Damaged(this, Get_Current_Hp());
+            else 
+                if(!this->Return_Is_Hidden())
+                    controller.Apply_Damaged(this, 200);
+            Is_Brother_Revenge_Ongoing = false;
+        }
+    }
+}
+
+void Hero_Abstaction::Activate_Dom_Kajdom(Argument_Skills_Functions parameters)// initailize when put in controller (whit object from Hero_Abstaction class)
+{
+    if(Is_Hidden)
+    {
+        Hidden_Round_Left--;
+        if(Hidden_Round_Left <= 0)
+        {
+            Is_Hidden = false;
+            Seeded();
+            std::array<int,4> valid_indexes = Valid_Index_Hero(parameters.enemies);
+            if(valid_indexes[3] == 0)
+                return;
+            int random_position = std::rand() % valid_indexes[3];
+            int selected_index = valid_indexes[random_position];
+            if(!parameters.enemies[selected_index]->Return_Is_Hidden())
+                (*parameters.controller).Apply_Damaged(parameters.enemies[selected_index], 450);
+        }
+    }
+}
 
 void Hero_Abstaction::update_superpower_rounds_left_at_the_end_of_round()
 {
