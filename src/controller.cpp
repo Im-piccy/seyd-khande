@@ -241,12 +241,6 @@ bool Controller::should_change_turn(int user_turn, int user1_current_energy, int
     }
 }
 
-
-bool Controller::Is_Reverse_World_Active()
-{
-    return this->Reverse_World_Active;
-}
-
 void Controller::Activate_Reverse_World()// for superpower of joker
 {
     Reverse_World_Active = true;
@@ -471,7 +465,6 @@ void Controller::Updated_Doping_Status(int user_turn)
                 Hero_Arr_User1[i]->Reduce_Round_Doping();
                 if(Hero_Arr_User1[i]->Return_Rounds_Since_Doping() <= 0)
                     Hero_Arr_User1[i]->Set_Is_Doped();
-                break;
             }
         }
     }
@@ -484,7 +477,6 @@ void Controller::Updated_Doping_Status(int user_turn)
                 Hero_Arr_User2[i]->Reduce_Round_Doping();
                 if(Hero_Arr_User2[i]->Return_Rounds_Since_Doping() <= 0)
                     Hero_Arr_User2[i]->Set_Is_Doped();
-                break;
             }
         }
     }
@@ -502,7 +494,6 @@ void Controller::Updated_Serom_Khon_Status(int user_turn)
                 Hero_Arr_User1[i]->Reduce_Round_Serom_Khon();
                 if(Hero_Arr_User1[i]->Return_Round_since_Serom_khon() <= 0)
                     Hero_Arr_User1[i]->Set_Is_serom_Khon_ongoing();
-                break;
             }
         }
     }
@@ -516,7 +507,6 @@ void Controller::Updated_Serom_Khon_Status(int user_turn)
                 Hero_Arr_User2[i]->Reduce_Round_Serom_Khon();
                 if(Hero_Arr_User2[i]->Return_Round_since_Serom_khon() <= 0)
                     Hero_Arr_User2[i]->Set_Is_serom_Khon_ongoing();
-                break;
             }
         }
     }
@@ -533,7 +523,6 @@ void Controller::Updated_Family_StrongHold_Status(int user_turn)
                 Hero_Arr_User1[i]->Reduce_Round_Famly_StrongHold();
                 if(Hero_Arr_User1[i]->Return_Round_Since_Family_StrongHold() <= 0)
                     Hero_Arr_User1[i]->Set_Is_Family_StrongHold_ongoing();
-                break;
             }
         }
     }
@@ -546,7 +535,6 @@ void Controller::Updated_Family_StrongHold_Status(int user_turn)
                 Hero_Arr_User2[i]->Reduce_Round_Famly_StrongHold();
                 if(Hero_Arr_User2[i]->Return_Round_Since_Family_StrongHold() <= 0)
                     Hero_Arr_User2[i]->Set_Is_Family_StrongHold_ongoing();
-                break;
             }
         }
     }
@@ -571,7 +559,6 @@ void Controller::Updated_Brother_Revenge_Status(int user_turn)
                             Apply_Damaged(Hero_Arr_User2[i], 200);
                     Hero_Arr_User2[i]->Set_Is_Brother_Revenge_Ongoing();
                 }
-                break;
             }
         }
     }
@@ -592,7 +579,6 @@ void Controller::Updated_Brother_Revenge_Status(int user_turn)
                             Apply_Damaged(Hero_Arr_User1[i], 200);
                     Hero_Arr_User1[i]->Set_Is_Brother_Revenge_Ongoing();
                 }
-                break;
             }
         }
     }
@@ -613,7 +599,6 @@ void Controller::Updated_Dom_Kajdom_Status(int user_turn)
                     if(!Hero_Arr_User2[i]->Return_Is_Hidden())
                         Apply_Damaged(Hero_Arr_User2[i], 450);
                 }
-                break;
             }
         }
     }
@@ -630,7 +615,6 @@ void Controller::Updated_Dom_Kajdom_Status(int user_turn)
                     if(!Hero_Arr_User1[i]->Return_Is_Hidden())
                         Apply_Damaged(Hero_Arr_User1[i], 450);
                 }
-                break;
             }
         }
     }

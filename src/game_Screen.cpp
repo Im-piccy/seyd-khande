@@ -914,11 +914,13 @@ void Game::Game_Screen()
         if(change_turn_or_finish_round(User_Turn, control.return_user_whom_started_the_game_as_an_int()))
         {
             control.Finish_Round();
+            control.Refill_Players_Energy(user1,user2);
             control.Updated_Doping_Status(User_Turn);
             control.Updated_Serom_Khon_Status(User_Turn);
             control.Updated_Family_StrongHold_Status(User_Turn);
             control.Updated_Brother_Revenge_Status(User_Turn);
             control.Updated_Dom_Kajdom_Status(User_Turn);
+            control.Update_Reverse_World();
         }
 
 

@@ -30,7 +30,6 @@ class Controller
         int return_user_whom_started_the_game_as_an_int() const;
 
         //for the superpower of agha_shahriar
-        bool Is_Reverse_World_Active();
         void Activate_Reverse_World();
         void Update_Reverse_World();
         void Apply_Healed(Hero_Abstaction* ally, int healing_points);
@@ -46,6 +45,7 @@ class Controller
         void Updated_Brother_Revenge_Status(int user_turn);
         //for the dom kajdom super power of pouya_kajdom
         void Updated_Dom_Kajdom_Status(int uer_turn);
+        
         ~Controller();
         
     private:

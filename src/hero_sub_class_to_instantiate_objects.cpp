@@ -737,9 +737,7 @@ bool Agha_Shahriar::Execute_SuperPower(User &user, Controller &controller)
     if(rounds_left_till_superpower_is_ready != 4)
         return false;
     controller.Activate_Reverse_World();
-    //controller.Update_Reverse_World(); at the end of each round
     user.Set_Energy(SuperPower_Energy_Cost);
-    rounds_left_till_superpower_is_ready = 0;
     Set_Is_Hero_Dead();
     return true;
 }
