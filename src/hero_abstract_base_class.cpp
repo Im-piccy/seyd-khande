@@ -153,7 +153,7 @@ void Hero_Abstaction::Updated_Doping_Status()
     if(Is_Doped)
     {
         Rounds_Since_Doping--;
-        if(Rounds_Since_Doping == 0)
+        if(Rounds_Since_Doping <= 0)
             Is_Doped = false;
     }
 }
@@ -164,13 +164,13 @@ void Hero_Abstaction::Activate_Serom_Khon()
     Round_since_Serom_khon = 2;
 }
 
-void Hero_Abstaction::Updated_Serom_Khon_Status(Controller &controller)
+void Hero_Abstaction::Updated_Serom_Khon_Status(Controller &controller)// initailize when put in controller (whit object from Hero_Abstaction class)
 {
     if(Is_serom_Khon_ongoing)
     {
         controller.Apply_Healed(this, 40);
         Round_since_Serom_khon--;
-        if(Is_serom_Khon_ongoing == 0)
+        if(Round_since_Serom_khon <= 0)
             Is_serom_Khon_ongoing = false;
     }
 }
@@ -186,10 +186,12 @@ void Hero_Abstaction::Updated_Family_StrongHold_Status()
     if(Is_Family_StrongHold_ongoing)
     {
         Round_Since_Family_StrongHold--;
-        if(Round_Since_Family_StrongHold == 0)
+        if(Round_Since_Family_StrongHold <= 0)
             Is_Family_StrongHold_ongoing = false;
     }
 }
+
+
 
 void Hero_Abstaction::update_superpower_rounds_left_at_the_end_of_round()
 {
