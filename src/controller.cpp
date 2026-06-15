@@ -363,30 +363,21 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                if(Hero_Arr_User1[hero_index_in_array]->Return_Skill1_Energy_Cost() > user1.Get_Energy())
-                    Finish_Round();// i think you ment change turn
-                else  
-                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
+                Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
             }
         }
         else if(which_ability == SKILL2)
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                if(Hero_Arr_User1[hero_index_in_array]->Return_Skill2_Energy_Cost() > user1.Get_Energy())
-                    Finish_Round();
-                else  
-                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);
+                Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);
             }
         }
         else if(which_ability == SUPERPOWER)
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                if(Hero_Arr_User1[hero_index_in_array]->Return_SuperPower_Energy_Cost() > user1.Get_Energy())
-                    Finish_Round();
-                else 
-                    Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
+                Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
             }
         }
     }
@@ -396,30 +387,21 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                if(Hero_Arr_User2[hero_index_in_array]->Return_Skill1_Energy_Cost() > user2.Get_Energy())
-                    Finish_Round();
-                else  
-                    Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);
+                Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);
             }
         }
         else if(which_ability == SKILL2)
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                if(Hero_Arr_User2[hero_index_in_array]->Return_Skill2_Energy_Cost() > user2.Get_Energy())
-                    Finish_Round();
-                else  
-                    Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters);
+                Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters);
             }
         }
         else if(which_ability == SUPERPOWER)
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                if(Hero_Arr_User2[hero_index_in_array]->Return_SuperPower_Energy_Cost() > user2.Get_Energy())
-                    Finish_Round();
-                else 
-                    Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters);
+                Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters);
             }
         }
     }
@@ -516,6 +498,7 @@ void Controller::Updated_Serom_Khon_Status(int user_turn)
         {
             if(Hero_Arr_User1[i]->Return_Is_serom_Khon_ongoing())
             {
+                Apply_Healed(Hero_Arr_User1[i], 40);
                 Hero_Arr_User1[i]->Reduce_Round_Serom_Khon();
                 if(Hero_Arr_User1[i]->Return_Round_since_Serom_khon() <= 0)
                     Hero_Arr_User1[i]->Set_Is_serom_Khon_ongoing();
@@ -537,4 +520,119 @@ void Controller::Updated_Serom_Khon_Status(int user_turn)
             }
         }
     }
+}
+
+void Controller::Updated_Family_StrongHold_Status(int user_turn)
+{
+    if(user_turn == USER1)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User1[i]->Return_Is_Family_StrongHold_ongoing())
+            {
+                Hero_Arr_User1[i]->Reduce_Round_Famly_StrongHold();
+                if(Hero_Arr_User1[i]->Return_Round_Since_Family_StrongHold() <= 0)
+                    Hero_Arr_User1[i]->Set_Is_Family_StrongHold_ongoing();
+                break;
+            }
+        }
+    }
+    else
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User2[i]->Return_Is_Family_StrongHold_ongoing())
+            {
+                Hero_Arr_User2[i]->Reduce_Round_Famly_StrongHold();
+                if(Hero_Arr_User2[i]->Return_Round_Since_Family_StrongHold() <= 0)
+                    Hero_Arr_User2[i]->Set_Is_Family_StrongHold_ongoing();
+                break;
+            }
+        }
+    }
+}
+
+void Controller::Updated_Brother_Revenge_Status(int user_turn)
+{
+    if(user_turn == USER1)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User2[i]->Return_Is_Brother_Revenge_Ongoing())
+            {
+                Hero_Arr_User2[i]->Reduce_Round_Brother_Revenge();
+                if(Hero_Arr_User2[i]->Return_Round_Brother_Revenge_Left() <= 0)
+                {
+                    if(Hero_Arr_User2[i]->Get_Current_Hp() <= 360)
+                        if(!Hero_Arr_User2[i]->Return_Is_Hidden())
+                            Apply_Damaged(Hero_Arr_User2[i], Hero_Arr_User2[i]->Get_Current_Hp());
+                    else 
+                        if(!Hero_Arr_User2[i]->Return_Is_Hidden())
+                            Apply_Damaged(Hero_Arr_User2[i], 200);
+                    Hero_Arr_User2[i]->Set_Is_Brother_Revenge_Ongoing();
+                }
+                break;
+            }
+        }
+    }
+    else
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User1[i]->Return_Is_Brother_Revenge_Ongoing())
+            {
+                Hero_Arr_User1[i]->Reduce_Round_Brother_Revenge();
+                if(Hero_Arr_User1[i]->Return_Round_Brother_Revenge_Left() <= 0)
+                {
+                    if(Hero_Arr_User1[i]->Get_Current_Hp() <= 360)
+                        if(!Hero_Arr_User1[i]->Return_Is_Hidden())
+                            Apply_Damaged(Hero_Arr_User1[i], Hero_Arr_User1[i]->Get_Current_Hp());
+                    else 
+                        if(!Hero_Arr_User1[i]->Return_Is_Hidden())
+                            Apply_Damaged(Hero_Arr_User1[i], 200);
+                    Hero_Arr_User1[i]->Set_Is_Brother_Revenge_Ongoing();
+                }
+                break;
+            }
+        }
+    }
+}
+
+void Controller::Updated_Dom_Kajdom_Status(int user_turn)
+{
+    if(user_turn == USER1)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User2[i]->Return_Is_Dom_KajDom_Ongoing())
+            {
+                Hero_Arr_User2[i]->Reduce_Round_Dom_KajDom();
+                if(Hero_Arr_User2[i]->Return_Round_Dom_KajDom_Left() <= 0)
+                {
+                    Hero_Arr_User2[i]->Set_Is_Dom_KajDom_Ongoing();
+                    if(!Hero_Arr_User2[i]->Return_Is_Hidden())
+                        Apply_Damaged(Hero_Arr_User2[i], 450);
+                }
+                break;
+            }
+        }
+    }
+    else
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(Hero_Arr_User1[i]->Return_Is_Dom_KajDom_Ongoing())
+            {
+                Hero_Arr_User1[i]->Reduce_Round_Dom_KajDom();
+                if(Hero_Arr_User1[i]->Return_Round_Dom_KajDom_Left() <= 0)
+                {
+                    Hero_Arr_User1[i]->Set_Is_Dom_KajDom_Ongoing();
+                    if(!Hero_Arr_User1[i]->Return_Is_Hidden())
+                        Apply_Damaged(Hero_Arr_User1[i], 450);
+                }
+                break;
+            }
+        }
+    }
+
 }

@@ -916,6 +916,9 @@ void Game::Game_Screen()
             control.Finish_Round();
             control.Updated_Doping_Status(User_Turn);
             control.Updated_Serom_Khon_Status(User_Turn);
+            control.Updated_Family_StrongHold_Status(User_Turn);
+            control.Updated_Brother_Revenge_Status(User_Turn);
+            control.Updated_Dom_Kajdom_Status(User_Turn);
         }
 
 

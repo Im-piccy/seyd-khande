@@ -47,18 +47,28 @@ class Hero_Abstaction //abstract class
 
         //for family stronghold (superpower of dani_golang)
         void Activate_Family_StrongHold();
-        void Updated_Family_StrongHold_Status();
+        bool Return_Is_Family_StrongHold_ongoing() const;
+        int Return_Round_Since_Family_StrongHold () const;
+        void Reduce_Round_Famly_StrongHold();
+        void Set_Is_Family_StrongHold_ongoing();
 
-        //for XRay power (taha_bozorge)
+        //for XRay power (taha_bozorge) & super power of pouya_kajdom
         bool Return_Is_Hidden() const;
         void Updated_Round_Hidden();
 
         //for brother revenge power(superpower of taha_ozorge)
         void Activate_Brother_revenge();
-        void Updated_Brother_Revenge_Status(Controller &controller);
+        bool Return_Is_Brother_Revenge_Ongoing() const;
+        int Return_Round_Brother_Revenge_Left() const;
+        void Reduce_Round_Brother_Revenge();
+        void Set_Is_Brother_Revenge_Ongoing();
 
         //for superpower of pouya_kajdom
-        void Activate_Dom_Kajdom(Argument_Skills_Functions parameters);
+        void Activate_Dom_Kajdom();
+        bool Return_Is_Dom_KajDom_Ongoing() const;
+        int Return_Round_Dom_KajDom_Left() const;
+        void Reduce_Round_Dom_KajDom();
+        void Set_Is_Dom_KajDom_Ongoing();
         
     protected:
         int Current_Hp; // this shows how much health the hero has got left
@@ -92,6 +102,10 @@ class Hero_Abstaction //abstract class
         //for brother revenge power(superpower of taha_ozorge)
         bool Is_Brother_Revenge_Ongoing;
         int Round_Brother_Revenge_Left;
+
+        //for dom kajdom power(superpower of pouya_kajdom)
+        bool Is_Dom_KajDom_Ongoing;
+        int Round_Dom_KajDom_Left;
 
 };
 

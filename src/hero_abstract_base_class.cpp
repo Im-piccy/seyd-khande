@@ -205,15 +205,27 @@ void Hero_Abstaction::Activate_Family_StrongHold()
     Round_Since_Family_StrongHold = 2;
 }
 
-void Hero_Abstaction::Updated_Family_StrongHold_Status()
+bool Hero_Abstaction::Return_Is_Family_StrongHold_ongoing() const
 {
-    if(Is_Family_StrongHold_ongoing)
-    {
-        Round_Since_Family_StrongHold--;
-        if(Round_Since_Family_StrongHold <= 0)
-            Is_Family_StrongHold_ongoing = false;
-    }
+    return Is_Family_StrongHold_ongoing;
 }
+
+int Hero_Abstaction::Return_Round_Since_Family_StrongHold () const
+{
+    return Round_Since_Family_StrongHold;
+}
+
+void Hero_Abstaction::Reduce_Round_Famly_StrongHold()
+{
+    Round_Since_Family_StrongHold--;
+}
+
+void Hero_Abstaction::Set_Is_Family_StrongHold_ongoing()
+{
+    Is_Family_StrongHold_ongoing = false;
+}
+//-------------------------------------------------------------------------------------------------------
+//----------------
 
 bool Hero_Abstaction::Return_Is_Hidden() const
 {
@@ -232,49 +244,62 @@ void Hero_Abstaction::Updated_Round_Hidden()
     }
 }
 
+//------------------------------------------brother_revenge(taha_bozorge)------------------------------------
 void Hero_Abstaction::Activate_Brother_revenge()
 {
     Is_Brother_Revenge_Ongoing = true;
     Round_Brother_Revenge_Left = 1;
 }
 
-void Hero_Abstaction::Updated_Brother_Revenge_Status(Controller &controller)// initailize when put in controller (whit object from Hero_Abstaction class)
+bool Hero_Abstaction::Return_Is_Brother_Revenge_Ongoing() const
 {
-    if(Is_Brother_Revenge_Ongoing)
-    {
-        Round_Brother_Revenge_Left--;
-        if(Round_Brother_Revenge_Left <= 0)
-        {
-            if(Get_Current_Hp() <= 360)
-                if(!this->Return_Is_Hidden())
-                    controller.Apply_Damaged(this, Get_Current_Hp());
-            else 
-                if(!this->Return_Is_Hidden())
-                    controller.Apply_Damaged(this, 200);
-            Is_Brother_Revenge_Ongoing = false;
-        }
-    }
+    return Is_Brother_Revenge_Ongoing;
 }
 
-void Hero_Abstaction::Activate_Dom_Kajdom(Argument_Skills_Functions parameters)// initailize when put in controller (whit object from Hero_Abstaction class)
+int Hero_Abstaction::Return_Round_Brother_Revenge_Left() const
 {
-    if(Is_Hidden)
-    {
-        Hidden_Round_Left--;
-        if(Hidden_Round_Left <= 0)
-        {
-            Is_Hidden = false;
-            Seeded();
-            std::array<int,4> valid_indexes = Valid_Index_Hero(parameters.enemies);
-            if(valid_indexes[3] == 0)
-                return;
-            int random_position = std::rand() % valid_indexes[3];
-            int selected_index = valid_indexes[random_position];
-            if(!parameters.enemies[selected_index]->Return_Is_Hidden())
-                (*parameters.controller).Apply_Damaged(parameters.enemies[selected_index], 450);
-        }
-    }
+    return Round_Brother_Revenge_Left;
 }
+
+void Hero_Abstaction::Reduce_Round_Brother_Revenge()
+{
+    Round_Brother_Revenge_Left--;
+}
+
+void Hero_Abstaction::Set_Is_Brother_Revenge_Ongoing()
+{
+    Is_Brother_Revenge_Ongoing = false;
+}
+
+//-----------------------------------------------------------------------------------------------------------------
+//--------------------------------------------dom_kajdom(pouya_kajdom)---------------------------------------------
+void Hero_Abstaction::Activate_Dom_Kajdom()
+{
+    Is_Dom_KajDom_Ongoing = true;
+    Round_Dom_KajDom_Left = 3;
+
+}
+
+bool Hero_Abstaction::Return_Is_Dom_KajDom_Ongoing() const
+{
+    return Is_Dom_KajDom_Ongoing;
+}
+
+int Hero_Abstaction::Return_Round_Dom_KajDom_Left() const
+{
+    return Round_Dom_KajDom_Left;
+}
+
+void Hero_Abstaction::Reduce_Round_Dom_KajDom()
+{
+    Round_Dom_KajDom_Left--;
+}
+
+void Hero_Abstaction::Set_Is_Dom_KajDom_Ongoing()
+{
+    Is_Dom_KajDom_Ongoing = true;
+}
+//---------------------------------------------------------------------------------------------------------
 
 void Hero_Abstaction::update_superpower_rounds_left_at_the_end_of_round()
 {

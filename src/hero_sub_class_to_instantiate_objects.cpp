@@ -26,7 +26,8 @@ WhiteDoctor::WhiteDoctor()
     this->amount_damage_when_family_stronghold_is_active = 0;
     this->Is_Brother_Revenge_Ongoing = false;
     this->Round_Brother_Revenge_Left = 0;
-
+    this->Is_Dom_KajDom_Ongoing = false;
+    this->Round_Dom_KajDom_Left = 0;
 }
 
 bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller)
@@ -145,7 +146,8 @@ Taha_Kochike::Taha_Kochike()
     this->amount_damage_when_family_stronghold_is_active = 0;
     this->Is_Brother_Revenge_Ongoing = false;
     this->Round_Brother_Revenge_Left = 0;
-    
+    this->Is_Dom_KajDom_Ongoing = false;
+    this->Round_Dom_KajDom_Left = 0; 
 }
 
 bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller)
@@ -261,6 +263,8 @@ Dani_Golang::Dani_Golang()
     this->Round_since_Serom_khon =  0;
     this->Is_Brother_Revenge_Ongoing = false;
     this->Round_Brother_Revenge_Left = 0;
+    this->Is_Dom_KajDom_Ongoing = false;
+    this->Round_Dom_KajDom_Left = 0;
 }
 
 bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
@@ -310,7 +314,6 @@ bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Con
         return false;
     Lowest_Hp_Ally->Activate_Family_StrongHold();
     user.Set_Energy(SuperPower_Energy_Cost);
-    rounds_left_till_superpower_is_ready = 0;
     Set_Is_Hero_Dead();
     return true;
 }
@@ -360,6 +363,8 @@ Amin_Emeni::Amin_Emeni()
     this->amount_damage_when_family_stronghold_is_active = 0;
     this->Is_Brother_Revenge_Ongoing = false;
     this->Round_Brother_Revenge_Left = 0;
+    this->Is_Dom_KajDom_Ongoing = false;
+    this->Round_Dom_KajDom_Left = 0;
 }
 
 bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
@@ -417,7 +422,6 @@ bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction*
                 controller.Apply_Damaged(allies[i], 30);
     }
     user.Set_Energy(SuperPower_Energy_Cost);
-    rounds_left_till_superpower_is_ready = 0;
     Set_Is_Hero_Dead();
     return true;
 }
@@ -471,6 +475,8 @@ Taha_Bozorge::Taha_Bozorge()
     this->Hidden_Round_Left = 0; 
     this->Is_Brother_Revenge_Ongoing = false;
     this->Round_Brother_Revenge_Left = 0;
+    this->Is_Dom_KajDom_Ongoing = false;
+    this->Round_Dom_KajDom_Left = 0;
 }
 
 bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user, Controller &controller)
@@ -553,6 +559,8 @@ Pouya_Kajdom::Pouya_Kajdom()
     {
         this->Enemy_Array_With_Respect_To_Active_Scorpiens[i] = NONE;
     }
+    this->Is_Dom_KajDom_Ongoing = false;
+    this->Round_Dom_KajDom_Left = 0;
 
     this->Is_Hidden = false;
     this->Hidden_Round_Left = 0; 
@@ -619,7 +627,14 @@ bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user, C
         return false;
     Is_Hidden = true;
     Hidden_Round_Left = 3;
-    rounds_left_till_superpower_is_ready = 0;
+    Seeded();
+    std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
+    if(valid_indexes[3] == 0)
+        return false;
+    int random_position = std::rand() % valid_indexes[3];
+    int selected_index = valid_indexes[random_position];
+    enemies[selected_index]->Activate_Dom_Kajdom();
+    user.Set_Energy(SuperPower_Energy_Cost);
     Set_Is_Hero_Dead();
     return true;
 }
@@ -669,7 +684,8 @@ Agha_Shahriar::Agha_Shahriar()
     this->amount_damage_when_family_stronghold_is_active = 0;
     this->Is_Brother_Revenge_Ongoing = false;
     this->Round_Brother_Revenge_Left = 0;
-    
+    this->Is_Dom_KajDom_Ongoing = false;
+    this->Round_Dom_KajDom_Left = 0;
 }
 
 bool Agha_Shahriar::Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)

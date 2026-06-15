@@ -40,8 +40,12 @@ class Controller
         void Updated_Doping_Status(int user_turn);
         //for the serom_khon power of taha_kochike
         void Updated_Serom_Khon_Status(int user_turn);
-        
-        
+        //for the family stronghold super power of dani_golang
+        void Updated_Family_StrongHold_Status(int user_turn);
+        //for the brother revenge super power of taha_bozorge
+        void Updated_Brother_Revenge_Status(int user_turn);
+        //for the dom kajdom super power of pouya_kajdom
+        void Updated_Dom_Kajdom_Status(int uer_turn);
         ~Controller();
         
     private:
