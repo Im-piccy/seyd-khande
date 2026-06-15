@@ -291,5 +291,27 @@ void display_ability_defenition_and_detail(const std::array<int,3>& user_hero_ar
     }
 }
 
-
+bool change_turn_or_finish_round(int& user_turn, int user_who_has_started_the_game)
+{
+    if(user_turn == USER1 && user_who_has_started_the_game == USER1)
+    {
+        user_turn = USER2;
+        return false;
+    }
+    else if(user_turn == USER1 && user_who_has_started_the_game == USER2)
+    {
+        user_turn = USER1;
+        return true;
+    }
+    else if(user_turn == USER2 && user_who_has_started_the_game == USER2)
+    {
+        user_turn = USER1;
+        return false;
+    }
+    else if(user_turn == USER2 && user_who_has_started_the_game == USER1)
+    {
+        user_turn = USER1;
+        return true;
+    }
+}
 #endif
