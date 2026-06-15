@@ -103,6 +103,7 @@ void Game::Game_Screen()
     static bool should_end_turn = false;
     static bool should_enemy_be_highlighted = false;
     static bool should_enemy_stay_highlighted = false;
+    static bool is_mouse_hovring_over_attack_or_endTurn_button = false;
     
     
     //user info
@@ -165,6 +166,15 @@ void Game::Game_Screen()
 
     Mouse_Positon = GetMousePosition();
     
+    //check to see if we are hovering over buttons or not
+    if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound) && CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound) && should_ability_stay_highlighted)
+    {
+        is_mouse_hovring_over_attack_or_endTurn_button = true;
+    }
+    else
+    {
+        is_mouse_hovring_over_attack_or_endTurn_button = false;
+    }
     
     //check to see if mouse on the abilities position
 
@@ -365,7 +375,16 @@ void Game::Game_Screen()
     else
     {
         Hero_should_be_highlighted = false;
-        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !is_mouse_hovering_over_abilities)
+        if(should_ability_stay_highlighted)
+        {
+            if((!is_mouse_hovering_over_enemy && !is_mouse_hovring_over_attack_or_endTurn_button) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_hero_be_animated = false;
+                hero_to_be_animated_index = 4;
+
+            }
+        }
+        else if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !is_mouse_hovering_over_abilities )
         {
 
             should_hero_be_animated = false;
@@ -375,7 +394,7 @@ void Game::Game_Screen()
 
 
     //turning off the highlighted ability if necessary
-    if(!is_mouse_hovering_over_abilities && !is_mouse_hovering_over_enemy)
+    if(!is_mouse_hovering_over_abilities && !is_mouse_hovering_over_enemy && !is_mouse_hovring_over_attack_or_endTurn_button)
     {
         if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
         {
@@ -462,8 +481,22 @@ void Game::Game_Screen()
         else
         {
             //this means no ability should be highlighted
-            ability_to_be_highlighted = NON;
-            should_ability_be_highlighted = false; 
+            if(should_ability_stay_highlighted)
+            {   
+                if(!is_mouse_hovering_over_enemy && !is_mouse_hovring_over_attack_or_endTurn_button && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+                {
+                    ability_to_be_highlighted = NON;
+                    should_ability_be_highlighted = false;
+                    is_mouse_hovering_over_abilities = false; 
+                }
+            }
+            else
+            {
+                ability_to_be_highlighted = NON;
+                should_ability_be_highlighted = false;
+                is_mouse_hovering_over_abilities = false; 
+
+            }
         }
     }
 
@@ -766,8 +799,10 @@ void Game::Game_Screen()
                 if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound))
                 {
                     DrawTexture(attack_button_textrue, Attack_button_bound.x, Attack_button_bound.y, WHITE);
+                    std::cout << "user1 hoverd over attack button \n";
                     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                     {
+                        std::cout << "user1 clicked on attack button \n";
                         should_execute_ability = true;
                     }
                 }
@@ -775,8 +810,10 @@ void Game::Game_Screen()
                 else if(CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound))
                 {
                     DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, WHITE);  
+                    std::cout << "user 1 hoverd over end turn button \n";
                     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                     {
+                        std::cout <<"user1 clicked on end turn button \n";
                         should_end_turn = true;
                     }
                 }
@@ -806,23 +843,26 @@ void Game::Game_Screen()
                 if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound))
                 {
                     DrawTextureEx(attack_button_textrue, {Attack_button_bound.x, Attack_button_bound.y}, 0, 0, WHITE);
+                    std::cout << "user2 hover over attack button \n";
                     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                     {
+                        std::cout << "user 2 clicked attack button \n";
                         should_execute_ability = true;
                     }
                 }
                 else if(CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound))
                 {
                     DrawTextureEx(end_turn_texture, {End_turn_button_bound.x, End_turn_button_bound.y}, 0, 0, WHITE);
+                    std::cout << "user2 hoverd over end turn button \n";
                     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                     {
+                        std::cout <<"user 2 clicked on end turn button \n";
                         should_end_turn = true;
                     }
                 }
             }
         }
     }
-    
 
     if(is_fading_in)
     {
@@ -840,6 +880,8 @@ void Game::Game_Screen()
 
     EndDrawing();
 
+
+
     if(should_execute_ability)
     {
         
@@ -849,28 +891,31 @@ void Game::Game_Screen()
 
     if(should_end_turn || control.should_change_turn(User_Turn, user1.Get_Energy(), user2.Get_Energy()))
     {
-        if(User_Turn == USER1)
+        //reseting variables for the next player
+        should_ability_be_highlighted = false;
+        should_ability_stay_highlighted = false;
+        is_mouse_hovering_over_abilities = false;
+        is_mouse_hovering_over_enemy = false;
+        is_mouse_hovring_over_attack_or_endTurn_button = false;
+        should_hero_be_animated = false;
+        Hero_should_be_highlighted = false;
+        user1_hero_to_be_highlighted_index = 4;
+        user2_hero_to_be_highlighted_index = 4;
+        hero_to_be_animated_index = 4;
+        enemy_to_be_highlighted = 4;
+        enemy_to_stay_highlighted = 4;
+        should_execute_ability = false;
+        should_end_turn = false;
+        should_enemy_be_highlighted = false;
+        should_enemy_stay_highlighted = false;
+
+        //changing turn or ending round
+        if(change_turn_or_finish_round(User_Turn, control.return_user_whom_started_the_game_as_an_int()))
         {
-            //changing every logic variable to the default for the next player
-            User_Turn = USER2;
-            should_end_turn = false;
-            hero_to_be_animated_index = 4;
-            should_ability_be_highlighted = false;
-            should_hero_be_animated = false;
-            user1_hero_to_be_highlighted_index = 4;
-            ability_to_stay_highlighted = NON;
+            control.Finish_Round();
         }
-        else if(User_Turn == USER2)
-        {
-            User_Turn = USER1;
-            should_end_turn = false;
-            hero_to_be_animated_index = 4;
-            should_ability_be_highlighted = false;
-            should_hero_be_animated = false;
-            user2_hero_to_be_highlighted_index = 4;
-            ability_to_stay_highlighted = NON;
-            //new round
-        }
+
+
 
     }
 
