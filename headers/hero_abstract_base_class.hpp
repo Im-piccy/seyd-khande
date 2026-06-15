@@ -17,6 +17,7 @@ class Hero_Abstaction //abstract class
         void Get_Healed(int healing_points);
         void Get_Damaged(int damaging_point);//if damage is more than hp it will edit the boolian value
         void Seeded();
+        void update_superpower_rounds_left_at_the_end_of_round();
 
         virtual bool Execute_Skill1(Argument_Skills_Functions parameters) = 0;
         virtual bool Execute_Skill2(Argument_Skills_Functions parameters) = 0;

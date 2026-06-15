@@ -190,3 +190,12 @@ void Hero_Abstaction::Updated_Family_StrongHold_Status()
             Is_Family_StrongHold_ongoing = false;
     }
 }
+
+void Hero_Abstaction::update_superpower_rounds_left_at_the_end_of_round()
+{
+    this->rounds_left_till_superpower_is_ready--;
+    if(this->rounds_left_till_superpower_is_ready < 0)
+    {
+        this->rounds_left_till_superpower_is_ready = 0;
+    }
+}
