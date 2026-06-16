@@ -14,7 +14,7 @@ class Controller
     public:
         Controller();
         bool Is_game_over(int user_turn); // checks to see if game raound is 15 or one players heros are all dead
-        void execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, Argument_Skills_Functions &parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn, User &user1, User &user2); //it gets user request to atteck and does the logic (considering energy cost)
+        void execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, Argument_Skills_Functions &parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn, User &user1, User &user2, std::array<int,3> hero_arr_user1, std::array<int,3> hero_arr_user2); //it gets user request to atteck and does the logic (considering energy cost)
         void Refill_Players_Energy(User &user, User &usr); // after each round ends it refill energies accordingly
         void Finish_Round(); // this function increments the private round_number variable by one
         void Empty_User_Array(User &user);
@@ -45,6 +45,7 @@ class Controller
         void Updated_Brother_Revenge_Status(int user_turn);
         //for the dom kajdom super power of pouya_kajdom
         void Updated_Dom_Kajdom_Status(int uer_turn);
+        bool Check_pouya_kajdom_between_selected_heroes(int usre_turn, int hero_index_in_array, std::array<int,3> hero_arr_user1, std::array<int,3> hero_arr_user2);
         
         ~Controller();
         

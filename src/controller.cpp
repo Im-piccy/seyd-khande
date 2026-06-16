@@ -348,7 +348,9 @@ void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_e
     }
 }
 
-void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, Argument_Skills_Functions &parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn, User &user1, User &user2)
+
+
+void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_enemy_index, Argument_Skills_Functions &parameters, int hero_index_in_array, ABILITIES which_ability, int user_turn, User &user1, User &user2, std::array<int,3> hero_arr_user1, std::array<int,3> hero_arr_user2)
 {
     Fill_Struct_For_Virtual_Functions(user_turn, selected_enemy_index, parameters, user1, user2);
     if(user_turn == USER1)
@@ -357,21 +359,27 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                else
+                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
             }
         }
         else if(which_ability == SKILL2)
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                else
+                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);
             }
         }
         else if(which_ability == SUPERPOWER)
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                else
+                    Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
             }
         }
     }
@@ -381,13 +389,17 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                else
+                    Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);
             }
         }
         else if(which_ability == SKILL2)
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                else
                 Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters);
             }
         }
@@ -395,6 +407,8 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                else
                 Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters);
             }
         }
@@ -619,4 +633,26 @@ void Controller::Updated_Dom_Kajdom_Status(int user_turn)
         }
     }
 
+}
+
+bool Controller::Check_pouya_kajdom_between_selected_heroes(int user_turn, int hero_index_in_array, std::array<int,3> hero_arr_user1, std::array<int,3> hero_arr_user2)
+{
+    if(user_turn == USER1)
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(hero_arr_user1[i] == POUYA_KAJDOM)
+                return true;
+        }
+        return false;
+    }
+    else 
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            if(hero_arr_user2[i] == POUYA_KAJDOM)
+                return true;
+        }
+        return false;
+    }
 }

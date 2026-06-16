@@ -885,7 +885,7 @@ void Game::Game_Screen()
 
     if(should_execute_ability)
     {
-        control.execute_user_ask_to_use_hero_ability_if_possible(enemy_to_stay_highlighted, parameters, hero_to_be_animated_index, ability_to_stay_highlighted, User_Turn, user1, user2);
+        control.execute_user_ask_to_use_hero_ability_if_possible(enemy_to_stay_highlighted, parameters, hero_to_be_animated_index, ability_to_stay_highlighted, User_Turn, user1, user2, user1_hero_arr, user2_hero_arr);
     }
 
 
