@@ -5,8 +5,8 @@
 #include <cstdlib>
 #include <ctime>
 #include "enums.hpp"
-#include "controller.hpp"
 class User;
+class Controller;
 
 class Hero_Abstaction //abstract class
 {
@@ -19,9 +19,9 @@ class Hero_Abstaction //abstract class
         void Seeded();
         void update_superpower_rounds_left_at_the_end_of_round();
 
-        virtual bool Execute_Skill1(Argument_Skills_Functions parameters) = 0;
-        virtual bool Execute_Skill2(Argument_Skills_Functions parameters) = 0;
-        virtual bool Execute_SuperSkill(Argument_Skills_Functions parameters) = 0;
+        virtual bool Execute_Skill1(Argument_Skills_Functions &parameters) = 0;
+        virtual bool Execute_Skill2(Argument_Skills_Functions &parameters) = 0;
+        virtual bool Execute_SuperSkill(Argument_Skills_Functions &parameters) = 0;
 
         int Return_Skill1_Energy_Cost();
         int Return_Skill2_Energy_Cost();

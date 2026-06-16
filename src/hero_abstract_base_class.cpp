@@ -1,7 +1,10 @@
 #include "../headers/hero_abstract_base_class.hpp"
+#include "../headers/controller.hpp"
+
 
 void Hero_Abstaction::Get_Damaged(int damaging_points)
 {
+    Set_Is_Hero_Dead();
     if(Is_Doped)
         damaging_points = damaging_points * 1.2; 
     if(Is_Family_StrongHold_ongoing)

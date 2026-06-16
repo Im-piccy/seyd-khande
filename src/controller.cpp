@@ -266,9 +266,9 @@ void Controller::Apply_Healed(Hero_Abstaction* ally, int healing_points)// for s
     if(ally == nullptr)
         return;
     if(Reverse_World_Active)
-        ally->Get_Healed(healing_points);
-    else
         ally->Get_Damaged(healing_points);
+    else
+        ally->Get_Healed(healing_points);
 }
 
 void Controller::Apply_Damaged(Hero_Abstaction* enemy, int damaging_point)// for superpower of joker
@@ -277,9 +277,9 @@ void Controller::Apply_Damaged(Hero_Abstaction* enemy, int damaging_point)// for
     if(enemy == nullptr)
         return;
     if(Reverse_World_Active)
-        enemy->Get_Damaged(damaging_point);
-    else
         enemy->Get_Healed(damaging_point);
+    else
+        enemy->Get_Damaged(damaging_point);
 }
 
 void Controller::Finish_Round()
@@ -474,6 +474,8 @@ void Controller::Updated_Doping_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User1[i] == nullptr)
+                continue;
             if(Hero_Arr_User1[i]->Return_Is_Doped())
             {
                 Hero_Arr_User1[i]->Reduce_Round_Doping();
@@ -486,6 +488,8 @@ void Controller::Updated_Doping_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User2[i] == nullptr)
+                continue;
             if(Hero_Arr_User2[i]->Return_Is_Doped())
             {
                 Hero_Arr_User2[i]->Reduce_Round_Doping();
@@ -502,6 +506,8 @@ void Controller::Updated_Serom_Khon_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User1[i] == nullptr)
+                continue;
             if(Hero_Arr_User1[i]->Return_Is_serom_Khon_ongoing())
             {
                 Apply_Healed(Hero_Arr_User1[i], 40);
@@ -515,6 +521,8 @@ void Controller::Updated_Serom_Khon_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User2[i] == nullptr)
+                continue;
             if(Hero_Arr_User2[i]->Return_Is_serom_Khon_ongoing())
             {
                 Apply_Healed(Hero_Arr_User2[i], 40);
@@ -532,6 +540,8 @@ void Controller::Updated_Family_StrongHold_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User1[i] == nullptr)
+                continue;
             if(Hero_Arr_User1[i]->Return_Is_Family_StrongHold_ongoing())
             {
                 Hero_Arr_User1[i]->Reduce_Round_Famly_StrongHold();
@@ -544,6 +554,8 @@ void Controller::Updated_Family_StrongHold_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User2[i] == nullptr)
+                continue;
             if(Hero_Arr_User2[i]->Return_Is_Family_StrongHold_ongoing())
             {
                 Hero_Arr_User2[i]->Reduce_Round_Famly_StrongHold();
@@ -560,6 +572,8 @@ void Controller::Updated_Brother_Revenge_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User2[i] == nullptr)
+                continue;
             if(Hero_Arr_User2[i]->Return_Is_Brother_Revenge_Ongoing())
             {
                 Hero_Arr_User2[i]->Reduce_Round_Brother_Revenge();
@@ -580,6 +594,8 @@ void Controller::Updated_Brother_Revenge_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User1[i] == nullptr)
+                continue;
             if(Hero_Arr_User1[i]->Return_Is_Brother_Revenge_Ongoing())
             {
                 Hero_Arr_User1[i]->Reduce_Round_Brother_Revenge();
@@ -604,6 +620,8 @@ void Controller::Updated_Dom_Kajdom_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User2[i] == nullptr)
+                continue;
             if(Hero_Arr_User2[i]->Return_Is_Dom_KajDom_Ongoing())
             {
                 Hero_Arr_User2[i]->Reduce_Round_Dom_KajDom();
@@ -620,6 +638,8 @@ void Controller::Updated_Dom_Kajdom_Status(int user_turn)
     {
         for(int i = 0; i < 3; i++)
         {
+            if(Hero_Arr_User1[i] == nullptr)
+                continue;
             if(Hero_Arr_User1[i]->Return_Is_Dom_KajDom_Ongoing())
             {
                 Hero_Arr_User1[i]->Reduce_Round_Dom_KajDom();
