@@ -95,7 +95,6 @@ bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Con
     int selected_index = valid_indexes[random_position];
     controller.Apply_Healed(allies[selected_index], 200);
     user.Set_Energy(SuperPower_Energy_Cost);
-    
     return true; 
 }
 
@@ -206,8 +205,6 @@ bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Co
         return false;
     controller.Apply_Healed( Lowest_Hp_Ally, 200);
     user.Set_Energy(SuperPower_Energy_Cost);
-    rounds_left_till_superpower_is_ready = 0;
-    
     return true;   
 }
 
@@ -313,7 +310,6 @@ bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
         return false;
     Lowest_Hp_Ally->Activate_Family_StrongHold();
     user.Set_Energy(SuperPower_Energy_Cost);
-    
     return true;
 }
 
@@ -423,7 +419,6 @@ bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction*
                 controller.Apply_Damaged(allies[i], 30);
     }
     user.Set_Energy(SuperPower_Energy_Cost);
-    
     return true;
 }
 
@@ -517,7 +512,6 @@ bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
     enemies[selected_index]->Activate_Brother_revenge();
-    
     return true;
 }
 
@@ -638,7 +632,6 @@ bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
     int selected_index = valid_indexes[random_position];
     enemies[selected_index]->Activate_Dom_Kajdom();
     user.Set_Energy(SuperPower_Energy_Cost);
-    
     return true;
 }
 
@@ -743,7 +736,6 @@ bool Agha_Shahriar::Execute_SuperPower(User &user, Controller &controller)
         return false;
     controller.Activate_Reverse_World();
     user.Set_Energy(SuperPower_Energy_Cost);
-    
     return true;
 }
 
