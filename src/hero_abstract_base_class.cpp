@@ -6,7 +6,14 @@ void Hero_Abstaction::Get_Damaged(int damaging_points)
 {
     Set_Is_Hero_Dead();
     if(Is_Doped)
+    {
         damaging_points = damaging_points * 1.2; 
+    }
+    if(Is_Ghofli_ongoing)
+        {
+            amount_of_the_last_damage_done = amount_of_the_last_damage_done * 1.6;
+            damaging_points = amount_of_the_last_damage_done;
+        }
     if(Is_Family_StrongHold_ongoing)
     {
         amount_damage_when_family_stronghold_is_active += damaging_points;
@@ -226,6 +233,23 @@ void Hero_Abstaction::Reduce_Round_Famly_StrongHold()
 void Hero_Abstaction::Set_Is_Family_StrongHold_ongoing()
 {
     Is_Family_StrongHold_ongoing = false;
+}
+//--------------------------------------------------------------------------------------------------------
+//--------------------------------------ghofli power(dani_golang)-----------------------------------------
+void Hero_Abstaction::Activate_Ghofli()
+{
+    Is_Ghofli_ongoing = true;
+    amount_of_the_last_damage_done = 20;
+}
+
+bool Hero_Abstaction::Return_Is_Ghofli_ongoing() const
+{
+    return Is_Ghofli_ongoing;
+}
+
+void Hero_Abstaction::ReSet_amount_damage_when_family_stronghold_is_active()
+{
+    amount_of_the_last_damage_done = 20;
 }
 //-------------------------------------------------------------------------------------------------------
 //---------------------------superpower(pouya_kajdom) & XRay(taha_bozorge)-------------------------------

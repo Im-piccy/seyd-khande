@@ -36,15 +36,17 @@ class Controller
         void Apply_Damaged(Hero_Abstaction* enemy, int damaging_point);
 
         //for the doping power of whitedoctor
-        void Updated_Doping_Status(int user_turn);
+        void Updated_Doping_Status();
         //for the serom_khon power of taha_kochike
-        void Updated_Serom_Khon_Status(int user_turn);
+        void Updated_Serom_Khon_Status();
         //for the family stronghold super power of dani_golang
-        void Updated_Family_StrongHold_Status(int user_turn);
+        void Updated_Family_StrongHold_Status();
+        //for the ghofli power of dani_golang
+        void Updated_Ghofli_Status();
         //for the brother revenge super power of taha_bozorge
-        void Updated_Brother_Revenge_Status(int user_turn);
+        void Updated_Brother_Revenge_Status();
         //for the dom kajdom super power of pouya_kajdom
-        void Updated_Dom_Kajdom_Status(int uer_turn);
+        void Updated_Dom_Kajdom_Status();
         bool Check_pouya_kajdom_between_selected_heroes(int usre_turn, int hero_index_in_array, std::array<int,3> hero_arr_user1, std::array<int,3> hero_arr_user2);
         
         ~Controller();

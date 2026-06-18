@@ -52,6 +52,11 @@ class Hero_Abstaction //abstract class
         void Reduce_Round_Famly_StrongHold();
         void Set_Is_Family_StrongHold_ongoing();
 
+        //for ghofli power (dani_golang)
+        void Activate_Ghofli();
+        bool Return_Is_Ghofli_ongoing() const;
+        void ReSet_amount_damage_when_family_stronghold_is_active();
+
         //for XRay power (taha_bozorge) & super power of pouya_kajdom
         bool Return_Is_Hidden() const;
         void Updated_Round_Hidden();
@@ -94,6 +99,10 @@ class Hero_Abstaction //abstract class
         bool Is_Family_StrongHold_ongoing;
         int Round_Since_Family_StrongHold;
         int amount_damage_when_family_stronghold_is_active;
+
+        //for ghofli power (dani_golang)
+        bool Is_Ghofli_ongoing;
+        int amount_of_the_last_damage_done;
 
         //for XRay power (taha_bozorge)
         bool Is_Hidden;

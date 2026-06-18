@@ -468,191 +468,188 @@ void Controller::Refill_Players_Energy(User &user1, User &user2)
     }
 }
 
-void Controller::Updated_Doping_Status(int user_turn)
+void Controller::Updated_Doping_Status()
 {
-    if(user_turn == USER1)
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User1[i] == nullptr)
+            continue;
+        if(Hero_Arr_User1[i]->Return_Is_Doped())
         {
-            if(Hero_Arr_User1[i] == nullptr)
-                continue;
-            if(Hero_Arr_User1[i]->Return_Is_Doped())
-            {
-                Hero_Arr_User1[i]->Reduce_Round_Doping();
-                if(Hero_Arr_User1[i]->Return_Rounds_Since_Doping() <= 0)
-                    Hero_Arr_User1[i]->Set_Is_Doped();
-            }
+            Hero_Arr_User1[i]->Reduce_Round_Doping();
+            if(Hero_Arr_User1[i]->Return_Rounds_Since_Doping() <= 0)
+                Hero_Arr_User1[i]->Set_Is_Doped();
         }
     }
-    else
+
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User2[i] == nullptr)
+            continue;
+        if(Hero_Arr_User2[i]->Return_Is_Doped())
         {
-            if(Hero_Arr_User2[i] == nullptr)
-                continue;
-            if(Hero_Arr_User2[i]->Return_Is_Doped())
-            {
-                Hero_Arr_User2[i]->Reduce_Round_Doping();
-                if(Hero_Arr_User2[i]->Return_Rounds_Since_Doping() <= 0)
-                    Hero_Arr_User2[i]->Set_Is_Doped();
-            }
+            Hero_Arr_User2[i]->Reduce_Round_Doping();
+            if(Hero_Arr_User2[i]->Return_Rounds_Since_Doping() <= 0)
+                Hero_Arr_User2[i]->Set_Is_Doped();
         }
     }
 }
 
-void Controller::Updated_Serom_Khon_Status(int user_turn)
+void Controller::Updated_Serom_Khon_Status()
 {
-    if(user_turn == USER1)
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User1[i] == nullptr)
+            continue;
+        if(Hero_Arr_User1[i]->Return_Is_serom_Khon_ongoing())
         {
-            if(Hero_Arr_User1[i] == nullptr)
-                continue;
-            if(Hero_Arr_User1[i]->Return_Is_serom_Khon_ongoing())
-            {
-                Apply_Healed(Hero_Arr_User1[i], 40);
-                Hero_Arr_User1[i]->Reduce_Round_Serom_Khon();
-                if(Hero_Arr_User1[i]->Return_Round_since_Serom_khon() <= 0)
-                    Hero_Arr_User1[i]->Set_Is_serom_Khon_ongoing();
-            }
+            Apply_Healed(Hero_Arr_User1[i], 40);
+            Hero_Arr_User1[i]->Reduce_Round_Serom_Khon();
+            if(Hero_Arr_User1[i]->Return_Round_since_Serom_khon() <= 0)
+                Hero_Arr_User1[i]->Set_Is_serom_Khon_ongoing();
         }
     }
-    else
+
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User2[i] == nullptr)
+            continue;
+        if(Hero_Arr_User2[i]->Return_Is_serom_Khon_ongoing())
         {
-            if(Hero_Arr_User2[i] == nullptr)
-                continue;
-            if(Hero_Arr_User2[i]->Return_Is_serom_Khon_ongoing())
-            {
-                Apply_Healed(Hero_Arr_User2[i], 40);
-                Hero_Arr_User2[i]->Reduce_Round_Serom_Khon();
-                if(Hero_Arr_User2[i]->Return_Round_since_Serom_khon() <= 0)
-                    Hero_Arr_User2[i]->Set_Is_serom_Khon_ongoing();
-            }
+            Apply_Healed(Hero_Arr_User2[i], 40);
+            Hero_Arr_User2[i]->Reduce_Round_Serom_Khon();
+            if(Hero_Arr_User2[i]->Return_Round_since_Serom_khon() <= 0)
+                Hero_Arr_User2[i]->Set_Is_serom_Khon_ongoing();
         }
     }
 }
 
-void Controller::Updated_Family_StrongHold_Status(int user_turn)
+void Controller::Updated_Family_StrongHold_Status()
 {
-    if(user_turn == USER1)
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User1[i] == nullptr)
+            continue;
+        if(Hero_Arr_User1[i]->Return_Is_Family_StrongHold_ongoing())
         {
-            if(Hero_Arr_User1[i] == nullptr)
-                continue;
-            if(Hero_Arr_User1[i]->Return_Is_Family_StrongHold_ongoing())
-            {
-                Hero_Arr_User1[i]->Reduce_Round_Famly_StrongHold();
-                if(Hero_Arr_User1[i]->Return_Round_Since_Family_StrongHold() <= 0)
-                    Hero_Arr_User1[i]->Set_Is_Family_StrongHold_ongoing();
-            }
+            Hero_Arr_User1[i]->Reduce_Round_Famly_StrongHold();
+            if(Hero_Arr_User1[i]->Return_Round_Since_Family_StrongHold() <= 0)
+                Hero_Arr_User1[i]->Set_Is_Family_StrongHold_ongoing();
         }
     }
-    else
+
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User2[i] == nullptr)
+            continue;
+        if(Hero_Arr_User2[i]->Return_Is_Family_StrongHold_ongoing())
         {
-            if(Hero_Arr_User2[i] == nullptr)
-                continue;
-            if(Hero_Arr_User2[i]->Return_Is_Family_StrongHold_ongoing())
-            {
-                Hero_Arr_User2[i]->Reduce_Round_Famly_StrongHold();
-                if(Hero_Arr_User2[i]->Return_Round_Since_Family_StrongHold() <= 0)
-                    Hero_Arr_User2[i]->Set_Is_Family_StrongHold_ongoing();
-            }
+            Hero_Arr_User2[i]->Reduce_Round_Famly_StrongHold();
+            if(Hero_Arr_User2[i]->Return_Round_Since_Family_StrongHold() <= 0)
+                Hero_Arr_User2[i]->Set_Is_Family_StrongHold_ongoing();
         }
     }
 }
 
-void Controller::Updated_Brother_Revenge_Status(int user_turn)
+void Controller::Updated_Ghofli_Status()
 {
-    if(user_turn == USER1)
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User2[i] == nullptr)
+            continue;
+        if(Hero_Arr_User2[i]->Return_Is_Ghofli_ongoing())
         {
-            if(Hero_Arr_User2[i] == nullptr)
-                continue;
-            if(Hero_Arr_User2[i]->Return_Is_Brother_Revenge_Ongoing())
-            {
-                Hero_Arr_User2[i]->Reduce_Round_Brother_Revenge();
-                if(Hero_Arr_User2[i]->Return_Round_Brother_Revenge_Left() <= 0)
-                {
-                    if(Hero_Arr_User2[i]->Get_Current_Hp() <= 360)
-                        if(!Hero_Arr_User2[i]->Return_Is_Hidden())
-                            Apply_Damaged(Hero_Arr_User2[i], Hero_Arr_User2[i]->Get_Current_Hp());
-                    else 
-                        if(!Hero_Arr_User2[i]->Return_Is_Hidden())
-                            Apply_Damaged(Hero_Arr_User2[i], 200);
-                    Hero_Arr_User2[i]->Set_Is_Brother_Revenge_Ongoing();
-                }
-            }
+            Hero_Arr_User2[i]->ReSet_amount_damage_when_family_stronghold_is_active();
         }
     }
-    else
+
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User1[i] == nullptr)
+            continue;
+        if(Hero_Arr_User1[i]->Return_Is_Ghofli_ongoing())
         {
-            if(Hero_Arr_User1[i] == nullptr)
-                continue;
-            if(Hero_Arr_User1[i]->Return_Is_Brother_Revenge_Ongoing())
-            {
-                Hero_Arr_User1[i]->Reduce_Round_Brother_Revenge();
-                if(Hero_Arr_User1[i]->Return_Round_Brother_Revenge_Left() <= 0)
-                {
-                    if(Hero_Arr_User1[i]->Get_Current_Hp() <= 360)
-                        if(!Hero_Arr_User1[i]->Return_Is_Hidden())
-                            Apply_Damaged(Hero_Arr_User1[i], Hero_Arr_User1[i]->Get_Current_Hp());
-                    else 
-                        if(!Hero_Arr_User1[i]->Return_Is_Hidden())
-                            Apply_Damaged(Hero_Arr_User1[i], 200);
-                    Hero_Arr_User1[i]->Set_Is_Brother_Revenge_Ongoing();
-                }
-            }
+            Hero_Arr_User1[i]->ReSet_amount_damage_when_family_stronghold_is_active();
         }
     }
 }
 
-void Controller::Updated_Dom_Kajdom_Status(int user_turn)
+void Controller::Updated_Brother_Revenge_Status()
 {
-    if(user_turn == USER1)
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
+        if(Hero_Arr_User2[i] == nullptr)
+            continue;
+        if(Hero_Arr_User2[i]->Return_Is_Brother_Revenge_Ongoing())
         {
-            if(Hero_Arr_User2[i] == nullptr)
-                continue;
-            if(Hero_Arr_User2[i]->Return_Is_Dom_KajDom_Ongoing())
+            Hero_Arr_User2[i]->Reduce_Round_Brother_Revenge();
+            if(Hero_Arr_User2[i]->Return_Round_Brother_Revenge_Left() <= 0)
             {
-                Hero_Arr_User2[i]->Reduce_Round_Dom_KajDom();
-                if(Hero_Arr_User2[i]->Return_Round_Dom_KajDom_Left() <= 0)
-                {
-                    Hero_Arr_User2[i]->Set_Is_Dom_KajDom_Ongoing();
+                if(Hero_Arr_User2[i]->Get_Current_Hp() <= 360)
                     if(!Hero_Arr_User2[i]->Return_Is_Hidden())
-                        Apply_Damaged(Hero_Arr_User2[i], 450);
-                }
-            }
-        }
-    }
-    else
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            if(Hero_Arr_User1[i] == nullptr)
-                continue;
-            if(Hero_Arr_User1[i]->Return_Is_Dom_KajDom_Ongoing())
-            {
-                Hero_Arr_User1[i]->Reduce_Round_Dom_KajDom();
-                if(Hero_Arr_User1[i]->Return_Round_Dom_KajDom_Left() <= 0)
-                {
-                    Hero_Arr_User1[i]->Set_Is_Dom_KajDom_Ongoing();
-                    if(!Hero_Arr_User1[i]->Return_Is_Hidden())
-                        Apply_Damaged(Hero_Arr_User1[i], 450);
-                }
+                        Apply_Damaged(Hero_Arr_User2[i], Hero_Arr_User2[i]->Get_Current_Hp());
+                else 
+                    if(!Hero_Arr_User2[i]->Return_Is_Hidden())
+                        Apply_Damaged(Hero_Arr_User2[i], 200);
+                Hero_Arr_User2[i]->Set_Is_Brother_Revenge_Ongoing();
             }
         }
     }
 
+    for(int i = 0; i < 3; i++)
+    {
+        if(Hero_Arr_User1[i] == nullptr)
+            continue;
+        if(Hero_Arr_User1[i]->Return_Is_Brother_Revenge_Ongoing())
+        {
+            Hero_Arr_User1[i]->Reduce_Round_Brother_Revenge();
+            if(Hero_Arr_User1[i]->Return_Round_Brother_Revenge_Left() <= 0)
+            {
+                if(Hero_Arr_User1[i]->Get_Current_Hp() <= 360)
+                    if(!Hero_Arr_User1[i]->Return_Is_Hidden())
+                        Apply_Damaged(Hero_Arr_User1[i], Hero_Arr_User1[i]->Get_Current_Hp());
+                else 
+                    if(!Hero_Arr_User1[i]->Return_Is_Hidden())
+                        Apply_Damaged(Hero_Arr_User1[i], 200);
+                Hero_Arr_User1[i]->Set_Is_Brother_Revenge_Ongoing();
+            }
+        }
+    }
+}
+
+void Controller::Updated_Dom_Kajdom_Status()
+{
+    for(int i = 0; i < 3; i++)
+    {
+        if(Hero_Arr_User2[i] == nullptr)
+            continue;
+        if(Hero_Arr_User2[i]->Return_Is_Dom_KajDom_Ongoing())
+        {
+            Hero_Arr_User2[i]->Reduce_Round_Dom_KajDom();
+            if(Hero_Arr_User2[i]->Return_Round_Dom_KajDom_Left() <= 0)
+            {
+                Hero_Arr_User2[i]->Set_Is_Dom_KajDom_Ongoing();
+                if(!Hero_Arr_User2[i]->Return_Is_Hidden())
+                    Apply_Damaged(Hero_Arr_User2[i], 450);
+            }
+        }
+    }
+
+    for(int i = 0; i < 3; i++)
+    {
+        if(Hero_Arr_User1[i] == nullptr)
+            continue;
+        if(Hero_Arr_User1[i]->Return_Is_Dom_KajDom_Ongoing())
+        {
+            Hero_Arr_User1[i]->Reduce_Round_Dom_KajDom();
+            if(Hero_Arr_User1[i]->Return_Round_Dom_KajDom_Left() <= 0)
+            {
+                Hero_Arr_User1[i]->Set_Is_Dom_KajDom_Ongoing();
+                if(!Hero_Arr_User1[i]->Return_Is_Hidden())
+                    Apply_Damaged(Hero_Arr_User1[i], 450);
+            }
+        }
+    }
 }
 
 bool Controller::Check_pouya_kajdom_between_selected_heroes(int user_turn, int hero_index_in_array, std::array<int,3> hero_arr_user1, std::array<int,3> hero_arr_user2)

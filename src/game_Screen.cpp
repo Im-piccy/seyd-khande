@@ -915,11 +915,12 @@ void Game::Game_Screen()
         {
             control.Finish_Round();
             control.Refill_Players_Energy(user1,user2);
-            control.Updated_Doping_Status(User_Turn);
-            control.Updated_Serom_Khon_Status(User_Turn);
-            control.Updated_Family_StrongHold_Status(User_Turn);
-            control.Updated_Brother_Revenge_Status(User_Turn);
-            control.Updated_Dom_Kajdom_Status(User_Turn);
+            control.Updated_Doping_Status();
+            control.Updated_Serom_Khon_Status();
+            control.Updated_Family_StrongHold_Status();
+            control.Updated_Ghofli_Status();
+            control.Updated_Brother_Revenge_Status();
+            control.Updated_Dom_Kajdom_Status();
             control.Update_Reverse_World();
         }
 

@@ -28,6 +28,8 @@ WhiteDoctor::WhiteDoctor()
     this->Round_Brother_Revenge_Left = 0;
     this->Is_Dom_KajDom_Ongoing = false;
     this->Round_Dom_KajDom_Left = 0;
+    this->Is_Ghofli_ongoing = false;
+    this->amount_of_the_last_damage_done = 0;
 }
 
 bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller)
@@ -146,6 +148,8 @@ Taha_Kochike::Taha_Kochike()
     this->Round_Brother_Revenge_Left = 0;
     this->Is_Dom_KajDom_Ongoing = false;
     this->Round_Dom_KajDom_Left = 0; 
+    this->Is_Ghofli_ongoing = false;
+    this->amount_of_the_last_damage_done = 0;
 }
 
 bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller)
@@ -248,6 +252,8 @@ Dani_Golang::Dani_Golang()
     this->Is_Family_StrongHold_ongoing = false;
     this->Round_Since_Family_StrongHold = 0;
     this->amount_damage_when_family_stronghold_is_active = 0;
+    this->Is_Ghofli_ongoing = false;
+    this->amount_of_the_last_damage_done = 0;
     
     this->Rounds_Since_Doping = 0;
     this->Is_Doped = false;
@@ -268,11 +274,12 @@ bool Dani_Golang::Execute_Ghofli_Ability(Hero_Abstaction* enemies[3], int select
         Last_Attacked_Enemy = selected_enemy_index;
         if(!enemies[selected_enemy_index]->Return_Is_Hidden())
             controller.Apply_Damaged(enemies[selected_enemy_index], 20);
+        enemies[selected_enemy_index]->Activate_Ghofli();
     }
     else 
     {
-        if(!enemies[selected_enemy_index]->Return_Is_Hidden())
-            controller.Apply_Damaged(enemies[selected_enemy_index], 38);
+        if(!enemies[Last_Attacked_Enemy]->Return_Is_Hidden())
+            controller.Apply_Damaged(enemies[Last_Attacked_Enemy], amount_of_the_last_damage_done);
     }
     user.Set_Energy(Skill2_Energy_Cost);
     
@@ -357,6 +364,8 @@ Amin_Emeni::Amin_Emeni()
     this->Round_Brother_Revenge_Left = 0;
     this->Is_Dom_KajDom_Ongoing = false;
     this->Round_Dom_KajDom_Left = 0;
+    this->Is_Ghofli_ongoing = false;
+    this->amount_of_the_last_damage_done = 0;
 }
 
 bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
@@ -468,6 +477,8 @@ Taha_Bozorge::Taha_Bozorge()
     this->Round_Brother_Revenge_Left = 0;
     this->Is_Dom_KajDom_Ongoing = false;
     this->Round_Dom_KajDom_Left = 0;
+    this->Is_Ghofli_ongoing = false;
+    this->amount_of_the_last_damage_done = 0;
 }
 
 bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &user, Controller &controller)
@@ -564,6 +575,8 @@ Pouya_Kajdom::Pouya_Kajdom()
     this->amount_damage_when_family_stronghold_is_active = 0;
     this->Is_Brother_Revenge_Ongoing = false;
     this->Round_Brother_Revenge_Left = 0;
+    this->Is_Ghofli_ongoing = false;
+    this->amount_of_the_last_damage_done = 0;
 }
 
 bool Pouya_Kajdom::Activate_scorpien(Hero_Abstaction* enemies[3], Controller &controller)
@@ -676,6 +689,8 @@ Agha_Shahriar::Agha_Shahriar()
     this->Round_Brother_Revenge_Left = 0;
     this->Is_Dom_KajDom_Ongoing = false;
     this->Round_Dom_KajDom_Left = 0;
+    this->Is_Ghofli_ongoing = false;
+    this->amount_of_the_last_damage_done = 0;
 }
 
 bool Agha_Shahriar::Execute_Maskhare_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
