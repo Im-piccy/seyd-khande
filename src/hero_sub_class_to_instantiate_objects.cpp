@@ -32,35 +32,25 @@ WhiteDoctor::WhiteDoctor()
     this->amount_of_the_last_damage_done = 0;
 }
 
-bool WhiteDoctor::Execute_Asprin_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller)
+bool WhiteDoctor::Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
 {
     Seeded();
     std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
-    if(valid_indexes[3] == 0)
-        return false;
+    //if(valid_indexes[3] == 0)
+        //return false;
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
     controller.Apply_Healed(allies[selected_index], 40);
-    user.Subtract_Energy(Skill1_Energy_Cost);
-    return true;
-}
 
-bool WhiteDoctor::Execute_Asprin_Ability_Damaged(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
-{
-    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
-        return false;
-    if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
-        return false;
+    //if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
+        //return false;
+        if(enemies[selected_enemy_index] == nullptr)
+            return false;
+    std::cout << "********"<< selected_enemy_index << "********";
     if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 40);
+    user.Subtract_Energy(Skill1_Energy_Cost);
     return true;
-}
-
-bool WhiteDoctor::Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
-{
-    if(Execute_Asprin_Ability_Healed(allies, user, controller) && Execute_Asprin_Ability_Damaged(enemies, selected_enemy_index, user, controller))
-        return true;
-    return false;
 }
 
 bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user)
@@ -145,35 +135,22 @@ Taha_Kochike::Taha_Kochike()
     this->amount_of_the_last_damage_done = 0;
 }
 
-bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Healed(Hero_Abstaction* allies[3], User &user, Controller &controller)
+bool Taha_Kochike::Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
 {
     //find the ally with the lowest Hp
     Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
     if(Lowest_Hp_Ally == nullptr)
         return false;
     controller.Apply_Healed(Lowest_Hp_Ally, 20);
-    user.Subtract_Energy(Skill2_Energy_Cost);
-    
-    return true; 
-}
 
-bool Taha_Kochike::Execute_Tigh_Tiz_Ability_Damage(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
-{
-    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
-        return false;
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
     if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 30);
-    
-    return true;
-}
 
-bool Taha_Kochike::Execute_Tigh_Tiz_Abillity(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
-{
-    if(Execute_Tigh_Tiz_Ability_Healed(allies, user, controller) && Execute_Tigh_Tiz_Ability_Damage(enemies, selected_enemy_index, user, controller))
-        return true;
-    return false;
+    user.Subtract_Energy(Skill2_Energy_Cost);
+    
+    return true; 
 }
 
 bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &user)
@@ -360,8 +337,8 @@ Amin_Emeni::Amin_Emeni()
 
 bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
 {
-    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
-        return false;
+    //if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        //return false;
     if(enemies[selected_enemy_index]->Get_Current_Hp() <= 110)
     {
         if(!enemies[selected_enemy_index]->Return_Is_Hidden())
@@ -373,7 +350,6 @@ bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], in
             controller.Apply_Damaged(enemies[selected_enemy_index], 55);
     }
     user.Subtract_Energy(Skill2_Energy_Cost);
-    
     return true;
 }
 
@@ -385,12 +361,10 @@ bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User
         return false;
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
-
     if(!allies[selected_index]->Return_Is_Hidden())
         controller.Apply_Damaged(allies[selected_index], 25);
     controller.Apply_Healed(this, 75);
     user.Subtract_Energy(Skill1_Energy_Cost);
-    
     return true;
 }
 

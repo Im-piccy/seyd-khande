@@ -267,6 +267,7 @@ void Controller::Apply_Healed(Hero_Abstaction* ally, int healing_points)// for s
 {
     if(ally == nullptr)
         return;
+    std::cout << "Healedddddddd" ;
     if(Reverse_World_Active)
         ally->Get_Damaged(healing_points);
     else
@@ -278,6 +279,7 @@ void Controller::Apply_Damaged(Hero_Abstaction* enemy, int damaging_point)// for
 
     if(enemy == nullptr)
         return;
+    std::cout << "Damageddddddd";
     if(Reverse_World_Active)
         enemy->Get_Healed(damaging_point);
     else

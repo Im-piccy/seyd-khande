@@ -10,10 +10,10 @@ void Hero_Abstaction::Get_Damaged(int damaging_points)
         damaging_points = damaging_points * 1.2; 
     }
     if(Is_Ghofli_ongoing)
-        {
-            amount_of_the_last_damage_done = amount_of_the_last_damage_done * 1.6;
-            damaging_points = amount_of_the_last_damage_done;
-        }
+    {
+        amount_of_the_last_damage_done = amount_of_the_last_damage_done * 1.6;
+        damaging_points = amount_of_the_last_damage_done;
+    }
     if(Is_Family_StrongHold_ongoing)
     {
         amount_damage_when_family_stronghold_is_active += damaging_points;
@@ -22,19 +22,15 @@ void Hero_Abstaction::Get_Damaged(int damaging_points)
             amount_damage_when_family_stronghold_is_active = 0;
             Is_Family_StrongHold_ongoing = false;
         }
+        return;
     }
-    else
+    if(damaging_points >= Current_Hp)
     {
-        if(damaging_points >= Current_Hp)
-        {
-            Current_Hp = 0;
-            Is_Hero_Dead = true;
-        }
-        else
-        {
-            Current_Hp -= damaging_points;
-        }
+        Current_Hp = 0;
+        Is_Hero_Dead = true;
+        return;
     }
+    Current_Hp -= damaging_points;
 }
 
 void Hero_Abstaction::Get_Healed(int healing_points)
