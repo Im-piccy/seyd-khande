@@ -145,8 +145,6 @@ void Game::Game_Screen()
     {
         copied_user1_info = true;
         string_to_char_array(user1.Get_Name_String(), user1_name);
-        std::cout << "i think get name memeber function isnt working so this is what it returns : " << user1.Get_Name_String() << std::endl;
-        std::cout << "if you see this i am coping user1 name into the variable \n this is the valuse in it : " << user1_name << std::endl;
         user1_hero_arr = user1.Get_Hero_Array();
         User1_name_size = MeasureTextEx(font, user1_name, 20, 0);
     }
@@ -385,20 +383,20 @@ void Game::Game_Screen()
 
         if(should_ability_stay_highlighted)
         {
-            if((!is_mouse_hovering_over_enemy && !is_mouse_hovring_over_attack_or_endTurn_button) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            if((!is_mouse_hovering_over_enemy && !is_mouse_hovring_over_attack_or_endTurn_button && !is_mouse_hovering_over_abilities) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
             {
                 should_hero_be_animated = false;
                 hero_to_be_animated_index = 4;
                 std::cout << "turned of hero because ability was highlighted but clicked on somewhere else other than buttons and enemy\n";
             }
         }
-        else if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !is_mouse_hovering_over_abilities )
-        {
+        // else if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !is_mouse_hovering_over_abilities )
+        // {
 
-            should_hero_be_animated = false;
-            hero_to_be_animated_index = 4;
-            std::cout << "turned hero off because clicked somewhere else than abilities and abilities were off \n";
-        }
+        //     should_hero_be_animated = false;
+        //     hero_to_be_animated_index = 4;
+        //     std::cout << "turned hero off because clicked somewhere else than abilities and abilities were off \n";
+        // }
     }
 
 
@@ -516,11 +514,14 @@ void Game::Game_Screen()
         {
             enemy_to_be_highlighted = 4;
             should_enemy_be_highlighted = false;
-            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            //conditions to reset selected enemy index
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && (should_ability_stay_highlighted) && (!is_mouse_hovring_over_attack_or_endTurn_button))
             {
                 enemy_to_stay_highlighted = 4;
                 should_enemy_stay_highlighted = false;
             }
+            
+
         }
     }
     else if(User_Turn == USER2)
@@ -529,7 +530,7 @@ void Game::Game_Screen()
         {
             enemy_to_be_highlighted = 4;
             should_enemy_be_highlighted = false;
-            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)&& (should_ability_stay_highlighted) && (!is_mouse_hovring_over_attack_or_endTurn_button))
             {
                 enemy_to_stay_highlighted = 4;
                 should_enemy_stay_highlighted = false;
