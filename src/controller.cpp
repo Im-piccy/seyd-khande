@@ -9,8 +9,8 @@
 
 Controller::Controller()
 {
+    
     this->round_number = 1;
-    srand(time(0));
     this->which_user_started_the_game = rand() % 2;
 
     for(int i = 0 ; i < 3 ; i++)

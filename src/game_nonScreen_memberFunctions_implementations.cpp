@@ -277,7 +277,7 @@ void Game::load_game_screen_abilities_textures()
         
         shahriar_dummy = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/shahriar-dummy.png");
         shahriar_stubborn = LoadTexture("game_assets/game_screen_assets/powers/normalpowers/shahriar-stubborn.png");
-        shahriar_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar/shahriar-super-power-3rounds-left.png");
+        shahriar_super_power_3rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar-super-power-3rounds-left.png");
         shahriar_super_power_2rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar-super-power-2rounds-left.png");
         shahriar_super_power_1rounds_left = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar-super-power-1round-left.png");
         shahriar_super_power_ready = LoadTexture("game_assets/game_screen_assets/powers/superpowers/shahriar/shahriar-super-power-ready.png");
