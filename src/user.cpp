@@ -14,7 +14,7 @@ int User::Get_Energy() const
     return this->energy;
 }
 
-void User::Set_Energy(int cost)
+void User::Subtract_Energy(int cost)
 {
     if(cost > energy)
         energy = 0;
@@ -57,4 +57,9 @@ void User::add_hero_to_hero_array(int hero)
 std::array<int,3> User::Get_Hero_Array() const
 {
     return Hero_Arr;
+}
+
+void User::Add_Energy(int energy)
+{
+    this->energy += energy;
 }

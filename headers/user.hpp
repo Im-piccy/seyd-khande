@@ -11,7 +11,8 @@ class User
         User();
         void terminate_user_turn_manually(); //this means that user is skiping turn or ending attacks before energy is 0
         int Get_Energy() const;
-        void Set_Energy(int cost);
+        void Subtract_Energy(int cost);
+        void Add_Energy(int energy);
         void Set_Name(const std::string& usrname);// booleaan returned false beacause it was more than 25 char
         bool can_ability_be_used_based_on_energy_points(int hero_array_index, ABILITIES which_skill, int user_turn, int current_energy);
         std::string Get_Name_String() const;
