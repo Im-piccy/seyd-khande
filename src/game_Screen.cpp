@@ -900,12 +900,30 @@ void Game::Game_Screen()
     if(should_execute_ability)
     {
         control.execute_user_ask_to_use_hero_ability_if_possible(enemy_to_stay_highlighted, parameters, hero_to_be_animated_index, ability_to_stay_highlighted, User_Turn, user1, user2, user1_hero_arr, user2_hero_arr);
+        
+        should_ability_be_highlighted = false;
+        should_ability_stay_highlighted = false;
+        is_mouse_hovering_over_abilities = false;
+        is_mouse_hovering_over_enemy = false;
+        is_mouse_hovring_over_attack_or_endTurn_button = false;
+        should_hero_be_animated = false;
+        Hero_should_be_highlighted = false;
+        user1_hero_to_be_highlighted_index = 4;
+        user2_hero_to_be_highlighted_index = 4;
+        hero_to_be_animated_index = 4;
+        enemy_to_be_highlighted = 4;
+        enemy_to_stay_highlighted = 4;
+        should_execute_ability = false;
+        should_end_turn = false;
+        should_enemy_be_highlighted = false;
+        should_enemy_stay_highlighted = false;
     }
-
 
 
     if(should_end_turn || control.should_change_turn(User_Turn, user1.Get_Energy(), user2.Get_Energy()))
     {
+        std::cout << "ending turn \n";
+        
         //reseting variables for the next player
         should_ability_be_highlighted = false;
         should_ability_stay_highlighted = false;
