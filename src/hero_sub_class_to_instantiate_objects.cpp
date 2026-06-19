@@ -36,17 +36,15 @@ bool WhiteDoctor::Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstac
 {
     Seeded();
     std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
-    //if(valid_indexes[3] == 0)
-        //return false;
+    if(valid_indexes[3] == 0)
+        return false;
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
     controller.Apply_Healed(allies[selected_index], 40);
 
-    //if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
-        //return false;
-        if(enemies[selected_enemy_index] == nullptr)
-            return false;
-    std::cout << "********"<< selected_enemy_index << "********";
+    if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
+        return false;
+    //std::cout << "********"<< selected_enemy_index << "********";
     if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 40);
     user.Subtract_Energy(Skill1_Energy_Cost);
@@ -163,7 +161,6 @@ bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &
     int selected_index = valid_indexes[random_position];
     allies[selected_index]->Activate_Serom_Khon();
     user.Subtract_Energy(Skill1_Energy_Cost);
-    
     return true;
 }
 
@@ -582,7 +579,6 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
     Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] =  SCORPIEN;
     Activate_scorpien(enemies, controller);
     user.Subtract_Energy(Skill2_Energy_Cost);
-    
     return true;
 }
 
