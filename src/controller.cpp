@@ -673,3 +673,15 @@ bool Controller::Check_pouya_kajdom_between_selected_heroes(int user_turn, int h
         return false;
     }
 }
+
+int Controller::return_hero_hp(int user_turn , int hero_index)
+{
+    if(user_turn == USER1)
+    {
+        return Hero_Arr_User1[hero_index]->Get_Current_Hp();
+    }
+    else if(user_turn == USER2)
+    {
+        return Hero_Arr_User2[hero_index]->Get_Current_Hp();
+    }
+}

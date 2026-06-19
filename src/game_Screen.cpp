@@ -168,7 +168,7 @@ void Game::Game_Screen()
     Mouse_Positon = GetMousePosition();
     
     //check to see if we are hovering over buttons or not
-    if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound) && CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound) && should_ability_stay_highlighted)
+    if((CheckCollisionPointRec(Mouse_Positon, Attack_button_bound) || CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound)) && should_ability_stay_highlighted)
     {
         is_mouse_hovring_over_attack_or_endTurn_button = true;
     }
@@ -376,13 +376,15 @@ void Game::Game_Screen()
     else
     {
         Hero_should_be_highlighted = false;
+
+
         if(should_ability_stay_highlighted)
         {
             if((!is_mouse_hovering_over_enemy && !is_mouse_hovring_over_attack_or_endTurn_button) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
             {
                 should_hero_be_animated = false;
                 hero_to_be_animated_index = 4;
-
+                std::cout << "turned of hero because ability was highlighted but clicked on somewhere else other than buttons and enemy\n";
             }
         }
         else if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !is_mouse_hovering_over_abilities )
@@ -390,6 +392,7 @@ void Game::Game_Screen()
 
             should_hero_be_animated = false;
             hero_to_be_animated_index = 4;
+            std::cout << "turned hero off because clicked somewhere else than abilities and abilities were off \n";
         }
     }
 
@@ -778,6 +781,15 @@ void Game::Game_Screen()
 
     if(should_hero_be_animated)
     {
+
+        //printing hero hp on the screen
+        char hero_hp[10];
+        int hp_width = MeasureText(hero_hp, 20);
+        string_to_char_array(std::to_string(control.return_hero_hp(User_Turn, hero_to_be_animated_index)), hero_hp);
+
+        DrawText("HERO HP", 75, 500, 20, LIGHTGRAY);
+        DrawText(hero_hp, (125 - (hp_width/2)), 520, 20, LIGHTGRAY);
+
         if(User_Turn == USER1)
         {
             //just khoshgelasion
@@ -785,6 +797,8 @@ void Game::Game_Screen()
             {
                 display_ability_defenition_and_detail(user1_hero_arr, User_Turn, hero_to_be_animated_index, ability_to_be_highlighted, font, GRAY);
             }
+
+            
 
             return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(user1_hero_arr, user1_ability_texture_array, User_Turn,hero_to_be_animated_index);
             game_screen_draw_abilities_grayed_out(user1_ability_texture_array,Skill_1_bound,Skill_2_bound,superpower_bound);
@@ -909,6 +923,7 @@ void Game::Game_Screen()
         should_end_turn = false;
         should_enemy_be_highlighted = false;
         should_enemy_stay_highlighted = false;
+        
 
         //changing turn or ending round
         if(change_turn_or_finish_round(User_Turn, control.return_user_whom_started_the_game_as_an_int()))
@@ -922,6 +937,7 @@ void Game::Game_Screen()
             control.Updated_Brother_Revenge_Status();
             control.Updated_Dom_Kajdom_Status();
             control.Update_Reverse_World();
+
         }
 
 
@@ -939,7 +955,7 @@ void Game::Game_Screen()
             User_Turn = USER1;
         }
     }
-    
-    
+
+
 }
 
