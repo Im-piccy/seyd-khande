@@ -66,7 +66,7 @@ bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user)
 
 bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Controller &controller)
 {
-    if(rounds_left_till_superpower_is_ready != 4)
+    if(rounds_left_till_superpower_is_ready != 0)
         return false;
     Seeded();
     // finding  live allies and not  being null and not this
@@ -166,7 +166,7 @@ bool Taha_Kochike::Execute_Serom_Khon_Ability(Hero_Abstaction* allies[3], User &
 
 bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Controller &controller)
 {
-    if(rounds_left_till_superpower_is_ready != 3)
+    if(rounds_left_till_superpower_is_ready != 0)
         return false;
     Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
     if(Lowest_Hp_Ally == nullptr)
@@ -271,7 +271,7 @@ bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int sele
 
 bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
 {
-    if(rounds_left_till_superpower_is_ready != 4)
+    if(rounds_left_till_superpower_is_ready != 0)
         return false;
     Hero_Abstaction* Lowest_Hp_Ally = Find_Highest_Or_Lowest_Hp(allies);
     if(Lowest_Hp_Ally == nullptr)
@@ -367,7 +367,7 @@ bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User
 
 bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction* enemies[3], User &user, Controller &controller)
 {
-    if(rounds_left_till_superpower_is_ready != 3)
+    if(rounds_left_till_superpower_is_ready != 0)
         return false;
     Seeded();
     std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
@@ -468,7 +468,7 @@ bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selecte
 
 bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
 {
-    if(rounds_left_till_superpower_is_ready != 4)
+    if(rounds_left_till_superpower_is_ready != 0)
         return false;
     Seeded();
     std::array<int,4> valid_indexes = Valid_Index_Hero(enemies);
@@ -561,9 +561,9 @@ bool Pouya_Kajdom::Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int sele
 {
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
-    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == BUFFED_SCORPIEN)
-        return false;
-    Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] = BUFFED_SCORPIEN;
+    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == BUFFED_SCORPIEN){}
+    else 
+        Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] = BUFFED_SCORPIEN;
     Activate_scorpien(enemies, controller);
     user.Subtract_Energy(Skill1_Energy_Cost);
     
@@ -574,9 +574,9 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
 {
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
-    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == SCORPIEN)
-        return false;
-    Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] =  SCORPIEN;
+    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == SCORPIEN){}
+    else
+        Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] =  SCORPIEN;
     Activate_scorpien(enemies, controller);
     user.Subtract_Energy(Skill2_Energy_Cost);
     return true;
@@ -584,7 +584,7 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
 
 bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
 {
-    if(rounds_left_till_superpower_is_ready != 4)
+    if(rounds_left_till_superpower_is_ready != 0)
         return false;
     Is_Hidden = true;
     Hidden_Round_Left = 3;
@@ -696,7 +696,7 @@ bool Agha_Shahriar::Execute_Lajbaz_Ability(Hero_Abstaction* enemies[3], int sele
 
 bool Agha_Shahriar::Execute_SuperPower(User &user, Controller &controller)
 {
-    if(rounds_left_till_superpower_is_ready != 4)
+    if(rounds_left_till_superpower_is_ready != 0)
         return false;
     controller.Activate_Reverse_World();
     user.Subtract_Energy(SuperPower_Energy_Cost);
