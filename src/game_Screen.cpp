@@ -104,7 +104,8 @@ void Game::Game_Screen()
     static bool should_enemy_be_highlighted = false;
     static bool should_enemy_stay_highlighted = false;
     static bool is_mouse_hovring_over_attack_or_endTurn_button = false;
-    
+    //
+    static bool is_round1 = true;
     
     //user info
     static char user1_name[26];
@@ -161,7 +162,11 @@ void Game::Game_Screen()
     string_to_char_array(std::to_string(user1.Get_Energy()), user1_energy);
     string_to_char_array(std::to_string(user2.Get_Energy()), user2_energy);
     string_to_char_array(std::to_string(control.return_round_number()), current_round);
-    
+    if(is_round1)
+    {
+        control.Refill_Players_Energy(user1, user2);
+        is_round1  =false;
+    }
 
 
 

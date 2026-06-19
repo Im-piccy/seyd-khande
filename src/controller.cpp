@@ -361,27 +361,45 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                std::cout << "HEREEEEEEE";
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
+                {std::cout << "helloooooo";}
                 else
-                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);
+                    {if(Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters))
+                        std::cout << "TRUEEEEEEEEEEEEEEEEEEE";
+                    else 
+                        std::cout << "FALSEEEEEEEEEEEEEE";
+                    }
             }
         }
         else if(which_ability == SKILL2)
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                std::cout << "HEREEEEEEE";
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
+                {std::cout << "helloooooo";}
                 else
-                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);
+                    {if(Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters))
+                        std::cout << "TRUEEEEEEEEEEEEEEEE";
+                    else 
+                        std::cout << "FALSEEEEEEEEEEEEEE";
+                    }
             }
         }
         else if(which_ability == SUPERPOWER)
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                std::cout << "HEREEEEEEE";
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
+                {std::cout << "helloooooo";}
                 else
-                    Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
+                    {if(Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters))
+                        std::cout << "TRUEEEEEEEEEEEEEE";
+                    else 
+                        std::cout << "FALSEEEEEEEEEEEEEE";
+                    }
             }
         }
     }
@@ -391,27 +409,45 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                std::cout << "HEREEEEEEE";
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
+                {std::cout << "helloooooo";}
                 else
-                    Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);
+                    {if(Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters))
+                        std::cout << "TRUEEEEEEEEEEEE";
+                    else 
+                        std::cout << "FALSEEEEEEEEEEEEEE";
+                    }
             }
         }
         else if(which_ability == SKILL2)
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                std::cout << "HEREEEEEEE";
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
+                {std::cout << "helloooooo";}
                 else
-                Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters);
+                    {if(Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters))
+                        std::cout << "TRUEEEEEEEEEE";
+                    else 
+                        std::cout << "FALSEEEEEEEEEEEEEE";
+                    }
             }
         }
         else if(which_ability == SUPERPOWER)
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
+                std::cout << "HEREEEEEEE";
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
+                {std::cout << "helloooooo";}
                 else
-                Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters);
+                    {if(Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters))
+                        std::cout << "TRUEEEEEEEEEEEEEEE";
+                    else 
+                        std::cout << "FALSEEEEEEEEEEEEEE";
+                    }
             }
         }
     }

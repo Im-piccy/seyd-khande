@@ -6,7 +6,7 @@ User::User()
     this->username = {};
 
     //testing to be deleted
-    this->energy = 10;
+    this->energy = 0;
 }
 
 int User::Get_Energy() const
@@ -61,5 +61,5 @@ std::array<int,3> User::Get_Hero_Array() const
 
 void User::Add_Energy(int energy)
 {
-    this->energy += energy;
+    this->energy = energy;
 }

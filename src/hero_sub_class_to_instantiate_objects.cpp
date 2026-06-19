@@ -65,20 +65,14 @@ bool WhiteDoctor::Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstac
 
 bool WhiteDoctor::Execute_Doping_Ability(Hero_Abstaction* allies[3], User &user)
 {
-    static int selected_index;
-    if(!Is_Doped)
-    {
-        Seeded();
-        std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
-        if(valid_indexes[3] == 0)
-            return false;
-        int random_position = std::rand() % valid_indexes[3];
-        selected_index = valid_indexes[random_position];
-        allies[selected_index]->Activate_Doping();
-        user.Subtract_Energy(Skill2_Energy_Cost);
-    }
-    //allies[selected_index]->Updated_Doping_Status();    at the end of each round
-    
+    Seeded();
+    std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
+    if(valid_indexes[3] == 0)
+        return false;
+    int random_position = std::rand() % valid_indexes[3];
+    int selected_index = valid_indexes[random_position];
+    allies[selected_index]->Activate_Doping();
+    user.Subtract_Energy(Skill2_Energy_Cost);
     return true;
 }
 
