@@ -305,14 +305,18 @@ void Controller::Finish_Round()
 
 bool Controller::Is_game_over(User &user1, User &user2)
 {
-    int count1 = 0;
-    int count2 = 0;
+    int number_of_live_heroes_of_user1 = 0;
+    int number_of_live_heroes_of_user2 = 0;
+    int total_HP_of_user1_heroes = 0;
+    int total_HP_of_user2_heroes = 0;
+
     for(int i = 0; i < 3; i++)
     {
+        total_HP_of_user1_heroes += Hero_Arr_User1[i]->Get_Current_Hp();
         if(Hero_Arr_User1[i]->Is_Dead())
-            count1++;
+            number_of_live_heroes_of_user1++;
     }
-    if(round_number == 15 || count1 == 3)
+    if(round_number == 15 && number_of_live_heroes_of_user1 == 3)
     {
         Winner_Name = user2.Get_Name_String();
         return true;
@@ -320,13 +324,52 @@ bool Controller::Is_game_over(User &user1, User &user2)
 
     for(int i = 0; i < 3; i++)
     {
+        total_HP_of_user2_heroes += Hero_Arr_User2[i]->Get_Current_Hp();
         if(Hero_Arr_User2[i]->Is_Dead())
-            count2++;
+            number_of_live_heroes_of_user2++;
     }
-    if(round_number == 15 || count2 == 3)
+    if(round_number == 15 && number_of_live_heroes_of_user2 == 3)
     {
         Winner_Name = user1.Get_Name_String();
         return true;
+    }
+
+    // special win modes
+    if(round_number == 15 && (number_of_live_heroes_of_user1 == number_of_live_heroes_of_user2))
+    {
+        if(total_HP_of_user1_heroes > total_HP_of_user2_heroes)
+        {
+            Winner_Name = user1.Get_Name_String();
+            return true;
+        }
+        else if(total_HP_of_user1_heroes < total_HP_of_user2_heroes)
+        {
+            Winner_Name = user2.Get_Name_String();
+            return true;
+        }
+        else
+        {
+            Winner_Name = "";
+            return true;
+        }
+    }
+    else if(round_number == 15)
+    {
+        if(number_of_live_heroes_of_user1 > number_of_live_heroes_of_user2)
+        {
+            Winner_Name = user1.Get_Name_String();
+            return true;
+        }
+        else if(number_of_live_heroes_of_user1 < number_of_live_heroes_of_user2)
+        {
+            Winner_Name = user1.Get_Name_String();
+            return true;
+        }
+        else
+        {
+            Winner_Name = "";
+            return true;
+        }
     }
     return false;
 }
@@ -372,45 +415,28 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                std::cout << "HEREEEEEEE";
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
-                {std::cout << "helloooooo";}
+                
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
                 else
-                    {if(Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters))
-                        std::cout << "TRUEEEEEEEEEEEEEEEEEEE";
-                    else 
-                        std::cout << "FALSEEEEEEEEEEEEEE";
-                    }
+                    Hero_Arr_User1[hero_index_in_array]->Execute_Skill1(parameters);                       
             }
         }
         else if(which_ability == SKILL2)
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                std::cout << "HEREEEEEEE";
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
-                {std::cout << "helloooooo";}
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
                 else
-                    {if(Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters))
-                        std::cout << "TRUEEEEEEEEEEEEEEEE";
-                    else 
-                        std::cout << "FALSEEEEEEEEEEEEEE";
-                    }
+                   Hero_Arr_User1[hero_index_in_array]->Execute_Skill2(parameters);   
             }
         }
         else if(which_ability == SUPERPOWER)
         {
             if(!Hero_Arr_User1[hero_index_in_array]->Is_Dead())
             {
-                std::cout << "HEREEEEEEE";
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
-                {std::cout << "helloooooo";}
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
                 else
-                    {if(Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters))
-                        std::cout << "TRUEEEEEEEEEEEEEE";
-                    else 
-                        std::cout << "FALSEEEEEEEEEEEEEE";
-                    }
+                    Hero_Arr_User1[hero_index_in_array]->Execute_SuperSkill(parameters);
             }
         }
     }
@@ -420,45 +446,28 @@ void Controller::execute_user_ask_to_use_hero_ability_if_possible(int selected_e
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                std::cout << "HEREEEEEEE";
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
-                {std::cout << "helloooooo";}
+               
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User2[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
                 else
-                    {if(Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters))
-                        std::cout << "TRUEEEEEEEEEEEE";
-                    else 
-                        std::cout << "FALSEEEEEEEEEEEEEE";
-                    }
+                    Hero_Arr_User2[hero_index_in_array]->Execute_Skill1(parameters);                       
             }
         }
         else if(which_ability == SKILL2)
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
-            {
-                std::cout << "HEREEEEEEE";
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
-                {std::cout << "helloooooo";}
+            {                
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User2[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
                 else
-                    {if(Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters))
-                        std::cout << "TRUEEEEEEEEEE";
-                    else 
-                        std::cout << "FALSEEEEEEEEEEEEEE";
-                    }
+                    Hero_Arr_User2[hero_index_in_array]->Execute_Skill2(parameters);
             }
         }
         else if(which_ability == SUPERPOWER)
         {
             if(!Hero_Arr_User2[hero_index_in_array]->Is_Dead())
             {
-                std::cout << "HEREEEEEEE";
-                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User1[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing())
-                {std::cout << "helloooooo";}
+                if(Check_pouya_kajdom_between_selected_heroes(user_turn, hero_index_in_array, hero_arr_user1, hero_arr_user2) && Hero_Arr_User2[hero_index_in_array]->Return_Is_Dom_KajDom_Ongoing()){}
                 else
-                    {if(Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters))
-                        std::cout << "TRUEEEEEEEEEEEEEEE";
-                    else 
-                        std::cout << "FALSEEEEEEEEEEEEEE";
-                    }
+                    Hero_Arr_User2[hero_index_in_array]->Execute_SuperSkill(parameters);                       
             }
         }
     }

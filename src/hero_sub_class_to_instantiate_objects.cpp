@@ -44,7 +44,6 @@ bool WhiteDoctor::Execute_Asprin_Ability(Hero_Abstaction* allies[3], Hero_Abstac
 
     if(enemies[selected_enemy_index] == nullptr || enemies[selected_enemy_index]->Is_Dead())
         return false;
-    //std::cout << "********"<< selected_enemy_index << "********";
     if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 40);
     user.Subtract_Energy(Skill1_Energy_Cost);
@@ -77,6 +76,7 @@ bool WhiteDoctor::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Con
     int selected_index = valid_indexes[random_position];
     controller.Apply_Healed(allies[selected_index], 200);
     user.Subtract_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 4;
     return true; 
 }
 
@@ -173,6 +173,7 @@ bool Taha_Kochike::Execute_SuperPower(Hero_Abstaction* allies[3], User &user, Co
         return false;
     controller.Apply_Healed( Lowest_Hp_Ally, 200);
     user.Subtract_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 3;
     return true;   
 }
 
@@ -265,7 +266,7 @@ bool Dani_Golang::Execute_Fil_kosh_Ability(Hero_Abstaction* enemies[3], int sele
     if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 50);
     user.Subtract_Energy(Skill1_Energy_Cost);
-    
+    rounds_left_till_superpower_is_ready = 4;
     return true;
 }
 
@@ -278,6 +279,7 @@ bool Dani_Golang::Execute_SuperPower(Hero_Abstaction* allies[3], User &user)
         return false;
     Lowest_Hp_Ally->Activate_Family_StrongHold();
     user.Subtract_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 4;
     return true;
 }
 
@@ -334,8 +336,8 @@ Amin_Emeni::Amin_Emeni()
 
 bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], int selected_enemy_index, User &user, Controller &controller)
 {
-    //if(selected_enemy_index < 0 || selected_enemy_index >= 3)
-        //return false;
+    if(selected_enemy_index < 0 || selected_enemy_index >= 3)
+        return false;
     if(enemies[selected_enemy_index]->Get_Current_Hp() <= 110)
     {
         if(!enemies[selected_enemy_index]->Return_Is_Hidden())
@@ -353,7 +355,7 @@ bool Amin_Emeni::Execute_Akharin_Feshang_Ability(Hero_Abstaction* enemies[3], in
 bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User &user, Controller &controller)
 {
     Seeded();
-    std::array<int,4> valid_indexes = Valid_Index_Hero(allies);
+    std::array<int,4> valid_indexes = Valid_Index_Hero(allies, 1);
     if(valid_indexes[3] == 0)
         return false;
     int random_position = std::rand() % valid_indexes[3];
@@ -362,6 +364,7 @@ bool Amin_Emeni::Execute_Zarbe_Be_Khody_Ability(Hero_Abstaction* allies[3], User
         controller.Apply_Damaged(allies[selected_index], 25);
     controller.Apply_Healed(this, 75);
     user.Subtract_Energy(Skill1_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 3;
     return true;
 }
 
@@ -384,6 +387,7 @@ bool Amin_Emeni::Execute_SuperPower(Hero_Abstaction* allies[3], Hero_Abstaction*
                 controller.Apply_Damaged(allies[i], 30);
     }
     user.Subtract_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 3;
     return true;
 }
 
@@ -449,7 +453,6 @@ bool Taha_Bozorge::Execute_Ragbar_Ability(Hero_Abstaction* enemies[3], User &use
             controller.Apply_Damaged(enemies[i], 30);
     }
     user.Subtract_Energy(Skill1_Energy_Cost);
-    
     return true;
 }
 
@@ -462,7 +465,6 @@ bool Taha_Bozorge::Execute_Xray_Ability(Hero_Abstaction* enemies[3], int selecte
     if(!enemies[selected_enemy_index]->Return_Is_Hidden())
         controller.Apply_Damaged(enemies[selected_enemy_index], 90);
     user.Subtract_Energy(Skill2_Energy_Cost);
-    
     return true;
 }
 
@@ -477,6 +479,7 @@ bool Taha_Bozorge::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
     int random_position = std::rand() % valid_indexes[3];
     int selected_index = valid_indexes[random_position];
     enemies[selected_index]->Activate_Brother_revenge();
+    rounds_left_till_superpower_is_ready = 4;
     return true;
 }
 
@@ -562,11 +565,10 @@ bool Pouya_Kajdom::Execute_Khanjar_Ability(Hero_Abstaction* enemies[3], int sele
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
     if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == BUFFED_SCORPIEN){}
-    else 
+    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == SCORPIEN)
         Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] = BUFFED_SCORPIEN;
     Activate_scorpien(enemies, controller);
     user.Subtract_Energy(Skill1_Energy_Cost);
-    
     return true;
 }
 
@@ -575,7 +577,7 @@ bool Pouya_Kajdom::Execute_Aghrab_Ability(Hero_Abstaction* enemies[3], int selec
     if(selected_enemy_index < 0 || selected_enemy_index >= 3)
         return false;
     if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == SCORPIEN){}
-    else
+    if(Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] == NONE)
         Enemy_Array_With_Respect_To_Active_Scorpiens[selected_enemy_index] =  SCORPIEN;
     Activate_scorpien(enemies, controller);
     user.Subtract_Energy(Skill2_Energy_Cost);
@@ -596,6 +598,7 @@ bool Pouya_Kajdom::Execute_SuperPower(Hero_Abstaction* enemies[3], User &user)
     int selected_index = valid_indexes[random_position];
     enemies[selected_index]->Activate_Dom_Kajdom();
     user.Subtract_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 4;
     return true;
 }
 
@@ -700,6 +703,7 @@ bool Agha_Shahriar::Execute_SuperPower(User &user, Controller &controller)
         return false;
     controller.Activate_Reverse_World();
     user.Subtract_Energy(SuperPower_Energy_Cost);
+    rounds_left_till_superpower_is_ready = 4;
     return true;
 }
 
