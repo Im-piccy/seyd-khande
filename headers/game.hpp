@@ -15,6 +15,7 @@ class Game
         bool Manage_Screens();
         void Menu_Screen();
         void Character_Select_Screen();
+        void Game_Over_Screen();
         void Game_Screen();
         void load_game_screen_animation_sprite_sheets();
         void unload_game_screen_animation_sprite_sheets();
@@ -24,7 +25,6 @@ class Game
         Texture2D return_animation_texture_based_on_arguments_passed(const std::array <int,3>& user1_hero_arr, const std::array <int,3>& user2_hero_arr,int user_turn, int hero_index_in_array);
         void return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(const std::array<int,3>& user_hero_array,  std::array <Texture2D, 3>& user_texture_array, int user_turn, int hero_index_in_array);// pass a texture 2d array to this function by refrence and it will fill it for you
         void highlight_enemy(const std::array <int, 3>& user1_hero_array, const std::array <int, 3>& user2_hero_array, int user_turn, int enemy_to_be_highlighted, Color color = WHITE);
-        //bool Game_Over_Screen();
     private:
         int current_screen;
         User user1;

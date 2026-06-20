@@ -968,18 +968,18 @@ void Game::Game_Screen()
 
     }
 
-    if(IsKeyPressed(KEY_K))
+    if(control.Is_game_over(User_Turn))
     {
-        if(User_Turn == USER1)
-        {
-            User_Turn = USER2;
-        }
-        else
-        {
-            User_Turn = USER1;
-        }
+        unload_game_screen_abilities_textures();
+        unload_game_screen_animation_sprite_sheets();
+        UnloadMusicStream(Background_music);
+        UnloadTexture(Background_img);
+        UnloadTexture(attack_button_textrue);
+        UnloadTexture(end_turn_texture);
+        UnloadTexture(Control_panel);
+        UnloadTexture(Control_panle_hero_selected);
+        current_screen = GAME_OVER_SCREEN;
     }
-
 
 }
 

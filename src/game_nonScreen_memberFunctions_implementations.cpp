@@ -560,8 +560,8 @@ bool Game::Manage_Screens()
             return true;
 
         case GAME_OVER_SCREEN:
-            //Game_Over_Screen();
-            break;
+            Game_Over_Screen();
+            return true;
 
         case WINDOWSHOULDCLOSE:
             return false;

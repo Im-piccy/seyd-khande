@@ -10,6 +10,7 @@ add_library(Mylib src/controller
             src/hero_abstract_base_class.cpp
             src/hero_sub_class_to_instantiate_objects.cpp
             src/user.cpp
+            src/game_over_screen.cpp
             )
 
 target_include_directories(Mylib PUBLIC 
