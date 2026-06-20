@@ -301,30 +301,37 @@ void Controller::Finish_Round()
     round_number++;
 }
 
-bool Controller::Is_game_over(int user_turn)
+bool Controller::Is_game_over(User &user1, User &user2)
 {
-    int count  = 0;
-    if(user_turn == USER1)
+    int count1 = 0;
+    int count2 = 0;
+    for(int i = 0; i < 3; i++)
     {
-        for(int i = 0; i < 3; i++)
-        {
-            if(Hero_Arr_User1[i]->Is_Dead())
-                count++;
-        }
-        if(round_number == 15 || count == 3)
-            return true;
+        if(Hero_Arr_User1[i]->Is_Dead())
+            count1++;
     }
-    else
+    if(round_number == 15 || count1 == 3)
     {
-        for(int i = 0; i < 3; i++)
-        {
-            if(Hero_Arr_User2[i]->Is_Dead())
-                count++;
-        }
-        if(round_number == 15 || count == 3)
-            return true;
+        Winner_Name = user2.Get_Name_String();
+        return true;
+    }
+
+    for(int i = 0; i < 3; i++)
+    {
+        if(Hero_Arr_User2[i]->Is_Dead())
+            count2++;
+    }
+    if(round_number == 15 || count2 == 3)
+    {
+        Winner_Name = user1.Get_Name_String();
+        return true;
     }
     return false;
+}
+
+std::string Controller::Return_Name_Of_Winner() const
+{
+    return Winner_Name;
 }
 
 void Controller::Fill_Struct_For_Virtual_Functions(int user_turn, int selected_enemy_index, Argument_Skills_Functions& parameters, User &user1, User &user2)
