@@ -88,7 +88,7 @@ void Game::Game_Screen()
     
     
     //variables for logic of the program
-    static int User_Turn = USER1;
+    static int User_Turn = control.return_user_whom_started_the_game_as_an_int();
     static bool copied_user1_info = false;
     static bool copied_user2_info = false;
     static Vector2 Mouse_Positon;
