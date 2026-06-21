@@ -31,6 +31,7 @@ class Controller
         int return_user_whom_started_the_game_as_an_int() const;
         int return_hero_hp(int user_turn, int hero_index);
         bool Is_hero_dead(int user_turn, int hero_index);
+        void Updated_Hidden_Status();
 
         //for the superpower of agha_shahriar
         void Activate_Reverse_World();

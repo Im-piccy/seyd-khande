@@ -40,6 +40,9 @@ class Hero_Abstaction //abstract class
         void Reduce_Round_Doping();
         void Set_Is_Doped();
 
+        //for powers that are hidden
+
+
         //for serom_khon power (taha_kochike)
         void Activate_Serom_Khon();
         bool Return_Is_serom_Khon_ongoing() const;
@@ -61,7 +64,9 @@ class Hero_Abstaction //abstract class
 
         //for XRay power (taha_bozorge) & super power of pouya_kajdom
         bool Return_Is_Hidden() const;
-        void Updated_Round_Hidden();
+        void Set_Is_Hidden();
+        void Reduce_Round_Hidden();
+        int Return_Hidden_Round_Left() const;
 
         //for brother revenge power(superpower of taha_ozorge)
         void Activate_Brother_revenge();

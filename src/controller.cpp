@@ -730,6 +730,33 @@ bool Controller::Check_pouya_kajdom_between_selected_heroes(int user_turn, int h
     }
 }
 
+void Controller::Updated_Hidden_Status()
+{
+    for(int i = 0; i < 3; i++)
+    {
+        if(Hero_Arr_User1[i]->Return_Is_Hidden())
+        {
+            Hero_Arr_User1[i]->Reduce_Round_Hidden();
+            if(Hero_Arr_User1[i]->Return_Hidden_Round_Left() <= 0)
+            {
+                Hero_Arr_User1[i]->Set_Is_Hidden();
+            }
+        }
+    }
+    
+    for(int i = 0; i < 3; i++)
+    {
+        if(Hero_Arr_User2[i]->Return_Is_Hidden())
+        {
+            Hero_Arr_User2[i]->Reduce_Round_Hidden();
+            if(Hero_Arr_User2[i]->Return_Hidden_Round_Left() <= 0)
+            {
+                Hero_Arr_User2[i]->Set_Is_Hidden();
+            }
+        }
+    }
+}
+
 int Controller::return_hero_hp(int user_turn , int hero_index)
 {
     if(user_turn == USER1)

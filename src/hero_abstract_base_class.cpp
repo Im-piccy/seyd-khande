@@ -256,21 +256,23 @@ void Hero_Abstaction::ReSet_amount_damage_when_family_stronghold_is_active()
 
 bool Hero_Abstaction::Return_Is_Hidden() const
 {
-    return this->Is_Hidden;
+    return Is_Hidden;
 }
 
-void Hero_Abstaction::Updated_Round_Hidden()
+void Hero_Abstaction::Set_Is_Hidden()
 {
-    if(Is_Hidden)
-    {
-        Hidden_Round_Left--;
-        if(Hidden_Round_Left <= 0)
-        {
-            Is_Hidden = false;
-        }
-    }
+    Is_Hidden = false;
 }
 
+void Hero_Abstaction::Reduce_Round_Hidden()
+{
+    Hidden_Round_Left--;
+}
+
+int Hero_Abstaction::Return_Hidden_Round_Left() const
+{
+    return Hidden_Round_Left;
+}
 //--------------------------------------brother_revenge(taha_bozorge)------------------------------------
 void Hero_Abstaction::Activate_Brother_revenge()
 {

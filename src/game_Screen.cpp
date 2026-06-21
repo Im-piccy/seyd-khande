@@ -1031,7 +1031,7 @@ void Game::Game_Screen()
             control.Updated_Brother_Revenge_Status();
             control.Updated_Dom_Kajdom_Status();
             control.Update_Reverse_World();
-
+            control.Updated_Hidden_Status();
         }
 
 
