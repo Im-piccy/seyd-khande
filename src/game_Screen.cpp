@@ -19,7 +19,7 @@ void Game::Game_Screen()
     static Font font = LoadFont("game_assets/character_select_screen_asset/bahnschrift.ttf"); 
 
     //background related textures
-    static Texture2D Background_img = LoadTexture("game_assets/game_screen_assets/game_background.jpg");
+    static Texture2D Background_img = LoadTexture("game_assets/game_screen_assets/game_background.png");
     static Texture2D Control_panel = LoadTexture("game_assets/game_screen_assets/control-panel-hero-not-selected.png");
     static Texture2D Control_panle_hero_selected = LoadTexture("game_assets/game_screen_assets/control-panel-hero-selected.png");
 
@@ -424,7 +424,6 @@ void Game::Game_Screen()
     {
         should_enemy_be_highlighted = true;
     }
-
 
     
 
