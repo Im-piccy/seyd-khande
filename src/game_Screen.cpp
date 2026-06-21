@@ -399,16 +399,14 @@ void Game::Game_Screen()
             {
                 should_hero_be_animated = false;
                 hero_to_be_animated_index = 4;
-                std::cout << "turned of hero because ability was highlighted but clicked on somewhere else other than buttons and enemy\n";
             }
         }
-        // else if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !is_mouse_hovering_over_abilities )
-        // {
+        else if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !is_mouse_hovering_over_abilities )
+        {
 
-        //     should_hero_be_animated = false;
-        //     hero_to_be_animated_index = 4;
-        //     std::cout << "turned hero off because clicked somewhere else than abilities and abilities were off \n";
-        // }
+            should_hero_be_animated = false;
+            hero_to_be_animated_index = 4;
+        }
     }
 
 
@@ -427,32 +425,9 @@ void Game::Game_Screen()
         should_enemy_be_highlighted = true;
     }
 
-    //to see if the character should highlight or not
-    //and see if the character should be animated or not
-    // if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero3_bound))
-    // {
-    //     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && User_Turn == USER1 )
-    //     {
-    //         should_hero_be_animated = true;
-    //     }
-    //     if(User_Turn == USER1)
-    //     {
-    //         Hero_should_be_highlighted = true;
 
-    //     }
+    
 
-    // }
-    // else if(CheckCollisionPointRec(Mouse_Positon,user2_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user2_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user2_hero3_bound))
-    // {
-    //     if(User_Turn == USER2)
-    //     {
-    //         Hero_should_be_highlighted = true;
-    //     }
-    //     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && User_Turn == USER2)
-    //     {
-    //         should_hero_be_animated = true;
-    //     }
-    // }
     if(CheckCollisionPointRec(Mouse_Positon, user1_hero1_bound))
     {
         if(User_Turn == USER1 && !control.Is_hero_dead(USER1, 0))
@@ -803,7 +778,14 @@ void Game::Game_Screen()
         //if i dont draw the second line the hero will be display
         //on top of the 3rd enemy and make it look wierd
         highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, enemy_to_be_highlighted);
-        highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, 2, GRAY);
+        if(!control.Is_hero_dead(User_Turn, 2))
+        {
+            highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, 2, GRAY);
+        }
+        else
+        {
+            highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, 2, BLACK);
+        }
     }
     else if(should_enemy_be_highlighted)
     {
@@ -816,7 +798,14 @@ void Game::Game_Screen()
         highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, enemy_to_stay_highlighted);
         if(enemy_to_be_highlighted != 2)
         {
-            highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, 2, GRAY);
+            if(!control.Is_hero_dead(User_Turn , 2))
+            {
+                highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, 2, GRAY);
+            }
+            else
+            {
+                highlight_enemy(user1_hero_arr, user2_hero_arr, User_Turn, 2, BLACK);
+            }
         }
         else
         {
@@ -895,13 +884,11 @@ void Game::Game_Screen()
                 DrawTexture(attack_button_textrue, Attack_button_bound.x, Attack_button_bound.y, LIGHTGRAY);                
                 DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, LIGHTGRAY);                
                 //checking to see if attack button is pressed
-                if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound))
+                if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound) && enemy_to_stay_highlighted != 4)
                 {
                     DrawTexture(attack_button_textrue, Attack_button_bound.x, Attack_button_bound.y, WHITE);
-                    std::cout << "user1 hoverd over attack button \n";
                     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                     {
-                        std::cout << "user1 clicked on attack button \n";
                         should_execute_ability = true;
                     }
                 }
@@ -909,10 +896,8 @@ void Game::Game_Screen()
                 else if(CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound))
                 {
                     DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, WHITE);  
-                    std::cout << "user 1 hoverd over end turn button \n";
                     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                     {
-                        std::cout <<"user1 clicked on end turn button \n";
                         should_end_turn = true;
                     }
                 }
@@ -939,23 +924,19 @@ void Game::Game_Screen()
                 DrawTexture(end_turn_texture, End_turn_button_bound.x, End_turn_button_bound.y, LIGHTGRAY);   
                 
 
-                if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound))
+                if(CheckCollisionPointRec(Mouse_Positon, Attack_button_bound) && enemy_to_stay_highlighted != 4)
                 {
                     DrawTextureEx(attack_button_textrue, {Attack_button_bound.x, Attack_button_bound.y}, 0, 0, WHITE);
-                    std::cout << "user2 hover over attack button \n";
                     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                     {
-                        std::cout << "user 2 clicked attack button \n";
                         should_execute_ability = true;
                     }
                 }
                 else if(CheckCollisionPointRec(Mouse_Positon, End_turn_button_bound))
                 {
                     DrawTextureEx(end_turn_texture, {End_turn_button_bound.x, End_turn_button_bound.y}, 0, 0, WHITE);
-                    std::cout << "user2 hoverd over end turn button \n";
                     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
                     {
-                        std::cout <<"user 2 clicked on end turn button \n";
                         should_end_turn = true;
                     }
                 }
@@ -1019,7 +1000,6 @@ void Game::Game_Screen()
 
     if(should_end_turn || control.should_change_turn(User_Turn, user1.Get_Energy(), user2.Get_Energy()))
     {
-        std::cout << "ending turn \n";
         
         //reseting variables for the next player
         should_ability_be_highlighted = false;

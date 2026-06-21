@@ -300,7 +300,7 @@ bool change_turn_or_finish_round(int& user_turn, int user_who_has_started_the_ga
     }
     else if(user_turn == USER1 && user_who_has_started_the_game == USER2)
     {
-        user_turn = USER1;
+        user_turn = USER2;
         return true;
     }
     else if(user_turn == USER2 && user_who_has_started_the_game == USER2)
