@@ -1,6 +1,12 @@
 #include "../headers/hero_abstract_base_class.hpp"
 #include "../headers/controller.hpp"
 
+Hero_Abstaction::Hero_Abstaction()
+{
+    Is_Hero_Dead = false;   
+    this->seeded = true;
+}
+
 
 void Hero_Abstaction::Get_Damaged(int damaging_points)
 {

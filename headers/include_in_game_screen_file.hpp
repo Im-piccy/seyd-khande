@@ -243,24 +243,24 @@ void display_ability_defenition_and_detail(const std::array<int,3>& user_hero_ar
     case TAHA_KOCHIKE:
         if(which_ability == SKILL1)
         {
-            DrawTextEx(font, "THE MACHINE GUN:", {260, 520}, 35,0, color);
-            DrawTextEx(font, "DEALS 30 POINTS OF DAMAGE TO EVERY ENEMY", {260, 555},15,0, color);
+            DrawTextEx(font, "THE BLOOD BAG:", {260, 520}, 35,0, color);
+            DrawTextEx(font, "HEALS A TEAMMATE FOR 2 ROUNDS BY 40 POINTS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         else if(which_ability == SKILL2)
         {
-            DrawTextEx(font, "XRAY: ", {260, 520}, 35,0, color);
-            DrawTextEx(font, "DEALS 90 POINTS OF DAMAGE TO THE CHOSEN ENEMY AND HIDES FOR ONE ROUND (CAN'T BE TARGETED DIRECTLY)", {260, 555},15,0, color);
+            DrawTextEx(font, "RAZOR SHARP: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "DEALS 30 POINTS OF DAMAGE TO THE CHOOSEN ENEMY AND HEALS THE TEAMMATE WITH LOWEST HP BY 20 POINTS", {260, 555},15,0, color);
             //extra detail
             DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"4 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         if(which_ability == SUPERPOWER)
         {
-            DrawTextEx(font, "REVENGE: ", {260, 520}, 35,0, color);
-            DrawTextEx(font, "MARKS A RANDOM ENEMY TO DEAL 360 POINTS OF DAMAGE TO IN THE NEXT ROUND. IF THE MARKED ENEMY'S HP IS OVER 360 THE DAMAGE WILL BE REDUCED TO 200 POINTS", {260, 555},15,0, color);
+            DrawTextEx(font, "QUARANTINE: ", {260, 520}, 35,0, color);
+            DrawTextEx(font, "HEALS THE LOWEST HP TEAMMATE BY 200 POINTS", {260, 555},15,0, color);
             //extra detail
-            DrawTextEx(font, "3 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
+            DrawTextEx(font, "4 POINTS", {127.0f - (MeasureTextEx(font,"3 POINTS", 20, 0).x /2), 560}, 20, 0,  color);
         }
         break;
     

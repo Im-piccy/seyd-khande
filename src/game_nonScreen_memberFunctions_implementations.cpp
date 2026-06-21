@@ -7,7 +7,7 @@ const int characters_sprite_sheets_frame_height = 250;
 
 
 
-Game::Game() : current_screen(CHARACTER_SELECT_SCREEN){}
+Game::Game() : current_screen(MENU_SCREEN){}
 
 void Game::return_skill_texture_based_on_arguments_passed_onto_the_texture_array_passed_to_the_funtion(const std::array<int,3>& user_hero_array,  std::array <Texture2D, 3>& user_texture_array, int user_turn, int hero_index_in_array)
 {
@@ -341,7 +341,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
     switch (user1_heros[index])
     {
     case WHITEDOCTOR:
-        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER1, index))
+        {
+            DrawTextureRec(Doc_anim_texture,{0,0, -164,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},BLACK);
+        }
+        else if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Doc_anim_texture,{0,0, -164,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }
@@ -354,7 +358,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case DANI_GOLANG:
-        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER1, index))
+        {
+            DrawTextureRec(Dani_anim_texture,{0,0, -136,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},BLACK);
+        }
+        else if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Dani_anim_texture,{0,0, -136,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }
@@ -367,7 +375,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AMIN_EMENI:
-        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER1, index))
+        {
+            DrawTextureRec(Amin_anim_texture,{0,0, -145,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},BLACK);
+        }
+        else if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Amin_anim_texture,{0,0, -145,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }
@@ -381,7 +393,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case POUYA_KAJDOM:
-        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER1, index))
+        {
+            DrawTextureRec(Pouya_anim_texture,{0,0, -120,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},BLACK);
+        }
+        else if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Pouya_anim_texture,{0,0, -120,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }
@@ -395,7 +411,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AGHA_SHAHRIAR:
-        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER1, index))
+        {
+            DrawTextureRec(Shahriar_anim_texture,{0,0, -160,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},BLACK);
+        }
+        else if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
            DrawTextureRec(Shahriar_anim_texture,{0,0, -160,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }   
@@ -409,7 +429,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case TAHA_KOCHIKE:
-        if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER1, index))
+        {
+            DrawTextureRec(Tlittle_anim_texture,{0,0, -185,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},BLACK);
+        }
+        else if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tlittle_anim_texture,{0,0, -185,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
         }     
@@ -423,6 +447,10 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case TAHA_BOZORGE:
+        if(control.Is_hero_dead(USER1, index))
+        {
+            DrawTextureRec(Tbig_anim_texture,{0,0, -135,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},BLACK);
+        }
         if(user_turn == USER1 && should_highlight && index == user1_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tbig_anim_texture,{0,0, -135,characters_sprite_sheets_frame_height}, {180.0f - (100 * (index % 2)), 80.0f + (index * 50)},WHITE);
@@ -442,7 +470,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
     switch (user2_heros[index])
     {
     case WHITEDOCTOR:
-        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER2, index))
+        {
+            DrawTextureRec(Doc_anim_texture,{0,0, 164,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},BLACK);
+        }    
+        else if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Doc_anim_texture,{0,0, 164,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }    
@@ -456,7 +488,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case DANI_GOLANG:
-        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER2, index))
+        {
+            DrawTextureRec(Dani_anim_texture,{0,0, 136,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},BLACK);
+        }    
+        else if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Dani_anim_texture,{0,0, 136,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
@@ -470,7 +506,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AMIN_EMENI:
-        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER2, index))
+        {
+            DrawTextureRec(Amin_anim_texture,{0,0, 145,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},BLACK);
+        }    
+        else if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Amin_anim_texture,{0,0, 145,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
@@ -484,7 +524,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case POUYA_KAJDOM:
-        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER2, index))
+        {
+            DrawTextureRec(Pouya_anim_texture,{0,0, 120,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},BLACK);
+        }    
+        else if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Pouya_anim_texture,{0,0, 120,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
@@ -498,7 +542,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case AGHA_SHAHRIAR:
-        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER2, index))
+        {
+            DrawTextureRec(Shahriar_anim_texture,{0,0, 160,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},BLACK);
+        }    
+        else if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Shahriar_anim_texture,{0,0, 160,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }     
@@ -512,7 +560,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case TAHA_KOCHIKE:
-        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER2, index))
+        {
+            DrawTextureRec(Tlittle_anim_texture,{0,0, 178,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},BLACK);
+        }    
+        else if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tlittle_anim_texture,{0,0, 178,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }   
@@ -526,7 +578,11 @@ void Game::print_heros_on_screen_idle_and_highlight_hero_which_is_hoverd(const s
         break;
     
     case TAHA_BOZORGE:
-        if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
+        if(control.Is_hero_dead(USER2, index))
+        {
+            DrawTextureRec(Tbig_anim_texture,{0,0, 135,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},BLACK);
+        }    
+        else if(user_turn == USER2 && should_highlight && index == user2_hero_being_hoverd && hero_to_be_animated_index != index)
         {
             DrawTextureRec(Tbig_anim_texture,{0,0, 135,characters_sprite_sheets_frame_height}, {1000.0f - (350 - (100 * (index % 2))), 80.0f + (index * 50)},WHITE);
         }

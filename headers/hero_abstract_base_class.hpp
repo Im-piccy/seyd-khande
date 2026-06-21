@@ -11,6 +11,8 @@ class Controller;
 class Hero_Abstaction //abstract class
 {
     public:
+        
+        Hero_Abstaction();
         int Get_Current_Hp() const;//returns hero current health
         bool Is_Dead() const;// indicates hero living status 
         void Set_Is_Hero_Dead();
@@ -80,7 +82,6 @@ class Hero_Abstaction //abstract class
         int Initial_Hp; // this is how much hp a hero has with out any damage
         bool seeded = false;// for rand function (in Seeded function)
         int rounds_left_till_superpower_is_ready;// this shows the number of round it takes to use 
-        // super power  if 0 means superpower is ready
         bool Is_Hero_Dead;
         int hero_type; // is the hero a Healer? Attacker? Defender? or a joker?
         int SuperPower_Energy_Cost;

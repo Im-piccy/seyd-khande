@@ -182,7 +182,7 @@ void Game::Game_Screen()
     
     //check to see if mouse on the abilities position
 
-    if(CheckCollisionPointRec(Mouse_Positon,Skill_1_bound) || CheckCollisionPointRec(Mouse_Positon,Skill_2_bound) || CheckCollisionPointRec(Mouse_Positon,superpower_bound))
+    if((CheckCollisionPointRec(Mouse_Positon,Skill_1_bound) || CheckCollisionPointRec(Mouse_Positon,Skill_2_bound) || CheckCollisionPointRec(Mouse_Positon,superpower_bound))&& should_hero_be_animated)
     {
         is_mouse_hovering_over_abilities = true;
     }
@@ -220,12 +220,16 @@ void Game::Game_Screen()
     //checking to see user is hovering over heros
     if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound))
     {
-        user1_hero_to_be_highlighted_index = 0;
+
+        if(!control.Is_hero_dead(USER1, 0))
+        {
+            user1_hero_to_be_highlighted_index = 0;
+        }
 
         //checking to see if enemy should be highlighted
-        if(User_Turn == USER2)
+        if(User_Turn == USER2 && !control.Is_hero_dead(USER1, 0))
         {
-            if(should_ability_stay_highlighted)
+            if(should_ability_stay_highlighted )
             {
                 enemy_to_be_highlighted = 0;
             }
@@ -238,7 +242,7 @@ void Game::Game_Screen()
         }
 
 
-        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !control.Is_hero_dead(USER1, 0))
         {
             hero_to_be_animated_index = 0;
         }
@@ -246,9 +250,13 @@ void Game::Game_Screen()
     else if(CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound))
     {
 
-        
+        if(!control.Is_hero_dead(USER1, 1))
+        {
+            user1_hero_to_be_highlighted_index = 1;
+        }
+
         //checking to see if enemy should be highlighted
-        if(User_Turn == USER2)
+        if(User_Turn == USER2 && !control.Is_hero_dead(USER1, 1))
         {
             if(should_ability_stay_highlighted)
             {
@@ -262,8 +270,7 @@ void Game::Game_Screen()
             }
         }
 
-        user1_hero_to_be_highlighted_index = 1;
-        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !control.Is_hero_dead(USER1, 1))
         {
             hero_to_be_animated_index = 1;
         }
@@ -271,11 +278,13 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound))
     {
-        user1_hero_to_be_highlighted_index = 2;
-        
+        if(!control.Is_hero_dead(USER1, 2))
+        {
+            user1_hero_to_be_highlighted_index = 2;
+        }
         
         //checking to see if enemy should be highlighted
-        if(User_Turn == USER2)
+        if(User_Turn == USER2 && !control.Is_hero_dead(USER1, 2))
         {
             if(should_ability_stay_highlighted)
             {
@@ -290,7 +299,7 @@ void Game::Game_Screen()
         }
 
 
-        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        if(User_Turn == USER1 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !control.Is_hero_dead(USER1, 2))
         {
             hero_to_be_animated_index = 2;
         }
@@ -298,29 +307,26 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound))
     {
-        user2_hero_to_be_highlighted_index = 0;
-        
-        
-        //checking to see if enemy should be highlighted
-        if(User_Turn == USER1)
+        if(!control.Is_hero_dead(USER2, 0))
         {
-            //checking to see if enemy should be highlighted
-            if(User_Turn == USER1)
+            user2_hero_to_be_highlighted_index = 0;
+        }
+        //checking to see if enemy should be highlighted
+        if(User_Turn == USER1 && !control.Is_hero_dead(USER2, 0))
+        {
+            if(should_ability_stay_highlighted)
             {
-                if(should_ability_stay_highlighted)
-                {
-                    enemy_to_be_highlighted = 0;
-                }
-                //checking to see if the enemy should stay highlighted
-                if(should_ability_stay_highlighted && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
-                {
-                    should_enemy_stay_highlighted = true;
-                    enemy_to_stay_highlighted = 0;
-                }
+                enemy_to_be_highlighted = 0;
+            }
+            //checking to see if the enemy should stay highlighted
+            if(should_ability_stay_highlighted && IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_enemy_stay_highlighted = true;
+                enemy_to_stay_highlighted = 0;
             }
         }
      
-        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !control.Is_hero_dead(USER2, 0))
         {
             hero_to_be_animated_index = 0;
         }
@@ -328,10 +334,13 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound))
     {
-        user2_hero_to_be_highlighted_index = 1;
+        if(!control.Is_hero_dead(USER2, 1))
+        {
+            user2_hero_to_be_highlighted_index = 1;
+        }
         
         //checking to see if enemy should be highlighted
-        if(User_Turn == USER1)
+        if(User_Turn == USER1 && !control.Is_hero_dead(USER2, 1))
         {
             if(should_ability_stay_highlighted)
             {
@@ -345,7 +354,7 @@ void Game::Game_Screen()
             }
         }
         
-        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !control.Is_hero_dead(USER2, 1))
         {
             hero_to_be_animated_index = 1;
         }
@@ -353,10 +362,13 @@ void Game::Game_Screen()
     }
     else if(CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
     {
-        user2_hero_to_be_highlighted_index = 2;
+        if(!control.Is_hero_dead(USER2, 2))
+        {
+            user2_hero_to_be_highlighted_index = 2;
+        }
         
         //checking to see if enemy should be highlighted
-        if(User_Turn == USER1)
+        if(User_Turn == USER1 && !control.Is_hero_dead(USER2, 2))
         {
             if(should_ability_stay_highlighted)
             {
@@ -370,7 +382,7 @@ void Game::Game_Screen()
             }
         }
         
-        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        if(User_Turn == USER2 && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && !control.Is_hero_dead(USER2, 2))
         {
             hero_to_be_animated_index = 2;
         }
@@ -417,28 +429,94 @@ void Game::Game_Screen()
 
     //to see if the character should highlight or not
     //and see if the character should be animated or not
-    if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero3_bound))
+    // if(CheckCollisionPointRec(Mouse_Positon,user1_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user1_hero3_bound))
+    // {
+    //     if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && User_Turn == USER1 )
+    //     {
+    //         should_hero_be_animated = true;
+    //     }
+    //     if(User_Turn == USER1)
+    //     {
+    //         Hero_should_be_highlighted = true;
+
+    //     }
+
+    // }
+    // else if(CheckCollisionPointRec(Mouse_Positon,user2_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user2_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user2_hero3_bound))
+    // {
+    //     if(User_Turn == USER2)
+    //     {
+    //         Hero_should_be_highlighted = true;
+    //     }
+    //     if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && User_Turn == USER2)
+    //     {
+    //         should_hero_be_animated = true;
+    //     }
+    // }
+    if(CheckCollisionPointRec(Mouse_Positon, user1_hero1_bound))
     {
-        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && User_Turn == USER1)
-        {
-            should_hero_be_animated = true;
-        }
-        if(User_Turn == USER1)
+        if(User_Turn == USER1 && !control.Is_hero_dead(USER1, 0))
         {
             Hero_should_be_highlighted = true;
-
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_hero_be_animated = true;
+            }
         }
-
     }
-    else if(CheckCollisionPointRec(Mouse_Positon,user2_hero1_bound) || CheckCollisionPointRec(Mouse_Positon,user2_hero2_bound) || CheckCollisionPointRec(Mouse_Positon,user2_hero3_bound))
+    else if (CheckCollisionPointRec(Mouse_Positon, user1_hero2_bound))
     {
-        if(User_Turn == USER2)
+        if(User_Turn == USER1 && !control.Is_hero_dead(USER1, 1))
         {
             Hero_should_be_highlighted = true;
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_hero_be_animated = true;
+            }
         }
-        if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && User_Turn == USER2)
+    }
+    else if (CheckCollisionPointRec(Mouse_Positon, user1_hero3_bound))
+    {
+        if(User_Turn == USER1 && !control.Is_hero_dead(USER1, 2))
         {
-            should_hero_be_animated = true;
+            Hero_should_be_highlighted = true;
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_hero_be_animated = true;
+            }
+        }
+    }
+    else if (CheckCollisionPointRec(Mouse_Positon, user2_hero1_bound))
+    {
+        if(User_Turn == USER2 && !control.Is_hero_dead(USER2, 0))
+        {
+            Hero_should_be_highlighted = true;
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_hero_be_animated = true;
+            }
+        }
+    }
+    else if (CheckCollisionPointRec(Mouse_Positon, user2_hero2_bound))
+    {
+        if(User_Turn == USER2 && !control.Is_hero_dead(USER2, 1))
+        {
+            Hero_should_be_highlighted = true;
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_hero_be_animated = true;
+            }
+        }
+    }
+    else if (CheckCollisionPointRec(Mouse_Positon, user2_hero3_bound))
+    {
+        if(User_Turn == USER2 && !control.Is_hero_dead(USER2, 2))
+        {
+            Hero_should_be_highlighted = true;
+            if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+            {
+                should_hero_be_animated = true;
+            }
         }
     }
 
@@ -897,6 +975,19 @@ void Game::Game_Screen()
     }
     
 
+    if(IsKeyPressed(KEY_K))
+    {
+        std::cout << "user1 hero1 : " << control.Is_hero_dead(USER1, 0) << std::endl; 
+        std::cout << "user1 hero2 : " << control.Is_hero_dead(USER1, 1) << std::endl; 
+        std::cout << "user1 hero3 : " << control.Is_hero_dead(USER1, 2) << std::endl; 
+        std::cout << "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& \n";
+        
+        std::cout << "user2 hero1 : " << control.Is_hero_dead(USER2, 0) << std::endl; 
+        std::cout << "user2 hero2 : " << control.Is_hero_dead(USER2, 1) << std::endl; 
+        std::cout << "user2 hero3 : " << control.Is_hero_dead(USER2, 2) << std::endl; 
+        
+
+    }
 
 
     EndDrawing();
@@ -968,7 +1059,7 @@ void Game::Game_Screen()
 
     }
 
-    if(control.Is_game_over(User_Turn))
+    if(control.Is_game_over(user1, user2))
     {
         unload_game_screen_abilities_textures();
         unload_game_screen_animation_sprite_sheets();

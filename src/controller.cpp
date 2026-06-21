@@ -11,8 +11,10 @@ Controller::Controller()
 {
     
     this->round_number = 1;
+    srand((time(0)));
+    
     this->which_user_started_the_game = rand() % 2;
-
+    std::cout << "this is the random number we got this round : " << this->which_user_started_the_game << std::endl;
     for(int i = 0 ; i < 3 ; i++)
     {
         Hero_Arr_User1[i] = nullptr;
@@ -731,4 +733,17 @@ int Controller::return_hero_hp(int user_turn , int hero_index)
     {
         return Hero_Arr_User2[hero_index]->Get_Current_Hp();
     }
+}
+
+bool Controller::Is_hero_dead(int user_turn, int hero_index)
+{
+    if(user_turn == USER1)
+    {
+        return Hero_Arr_User1[hero_index]->Is_Dead();
+    }
+    else if(user_turn == USER2)
+    {
+        return Hero_Arr_User2[hero_index]->Is_Dead();
+    }
+
 }
